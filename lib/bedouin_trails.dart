@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/utils/app_colors.dart';
+import 'core/utils/constants.dart';
 import 'generated/l10n.dart';
 
 class BedouinTrails extends StatelessWidget {
@@ -10,6 +12,11 @@ class BedouinTrails extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bedouin Trails',
+      theme: ThemeData(
+        primaryColor: AppColors.sandyBrown,
+        fontFamily: Constants.elMessiriFontFamily,
+        scaffoldBackgroundColor: AppColors.white,
+      ),
       locale: const Locale('ar'),
       localizationsDelegates: [
         S.delegate,
