@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/forget_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
+import '../../features/auth/presentation/views/verify_otp_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
@@ -9,8 +10,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const LoginView());
     case ForgetPasswordView.routeName:
       return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
-    // case VerifyOtpView.routeName:
-    //   return MaterialPageRoute(builder: (_) => const VerifyOtpView());
+    case VerifyOtpView.routeName:
+      return MaterialPageRoute(builder: (_) => const VerifyOtpView());
     // case ResetPasswordView.routeName:
     //   return MaterialPageRoute(builder: (_) => const ResetPasswordView());
     // case RegisterView.routeName:

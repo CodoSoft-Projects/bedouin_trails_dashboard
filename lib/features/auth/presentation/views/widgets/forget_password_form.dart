@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
+import '../verify_otp_view.dart';
 
 class ForgetPasswordForm extends StatelessWidget {
   const ForgetPasswordForm({super.key});
@@ -19,7 +20,7 @@ class ForgetPasswordForm extends StatelessWidget {
           horizontalPadding: 75,
           color: AppColors.black,
           onPressed: () {
-            // Navigator.of(context).pushReplacementNamed(VerifyOtpView.routeName);
+            Navigator.of(context).pushReplacementNamed(VerifyOtpView.routeName);
           },
         ),
         const SizedBox(height: 42),
