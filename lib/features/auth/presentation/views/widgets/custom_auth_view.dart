@@ -64,7 +64,7 @@ class CustomAuthView extends StatelessWidget {
                               subtitle: subtitle,
                             ),
                           ),
-                          SliverToBoxAdapter(child: SizedBox(height: 16.0)),
+                          SliverToBoxAdapter(child: SizedBox(height: 32.0)),
                           SliverFillRemaining(
                             hasScrollBody: false,
                             child: Padding(

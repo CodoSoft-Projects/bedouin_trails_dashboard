@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
 import 'widgets/custom_auth_view.dart';
+import 'widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -15,9 +16,11 @@ class LoginView extends StatelessWidget {
         showBackIcon: false,
         showHand: true,
         title: 'أهلا بك .. جاهز للمغامرة',
-        subtitle: 'سجّل دخولك علشان تستعرض رحلات السفاري، تحجز مغامرتك، وتدير حجوزاتك بكل سهولة.',
-        note: 'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
-        form: SizedBox(),
+        subtitle:
+            'سجّل دخولك علشان تستعرض رحلات السفاري، تحجز مغامرتك، وتدير حجوزاتك بكل سهولة.',
+        note:
+            'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
+        form: LoginForm(),
       ),
     );
   }

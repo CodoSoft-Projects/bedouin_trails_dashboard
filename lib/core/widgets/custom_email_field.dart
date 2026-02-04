@@ -42,7 +42,7 @@ class _CustomEmailFieldState extends State<CustomEmailField> {
 
       suffixIcon: Icon(
         LucideIcons.check600,
-        color: validEmail ? AppColors.blue : AppColors.black2,
+        color: validEmail ? AppColors.blue : AppColors.whiteGrey,
       ),
     );
   }
