@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
 import 'widgets/custom_auth_view.dart';
+import 'widgets/forget_password_form.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});
@@ -18,7 +19,7 @@ class ForgetPasswordView extends StatelessWidget {
         subtitle: 'أدخل البيانات المطلوبة لإعادة تعيين كلمة المرور',
         note:
             'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
-        form: SizedBox(),
+        form: ForgetPasswordForm(),
       ),
     );
   }
