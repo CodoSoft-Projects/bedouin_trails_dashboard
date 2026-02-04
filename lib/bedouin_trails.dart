@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/functions/on_generate_route.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/constants.dart';
+import 'core/utils/size_config.dart';
+import 'features/auth/presentation/views/login_view.dart';
 import 'generated/l10n.dart';
 
 class BedouinTrails extends StatelessWidget {
@@ -10,6 +13,7 @@ class BedouinTrails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       title: 'Bedouin Trails',
       theme: ThemeData(
@@ -25,19 +29,8 @@ class BedouinTrails extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      home: _TestPage(),
-    );
-  }
-}
-
-class _TestPage extends StatelessWidget {
-  const _TestPage();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Bedouin Trails')),
-      body: const Center(child: Text('Welcome to Bedouin Trails!')),
+      onGenerateRoute: onGenerateRoutes,
+      initialRoute: LoginView.routeName,
     );
   }
 }
