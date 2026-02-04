@@ -32,7 +32,7 @@ class CustomAuthViewImageSection extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 50),
             decoration: BoxDecoration(
               // ignore: deprecated_member_use
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withOpacity(0.4),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(

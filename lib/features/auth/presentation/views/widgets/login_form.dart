@@ -5,6 +5,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_password_field.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
+import '../forget_password_view.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -21,7 +22,7 @@ class LoginForm extends StatelessWidget {
         CustomTextButton(
           title: 'هل نسيت كلمة المرور ؟!',
           onTap: () {
-            // Navigator.pushNamed(context, ForgetPasswordView.routeName);
+            Navigator.pushNamed(context, ForgetPasswordView.routeName);
           },
         ),
 

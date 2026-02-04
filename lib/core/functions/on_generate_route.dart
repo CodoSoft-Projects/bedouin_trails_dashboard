@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../features/auth/presentation/views/forget_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
-    // case ForgetPasswordView.routeName:
-    //   return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+    case ForgetPasswordView.routeName:
+      return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
     // case VerifyOtpView.routeName:
     //   return MaterialPageRoute(builder: (_) => const VerifyOtpView());
     // case ResetPasswordView.routeName:
