@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -16,6 +17,7 @@ class BedouinTrails extends StatelessWidget {
     SizeConfig.init(context);
     return MaterialApp(
       title: 'Bedouin Trails',
+      debugShowCheckedModeBanner: kDebugMode,
       theme: ThemeData(
         primaryColor: AppColors.sandyBrown,
         fontFamily: Constants.elMessiriFontFamily,
