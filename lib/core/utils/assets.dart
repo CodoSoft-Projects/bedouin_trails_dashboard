@@ -11,5 +11,7 @@ class Assets {
   static const String imagesLogo = "assets/images/logo.png";
 
   static const String imagesResetImage = "assets/images/reset_image.png";
+
+  static const String imagesTestUser = "assets/images/test_user.png";
 }
 
