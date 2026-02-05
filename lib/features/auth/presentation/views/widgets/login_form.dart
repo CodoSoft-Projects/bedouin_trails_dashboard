@@ -5,6 +5,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_password_field.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
+import '../../../../dashboard/dashboard_view.dart';
 import '../forget_password_view.dart';
 
 class LoginForm extends StatelessWidget {
@@ -31,7 +32,9 @@ class LoginForm extends StatelessWidget {
           text: "تسجيل الدخول",
           color: AppColors.black,
           horizontalPadding: 75,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, DashboardView.routeName);
+          },
         ),
         const SizedBox(height: 32),
       ],

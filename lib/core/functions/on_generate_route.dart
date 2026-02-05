@@ -4,9 +4,11 @@ import '../../features/auth/presentation/views/forget_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/reset_password_view.dart';
 import '../../features/auth/presentation/views/verify_otp_view.dart';
+import '../../features/dashboard/dashboard_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
+    /// Authentication Routes
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
     case ForgetPasswordView.routeName:
@@ -15,10 +17,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const VerifyOtpView());
     case ResetPasswordView.routeName:
       return MaterialPageRoute(builder: (_) => const ResetPasswordView());
-    // case RegisterView.routeName:
-    //   return MaterialPageRoute(builder: (_) => const RegisterView());
-    // case Register2PasswordView.routeName:
-    //   return MaterialPageRoute(builder: (_) => const Register2PasswordView());
+
+    /// Dashboard Routes
+    case DashboardView.routeName:
+      return MaterialPageRoute(builder: (_) => const DashboardView());
 
     default:
       return MaterialPageRoute(
