@@ -42,8 +42,8 @@ abstract class DialogHelper {
       btnCancelText: btnCancelText,
       btnOkOnPress: btnOkOnPress,
       btnCancelOnPress: btnCancelOnPress,
-      btnOkColor: AppColors.primary,
-      btnCancelColor: AppColors.secondary,
+      btnOkColor: AppColors.black,
+      btnCancelColor: AppColors.sandyBrown,
       onDismissCallback: onDismissCallback,
       width: 500,
     )..show();

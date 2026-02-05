@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../reset_password_view.dart';
 import 'pinput_field.dart';
 
 class VerifyOtpForm extends StatelessWidget {
@@ -24,9 +25,9 @@ class VerifyOtpForm extends StatelessWidget {
             horizontalPadding: 75,
             color: AppColors.black,
             onPressed: () {
-              // Navigator.of(
-              //   context,
-              // ).pushReplacementNamed(ResetPasswordView.routeName);
+              Navigator.of(
+                context,
+              ).pushReplacementNamed(ResetPasswordView.routeName);
             },
           ),
           const SizedBox(height: 42),
