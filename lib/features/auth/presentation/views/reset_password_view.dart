@@ -19,7 +19,7 @@ class ResetPasswordView extends StatelessWidget {
         subtitle: 'قم بإدخال كلمة مرور متاحة',
         note:
             'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
-        form: SizedBox(),
+        form: ResetPasswordForm(),
       ),
     );
   }
