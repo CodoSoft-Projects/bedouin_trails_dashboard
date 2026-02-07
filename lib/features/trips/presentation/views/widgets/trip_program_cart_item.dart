@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/custom_white_box.dart';
+
+class TripProgramCartItem extends StatelessWidget {
+  const TripProgramCartItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: CustomWhiteBox(
+            color: AppColors.whiteGrey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 12,
+              children: [
+                Row(
+                  children: [
+                    CustomWhiteBox(
+                      child: Text(
+                        'البطاقة 01',
+                        style: AppTextStyles.regular16(context),
+                      ),
+                    ),
+                  ],
+                ),
+
+                Row(
+                  spacing: 12,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(16),
+                        child: Image.asset(
+                          Assets.imagesTestTripImage,
+                          height: 250,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+
+                    Expanded(child: _CartInfo()),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CartInfo extends StatelessWidget {
+  const _CartInfo();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 16,
+      children: [
+        _CartInfoItem(title: 'عنوان البطاقة :', subtitle: 'بداية المغامرة'),
+        _CartInfoItem(
+          title: 'وصف برنامج البطاقة :',
+          subtitle:
+              'الانطلاق صباحًا من نقطة التجمع بسيارات الدفع الرباعي، مع ترحيب وتعريف سريع بالبرنامج وتعليمات السلامة قبل دخول الصحراء. الانطلاق صباحًا من نقطة التجمع بسيارات الدفع الرباعي، مع ترحيب وتعريف سريع بالبرنامج وتعليمات السلامة قبل دخول الصحراء. الانطلاق صباحًا من نقطة التجمع بسيارات الدفع الرباعي، مع ترحيب وتعريف سريع بالبرنامج وتعليمات السلامة قبل دخول الصحراء.',
+        ),
+      ],
+    );
+  }
+}
+
+class _CartInfoItem extends StatelessWidget {
+  const _CartInfoItem({required this.title, required this.subtitle});
+  final String title, subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 8,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: AppTextStyles.regular16(
+            context,
+          ).copyWith(color: AppColors.blue),
+        ),
+        Row(
+          children: [
+            Expanded(
+              child: CustomWhiteBox(
+                child: Text(subtitle, style: AppTextStyles.regular16(context)),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
