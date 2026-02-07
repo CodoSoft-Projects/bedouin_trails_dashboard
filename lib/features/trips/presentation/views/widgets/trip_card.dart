@@ -5,6 +5,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../trip_details_view.dart';
 import 'trip_card_image.dart';
 
 class TripCard extends StatelessWidget {
@@ -95,7 +96,11 @@ class TripCard extends StatelessWidget {
                       child: CustomButton(
                         text: 'عرض التفاصيل',
                         color: AppColors.sandyBrown,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(
+                            context,
+                          ).pushNamed(TripDetailsView.routeName);
+                        },
                       ),
                     ),
                   ],
