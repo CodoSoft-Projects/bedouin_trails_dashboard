@@ -13,11 +13,11 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
     return ChangeNotifierProvider(
       create: (_) => DashboardManager(),
       child: Builder(
         builder: (context) {
+          SizeConfig.init(context);
           return Scaffold(
             key: context.watch<DashboardManager>().scaffoldKey,
             drawer: DashboardDrawer(),

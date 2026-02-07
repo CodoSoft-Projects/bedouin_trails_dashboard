@@ -4,6 +4,9 @@ import 'package:provider/provider.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/app_logo.dart';
+import '../../../core/utils/app_text_styles.dart';
+import '../../../core/utils/constants.dart';
+import '../enum/dashboard_type.dart';
 import '../providers/dashboard_manager.dart';
 
 class DashboardAppBar extends StatelessWidget {
@@ -11,6 +14,7 @@ class DashboardAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     bool isDesktop = SizeConfig.isDesktop();
     var prov = context.watch<DashboardManager>();
     return Container(
@@ -23,12 +27,21 @@ class DashboardAppBar extends StatelessWidget {
               onPressed: () {
                 prov.openDrawer();
               },
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.menu, color: AppColors.black),
             ),
           // NotificationIcon(color: AppColors.black),
           const SizedBox(width: 8),
           // LanguageIconButton(color: AppColors.black),
-          const Spacer(),
+          Expanded(
+            child: Text(
+              prov.currentView.arName,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.regular24(
+                context,
+              ).copyWith(fontFamily: Constants.vexaFontFamily),
+            ),
+          ),
           AppLogo(),
         ],
       ),
