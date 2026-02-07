@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../trips/presentation/views/trips_view.dart';
 import '../enum/dashboard_type.dart';
 
 Widget getCurrentDashboardView(DashboardType view) {
@@ -7,7 +8,7 @@ Widget getCurrentDashboardView(DashboardType view) {
     case DashboardType.controlPanel:
       return const Center(child: Text('Control Panel View'));
     case DashboardType.trips:
-      return const Center(child: Text('Trips View'));
+      return const TripsView();
     case DashboardType.suspendedTrips:
       return const Center(child: Text('Suspended Trips View'));
     case DashboardType.users:
