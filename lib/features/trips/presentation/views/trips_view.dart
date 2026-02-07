@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/trips_grid_view.dart';
 import 'widgets/trips_view_header.dart';
 
 class TripsView extends StatelessWidget {
@@ -11,7 +12,9 @@ class TripsView extends StatelessWidget {
       slivers: [
         const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const TripsViewHeader(),
-        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverToBoxAdapter(child: TripsGridView()),
+        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
       ],
     );
   }
