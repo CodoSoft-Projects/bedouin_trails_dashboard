@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/dialog_helper.dart';
 
 class TripDetailsViewHeader extends StatelessWidget {
   const TripDetailsViewHeader({super.key});
@@ -31,7 +32,20 @@ class TripDetailsViewHeader extends StatelessWidget {
           CustomButton(
             text: 'إيقاف برنامج الرحلة',
             color: AppColors.red,
-            onPressed: () {},
+            onPressed: () {
+              DialogHelper.showQuestionDialog(
+                context,
+                title: 'تاكيد',
+                desc: 'هل تريد ايقاف برنامج الرحلة',
+                onOk: () {
+                  DialogHelper.showSuccessDialog(
+                    context,
+                    title: 'تم ايقاف الرحلة',
+                  );
+                },
+                onCancel: () {},
+              );
+            },
           ),
         ],
       ),
