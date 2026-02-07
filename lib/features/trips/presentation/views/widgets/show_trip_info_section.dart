@@ -5,6 +5,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import 'trip_info_form.dart';
 
 class ShowTripInfoSection extends StatefulWidget {
   const ShowTripInfoSection({super.key});
@@ -64,7 +65,8 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 42),
+          TripInfoForm(canEdit: false),
         ],
       ),
     );
