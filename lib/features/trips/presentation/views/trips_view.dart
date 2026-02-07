@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/size_config.dart';
+import 'widgets/trips_view_header.dart';
 
 class TripsView extends StatelessWidget {
   const TripsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
-    var isMobile = SizeConfig.isMobile();
-    return Scaffold(
-      floatingActionButton: isMobile ? const _FloatingAction() : null,
-      body: const Center(child: Text('Trips View')),
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const TripsViewHeader(),
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+      ],
     );
-  }
-}
-
-class _FloatingAction extends StatelessWidget {
-  const _FloatingAction();
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add));
   }
 }
