@@ -9,7 +9,7 @@ void main() {
 
   if (KPlatform.isDesktop) {
     doWhenWindowReady(() {
-      appWindow.minSize = Size(500, 650);
+      appWindow.minSize = Size(600, 650);
       appWindow.alignment = Alignment.center;
       appWindow.show();
       // appWindow.maximize();

@@ -75,12 +75,18 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
             : null,
         contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
         filled: true,
-        fillColor: AppColors.whiteGrey,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
-        ),
+        fillColor: AppColors.white,
+        border: _buildBorder(),
+        focusedBorder: _buildBorder(),
+        enabledBorder: _buildBorder(),
       ),
+    );
+  }
+
+  OutlineInputBorder _buildBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(16),
+      borderSide: BorderSide(color: AppColors.borderGrey),
     );
   }
 }

@@ -24,6 +24,8 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.onChanged,
     this.inputFormatters,
+    this.showBorder = false,
+    this.borderColor = AppColors.borderGrey,
   });
 
   final String hintText;
@@ -40,11 +42,17 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final AutovalidateMode autovalidateMode;
   final List<TextInputFormatter>? inputFormatters;
+  final bool showBorder;
+  final Color borderColor;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: AppTextStyles.medium24(context),
+      style: AppTextStyles.medium20(context).copyWith(
+        height: 0,
+        color: AppColors.black,
+        // fontFamily: Constants.vexaFontFamily,
+      ),
       enabled: enabled,
       maxLines: lines,
       controller: controller,
@@ -76,11 +84,17 @@ class CustomTextFormField extends StatelessWidget {
                   context,
                 ).copyWith(color: colorText),
               ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(radius),
-          borderSide: BorderSide.none,
-        ),
+        border: _buildBorder(),
+        enabledBorder: _buildBorder(),
+        focusedBorder: _buildBorder(),
       ),
+    );
+  }
+
+  OutlineInputBorder _buildBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(radius),
+      borderSide: showBorder ? BorderSide(color: borderColor) : BorderSide.none,
     );
   }
 }

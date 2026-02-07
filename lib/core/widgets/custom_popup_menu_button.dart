@@ -23,7 +23,7 @@ class CustomPopupMenuButton<T> extends StatefulWidget {
     this.textStyle,
     this.backgroundColor = AppColors.white,
     this.borderRadius = 16,
-    this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+    this.padding = const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
     this.offset = const Offset(0, 42),
   });
 
