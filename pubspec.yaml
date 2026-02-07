@@ -78,6 +78,13 @@ flutter:
           weight: 600
         - asset: assets\fonts\ElMessiri-Bold.ttf
           weight: 700
+    - family: VEXA
+      fonts:
+        - asset: assets/fonts/VEXA.ttf
+    - family: VEXALight
+      fonts:
+        - asset: assets/fonts/VEXA-Light.ttf
+    
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 flutter_intl:
