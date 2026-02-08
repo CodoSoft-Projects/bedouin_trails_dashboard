@@ -6,6 +6,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import 'add_new_cart_dialog.dart';
 import 'trip_program_days_list_view.dart';
 import 'trip_program_list_view.dart';
 import 'trip_program_section_header.dart';
@@ -53,7 +54,9 @@ class UpdateTripProgramSection extends StatelessWidget {
             CustomButton(
               text: 'إضافة بطاقة',
               color: AppColors.sandyBrown,
-              onPressed: () {},
+              onPressed: () {
+                addNewCartDialog(context);
+              },
             ),
           ],
         ),
@@ -61,4 +64,5 @@ class UpdateTripProgramSection extends StatelessWidget {
       ],
     );
   }
+
 }
