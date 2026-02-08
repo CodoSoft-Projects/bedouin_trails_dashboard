@@ -5,6 +5,7 @@ import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/reset_password_view.dart';
 import '../../features/auth/presentation/views/verify_otp_view.dart';
 import '../../features/dashboard/dashboard_view.dart';
+import '../../features/trips/presentation/views/new_trip_view.dart';
 import '../../features/trips/presentation/views/trip_details_view.dart';
 import '../../features/trips/presentation/views/update_trip_view.dart';
 
@@ -29,6 +30,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const TripDetailsView());
     case UpdateTripView.routeName:
       return MaterialPageRoute(builder: (_) => const UpdateTripView());
+    case NewTripView.routeName:
+      return MaterialPageRoute(builder: (_) => const NewTripView());
 
     default:
       return MaterialPageRoute(
