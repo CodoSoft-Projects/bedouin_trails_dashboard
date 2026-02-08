@@ -6,6 +6,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import 'update_trip_program_cart_dialog.dart';
 
 class TripProgramCartItem extends StatelessWidget {
   const TripProgramCartItem({super.key, this.canEdit = false});
@@ -37,7 +38,9 @@ class TripProgramCartItem extends StatelessWidget {
                         icon: LucideIcons.filePenLine,
                         borderSide: BorderSide.none,
                         size: 18,
-                        onPressed: () {},
+                        onPressed: () {
+                          updateTripProgramCartDialog(context);
+                        },
                       ),
                       CustomCircularButton(
                         icon: LucideIcons.trash2,
