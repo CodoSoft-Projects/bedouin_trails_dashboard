@@ -5,11 +5,11 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import '../trip_details_view.dart';
 import 'trip_card_image.dart';
 
 class TripCard extends StatelessWidget {
-  const TripCard({super.key});
+  const TripCard({super.key, required this.onTripTap});
+  final VoidCallback onTripTap;
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +96,7 @@ class TripCard extends StatelessWidget {
                       child: CustomButton(
                         text: 'عرض التفاصيل',
                         color: AppColors.sandyBrown,
-                        onPressed: () {
-                          Navigator.of(
-                            context,
-                          ).pushNamed(TripDetailsView.routeName);
-                        },
+                        onPressed: onTripTap,
                       ),
                     ),
                   ],

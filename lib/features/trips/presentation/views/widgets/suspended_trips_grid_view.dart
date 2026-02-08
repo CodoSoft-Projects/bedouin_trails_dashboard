@@ -2,11 +2,10 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import '../trip_details_view.dart';
 import 'trip_card.dart';
 
-class TripsGridView extends StatelessWidget {
-  const TripsGridView({super.key});
+class SuspendedTripsGridView extends StatelessWidget {
+  const SuspendedTripsGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +25,9 @@ class TripsGridView extends StatelessWidget {
               childAspectRatio: 336 / 572,
               mainAxisExtent: 500,
             ),
-            itemCount: 20,
+            itemCount: 2,
             itemBuilder: (context, index) {
-              return TripCard(
-                onTripTap: () {
-                  Navigator.of(context).pushNamed(TripDetailsView.routeName);
-                },
-              );
+              return TripCard(onTripTap: () {});
             },
           );
         },
