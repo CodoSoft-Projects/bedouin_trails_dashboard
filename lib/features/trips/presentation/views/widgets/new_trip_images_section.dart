@@ -5,10 +5,10 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import 'trip_images_grid_view.dart';
+import '../../../../../core/widgets/empty_grid_widget.dart';
 
-class UpdateTripImagesSection extends StatelessWidget {
-  const UpdateTripImagesSection({super.key});
+class NewTripImagesSection extends StatelessWidget {
+  const NewTripImagesSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class UpdateTripImagesSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          // EmptyGridWidget(
-          //   message:
-          //       'لا توجد صور مضافة حاليًا 📷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل',
-          // ),
-          TripImagesGridView(canEdit: true),
+          EmptyGridWidget(
+            message:
+                'لا توجد صور مضافة حاليًا 📷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل',
+          ),
+          // TripImagesGridView(cnaEdit:true),
         ],
       ),
     );
