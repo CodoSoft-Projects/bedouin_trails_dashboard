@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 
 class TripProgramCartItem extends StatelessWidget {
-  const TripProgramCartItem({super.key});
+  const TripProgramCartItem({super.key, this.canEdit = false});
+  final bool canEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +23,7 @@ class TripProgramCartItem extends StatelessWidget {
               spacing: 12,
               children: [
                 Row(
+                  spacing: 8,
                   children: [
                     CustomWhiteBox(
                       child: Text(
@@ -27,6 +31,21 @@ class TripProgramCartItem extends StatelessWidget {
                         style: AppTextStyles.regular16(context),
                       ),
                     ),
+                    const Spacer(),
+                    if (canEdit) ...[
+                      CustomCircularButton(
+                        icon: LucideIcons.filePenLine,
+                        borderSide: BorderSide.none,
+                        size: 18,
+                        onPressed: () {},
+                      ),
+                      CustomCircularButton(
+                        icon: LucideIcons.trash2,
+                        borderSide: BorderSide.none,
+                        size: 18,
+                        onPressed: () {},
+                      ),
+                    ],
                   ],
                 ),
 

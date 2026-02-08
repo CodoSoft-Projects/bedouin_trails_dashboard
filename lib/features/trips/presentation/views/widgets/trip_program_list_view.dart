@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'trip_program_cart_item.dart';
 
 class TripProgramListView extends StatelessWidget {
-  const TripProgramListView({super.key});
+  const TripProgramListView({super.key, this.canEdit = false});
+  final bool canEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class TripProgramListView extends StatelessWidget {
       itemCount: 5,
       separatorBuilder: (context, index) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
-        return const TripProgramCartItem();
+        return TripProgramCartItem(canEdit: canEdit);
       },
     );
   }
