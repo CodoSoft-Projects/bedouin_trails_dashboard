@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/dialog_helper.dart';
+import '../update_trip_view.dart';
 
 class TripDetailsViewHeader extends StatelessWidget {
   const TripDetailsViewHeader({super.key});
@@ -26,7 +27,9 @@ class TripDetailsViewHeader extends StatelessWidget {
             text: 'تعديل بيانات الرحلة',
             color: AppColors.whiteGrey,
             textColor: AppColors.black,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(UpdateTripView.routeName);
+            },
           ),
           const Spacer(),
           CustomButton(
