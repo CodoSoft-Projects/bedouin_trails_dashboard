@@ -3,24 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/dialog_helper.dart';
 
 class TripImage extends StatelessWidget {
-  const TripImage({
-    super.key,
-    this.canDelete = false,
-    this.height,
-    this.width,
-    this.onPressed,
-    this.onDelete,
-  });
+  const TripImage({super.key, this.canDelete = false, this.height, this.width});
   final bool canDelete;
   final double? height, width;
-  final VoidCallback? onPressed, onDelete;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onPressed,
+      onTap: () {},
       child: Container(
         height: height,
         width: width,
@@ -35,7 +28,20 @@ class TripImage extends StatelessWidget {
         ),
         child: canDelete
             ? CustomCircularButton(
-                onPressed: onDelete ?? () {},
+                onPressed: () {
+                  DialogHelper.showQuestionDialog(
+                    context,
+                    title: 'تاكيد',
+                    desc: 'هل تريد حذف الصورة',
+                    onCancel: () {},
+                    onOk: () {
+                      DialogHelper.showSuccessDialog(
+                        context,
+                        title: 'تم حذف الصورة',
+                      );
+                    },
+                  );
+                },
                 size: 18,
                 icon: LucideIcons.trash2,
               )
