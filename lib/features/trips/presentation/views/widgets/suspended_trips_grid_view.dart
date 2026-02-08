@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../suspended_trip_details_view.dart';
 import 'trip_card.dart';
 
 class SuspendedTripsGridView extends StatelessWidget {
@@ -27,7 +28,13 @@ class SuspendedTripsGridView extends StatelessWidget {
             ),
             itemCount: 2,
             itemBuilder: (context, index) {
-              return TripCard(onTripTap: () {});
+              return TripCard(
+                onTripTap: () {
+                  Navigator.of(
+                    context,
+                  ).pushNamed(SuspendedTripDetailsView.routeName);
+                },
+              );
             },
           );
         },
