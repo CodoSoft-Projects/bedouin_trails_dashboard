@@ -6,7 +6,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import 'new_trip_info_form.dart';
-import 'update_trip_program_section.dart';
+import 'new_trip_program_section.dart';
 
 class NewTripInfoSection extends StatefulWidget {
   const NewTripInfoSection({super.key});
@@ -67,7 +67,7 @@ class _NewTripInfoSectionState extends State<NewTripInfoSection> {
             ],
           ),
           const SizedBox(height: 42),
-          if (showInfo) NewTripInfoForm() else UpdateTripProgramSection(),
+          if (showInfo) NewTripInfoForm() else NewTripProgramSection(),
         ],
       ),
     );

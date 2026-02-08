@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/custom_dropdown_field.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class NewTripInfoForm extends StatelessWidget {
@@ -21,8 +22,10 @@ class NewTripInfoForm extends StatelessWidget {
               // controller: TextEditingController(text: 'SIWA SAFARI TOUR'),
             ),
 
-            CustomTextFormField(
+            CustomDropdownTextField(
               labelText: 'حالة الحجز للرحلة',
+              items: const ['متاح', 'غير متاح'],
+              itemLabel: (item) => item,
               // controller: TextEditingController(text: 'متاح'),
             ),
 
