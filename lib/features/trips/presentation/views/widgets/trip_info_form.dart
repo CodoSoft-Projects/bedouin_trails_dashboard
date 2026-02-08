@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class TripInfoForm extends StatelessWidget {
@@ -27,6 +28,7 @@ class TripInfoForm extends StatelessWidget {
                 labelText: 'حالة الحجز للرحلة',
                 controller: TextEditingController(text: 'متاح'),
               ),
+
               CustomTextFormField(
                 labelText: 'سعر الرحلة',
                 controller: TextEditingController(text: '1000'),
@@ -36,15 +38,24 @@ class TripInfoForm extends StatelessWidget {
                   color: AppColors.cyanGreen,
                 ),
               ),
+
               CustomTextFormField(
                 labelText: 'نقطة بداية الرحلة',
                 controller: TextEditingController(text: 'واحة سيوة'),
               ),
+
               CustomTextFormField(
                 labelText: 'نقطة نهاية الرحلة',
                 controller: TextEditingController(text: 'الكثبان البضاء'),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 24),
+              if (canEdit)
+                CustomButton(
+                  text: 'حفظ التعديلات',
+                  color: AppColors.sandyBrown,
+                  horizontalPadding: 42,
+                  onPressed: () {},
+                ),
             ],
           ),
         ),

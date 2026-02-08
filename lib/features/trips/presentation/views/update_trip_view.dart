@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/update_trip_images_section.dart';
+import 'widgets/update_trip_info_section.dart';
 
 class UpdateTripView extends StatelessWidget {
   const UpdateTripView({super.key});
@@ -43,7 +44,7 @@ class _Desktop extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(child: UpdateTripImagesSection()),
-        Expanded(child: SizedBox()),
+        Expanded(child: UpdateTripInfoSection()),
       ],
     );
   }
@@ -56,7 +57,7 @@ class _Mobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       spacing: 12,
-      children: const [UpdateTripImagesSection(), SizedBox()],
+      children: const [UpdateTripImagesSection(), UpdateTripInfoSection()],
     );
   }
 }
