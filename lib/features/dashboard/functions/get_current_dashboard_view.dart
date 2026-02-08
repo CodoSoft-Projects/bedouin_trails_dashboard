@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../trips/presentation/views/suspended_trips_view.dart';
 import '../../trips/presentation/views/trips_view.dart';
+import '../../users/presentation/views/users_view.dart';
 import '../enum/dashboard_type.dart';
 
 Widget getCurrentDashboardView(DashboardType view) {
@@ -13,7 +14,7 @@ Widget getCurrentDashboardView(DashboardType view) {
     case DashboardType.suspendedTrips:
       return const SuspendedTripsView();
     case DashboardType.users:
-      return const Center(child: Text('Users Monitoring View'));
+      return const UsersView();
     case DashboardType.employees:
       return const Center(child: Text('Employees View'));
     case DashboardType.bookingRequests:
