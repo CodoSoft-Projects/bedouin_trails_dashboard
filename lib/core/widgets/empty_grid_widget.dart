@@ -19,6 +19,7 @@ class EmptyGridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Lottie.asset(
           lottie ?? Assets.animationsImageNotPreview,

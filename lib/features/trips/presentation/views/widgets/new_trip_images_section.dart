@@ -6,6 +6,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
+import 'add_images_for_trip_dialog.dart';
 
 class NewTripImagesSection extends StatelessWidget {
   const NewTripImagesSection({super.key});
@@ -29,7 +30,9 @@ class NewTripImagesSection extends StatelessWidget {
               CustomButton(
                 text: 'إضافة صورة',
                 color: AppColors.sandyBrown,
-                onPressed: () {},
+                onPressed: () {
+                  addImagesForTripDialog(context);
+                },
               ),
             ],
           ),

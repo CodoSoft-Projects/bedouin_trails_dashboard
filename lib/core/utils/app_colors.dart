@@ -7,6 +7,7 @@ abstract class AppColors {
   static const black2 = Color(0xff3A3A3A);
   static const phosphorBlue = Color(0xffB0BAC2);
   static const cyanGreen = Color(0xff00C628);
+  static const lightGreen = Color(0xffC3F499);
   static const sandyBrown = Color(0xffCF9050);
   static const borderGrey = Color(0xffC1C1C1);
   static const blue = Color(0xff0077FF);

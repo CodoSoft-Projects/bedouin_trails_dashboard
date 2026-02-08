@@ -8,7 +8,7 @@ class CustomDialog extends StatelessWidget {
     this.title = '',
     required this.content,
     this.maxWidth = 700,
-    this.centerTitle = false,
+    this.centerTitle = true,
   });
 
   final String title;
@@ -20,13 +20,13 @@ class CustomDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          if (centerTitle) const Spacer(flex: 5),
-          Text(title, style: AppTextStyles.medium24(context)),
-          const Spacer(flex: 4),
           IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.close),
           ),
+          const Spacer(flex: 4),
+          Text(title, style: AppTextStyles.medium24(context)),
+          if (centerTitle) const Spacer(flex: 5),
         ],
       ),
       backgroundColor: Colors.white,
