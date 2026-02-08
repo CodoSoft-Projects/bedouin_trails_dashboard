@@ -36,6 +36,10 @@ class UpdateTripImagesSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
+          // EmptyGridWidget(
+          //   message:
+          //       'لا توجد صور مضافة حاليًا 📷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل',
+          // ),
           _ImagesGridView(),
         ],
       ),
