@@ -42,7 +42,7 @@ class _CustomNameFieldState extends State<CustomNameField> {
       ),
       suffixIcon: Icon(
         LucideIcons.check600,
-        color: validName ? AppColors.blue : AppColors.black2,
+        color: validName ? AppColors.blue : Colors.transparent,
       ),
     );
   }

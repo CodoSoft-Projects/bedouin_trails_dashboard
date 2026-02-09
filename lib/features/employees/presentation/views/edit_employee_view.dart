@@ -4,6 +4,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/block_employee_button.dart';
+import 'widgets/employee_data_form.dart';
 
 class EmployeeDetailsView extends StatefulWidget {
   const EmployeeDetailsView({super.key});
@@ -91,15 +92,12 @@ class _EmployeeDetailsViewState extends State<EmployeeDetailsView>
         ),
       ),
       floatingActionButton: const BlockEmployeeButton(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: IndexedStack(
-          index: currentIndex,
-          children: [
-            const Center(child: Text('بيانات الموظف')),
-            const Center(child: Text('تعديل بيانات الموظف')),
-          ],
-        ),
+      body: IndexedStack(
+        index: currentIndex,
+        children: [
+          const EmployeeDataForm(canEdit: false),
+          const EmployeeDataForm(canEdit: true),
+        ],
       ),
     );
   }

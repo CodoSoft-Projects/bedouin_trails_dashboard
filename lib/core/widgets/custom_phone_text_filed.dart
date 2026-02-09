@@ -8,7 +8,7 @@ import 'custom_text_form_field.dart';
 class CustomPhoneTextField extends StatefulWidget {
   const CustomPhoneTextField({
     super.key,
-    this.hintText = 'رقم الجوال',
+    this.hintText = 'رقم الهاتف',
     this.controller,
     this.labelText = '',
   });
@@ -31,11 +31,11 @@ class _CustomPhoneTextFieldState extends State<CustomPhoneTextField> {
       keyboardType: TextInputType.phone,
       prefixIcon: Icon(
         Icons.phone,
-        color: validPhone ? AppColors.blue : AppColors.phosphorBlue,
+        color: validPhone ? AppColors.blue : AppColors.black2,
       ),
       suffixIcon: Icon(
         LucideIcons.check600,
-        color: validPhone ? AppColors.blue : AppColors.phosphorBlue,
+        color: validPhone ? AppColors.blue : Colors.transparent,
       ),
       validator: (value) => validatorOfEgyptianPhone(value),
       onChanged: (value) {
