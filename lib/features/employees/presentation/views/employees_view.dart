@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/employees_view_header.dart';
+
 class EmployeesView extends StatelessWidget {
   const EmployeesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const EmployeesViewHeader(),
+        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+      ],
+    );
   }
 }
