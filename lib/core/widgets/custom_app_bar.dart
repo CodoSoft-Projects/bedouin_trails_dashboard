@@ -8,7 +8,8 @@ import 'custom_circular_button.dart';
 
 AppBar customAppBar(
   BuildContext context, {
-  required String title,
+  String title = '',
+  Widget? titleWidgt,
   bool showBack = true,
   PreferredSizeWidget? bottom,
 }) {
@@ -34,11 +35,13 @@ AppBar customAppBar(
       ),
     ],
     centerTitle: false,
-    title: Text(
-      title,
-      style: AppTextStyles.regular24(
-        context,
-      ).copyWith(fontFamily: Constants.vexaFontFamily),
-    ),
+    title:
+        titleWidgt ??
+        Text(
+          title,
+          style: AppTextStyles.regular24(
+            context,
+          ).copyWith(fontFamily: Constants.vexaFontFamily),
+        ),
   );
 }
