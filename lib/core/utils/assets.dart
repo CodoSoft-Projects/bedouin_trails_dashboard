@@ -19,5 +19,7 @@ class Assets {
   static const String imagesTestTripImage = "assets/images/test_trip_image.png";
 
   static const String imagesTestUser = "assets/images/test_user.png";
+
+  static const String imagesTestUser2 = "assets/images/test_user2.png";
 }
 
