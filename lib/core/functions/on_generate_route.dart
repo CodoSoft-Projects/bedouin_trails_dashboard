@@ -5,6 +5,7 @@ import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/auth/presentation/views/reset_password_view.dart';
 import '../../features/auth/presentation/views/verify_otp_view.dart';
 import '../../features/dashboard/dashboard_view.dart';
+import '../../features/employees/presentation/views/edit_employee_view.dart';
 import '../../features/trips/presentation/views/new_trip_view.dart';
 import '../../features/trips/presentation/views/suspended_trip_details_view.dart';
 import '../../features/trips/presentation/views/trip_details_view.dart';
@@ -37,6 +38,10 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) => const SuspendedTripDetailsView(),
       );
+
+    /// Employees Routs
+    case EmployeeDetailsView.routeName:
+      return MaterialPageRoute(builder: (_) => const EmployeeDetailsView());
 
     default:
       return MaterialPageRoute(

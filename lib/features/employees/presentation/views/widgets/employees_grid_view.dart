@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_person_card.dart';
+import '../edit_employee_view.dart';
 
 class EmployeesGridView extends StatelessWidget {
   const EmployeesGridView({super.key});
@@ -31,7 +32,11 @@ class EmployeesGridView extends StatelessWidget {
                 name: 'محمد خالد ابن سلمان',
                 phone: '+20 0109876543',
                 email: 'a7med123@gmail.com',
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(
+                    context,
+                  ).pushNamed(EmployeeDetailsView.routeName);
+                },
               );
             },
           );

@@ -19,59 +19,63 @@ class CustomPersonCard extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(4.0),
-      decoration: BoxDecoration(
-        color: AppColors.whiteGrey,
-        borderRadius: BorderRadius.circular(16.0),
-        boxShadow: [
-          BoxShadow(
-            // ignore: deprecated_member_use
-            color: AppColors.sandyBrown.withOpacity(0.5),
-            blurRadius: 6,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        spacing: 8,
-        children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16.0),
-                image: DecorationImage(
-                  image: AssetImage(Assets.imagesTestUser2),
-                  fit: BoxFit.cover,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16.0),
+      child: Container(
+        padding: const EdgeInsets.all(4.0),
+        decoration: BoxDecoration(
+          color: AppColors.whiteGrey,
+          borderRadius: BorderRadius.circular(16.0),
+          boxShadow: [
+            BoxShadow(
+              // ignore: deprecated_member_use
+              color: AppColors.sandyBrown.withOpacity(0.5),
+              blurRadius: 6,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          spacing: 8,
+          children: [
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  image: DecorationImage(
+                    image: AssetImage(Assets.imagesTestUser2),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-          ),
 
-          Text(
-            name,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.medium18(context),
-          ),
-          Text(
-            phone,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.medium18(context),
-          ),
-
-          CustomWhiteBox(
-            vPadding: 8,
-            child: Text(
-              email,
+            Text(
+              name,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.medium18(context),
             ),
-          ),
-        ],
+            Text(
+              phone,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.medium18(context),
+            ),
+
+            CustomWhiteBox(
+              vPadding: 8,
+              child: Text(
+                email,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTextStyles.medium18(context),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
