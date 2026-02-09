@@ -4,6 +4,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/user_info_list_tile.dart';
+import 'widgets/user_trips_grid_view.dart';
 
 class UserDetailsView extends StatefulWidget {
   const UserDetailsView({super.key});
@@ -100,10 +101,10 @@ class _UserDetailsViewState extends State<UserDetailsView>
         controller: _tabController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          const Center(child: Text('حجوزات معلقة')),
-          const Center(child: Text('حجوزات مدفوعة')),
-          const Center(child: Text('حجوزات مكتملة')),
-          const Center(child: Text('حجوزات ملغاة')),
+          const UserTripsGridView(),
+          const UserTripsGridView(),
+          const UserTripsGridView(),
+          const UserTripsGridView(),
         ],
       ),
     );
