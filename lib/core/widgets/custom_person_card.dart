@@ -24,6 +24,14 @@ class CustomPersonCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteGrey,
         borderRadius: BorderRadius.circular(16.0),
+        boxShadow: [
+          BoxShadow(
+            // ignore: deprecated_member_use
+            color: AppColors.sandyBrown.withOpacity(0.5),
+            blurRadius: 6,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         spacing: 8,

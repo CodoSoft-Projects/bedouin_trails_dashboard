@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/users_grid_view.dart';
 import 'widgets/users_view_header.dart';
 
 class UsersView extends StatelessWidget {
@@ -11,7 +12,7 @@ class UsersView extends StatelessWidget {
       slivers: [
         const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const UsersViewHeader(),
-        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverToBoxAdapter(child: UsersGridView()),
         // const SliverToBoxAdapter(child: SizedBox(height: 12)),
       ],
     );
