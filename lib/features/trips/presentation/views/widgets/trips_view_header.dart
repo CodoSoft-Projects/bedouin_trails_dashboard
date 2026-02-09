@@ -75,7 +75,7 @@ class _MobileLayout extends StatelessWidget {
               AddNewTripButton(),
             ],
           ),
-          TripsSearchField(),
+          Row(children: [Expanded(child: TripsSearchField())]),
         ],
       ),
     );
