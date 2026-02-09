@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_person_card.dart';
-import '../edit_employee_view.dart';
+import '../employee_details_view.dart';
 
 class EmployeesGridView extends StatelessWidget {
   const EmployeesGridView({super.key});
