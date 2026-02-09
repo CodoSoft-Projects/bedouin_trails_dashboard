@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../../../trips/presentation/views/widgets/trip_card.dart';
+import '../user_trip_details_view.dart';
 
 class UserTripsGridView extends StatelessWidget {
   const UserTripsGridView({super.key});
@@ -29,7 +30,9 @@ class UserTripsGridView extends StatelessWidget {
             itemBuilder: (context, index) {
               return TripCard(
                 onTripTap: () {
-                  // Navigator.of(context).pushNamed(TripDetailsView.routeName);
+                  Navigator.of(
+                    context,
+                  ).pushNamed(UserTripDetailsView.routeName);
                 },
               );
             },

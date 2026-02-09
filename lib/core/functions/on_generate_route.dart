@@ -12,6 +12,7 @@ import '../../features/trips/presentation/views/suspended_trip_details_view.dart
 import '../../features/trips/presentation/views/trip_details_view.dart';
 import '../../features/trips/presentation/views/update_trip_view.dart';
 import '../../features/users/presentation/views/user_details_view.dart';
+import '../../features/users/presentation/views/user_trip_details_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
@@ -50,6 +51,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     /// Users Routs
     case UserDetailsView.routeName:
       return MaterialPageRoute(builder: (_) => const UserDetailsView());
+    case UserTripDetailsView.routeName:
+      return MaterialPageRoute(builder: (_) => const UserTripDetailsView());
 
     default:
       return MaterialPageRoute(
