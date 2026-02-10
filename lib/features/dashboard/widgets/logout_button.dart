@@ -3,6 +3,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../core/functions/logout_method.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({super.key});
@@ -10,7 +11,7 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () => logout(context),
       padding: const EdgeInsets.all(4.0),
       color: AppColors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
