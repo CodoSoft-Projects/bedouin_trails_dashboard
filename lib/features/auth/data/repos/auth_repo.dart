@@ -84,4 +84,17 @@ class AuthRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+ // Logout
+  Future<Either<String, SimpleModel>> logout() async {
+    try {
+      final response = await dio.post(EndPoints.logout);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in logout: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }
