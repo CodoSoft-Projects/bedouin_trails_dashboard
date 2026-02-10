@@ -1,10 +1,12 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'bedouin_trails.dart';
 import 'core/functions/open_hive_boxes.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
+import 'features/auth/presentation/manager/auth_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,7 +14,16 @@ Future<void> main() async {
   setupServicesLocator();
   // Open Hive Boxes
   await openHiveBoxes();
-  runApp(const BedouinTrails());
+
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        //
+      ],
+      child: const BedouinTrails(),
+    ),
+  );
 
   if (KPlatform.isDesktop) {
     doWhenWindowReady(() {
