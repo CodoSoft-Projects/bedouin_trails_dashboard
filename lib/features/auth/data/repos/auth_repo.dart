@@ -62,4 +62,26 @@ class AuthRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  // Reset Password
+  Future<Either<String, SimpleModel>> resetPassword({
+    required String email,
+    required String password,
+    required String passwordConfirmation,
+  }) async {
+    Map<String, dynamic> data = {
+      'email': email,
+      'password': password,
+      'password_confirmation': passwordConfirmation,
+    };
+    try {
+      final response = await dio.post(EndPoints.resetPassword, data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in resetPassword: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }
