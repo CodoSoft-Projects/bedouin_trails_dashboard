@@ -93,4 +93,40 @@ class AuthProvider extends ChangeNotifier {
     );
     notifyListeners();
   }
+
+  //* Reset Password
+  var resetFormKey = GlobalKey<FormState>();
+  var resetPasswordController = TextEditingController();
+  var passwordConfirmationController = TextEditingController();
+
+  bool? checkResetPassword = false;
+  Future<void> resetPassword() async {
+    checkResetPassword = null;
+    message = '';
+    notifyListeners();
+    final res = await repo.resetPassword(
+      email: forgetEmailController.text,
+      password: resetPasswordController.text,
+      passwordConfirmation: passwordConfirmationController.text,
+    );
+    res.fold(
+      (msg) {
+        checkResetPassword = false;
+        message = msg;
+      },
+      (model) {
+        checkResetPassword = true;
+        message = model.message;
+        clearControllers();
+      },
+    );
+    notifyListeners();
+  }
+
+  void clearControllers() {
+    forgetEmailController.clear();
+    otpController.clear();
+    resetPasswordController.clear();
+    passwordConfirmationController.clear();
+  }
 }

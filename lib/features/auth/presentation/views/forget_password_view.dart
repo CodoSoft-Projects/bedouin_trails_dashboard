@@ -53,7 +53,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
               children: [
                 ForgetPasswordViewBody(onTap: () => forgetPassword(prov)),
                 VerifyOtpViewBody(onTap: () => verifyOTP(prov)),
-                ResetPasswordViewBody(onTap: () {}),
+                ResetPasswordViewBody(onTap: () => resetPassword(prov)),
               ],
             ),
           );
@@ -86,6 +86,26 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
       goNext();
     } else if (prov.checkVerifyOTP == false) {
       AppMessage.errorBar(context, message: prov.message);
+    }
+  }
+
+  Future<void> resetPassword(AuthProvider prov) async {
+    if (prov.resetFormKey.currentState!.validate()) {
+      if (prov.resetPasswordController.text !=
+          prov.passwordConfirmationController.text) {
+        AppMessage.errorBar(context, message: 'كلمة المرور غير متطابقة');
+        return;
+      }
+
+      await prov.resetPassword();
+
+      if (prov.checkResetPassword == true) {
+        AppMessage.successBar(context, message: prov.message);
+
+        Navigator.pop(context);
+      } else if (prov.checkResetPassword == false) {
+        AppMessage.errorBar(context, message: prov.message);
+      }
     }
   }
 }
