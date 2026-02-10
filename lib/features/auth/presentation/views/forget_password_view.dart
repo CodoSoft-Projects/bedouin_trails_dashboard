@@ -1,5 +1,10 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: use_build_context_synchronously
 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/helpers/app_message.dart';
+import '../manager/auth_provider.dart';
 import 'widgets/forget_password_view_body.dart';
 import 'widgets/reset_password_view_body.dart';
 import 'widgets/verify_otp_view_body.dart';
@@ -34,17 +39,38 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // body: ForgetPasswordViewBody(onTap: () {}),
-      body: PageView(
-        controller: pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          ForgetPasswordViewBody(onTap: goNext),
-          VerifyOtpViewBody(onTap: goNext),
-          ResetPasswordViewBody(onTap: () {}),
-        ],
+    return ChangeNotifierProvider(
+      create: (_) => AuthProvider(),
+      child: Builder(
+        builder: (context) {
+          var prov = context.watch<AuthProvider>();
+
+          return Scaffold(
+            // body: ForgetPasswordViewBody(onTap: () {}),
+            body: PageView(
+              controller: pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                ForgetPasswordViewBody(onTap: () => forgetPassword(prov)),
+                VerifyOtpViewBody(onTap: goNext),
+                ResetPasswordViewBody(onTap: () {}),
+              ],
+            ),
+          );
+        },
       ),
     );
+  }
+
+  Future<void> forgetPassword(AuthProvider prov) async {
+    if (prov.forgetFormKey.currentState!.validate()) {
+      await prov.forgetPassword();
+
+      if (prov.checkForgetPassword == true) {
+        goNext();
+      } else if (prov.checkForgetPassword == false) {
+        AppMessage.errorBar(context, message: prov.message);
+      }
+    }
   }
 }

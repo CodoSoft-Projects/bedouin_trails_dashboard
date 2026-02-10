@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../manager/auth_provider.dart';
 import 'custom_auth_view.dart';
 import 'forget_password_form.dart';
 
@@ -12,6 +14,7 @@ class ForgetPasswordViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomAuthView(
       image: Assets.imagesForgetImage,
+      isLoading: context.watch<AuthProvider>().checkForgetPassword == null,
       showBackIcon: true,
       showHand: false,
       title: 'إعادة تعيين كلمة المرور',

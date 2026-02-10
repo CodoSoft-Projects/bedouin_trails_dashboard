@@ -43,4 +43,30 @@ class AuthProvider extends ChangeNotifier {
     );
     notifyListeners();
   }
+
+  /// Forget Password
+  // forget password
+  var forgetFormKey = GlobalKey<FormState>();
+  var forgetEmailController = TextEditingController();
+
+  bool? checkForgetPassword = false;
+  Future<void> forgetPassword() async {
+    checkForgetPassword = null;
+    message = '';
+    notifyListeners();
+    final res = await repo.forgetPassword(
+      email: forgetEmailController.text.trim(),
+    );
+    res.fold(
+      (msg) {
+        checkForgetPassword = false;
+        message = msg;
+      },
+      (model) {
+        checkForgetPassword = true;
+        message = model.message;
+      },
+    );
+    notifyListeners();
+  }
 }
