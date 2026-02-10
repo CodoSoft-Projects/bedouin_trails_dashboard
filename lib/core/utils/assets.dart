@@ -6,6 +6,10 @@ class Assets {
 
   static const String animationsImageNotPreview = "assets/animations/Image_Not_Preview.json";
 
+  static const String animationsLoadingLottie = "assets/animations/loading_lottie.json";
+
+  static const String animationsLoadingLottie2 = "assets/animations/loading_lottie2.json";
+
   static const String imagesCamelCircle = "assets/images/camel_circle.png";
 
   static const String imagesForgetImage = "assets/images/forget_image.png";

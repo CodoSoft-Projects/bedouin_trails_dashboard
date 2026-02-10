@@ -12,6 +12,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomAuthView(
+        isLoading: false,
         image: Assets.imagesLoginImage,
         showBackIcon: false,
         showHand: true,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/size_config.dart';
+import '../../../../../core/widgets/custom_progress_hud.dart';
 import 'auth_app_bar.dart';
 import 'custom_auth_view_image_section.dart';
 
@@ -16,6 +17,7 @@ class CustomAuthView extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.form,
+    this.isLoading = false,
   });
 
   final String image;
@@ -24,64 +26,68 @@ class CustomAuthView extends StatelessWidget {
   final String title, subtitle;
   final bool showHand;
   final Widget form;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     var isDesktop = SizeConfig.isDesktop();
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        child: Row(
-          children: [
-            if (isDesktop) ...[
-              Expanded(
-                flex: 3,
-                child: CustomAuthViewImageSection(
-                  image: image,
-                  showBackIcon: showBackIcon,
-                  note: note,
+      child: CustomProgressHud(
+        isLoading: isLoading,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          child: Row(
+            children: [
+              if (isDesktop) ...[
+                Expanded(
+                  flex: 3,
+                  child: CustomAuthViewImageSection(
+                    image: image,
+                    showBackIcon: showBackIcon,
+                    note: note,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16),
-            ],
-            Expanded(
-              flex: 5,
-              child: Column(
-                children: [
-                  AuthAppBar(showBackIcon: showBackIcon),
-                  const SizedBox(height: 16),
-                  Expanded(
-                    child: Container(
-                      // color: Colors.amber,
-                      // padding: EdgeInsets.symmetric(horizontal: 32),
-                      constraints: const BoxConstraints(maxWidth: 600),
-                      child: CustomScrollView(
-                        slivers: [
-                          SliverToBoxAdapter(
-                            child: CustomAuthViewTitle(
-                              title: title,
-                              showHand: showHand,
-                              subtitle: subtitle,
-                            ),
-                          ),
-                          SliverToBoxAdapter(child: SizedBox(height: 32.0)),
-                          SliverFillRemaining(
-                            hasScrollBody: false,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: SizeConfig.width * 0.02,
+                const SizedBox(width: 16),
+              ],
+              Expanded(
+                flex: 5,
+                child: Column(
+                  children: [
+                    AuthAppBar(showBackIcon: showBackIcon),
+                    const SizedBox(height: 16),
+                    Expanded(
+                      child: Container(
+                        // color: Colors.amber,
+                        // padding: EdgeInsets.symmetric(horizontal: 32),
+                        constraints: const BoxConstraints(maxWidth: 600),
+                        child: CustomScrollView(
+                          slivers: [
+                            SliverToBoxAdapter(
+                              child: CustomAuthViewTitle(
+                                title: title,
+                                showHand: showHand,
+                                subtitle: subtitle,
                               ),
-                              child: form,
                             ),
-                          ),
-                        ],
+                            SliverToBoxAdapter(child: SizedBox(height: 32.0)),
+                            SliverFillRemaining(
+                              hasScrollBody: false,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: SizeConfig.width * 0.02,
+                                ),
+                                child: form,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
