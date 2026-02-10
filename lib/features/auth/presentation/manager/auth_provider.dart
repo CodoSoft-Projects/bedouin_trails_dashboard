@@ -45,7 +45,6 @@ class AuthProvider extends ChangeNotifier {
   }
 
   /// Forget Password
-  // forget password
   var forgetFormKey = GlobalKey<FormState>();
   var forgetEmailController = TextEditingController();
 
@@ -64,6 +63,31 @@ class AuthProvider extends ChangeNotifier {
       },
       (model) {
         checkForgetPassword = true;
+        message = model.message;
+      },
+    );
+    notifyListeners();
+  }
+
+  // Verify OTP
+  var otpController = TextEditingController();
+
+  bool? checkVerifyOTP = false;
+  Future<void> verifyOTP() async {
+    checkVerifyOTP = null;
+    message = '';
+    notifyListeners();
+    final res = await repo.verifyOTP(
+      email: forgetEmailController.text,
+      otp: otpController.text,
+    );
+    res.fold(
+      (msg) {
+        checkVerifyOTP = false;
+        message = msg;
+      },
+      (model) {
+        checkVerifyOTP = true;
         message = model.message;
       },
     );

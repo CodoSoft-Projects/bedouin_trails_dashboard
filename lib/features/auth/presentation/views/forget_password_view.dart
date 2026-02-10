@@ -52,7 +52,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 ForgetPasswordViewBody(onTap: () => forgetPassword(prov)),
-                VerifyOtpViewBody(onTap: goNext),
+                VerifyOtpViewBody(onTap: () => verifyOTP(prov)),
                 ResetPasswordViewBody(onTap: () {}),
               ],
             ),
@@ -71,6 +71,21 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
       } else if (prov.checkForgetPassword == false) {
         AppMessage.errorBar(context, message: prov.message);
       }
+    }
+  }
+
+  Future<void> verifyOTP(AuthProvider prov) async {
+    if (prov.otpController.text.length != 6) {
+      AppMessage.errorBar(context, message: 'ادخل رمز التحقق');
+      return;
+    }
+
+    await prov.verifyOTP();
+
+    if (prov.checkVerifyOTP == true) {
+      goNext();
+    } else if (prov.checkVerifyOTP == false) {
+      AppMessage.errorBar(context, message: prov.message);
     }
   }
 }

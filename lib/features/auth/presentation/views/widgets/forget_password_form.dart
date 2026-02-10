@@ -12,7 +12,7 @@ class ForgetPasswordForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<AuthProvider>();
+    var prov = context.read<AuthProvider>();
     return Form(
       key: prov.forgetFormKey,
       child: Column(

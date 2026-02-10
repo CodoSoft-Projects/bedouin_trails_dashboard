@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../manager/auth_provider.dart';
 import 'pinput_field.dart';
 
 class VerifyOtpForm extends StatelessWidget {
@@ -16,8 +18,7 @@ class VerifyOtpForm extends StatelessWidget {
           const SizedBox(height: 32),
           PinputField(
             length: 6,
-            onChanged: (value) {},
-            onCompleted: (value) {},
+            controller: context.read<AuthProvider>().otpController,
           ),
           const Spacer(),
           CustomButton(
