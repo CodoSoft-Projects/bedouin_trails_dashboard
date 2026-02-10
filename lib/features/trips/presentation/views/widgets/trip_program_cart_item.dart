@@ -6,7 +6,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import '../../../../../core/widgets/dialog_helper.dart';
+import '../../../../../core/helpers/dialog_helper.dart';
 import 'update_trip_program_cart_dialog.dart';
 
 class TripProgramCartItem extends StatelessWidget {

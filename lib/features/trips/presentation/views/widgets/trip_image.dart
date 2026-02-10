@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../core/utils/assets.dart';
-import '../../../../../core/widgets/dialog_helper.dart';
+import '../../../../../core/helpers/dialog_helper.dart';
 
 class TripImage extends StatelessWidget {
   const TripImage({super.key, this.canDelete = false, this.height, this.width});
