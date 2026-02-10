@@ -45,4 +45,21 @@ class AuthRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  // Verify OTP
+  Future<Either<String, SimpleModel>> verifyOTP({
+    required String email,
+    required String otp,
+  }) async {
+    Map<String, dynamic> data = {'email': email, 'otp': otp};
+    try {
+      final response = await dio.post(EndPoints.verifyOTP, data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in verifyOTP: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }
