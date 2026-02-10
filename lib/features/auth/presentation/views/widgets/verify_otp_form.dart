@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../reset_password_view.dart';
 import 'pinput_field.dart';
 
 class VerifyOtpForm extends StatelessWidget {
-  const VerifyOtpForm({super.key});
+  const VerifyOtpForm({super.key, required this.onTap});
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,7 @@ class VerifyOtpForm extends StatelessWidget {
             text: "التالي",
             horizontalPadding: 75,
             color: AppColors.black,
-            onPressed: () {
-              Navigator.of(
-                context,
-              ).pushReplacementNamed(ResetPasswordView.routeName);
-            },
+            onPressed: onTap,
           ),
           const SizedBox(height: 42),
         ],
