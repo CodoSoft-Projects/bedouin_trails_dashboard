@@ -6,6 +6,7 @@ import '../../../../core/api/dio_consumer.dart';
 import '../../../../core/api/end_points.dart';
 import '../../../../core/errors/exception.dart';
 import '../../../../core/functions/is_arabic.dart';
+import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
 import '../models/auth_model.dart';
@@ -25,6 +26,22 @@ class AuthRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in signin: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  // Forget password
+  Future<Either<String, SimpleModel>> forgetPassword({
+    required String email,
+  }) async {
+    Map<String, dynamic> data = {'email': email};
+    try {
+      final response = await dio.post(EndPoints.forgetPassword, data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in forgetPassword: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
