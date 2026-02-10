@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/utils/assets.dart';
+import '../manager/auth_provider.dart';
 import 'widgets/custom_auth_view.dart';
 import 'widgets/login_form.dart';
 
@@ -12,7 +14,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomAuthView(
-        isLoading: false,
+        isLoading: context.watch<AuthProvider>().checkLogin == null,
         image: Assets.imagesLoginImage,
         showBackIcon: false,
         showHand: true,

@@ -40,7 +40,7 @@ class AccountModel {
       image: _asString(json['image']),
       otp: _asInt(json['otp']),
       role: _asString(json['role']),
-      permissions: json['permission'],
+      permissions: json['permission'] ?? PermissionsModel.empty(),
       token: _asString(json['token']),
     );
   }
