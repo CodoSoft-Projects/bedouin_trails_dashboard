@@ -41,6 +41,7 @@ class ApiErrorView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: Colors.red.withOpacity(.08),
                   shape: BoxShape.circle,
                 ),
