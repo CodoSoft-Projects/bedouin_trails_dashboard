@@ -36,10 +36,7 @@ class CustomCachedNetworkImage extends StatelessWidget {
   }
 }
 
-CachedNetworkImageProvider customCachedNetworkImageprovider(
-  String? imgPath, {
-  BoxFit? fit,
-}) {
+CachedNetworkImageProvider customCachedNetworkImageprovider(String? imgPath) {
   return CachedNetworkImageProvider(
     imgPath ?? "",
     errorListener: (_) => const ImageLoadingFailed(),

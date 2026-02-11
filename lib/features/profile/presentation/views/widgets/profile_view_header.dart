@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -6,6 +7,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../manager/profile_provider.dart';
 import '../edit_profile_view.dart';
 import 'change_password_dialog.dart';
 import 'profile_image.dart';
@@ -15,14 +17,13 @@ class ProfileViewHeader extends StatelessWidget {
     super.key,
     required this.title,
     this.showInProfile = true,
-    this.onEditImage,
   });
   final String title;
   final bool showInProfile;
-  final VoidCallback? onEditImage;
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.read<ProfileProvider>();
     return SizedBox(
       width: double.infinity,
       height: 250,
@@ -74,7 +75,12 @@ class ProfileViewHeader extends StatelessWidget {
                       color: AppColors.whiteGrey,
                       textColor: AppColors.sandyBrown,
                       onPressed: () {
-                        Navigator.pushNamed(context, EditProfileView.routeName);
+                        Navigator.pushNamed(
+                          context,
+                          EditProfileView.routeName,
+                        ).then((context) {
+                          prov.getAccountData();
+                        });
                       },
                     ),
                 ],
@@ -82,7 +88,7 @@ class ProfileViewHeader extends StatelessWidget {
             ),
           ),
 
-          ProfileImage(canEdit: !showInProfile, onEdit: onEditImage),
+          ProfileImage(canEdit: !showInProfile),
         ],
       ),
     );

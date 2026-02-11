@@ -1,7 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/utils/size_config.dart';
+import '../profile/presentation/manager/profile_provider.dart';
 import 'functions/get_current_dashboard_view.dart';
 import 'providers/dashboard_manager.dart';
 import 'widgets/dashboard_app_bar.dart';
@@ -13,6 +16,9 @@ class DashboardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.microtask(() {
+      context.read<ProfileProvider>().getAccountData();
+    });
     return ChangeNotifierProvider(
       create: (_) => DashboardManager(),
       child: Builder(

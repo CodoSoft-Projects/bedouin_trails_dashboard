@@ -1,16 +1,18 @@
+import 'package:bedouin_trails_dashboard/core/widgets/custom_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../manager/profile_provider.dart';
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key, this.canEdit = false, this.onEdit});
+  const ProfileImage({super.key, this.canEdit = false});
   final bool canEdit;
-  final VoidCallback? onEdit;
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<ProfileProvider>();
     return SizedBox(
       height: 200,
       width: 200,
@@ -22,8 +24,12 @@ class ProfileImage extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: Colors.white, width: 4),
-              image: const DecorationImage(
-                image: AssetImage(Assets.imagesTestUser),
+              image: DecorationImage(
+                image: prov.imageFile != null && canEdit
+                    ? MemoryImage(prov.imageFile!.bytes)
+                    : customCachedNetworkImageprovider(
+                        prov.accountModel?.image ?? '',
+                      ),
                 fit: BoxFit.cover,
               ),
             ),
@@ -34,8 +40,16 @@ class ProfileImage extends StatelessWidget {
               bottom: 0,
               right: 32,
               child: CustomCircularButton(
-                icon: LucideIcons.penLine,
-                onPressed: onEdit ?? () {},
+                icon: prov.imageFile != null
+                    ? LucideIcons.x
+                    : LucideIcons.penLine,
+                onPressed: () {
+                  if (prov.imageFile != null) {
+                    prov.clearImage();
+                  } else {
+                    prov.pickFromGallery();
+                  }
+                },
               ),
             ),
         ],

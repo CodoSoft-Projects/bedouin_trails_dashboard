@@ -40,6 +40,7 @@ class ProfileProvider extends ChangeNotifier {
     fnameController.text = accountModel?.firstName ?? '';
     lnameController.text = accountModel?.lastName ?? '';
     emailController.text = accountModel?.email ?? '';
+    phoneController.text = accountModel?.phone ?? '';
   }
 
   // Change Password
