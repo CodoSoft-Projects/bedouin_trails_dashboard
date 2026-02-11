@@ -85,10 +85,10 @@ class AuthRepo {
     }
   }
 
- // Logout
+  // Logout
   Future<Either<String, SimpleModel>> logout() async {
     try {
-      final response = await dio.post(EndPoints.logout);
+      final response = await dio.post(EndPoints.logout, isFormData: false);
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
