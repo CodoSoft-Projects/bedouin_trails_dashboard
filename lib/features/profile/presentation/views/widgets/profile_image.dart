@@ -1,8 +1,9 @@
-import 'package:bedouin_trails_dashboard/core/widgets/custom_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../manager/profile_provider.dart';
 
@@ -19,10 +20,11 @@ class ProfileImage extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 200,
+            height: 200,  
             width: 200,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
+              color: AppColors.whiteGrey,
               border: Border.all(color: Colors.white, width: 4),
               image: DecorationImage(
                 image: prov.imageFile != null && canEdit

@@ -16,7 +16,7 @@ class ProfileView extends StatelessWidget {
             children: [
               ProfileViewHeader(title: 'بيانات الحساب', showInProfile: true),
               const SizedBox(height: 32),
-              ProfileForm(canEdit: false),
+              ProfileForm(),
             ],
           ),
         ),

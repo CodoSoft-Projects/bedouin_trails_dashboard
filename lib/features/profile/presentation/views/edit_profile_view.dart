@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'widgets/profile_form.dart';
+import '../../../../core/widgets/custom_progress_hud.dart';
+import '../manager/profile_provider.dart';
+import 'widgets/edit_profile_form.dart';
 import 'widgets/profile_view_header.dart';
 
 class EditProfileView extends StatelessWidget {
@@ -9,7 +12,8 @@ class EditProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return CustomProgressHud(
+      isLoading: context.watch<ProfileProvider>().checkUpdateProfile == null,
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
@@ -19,7 +23,7 @@ class EditProfileView extends StatelessWidget {
                 showInProfile: false,
               ),
               const SizedBox(height: 32),
-              ProfileForm(canEdit: true),
+              EditProfileForm(),
             ],
           ),
         ),
