@@ -63,6 +63,16 @@ class S {
   String get tryAgain {
     return Intl.message('Try Again', name: 'tryAgain', desc: '', args: []);
   }
+
+  /// `Previous`
+  String get previous {
+    return Intl.message('Previous', name: 'previous', desc: '', args: []);
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message('Next', name: 'next', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,4 +1,6 @@
 {
   "error": "Error",
-  "tryAgain": "Try Again"
+  "tryAgain": "Try Again",
+  "previous": "Previous",
+  "next": "Next"
 }
