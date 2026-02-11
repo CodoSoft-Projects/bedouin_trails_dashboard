@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_person_card.dart';
+import '../user_request_details_view.dart';
 
 class RequestUsersGridView extends StatelessWidget {
   const RequestUsersGridView({super.key});
@@ -32,7 +33,10 @@ class RequestUsersGridView extends StatelessWidget {
                 phone: '+20 0109876543',
                 email: 'a7med123@gmail.com',
                 onTap: () {
-                  // Navigator.pushNamed(context, UserDetailsView.routeName);
+                  Navigator.pushNamed(
+                    context,
+                    UserRequestDetailsView.routeName,
+                  );
                 },
               );
             },

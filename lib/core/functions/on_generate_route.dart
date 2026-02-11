@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/views/forget_password_view.dart';
 import '../../features/auth/presentation/views/login_view.dart';
 import '../../features/booking_requests/presentation/views/request_details_view.dart';
+import '../../features/booking_requests/presentation/views/user_request_details_view.dart';
 import '../../features/dashboard/dashboard_view.dart';
 import '../../features/employees/presentation/views/employee_details_view.dart';
 import '../../features/employees/presentation/views/new_employee_view.dart';
@@ -52,6 +53,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     /// Bookings Requests Routs
     case RequestDetailsView.routeName:
       return MaterialPageRoute(builder: (_) => const RequestDetailsView());
+    case UserRequestDetailsView.routeName:
+      return MaterialPageRoute(builder: (_) => const UserRequestDetailsView());
 
     default:
       return MaterialPageRoute(
