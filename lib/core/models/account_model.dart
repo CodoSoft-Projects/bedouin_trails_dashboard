@@ -72,7 +72,7 @@ class AccountModel {
       "image": image,
       "otp": otp,
       "role": role,
-      "permission": permissions,
+      "permission": permissions.toJson(),
       "token": token,
     };
   }
