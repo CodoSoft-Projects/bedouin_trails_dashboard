@@ -18,6 +18,8 @@ class Assets {
 
   static const String imagesLogo = "assets/images/logo.png";
 
+  static const String imagesProfileBackground = "assets/images/profile_background.png";
+
   static const String imagesResetImage = "assets/images/reset_image.png";
 
   static const String imagesTestTripImage = "assets/images/test_trip_image.png";

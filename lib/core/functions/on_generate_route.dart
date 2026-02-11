@@ -7,6 +7,8 @@ import '../../features/booking_requests/presentation/views/user_request_details_
 import '../../features/dashboard/dashboard_view.dart';
 import '../../features/employees/presentation/views/employee_details_view.dart';
 import '../../features/employees/presentation/views/new_employee_view.dart';
+import '../../features/profile/presentation/views/edit_profile_view.dart';
+import '../../features/profile/presentation/views/profile_view.dart';
 import '../../features/trips/presentation/views/new_trip_view.dart';
 import '../../features/trips/presentation/views/suspended_trip_details_view.dart';
 import '../../features/trips/presentation/views/trip_details_view.dart';
@@ -25,6 +27,12 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     /// Dashboard Routes
     case DashboardView.routeName:
       return MaterialPageRoute(builder: (_) => const DashboardView());
+
+    /// Profile Routes
+    case ProfileView.routeName:
+      return MaterialPageRoute(builder: (_) => const ProfileView());
+    case EditProfileView.routeName:
+      return MaterialPageRoute(builder: (_) => const EditProfileView());
 
     /// Trips Routes
     case TripDetailsView.routeName:

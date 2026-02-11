@@ -26,7 +26,13 @@ class DashboardDrawer extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     children: const [
-                      AccountInfoSection(),
+                      Row(
+                        spacing: 16,
+                        children: [
+                          //TODO: set notification icon here.
+                          Expanded(child: AccountInfoSection()),
+                        ],
+                      ),
                       SizedBox(height: 8),
                       Divider(color: AppColors.white),
                     ],
