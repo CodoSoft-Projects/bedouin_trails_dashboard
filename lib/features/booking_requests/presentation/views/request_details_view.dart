@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import 'widgets/request_users_grid_view.dart';
 
 class RequestDetailsView extends StatefulWidget {
   const RequestDetailsView({super.key});
@@ -95,7 +96,7 @@ class _RequestDetailsViewState extends State<RequestDetailsView>
         physics: const NeverScrollableScrollPhysics(),
         children: [
           const Center(child: Text('بيانات الرحلة')),
-          const Center(child: Text('حجوزات الرحلة')),
+          const RequestUsersGridView(),
         ],
       ),
     );
