@@ -10,6 +10,7 @@ import '../../features/employees/presentation/views/new_employee_view.dart';
 import '../../features/profile/presentation/views/edit_profile_view.dart';
 import '../../features/profile/presentation/views/profile_view.dart';
 import '../../features/settings/presentation/views/ads_view.dart';
+import '../../features/settings/presentation/views/questions_view.dart';
 import '../../features/settings/presentation/views/update_ads_view.dart';
 import '../../features/trips/presentation/views/new_trip_view.dart';
 import '../../features/trips/presentation/views/suspended_trip_details_view.dart';
@@ -71,6 +72,8 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => const AdsView());
     case UpdateAdsView.routeName:
       return MaterialPageRoute(builder: (_) => const UpdateAdsView());
+    case QuestionsView.routeName:
+      return MaterialPageRoute(builder: (_) => const QuestionsView());
 
     default:
       return MaterialPageRoute(
