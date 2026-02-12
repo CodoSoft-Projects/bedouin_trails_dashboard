@@ -4,6 +4,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
@@ -99,7 +100,20 @@ class _ArticleForm extends StatelessWidget {
               spacing: 12,
               children: [
                 const SizedBox(height: 32),
-
+                AspectRatio(
+                  aspectRatio: 584 / 264,
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      image: DecorationImage(
+                        image: AssetImage(Assets.imagesTestTripImage),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 32),
                 CustomTextFormField(
                   labelText: 'عنوان المقال',
                   controller: TextEditingController(
