@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/utils/app_text_styles.dart';
-import '../../../../core/utils/assets.dart';
+import '../../../core/widgets/custom_cached_network_image.dart';
+import '../../profile/presentation/manager/profile_provider.dart';
 import '../../profile/presentation/views/profile_view.dart';
 
 class AccountInfoSection extends StatelessWidget {
@@ -10,6 +12,7 @@ class AccountInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<ProfileProvider>();
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, ProfileView.routeName);
@@ -25,19 +28,24 @@ class AccountInfoSection extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage(Assets.imagesTestUser),
+              backgroundImage: customCachedNetworkImageprovider(
+                prov.accountModel?.image ?? '',
+              ),
             ),
             const SizedBox(width: 8),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('حياك الله', style: AppTextStyles.semiBold18(context)),
                   Text(
-                    'محمد خالد',
+                    prov.accountModel?.fullName ?? '',
+                    style: AppTextStyles.semiBold18(context),
+                  ),
+                  Text(
+                    prov.accountModel?.email ?? '',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.semiBold18(context),
+                    style: AppTextStyles.regular16(context),
                   ),
                 ],
               ),
