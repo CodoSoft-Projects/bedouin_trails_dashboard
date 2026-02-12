@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
+import 'widgets/question_form_section.dart';
 import 'widgets/questions_section.dart';
 
 class QuestionsView extends StatelessWidget {
@@ -18,7 +19,7 @@ class QuestionsView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             Expanded(flex: 3, child: QuestionsSection()),
-            Expanded(flex: 5, child: Text('data')),
+            Expanded(flex: 5, child: QuestionFormSection()),
           ],
         ),
       ),
