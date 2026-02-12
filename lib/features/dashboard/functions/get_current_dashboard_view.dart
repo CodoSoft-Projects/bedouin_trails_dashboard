@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../booking_requests/presentation/views/booking_requests_view.dart';
 import '../../employees/presentation/views/employees_view.dart';
+import '../../settings/presentation/views/settings_view.dart';
 import '../../trips/presentation/views/suspended_trips_view.dart';
 import '../../trips/presentation/views/trips_view.dart';
 import '../../users/presentation/views/users_view.dart';
@@ -22,6 +23,6 @@ Widget getCurrentDashboardView(DashboardType view) {
     case DashboardType.bookingRequests:
       return const BookingRequestsView();
     case DashboardType.siteManagement:
-      return const Center(child: Text('Site Management View'));
+      return const SettingsView();
   }
 }
