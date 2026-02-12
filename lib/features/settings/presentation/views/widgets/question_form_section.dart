@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
@@ -48,7 +49,20 @@ class QuestionFormSection extends StatelessWidget {
                 icon: LucideIcons.trash2,
                 borderSide: BorderSide.none,
                 size: 18,
-                onPressed: () {},
+                onPressed: () {
+                  DialogHelper.showQuestionDialog(
+                    context,
+                    title: 'تاكيد',
+                    desc: 'هل تريد حذف هذا السؤال؟',
+                    onCancel: () {},
+                    onOk: () {
+                      DialogHelper.showSuccessDialog(
+                        context,
+                        title: 'تم حذف السؤال بنجاح',
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
