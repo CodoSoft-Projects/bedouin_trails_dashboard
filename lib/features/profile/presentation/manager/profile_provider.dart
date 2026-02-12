@@ -47,17 +47,18 @@ class ProfileProvider extends ChangeNotifier {
   bool? checkChangingPassword = false;
   String checkChangingPasswordMessage = '';
 
-  Future<void> changePassword({
-    required String currentPassword,
-    required String password,
-    required String passwordConfirmation,
-  }) async {
+  var changePasswordFormKey = GlobalKey<FormState>();
+  var currentPassword = TextEditingController();
+  var password = TextEditingController();
+  var passwordConfirmation = TextEditingController();
+
+  Future<void> changePassword() async {
     checkChangingPassword = null;
     notifyListeners();
     final response = await repo.changePassword(
-      currentPassword: currentPassword,
-      password: password,
-      passwordConfirmation: passwordConfirmation,
+      currentPassword: currentPassword.text.trim(),
+      password: password.text.trim(),
+      passwordConfirmation: passwordConfirmation.text.trim(),
     );
     response.fold(
       (msg) {
@@ -67,6 +68,9 @@ class ProfileProvider extends ChangeNotifier {
       (authModel) {
         checkChangingPassword = true;
         checkChangingPasswordMessage = authModel.message;
+        currentPassword.clear();
+        password.clear();
+        passwordConfirmation.clear();
       },
     );
     notifyListeners();

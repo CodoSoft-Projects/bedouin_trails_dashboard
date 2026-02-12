@@ -22,15 +22,14 @@ class ProfileRepo {
     required String passwordConfirmation,
   }) async {
     try {
-      var response = await dio.post(
-        EndPoints.profile,
-        data: {
-          '_method': 'put',
-          'current_password': currentPassword,
-          'password': password,
-          'password_confirmation': passwordConfirmation,
-        },
-      );
+      var data = {
+        '_method': 'put',
+        'current_password': currentPassword,
+        'password': password,
+        'password_confirmation': passwordConfirmation,
+      };
+      log("Change Password Data: $data");
+      var response = await dio.post(EndPoints.profile, data: data);
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
@@ -68,21 +67,4 @@ class ProfileRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
-
-  //* Update Location
-  // Future<Either<String, AuthModel>> updateLocation({
-  //   required LocationDetailsModel locationDetailsModel,
-  // }) async {
-  //   try {
-  //     var response = await dio.post(
-  //       EndPoints.profile,
-  //       data: {'_method': 'put', ...locationDetailsModel.toJson()},
-  //     );
-  //     return Right(AuthModel.fromJson(response));
-  //   } on ServerException catch (e) {
-  //     return Left(e.errorModel.message);
-  //   } catch (e) {
-  //     return Left(kErrorMsg);
-  //   }
-  // }
 }
