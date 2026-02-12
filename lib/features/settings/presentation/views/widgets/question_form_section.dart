@@ -8,6 +8,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import 'update_question_dialog.dart';
 
 class QuestionFormSection extends StatelessWidget {
   const QuestionFormSection({super.key});
@@ -41,7 +42,9 @@ class QuestionFormSection extends StatelessWidget {
                 icon: LucideIcons.squarePen,
                 borderSide: BorderSide.none,
                 size: 18,
-                onPressed: () {},
+                onPressed: () {
+                  updateQuestionDialog(context);
+                },
               ),
 
               CustomCircularButton(
