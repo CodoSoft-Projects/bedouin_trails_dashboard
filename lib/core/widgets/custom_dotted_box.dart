@@ -28,9 +28,15 @@ class CustomDottedBox extends StatelessWidget {
         color: borderColor,
         strokeWidth: 2.0,
         dashPattern: const [7.5, 7.5],
-        padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
       ),
-      child: child,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: hPadding, vertical: vPadding),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: child,
+      ),
     );
   }
 }
