@@ -5,6 +5,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
+import 'add_images_for_ads_dialog.dart';
 import 'ads_images_grid_view.dart';
 
 class ShowAdsImagesSection extends StatelessWidget {
@@ -34,7 +35,9 @@ class ShowAdsImagesSection extends StatelessWidget {
                   text: 'إضافة صور',
                   color: AppColors.sandyBrown,
                   textColor: AppColors.white,
-                  onPressed: () {},
+                  onPressed: () {
+                    addImagesForAdsDialog(context);
+                  },
                 ),
               ),
             ],
