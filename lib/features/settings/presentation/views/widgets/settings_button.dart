@@ -12,7 +12,11 @@ class SettingsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        if (routeName != null) {
+          Navigator.pushNamed(context, routeName!);
+        }
+      },
       padding: EdgeInsets.zero,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
