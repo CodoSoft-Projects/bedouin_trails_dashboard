@@ -1,31 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
-import 'update_ads_view.dart';
-import 'widgets/show_ads_form_section.dart';
 import 'widgets/show_ads_images_section.dart';
+import 'widgets/update_ads_form_section.dart';
 
 /// Ads is the nickname for Advertisement
-class AdsView extends StatelessWidget {
-  const AdsView({super.key});
-  static const routeName = '/ads-view';
+class UpdateAdsView extends StatelessWidget {
+  const UpdateAdsView({super.key});
+  static const routeName = '/update-ads-view';
 
   @override
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
     return Scaffold(
-      appBar: customAppBar(context, title: 'إدارة إعلان الموقع'),
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(UpdateAdsView.routeName);
-        },
-        backgroundColor: AppColors.sandyBrown,
-        child: Icon(LucideIcons.pencilLine, color: AppColors.white),
-      ),
+      appBar: customAppBar(context, title: 'تعديل إعلان الموقع'),
 
       body: CustomScrollView(
         slivers: [
@@ -50,8 +39,8 @@ class _Desktop extends StatelessWidget {
       spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: ShowAdsImagesSection()),
-        Expanded(child: ShowAdsFormSection()),
+        Expanded(child: ShowAdsImagesSection(canEdit: true)),
+        Expanded(child: UpdateAdsFormSection()),
       ],
     );
   }
@@ -64,7 +53,10 @@ class _Mobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       spacing: 12,
-      children: const [ShowAdsImagesSection(), ShowAdsFormSection()],
+      children: const [
+        ShowAdsImagesSection(canEdit: true),
+        UpdateAdsFormSection(),
+      ],
     );
   }
 }
