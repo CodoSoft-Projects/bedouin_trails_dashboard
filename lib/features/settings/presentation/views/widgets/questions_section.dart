@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import 'add_question_dialog.dart';
 import 'question_item.dart';
 
 class QuestionsSection extends StatelessWidget {
@@ -32,7 +33,9 @@ class QuestionsSection extends StatelessWidget {
                 borderSide: BorderSide.none,
                 backgroundColor: AppColors.lightGreen,
                 size: 18,
-                onPressed: () {},
+                onPressed: () {
+                  addQuestionDialog(context);
+                },
               ),
             ],
           ),
