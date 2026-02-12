@@ -12,6 +12,8 @@ class ShowAdsImagesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomDottedBox(
+      hPadding: 18,
+      vPadding: 12,
       borderColor: AppColors.borderGrey,
       child: Column(
         children: [
