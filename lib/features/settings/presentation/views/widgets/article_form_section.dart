@@ -9,6 +9,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import 'update_article_dialog.dart';
 
 class ArticleFormSection extends StatelessWidget {
   const ArticleFormSection({super.key});
@@ -42,7 +43,9 @@ class ArticleFormSection extends StatelessWidget {
                 icon: LucideIcons.squarePen,
                 borderSide: BorderSide.none,
                 size: 18,
-                onPressed: () {},
+                onPressed: () {
+                  updateArticleDialog(context);
+                },
               ),
 
               CustomCircularButton(
