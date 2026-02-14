@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/gallery_model.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import 'trip_images_grid_view.dart';
 
 class ShowTripImagesSection extends StatelessWidget {
-  const ShowTripImagesSection({super.key});
+  const ShowTripImagesSection({super.key, required this.galleries});
+  final List<GalleryModel> galleries;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class ShowTripImagesSection extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          TripImagesGridView(),
+          TripImagesGridView(galleries: galleries),
         ],
       ),
     );

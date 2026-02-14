@@ -27,7 +27,7 @@ class TripDetailsView extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: isMobile ? const _Mobile() : const _Desktop(),
+              child: isMobile ? _Mobile(trip) : _Desktop(trip),
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
@@ -38,7 +38,8 @@ class TripDetailsView extends StatelessWidget {
 }
 
 class _Desktop extends StatelessWidget {
-  const _Desktop();
+  const _Desktop(this.trip);
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _Desktop extends StatelessWidget {
       spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: ShowTripImagesSection()),
+        Expanded(child: ShowTripImagesSection(galleries: trip.galleries)),
         Expanded(child: ShowTripInfoSection()),
       ],
     );
@@ -54,13 +55,17 @@ class _Desktop extends StatelessWidget {
 }
 
 class _Mobile extends StatelessWidget {
-  const _Mobile();
+  const _Mobile(this.trip);
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       spacing: 12,
-      children: const [ShowTripImagesSection(), ShowTripInfoSection()],
+      children: [
+        ShowTripImagesSection(galleries: trip.galleries),
+        ShowTripInfoSection(),
+      ],
     );
   }
 }

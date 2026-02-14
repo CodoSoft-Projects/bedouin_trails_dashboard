@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/gallery_model.dart';
 import 'trip_image.dart';
 
 class TripImagesGridView extends StatelessWidget {
@@ -9,9 +10,11 @@ class TripImagesGridView extends StatelessWidget {
     super.key,
     this.canEdit = false,
     this.isLoading = false,
+    required this.galleries,
   });
   final bool canEdit;
   final bool isLoading;
+  final List<GalleryModel> galleries;
 
   @override
   Widget build(BuildContext context) {

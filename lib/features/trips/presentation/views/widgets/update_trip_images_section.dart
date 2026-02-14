@@ -41,7 +41,7 @@ class UpdateTripImagesSection extends StatelessWidget {
           //   message:
           //       'لا توجد صور مضافة حاليًا 📷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل',
           // ),
-          TripImagesGridView(canEdit: true),
+          TripImagesGridView(canEdit: true, galleries: []),
         ],
       ),
     );
