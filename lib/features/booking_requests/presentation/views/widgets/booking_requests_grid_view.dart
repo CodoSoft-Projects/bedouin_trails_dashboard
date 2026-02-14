@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../trips/presentation/views/widgets/trip_card.dart';
 import '../request_details_view.dart';
 
@@ -29,6 +30,7 @@ class BookingRequestsGridView extends StatelessWidget {
             itemCount: 20,
             itemBuilder: (context, index) {
               return TripCard(
+                trip: TripModel.empty(),
                 onTripTap: () {
                   Navigator.of(context).pushNamed(RequestDetailsView.routeName);
                 },

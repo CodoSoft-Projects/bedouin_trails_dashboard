@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../trips/presentation/views/widgets/trip_card.dart';
 import '../user_trip_details_view.dart';
 
@@ -29,6 +30,7 @@ class UserTripsGridView extends StatelessWidget {
             itemCount: 5,
             itemBuilder: (context, index) {
               return TripCard(
+                trip: TripModel.empty(),
                 onTripTap: () {
                   Navigator.of(
                     context,

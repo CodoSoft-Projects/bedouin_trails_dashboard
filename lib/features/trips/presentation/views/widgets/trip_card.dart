@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
@@ -8,8 +9,9 @@ import '../../../../../core/widgets/custom_white_box.dart';
 import 'trip_card_image.dart';
 
 class TripCard extends StatelessWidget {
-  const TripCard({super.key, required this.onTripTap});
+  const TripCard({super.key, required this.onTripTap, required this.trip});
   final VoidCallback onTripTap;
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class TripCard extends StatelessWidget {
       child: Column(
         spacing: 8,
         children: [
-          Expanded(child: TripCardImage()),
+          Expanded(child: TripCardImage(trip: trip)),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
@@ -34,7 +36,7 @@ class TripCard extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'واحة سيوة',
+                          trip.interfaceFrom,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: AppTextStyles.regular16(context),
@@ -48,7 +50,7 @@ class TripCard extends StatelessWidget {
                     Expanded(
                       child: Center(
                         child: Text(
-                          'الشيخ زويد',
+                          trip.interfaceTo,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: AppTextStyles.regular16(context),
@@ -65,7 +67,7 @@ class TripCard extends StatelessWidget {
                       child: CustomWhiteBox(
                         child: Center(
                           child: Text(
-                            '4 أيام',
+                            '${trip.duration} أيام',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.regular16(context),
@@ -78,6 +80,7 @@ class TripCard extends StatelessWidget {
                       child: CustomWhiteBox(
                         child: Center(
                           child: Text(
+                            // TODO : show this after adding to the response.
                             '20 شخص',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,

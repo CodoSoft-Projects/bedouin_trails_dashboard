@@ -9,6 +9,7 @@ class TripModel {
   final String interfaceFrom;
   final String interfaceTo;
   final int duration;
+  final int countPeople;
   final TripStatus status;
   final double rate;
   final List<GalleryModel> galleries;
@@ -23,6 +24,7 @@ class TripModel {
     required this.duration,
     required this.status,
     required this.rate,
+    required this.countPeople,
     required this.galleries,
     required this.trapDays,
   });
@@ -45,14 +47,25 @@ class TripModel {
       interfaceFrom: json?['interfaceFrom'] ?? '',
       interfaceTo: json?['interfaceTo'] ?? '',
       duration: json?['duration'] ?? 0,
+      countPeople: json?['countPeople'] ?? 0,
       status: TripStatusParser.fromString(json?['status']),
       rate: _parseDouble(json?['rate']),
-      galleries: galleriesJson
-          .map((e) => GalleryModel.fromJson(e))
-          .toList(),
-      trapDays: daysJson
-          .map((e) => TripDayModel.fromJson(e))
-          .toList(),
+      galleries: galleriesJson.map((e) => GalleryModel.fromJson(e)).toList(),
+      trapDays: daysJson.map((e) => TripDayModel.fromJson(e)).toList(),
     );
   }
+
+  // empty construtor
+  TripModel.empty()
+    : id = 0,
+      name = '',
+      price = 0.0,
+      interfaceFrom = '',
+      interfaceTo = '',
+      duration = 0,
+      countPeople = 0,
+      status = TripStatus.active,
+      rate = 0.0,
+      galleries = const [],
+      trapDays = const [];
 }

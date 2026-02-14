@@ -73,6 +73,19 @@ class S {
   String get next {
     return Intl.message('Next', name: 'next', desc: '', args: []);
   }
+
+  /// `{count, plural, =0{No persons} =1{1 person} other{{count} persons}}`
+  String persons(int count) {
+    return Intl.plural(
+      count,
+      zero: 'No persons',
+      one: '1 person',
+      other: '$count persons',
+      name: 'persons',
+      desc: 'Number of persons',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

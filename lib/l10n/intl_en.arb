@@ -2,5 +2,14 @@
   "error": "Error",
   "tryAgain": "Try Again",
   "previous": "Previous",
-  "next": "Next"
+  "next": "Next",
+  "persons": "{count, plural, =0{No persons} =1{1 person} other{{count} persons}}",
+  "@persons": {
+    "description": "Number of persons",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

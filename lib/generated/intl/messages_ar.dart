@@ -20,10 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(count) =>
+      "${Intl.plural(count, zero: 'لا يوجد أشخاص', one: 'شخص واحد', two: 'شخصان', few: '${count} أشخاص', many: '${count} شخصًا', other: '${count} شخص')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "persons": m0,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
   };
