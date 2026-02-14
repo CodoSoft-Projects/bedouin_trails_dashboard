@@ -76,8 +76,8 @@ class TripsProvider extends ChangeNotifier {
       },
       (tripsRespone) {
         checkGetAllActiveTrips = true;
-        trips = tripsRespone.trips;
-        pagination = tripsRespone.pagination;
+        inactiveTrips = tripsRespone.trips;
+        inactivePagination = tripsRespone.pagination;
       },
     );
 

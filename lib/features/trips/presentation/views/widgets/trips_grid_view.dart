@@ -29,8 +29,11 @@ class TripsGridView extends StatelessWidget {
               msg: prov.allTripsMessage,
               onRetry: prov.getAllActiveTrips,
             )
-          : trips.isNotEmpty
-          ? EmptyGridWidget(lottie: Assets.animationsEmptyGrid2)
+          : trips.isEmpty
+          ? EmptyGridWidget(
+              lottie: Assets.animationsEmptyGrid2,
+              message: 'لا يوجد رحلات',
+            )
           : LayoutBuilder(
               builder: (context, constraints) {
                 var width = constraints.maxWidth;
