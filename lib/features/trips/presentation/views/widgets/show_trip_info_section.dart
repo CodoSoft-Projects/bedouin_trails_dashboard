@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
@@ -9,7 +10,8 @@ import 'trip_info_form.dart';
 import 'trip_program_section.dart';
 
 class ShowTripInfoSection extends StatefulWidget {
-  const ShowTripInfoSection({super.key});
+  const ShowTripInfoSection({super.key, required this.trip});
+  final TripModel trip;
 
   @override
   State<ShowTripInfoSection> createState() => _ShowTripInfoSectionState();
@@ -67,7 +69,10 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
             ],
           ),
           const SizedBox(height: 42),
-          if (showInfo) TripInfoForm(canEdit: false) else TripProgramSection(),
+          if (showInfo)
+            TripInfoForm(trip: widget.trip, canEdit: false)
+          else
+            TripProgramSection(),
         ],
       ),
     );

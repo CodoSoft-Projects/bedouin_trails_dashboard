@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/size_config.dart';
 import '../../../../trips/presentation/views/widgets/show_trip_images_section.dart';
 import '../../../../trips/presentation/views/widgets/show_trip_info_section.dart';
@@ -33,10 +34,8 @@ class _Desktop extends StatelessWidget {
       spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: ShowTripImagesSection(
-          galleries: [],
-        )),
-        Expanded(child: ShowTripInfoSection()),
+        Expanded(child: ShowTripImagesSection(galleries: [])),
+        Expanded(child: ShowTripInfoSection(trip: TripModel.empty())),
       ],
     );
   }
@@ -51,7 +50,7 @@ class _Mobile extends StatelessWidget {
       spacing: 12,
       children: [
         ShowTripImagesSection(galleries: []),
-        ShowTripInfoSection(),
+        ShowTripInfoSection(trip: TripModel.empty()),
       ],
     );
   }

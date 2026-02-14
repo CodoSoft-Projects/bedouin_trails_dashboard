@@ -1,13 +1,16 @@
+import 'package:bedouin_trails_dashboard/core/enums/trip_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 
 class TripInfoForm extends StatelessWidget {
-  const TripInfoForm({super.key, this.canEdit = true});
+  const TripInfoForm({super.key, this.canEdit = true, required this.trip});
   final bool canEdit;
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +24,17 @@ class TripInfoForm extends StatelessWidget {
             children: [
               CustomTextFormField(
                 labelText: 'عنوان الرحلة',
-                controller: TextEditingController(text: 'SIWA SAFARI TOUR'),
+                controller: TextEditingController(text: trip.name),
               ),
 
               CustomTextFormField(
                 labelText: 'حالة الحجز للرحلة',
-                controller: TextEditingController(text: 'متاح'),
+                controller: TextEditingController(text: trip.status.arName),
               ),
 
               CustomTextFormField(
                 labelText: 'سعر الرحلة',
-                controller: TextEditingController(text: '1000'),
+                controller: TextEditingController(text: trip.price.toString()),
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 suffixIcon: Icon(
                   Icons.attach_money,
@@ -41,12 +44,12 @@ class TripInfoForm extends StatelessWidget {
 
               CustomTextFormField(
                 labelText: 'نقطة بداية الرحلة',
-                controller: TextEditingController(text: 'واحة سيوة'),
+                controller: TextEditingController(text: trip.interfaceFrom),
               ),
 
               CustomTextFormField(
                 labelText: 'نقطة نهاية الرحلة',
-                controller: TextEditingController(text: 'الكثبان البضاء'),
+                controller: TextEditingController(text: trip.interfaceTo),
               ),
               const SizedBox(height: 24),
               if (canEdit)

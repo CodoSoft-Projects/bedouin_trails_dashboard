@@ -1,14 +1,22 @@
-import 'package:bedouin_trails_dashboard/core/widgets/custom_circular_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
+import '../../../../../core/models/trip/gallery_model.dart';
+import '../../../../../core/widgets/custom_cached_network_image.dart';
+import '../../../../../core/widgets/custom_circular_button.dart';
 
 class TripImage extends StatelessWidget {
-  const TripImage({super.key, this.canDelete = false, this.height, this.width});
+  const TripImage({
+    super.key,
+    this.canDelete = false,
+    this.height,
+    this.width,
+    required this.galleryModel,
+  });
   final bool canDelete;
   final double? height, width;
+  final GalleryModel galleryModel;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,7 @@ class TripImage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
-            image: AssetImage(Assets.imagesTestTripImage),
+            image: customCachedNetworkImageprovider(galleryModel.image),
             fit: BoxFit.cover,
           ),
         ),

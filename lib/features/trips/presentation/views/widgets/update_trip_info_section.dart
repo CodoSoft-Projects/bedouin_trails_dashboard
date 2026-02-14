@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
@@ -68,7 +69,7 @@ class _UpdateTripInfoSectionState extends State<UpdateTripInfoSection> {
           ),
           const SizedBox(height: 42),
           if (showInfo)
-            TripInfoForm(canEdit: true)
+            TripInfoForm(canEdit: true, trip: TripModel.empty())
           else
             UpdateTripProgramSection(),
         ],

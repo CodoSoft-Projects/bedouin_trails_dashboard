@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
@@ -86,7 +87,7 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
           ),
           const SizedBox(height: 42),
           if (sectionType == _SectionType.info)
-            const TripInfoForm(canEdit: false),
+            TripInfoForm(canEdit: false, trip: TripModel.empty()),
           if (sectionType == _SectionType.program) const TripProgramSection(),
           if (sectionType == _SectionType.bookingDetails)
             const BookingDetailsSection(),
