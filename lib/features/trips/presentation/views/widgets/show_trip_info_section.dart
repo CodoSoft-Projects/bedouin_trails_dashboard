@@ -18,7 +18,7 @@ class ShowTripInfoSection extends StatefulWidget {
 }
 
 class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
-  bool showInfo = true;
+  bool showInfo = false;
 
   void toggleInfo(bool val) {
     showInfo = val;
@@ -72,7 +72,7 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
           if (showInfo)
             TripInfoForm(trip: widget.trip, canEdit: false)
           else
-            TripProgramSection(trip: widget.trip),
+            TripProgramSection(),
         ],
       ),
     );

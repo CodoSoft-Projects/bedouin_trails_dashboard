@@ -1,11 +1,14 @@
 import 'package:bedouin_trails_dashboard/core/enums/trip_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../manager/trips_provider.dart';
 
 class TripInfoForm extends StatelessWidget {
   const TripInfoForm({super.key, this.canEdit = true, required this.trip});
@@ -18,7 +21,8 @@ class TripInfoForm extends StatelessWidget {
       constraints: const BoxConstraints(maxWidth: 500),
       child: AbsorbPointer(
         absorbing: !canEdit,
-        child: Form(
+        child: Skeletonizer(
+          enabled: context.watch<TripsProvider>().checkGetTripDetails == null,
           child: Column(
             spacing: 12,
             children: [

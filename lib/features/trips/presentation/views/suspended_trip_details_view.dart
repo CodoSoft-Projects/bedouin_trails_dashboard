@@ -47,7 +47,7 @@ class _Desktop extends StatelessWidget {
       spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: ShowTripImagesSection(galleries: trip.galleries)),
+        Expanded(child: ShowTripImagesSection()),
         Expanded(child: ShowTripInfoSection(trip: trip)),
       ],
     );
@@ -63,7 +63,7 @@ class _Mobile extends StatelessWidget {
     return Column(
       spacing: 12,
       children: [
-        ShowTripImagesSection(galleries: trip.galleries),
+        ShowTripImagesSection(),
         ShowTripInfoSection(trip: trip),
       ],
     );

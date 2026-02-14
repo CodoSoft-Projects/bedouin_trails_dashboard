@@ -12,7 +12,6 @@ class TripCardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var firstGalary = trip.galleries.isEmpty ? null : trip.galleries.first;
     return Stack(
       children: [
         Positioned(
@@ -25,7 +24,7 @@ class TripCardImage extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               image: DecorationImage(
-                image: customCachedNetworkImageprovider(firstGalary?.image),
+                image: customCachedNetworkImageprovider(trip.image),
                 fit: BoxFit.fill,
               ),
             ),
@@ -68,7 +67,6 @@ class TripCardImage extends StatelessWidget {
           ),
         ),
 
-        /// ChatGPT : Edit only this widget
         Positioned(
           top: 0,
           left: 0,

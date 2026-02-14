@@ -7,4 +7,7 @@ class GalleryModel {
   factory GalleryModel.fromJson(Map<String, dynamic>? json) {
     return GalleryModel(id: json?['id'] ?? 0, image: json?['image'] ?? '');
   }
+
+  // empty constructor
+  GalleryModel.empty() : this(id: 0, image: '');
 }

@@ -5,6 +5,7 @@ import 'trip_day_model.dart';
 class TripModel {
   final int id;
   final String name;
+  final String image;
   final double price;
   final String interfaceFrom;
   final String interfaceTo;
@@ -18,6 +19,7 @@ class TripModel {
   const TripModel({
     required this.id,
     required this.name,
+    required this.image,
     required this.price,
     required this.interfaceFrom,
     required this.interfaceTo,
@@ -43,6 +45,7 @@ class TripModel {
     return TripModel(
       id: json?['id'] ?? 0,
       name: json?['name'] ?? '',
+      image: json?['mainImage'] ?? '',
       price: _parseDouble(json?['price']),
       interfaceFrom: json?['interfaceFrom'] ?? '',
       interfaceTo: json?['interfaceTo'] ?? '',
@@ -59,6 +62,7 @@ class TripModel {
   TripModel.empty()
     : id = 0,
       name = '',
+      image = '',
       price = 0.0,
       interfaceFrom = '',
       interfaceTo = '',

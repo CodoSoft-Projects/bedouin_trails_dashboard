@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/models/trip/trip_card_model.dart';
+import '../../manager/trips_provider.dart';
 import 'empty_cart_image.dart';
 import 'trip_program_cart_item.dart';
 
@@ -15,20 +18,23 @@ class TripProgramListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return cards.isEmpty
-        ? EmptyCartImage()
-        : ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: cards.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 8),
-            itemBuilder: (context, index) {
-              return TripProgramCartItem(
-                canEdit: canEdit,
-                cartItem: cards[index],
-                cardNumber: index + 1,
-              );
-            },
-          );
+    return Skeletonizer(
+      enabled: context.watch<TripsProvider>().checkGetTripDetails == null,
+      child: cards.isEmpty
+          ? EmptyCartImage()
+          : ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: cards.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 8),
+              itemBuilder: (context, index) {
+                return TripProgramCartItem(
+                  canEdit: canEdit,
+                  cartItem: cards[index],
+                  cardNumber: index + 1,
+                );
+              },
+            ),
+    );
   }
 }
