@@ -34,4 +34,11 @@ class TripsProvider extends ChangeNotifier {
 
     notifyListeners();
   }
+
+  /// On Select Trip
+  TripModel? selectedTrip;
+  void onSelectTrip(TripModel trip) {
+    selectedTrip = trip;
+    notifyListeners();
+  }
 }

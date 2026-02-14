@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../core/models/trip/trip_model.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../manager/trips_provider.dart';
 import 'widgets/show_trip_images_section.dart';
 import 'widgets/show_trip_info_section.dart';
 import 'widgets/trip_details_view_header.dart';
@@ -13,12 +16,13 @@ class TripDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
+    TripModel trip = context.watch<TripsProvider>().selectedTrip!;
     return Scaffold(
       appBar: customAppBar(context, title: 'تفاصيل الرحلة', showBack: true),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
-          const TripDetailsViewHeader(),
+          TripDetailsViewHeader(trip: trip),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(
             child: Padding(

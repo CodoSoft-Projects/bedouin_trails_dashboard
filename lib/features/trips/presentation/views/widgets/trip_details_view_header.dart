@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/helpers/dialog_helper.dart';
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/helpers/dialog_helper.dart';
 import '../update_trip_view.dart';
 
 class TripDetailsViewHeader extends StatelessWidget {
-  const TripDetailsViewHeader({super.key});
+  const TripDetailsViewHeader({super.key, required this.trip});
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {

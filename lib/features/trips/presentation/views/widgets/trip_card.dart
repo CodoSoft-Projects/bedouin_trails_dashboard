@@ -6,6 +6,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import 'trip_card_image.dart';
 
 class TripCard extends StatelessWidget {
@@ -80,8 +81,7 @@ class TripCard extends StatelessWidget {
                       child: CustomWhiteBox(
                         child: Center(
                           child: Text(
-                            // TODO : show this after adding to the response.
-                            '20 شخص',
+                            S.of(context).persons(trip.countPeople),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.regular16(context),

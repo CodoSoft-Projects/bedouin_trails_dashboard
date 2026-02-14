@@ -42,6 +42,7 @@ class TripsGridView extends StatelessWidget {
                 return TripCard(
                   trip: trips[index],
                   onTripTap: () {
+                    prov.onSelectTrip(trips[index]);
                     Navigator.of(context).pushNamed(TripDetailsView.routeName);
                   },
                 );
