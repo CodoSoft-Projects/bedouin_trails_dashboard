@@ -5,6 +5,7 @@ import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../manager/functions/delete_trip.dart';
 import '../../manager/functions/toggle_trip_status.dart';
 
 class SuspendedTripDetailsViewHeader extends StatelessWidget {
@@ -35,12 +36,7 @@ class SuspendedTripDetailsViewHeader extends StatelessWidget {
                 title: 'تاكيد',
                 desc: 'هل تريد حذف الرحلة من النظام؟',
                 onOk: () {
-                  Navigator.pop(context);
-
-                  DialogHelper.showSuccessDialog(
-                    context,
-                    title: 'تم حذف الرحلة من النظام',
-                  );
+                  deleteTrip(context: context, id: trip.id);
                 },
                 onCancel: () {},
               );
