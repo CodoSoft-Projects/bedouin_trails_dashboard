@@ -48,4 +48,37 @@ class TripsProvider extends ChangeNotifier {
     selectedTrip = trip;
     notifyListeners();
   }
+
+  /// Get All Inactive Trips
+  List<TripModel> inactiveTrips = [];
+  PaginationModel inactivePagination = PaginationModel.empty();
+
+  var inactiveTripSearchController = TextEditingController();
+  var inactiveTripDurationController = TextEditingController();
+
+  bool? checkGetAllInactiveTrips = false;
+  Future<void> getAllInactiveTrips({int page = 1}) async {
+    //* Loading State
+    checkGetAllActiveTrips = null;
+    notifyListeners();
+
+    final response = await repo.getAllInactiveTrips(
+      page: page,
+      search: inactiveTripSearchController.text,
+    );
+
+    response.fold(
+      (message) {
+        checkGetAllActiveTrips = false;
+        message = message;
+      },
+      (tripsRespone) {
+        checkGetAllActiveTrips = true;
+        trips = tripsRespone.trips;
+        pagination = tripsRespone.pagination;
+      },
+    );
+
+    notifyListeners();
+  }
 }

@@ -31,7 +31,9 @@ class _DashboardViewState extends State<DashboardView> {
 
     /// to get dashboard features data.
     Future.microtask(() {
-      context.read<TripsProvider>().getAllActiveTrips();
+      context.read<TripsProvider>()
+        ..getAllActiveTrips()
+        ..getAllInactiveTrips();
     });
   }
 

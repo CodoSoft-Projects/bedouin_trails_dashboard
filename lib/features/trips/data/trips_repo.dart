@@ -21,7 +21,26 @@ class TripsRepo {
   }) async {
     try {
       final response = await dio.get(
-        '${EndPoints.trips}?page=$page&search=$search&duration=$duration',
+        '${EndPoints.trips}?page=$page&search=$search&duration=$duration&status=active',
+        isFormData: false,
+      );
+      return Right(TripsResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in getAllActiveTrips: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Get All Inactive Trips
+  Future<Either<String, TripsResponseModel>> getAllInactiveTrips({
+    int page = 1,
+    String search = '',
+  }) async {
+    try {
+      final response = await dio.get(
+        '${EndPoints.trips}?page=$page&search=$search&status=inactive',
         isFormData: false,
       );
       return Right(TripsResponseModel.fromJson(response));
