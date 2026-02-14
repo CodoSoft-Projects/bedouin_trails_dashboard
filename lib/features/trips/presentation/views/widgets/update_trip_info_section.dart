@@ -10,7 +10,8 @@ import 'trip_info_form.dart';
 import 'update_trip_program_section.dart';
 
 class UpdateTripInfoSection extends StatefulWidget {
-  const UpdateTripInfoSection({super.key});
+  const UpdateTripInfoSection({super.key, required this.trip});
+  final TripModel trip;
 
   @override
   State<UpdateTripInfoSection> createState() => _UpdateTripInfoSectionState();
@@ -69,9 +70,9 @@ class _UpdateTripInfoSectionState extends State<UpdateTripInfoSection> {
           ),
           const SizedBox(height: 42),
           if (showInfo)
-            TripInfoForm(canEdit: true, trip: TripModel.empty())
+            TripInfoForm(canEdit: true, trip: widget.trip)
           else
-            UpdateTripProgramSection(),
+            UpdateTripProgramSection(trip: widget.trip),
         ],
       ),
     );
