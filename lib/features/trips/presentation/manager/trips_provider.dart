@@ -60,7 +60,7 @@ class TripsProvider extends ChangeNotifier {
   bool? checkGetAllInactiveTrips = false;
   Future<void> getAllInactiveTrips({int page = 1}) async {
     //* Loading State
-    checkGetAllActiveTrips = null;
+    checkGetAllInactiveTrips = null;
     notifyListeners();
 
     final response = await repo.getAllInactiveTrips(

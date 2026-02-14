@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -39,6 +41,7 @@ class _TripsSearchField extends StatelessWidget {
       child: CustomSearchField(
         controller: prov.inactiveTripSearchController,
         onChanged: (value) {
+          log(value);
           // if (prov.checkGetAllActiveTrips != null || value.isEmpty) {}
           prov.getAllInactiveTrips();
         },

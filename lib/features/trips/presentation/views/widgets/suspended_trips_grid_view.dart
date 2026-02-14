@@ -24,9 +24,9 @@ class SuspendedTripsGridView extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: prov.checkGetAllActiveTrips == false
+      child: prov.checkGetAllInactiveTrips == false
           ? ApiErrorView(
-              msg: prov.allTripsMessage,
+              msg: prov.inActiveTripsMessage,
               onRetry: prov.getAllInactiveTrips,
             )
           : trips.isEmpty
@@ -53,7 +53,7 @@ class SuspendedTripsGridView extends StatelessWidget {
                     itemCount: trips.length,
                     itemBuilder: (context, index) {
                       return TripCard(
-                        trip: TripModel.empty(),
+                        trip: trips[index],
                         onTripTap: () {
                           prov.onSelectTrip(trips[index]);
                           Navigator.of(

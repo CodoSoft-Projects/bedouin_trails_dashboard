@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/models/trip/trip_model.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../manager/trips_provider.dart';
 import 'widgets/show_trip_images_section.dart';
 import 'widgets/show_trip_info_section.dart';
 import 'widgets/suspended_trip_details_view_header.dart';
@@ -14,17 +16,18 @@ class SuspendedTripDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
+    TripModel trip = context.watch<TripsProvider>().selectedTrip!;
     return Scaffold(
       appBar: customAppBar(context, title: 'تفاصيل الرحلة', showBack: true),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
-          const SuspendedTripDetailsViewHeader(),
+          SuspendedTripDetailsViewHeader(trip: trip),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: isMobile ? const _Mobile() : const _Desktop(),
+              child: isMobile ? _Mobile(trip) : _Desktop(trip),
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
@@ -35,7 +38,8 @@ class SuspendedTripDetailsView extends StatelessWidget {
 }
 
 class _Desktop extends StatelessWidget {
-  const _Desktop();
+  const _Desktop(this.trip);
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
@@ -43,23 +47,24 @@ class _Desktop extends StatelessWidget {
       spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: ShowTripImagesSection(galleries: [])),
-        Expanded(child: ShowTripInfoSection(trip: TripModel.empty())),
+        Expanded(child: ShowTripImagesSection(galleries: trip.galleries)),
+        Expanded(child: ShowTripInfoSection(trip: trip)),
       ],
     );
   }
 }
 
 class _Mobile extends StatelessWidget {
-  const _Mobile();
+  const _Mobile(this.trip);
+  final TripModel trip;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       spacing: 12,
       children: [
-        ShowTripImagesSection(galleries: []),
-        ShowTripInfoSection(trip: TripModel.empty()),
+        ShowTripImagesSection(galleries: trip.galleries),
+        ShowTripInfoSection(trip: trip),
       ],
     );
   }
