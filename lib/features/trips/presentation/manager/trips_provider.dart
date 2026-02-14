@@ -16,13 +16,13 @@ class TripsProvider extends ChangeNotifier {
   var tripDurationController = TextEditingController();
 
   bool? checkGetAllActiveTrips = false;
-  Future<void> getAllActiveTrips() async {
+  Future<void> getAllActiveTrips({int page = 1}) async {
     //* Loading State
     checkGetAllActiveTrips = null;
     notifyListeners();
 
     final response = await repo.getAllActiveTrips(
-      page: 1,
+      page: page,
       search: tripSearchController.text,
       duration: tripDurationController.text,
     );
