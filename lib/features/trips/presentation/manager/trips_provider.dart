@@ -48,6 +48,25 @@ class TripsProvider extends ChangeNotifier {
   TripModel? selectedTrip;
   void onSelectTrip(TripModel trip) {
     selectedTrip = trip;
+    getTripDetails();
+  }
+
+  /// Get trip details
+  bool? checkGetTripDetails = false;
+  Future<void> getTripDetails() async {
+    checkGetTripDetails = null;
+    notifyListeners();
+    final response = await repo.getTripDetails(id: selectedTrip!.id);
+    response.fold(
+      (message) {
+        checkGetTripDetails = false;
+        message = message;
+      },
+      (tripRes) {
+        checkGetTripDetails = true;
+        selectedTrip = tripRes.trip;
+      },
+    );
     notifyListeners();
   }
 

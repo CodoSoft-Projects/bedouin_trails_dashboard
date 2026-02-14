@@ -8,6 +8,7 @@ import '../../../core/enums/trip_status.dart';
 import '../../../core/errors/exception.dart';
 import '../../../core/functions/is_arabic.dart';
 import '../../../core/models/simple_model.dart';
+import '../../../core/models/trip/trip_response_model.dart';
 import '../../../core/models/trip/trips_response_model.dart';
 import '../../../core/services/service_locator.dart';
 import '../../../core/utils/constants.dart';
@@ -49,7 +50,25 @@ class TripsRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      log("Exception in signin: $e");
+      log("Exception in getAllInactiveTrips: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Get trip details
+  Future<Either<String, TripResponseModel>> getTripDetails({
+    required int id,
+  }) async {
+    try {
+      final response = await dio.get(
+        '${EndPoints.trips}/$id',
+        isFormData: false,
+      );
+      return Right(TripResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in getTripDetails: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
