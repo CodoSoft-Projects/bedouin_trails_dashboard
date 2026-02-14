@@ -71,4 +71,20 @@ class TripsRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Delete Trip
+  Future<Either<String, SimpleModel>> deleteTrip({required int id}) async {
+    try {
+      final response = await dio.delete(
+        '${EndPoints.trips}/$id',
+        isFormData: false,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in deleteTrip: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }

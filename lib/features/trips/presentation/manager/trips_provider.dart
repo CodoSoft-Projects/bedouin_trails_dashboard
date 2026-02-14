@@ -109,4 +109,26 @@ class TripsProvider extends ChangeNotifier {
       },
     );
   }
+
+  /// Delete Trip
+  bool? checkDeleteTrip = false;
+  Future<void> deleteTrip({required int id}) async {
+    checkDeleteTrip = null;
+    notifyListeners();
+
+    final response = await repo.deleteTrip(id: id);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkDeleteTrip = false;
+        notifyListeners();
+      },
+      (model) {
+        checkDeleteTrip = true;
+        message = model.message;
+        getAllActiveTrips();
+        getAllInactiveTrips();
+      },
+    );
+  }
 }
