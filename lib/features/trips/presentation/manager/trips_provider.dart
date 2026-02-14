@@ -12,13 +12,20 @@ class TripsProvider extends ChangeNotifier {
   List<TripModel> trips = [];
   PaginationModel pagination = PaginationModel.empty();
 
+  var tripSearchController = TextEditingController();
+  var tripDurationController = TextEditingController();
+
   bool? checkGetAllActiveTrips = false;
   Future<void> getAllActiveTrips() async {
     //* Loading State
     checkGetAllActiveTrips = null;
     notifyListeners();
 
-    final response = await repo.getAllActiveTrips();
+    final response = await repo.getAllActiveTrips(
+      page: 1,
+      search: tripSearchController.text,
+      duration: tripDurationController.text,
+    );
 
     response.fold(
       (message) {

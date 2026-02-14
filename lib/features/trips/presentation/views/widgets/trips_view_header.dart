@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/size_config.dart';
 import 'add_new_trip_button.dart';
-import 'filter_trips_type_button.dart';
 import 'search_trips_duration_button.dart';
 import 'trips_search_field.dart';
 
@@ -36,7 +35,6 @@ class _DesktopLayout extends StatelessWidget {
       title: Row(
         spacing: 8,
         children: [
-          FilterTripsTypeButton(),
           SearchTripsDurationButton(),
           const Spacer(),
           TripsSearchField(),
@@ -69,7 +67,6 @@ class _MobileLayout extends StatelessWidget {
           Row(
             spacing: 8,
             children: [
-              FilterTripsTypeButton(),
               SearchTripsDurationButton(),
               const Spacer(),
               AddNewTripButton(),

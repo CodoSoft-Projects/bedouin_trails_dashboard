@@ -14,9 +14,16 @@ class TripsRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Active Trips
-  Future<Either<String, TripsResponseModel>> getAllActiveTrips() async {
+  Future<Either<String, TripsResponseModel>> getAllActiveTrips({
+    int page = 1,
+    String search = '',
+    String duration = '',
+  }) async {
     try {
-      final response = await dio.get(EndPoints.trips, isFormData: false);
+      final response = await dio.get(
+        '${EndPoints.trips}?page=$page&search=$search&duration=$duration',
+        isFormData: false,
+      );
       return Right(TripsResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
