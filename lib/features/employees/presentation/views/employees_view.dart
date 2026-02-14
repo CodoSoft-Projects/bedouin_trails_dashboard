@@ -20,7 +20,6 @@ class EmployeesView extends StatelessWidget {
             currentPage: 4,
             totalPages: 100,
             onPageChanged: (page) {
-              print(page);
               // here call API again
             },
           ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/models/trip/trip_card_model.dart';
 import 'trip_program_cart_item.dart';
 
 class TripProgramListView extends StatelessWidget {
-  const TripProgramListView({super.key, this.canEdit = false});
+  const TripProgramListView({
+    super.key,
+    this.canEdit = false,
+    required this.cards,
+  });
   final bool canEdit;
+  final List<TripCardModel> cards;
 
   @override
   Widget build(BuildContext context) {

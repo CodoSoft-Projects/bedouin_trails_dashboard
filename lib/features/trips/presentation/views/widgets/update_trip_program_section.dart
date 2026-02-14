@@ -40,7 +40,7 @@ class UpdateTripProgramSection extends StatelessWidget {
             ),
           ],
         ),
-        TripProgramDaysListView(),
+        TripProgramDaysListView(trapDays: [], onDaySelected: (int value) {}),
         Row(
           children: [
             Text(
@@ -60,7 +60,7 @@ class UpdateTripProgramSection extends StatelessWidget {
             ),
           ],
         ),
-        TripProgramListView(canEdit: true),
+        TripProgramListView(canEdit: true, cards: []),
       ],
     );
   }
