@@ -86,6 +86,19 @@ class S {
       args: [count],
     );
   }
+
+  /// `{count, plural, =0{No days} =1{1 day} other{{count} days}}`
+  String days(int count) {
+    return Intl.plural(
+      count,
+      zero: 'No days',
+      one: '1 day',
+      other: '$count days',
+      name: 'days',
+      desc: 'Number of days',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

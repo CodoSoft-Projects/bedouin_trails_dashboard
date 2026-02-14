@@ -4,6 +4,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_info_field.dart';
+import '../../../../../generated/l10n.dart';
 
 class TripProgramSectionHeader extends StatelessWidget {
   const TripProgramSectionHeader({super.key, required this.numberOfDays});
@@ -25,7 +26,7 @@ class TripProgramSectionHeader extends StatelessWidget {
           child: CustomInfoField(
             color: AppColors.babyBlue,
             title: 'رحلة :',
-            subtitle: '$numberOfDays يوم',
+            subtitle: S.of(context).days(numberOfDays),
           ),
         ),
       ],

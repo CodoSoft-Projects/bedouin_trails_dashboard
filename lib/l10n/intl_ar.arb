@@ -3,5 +3,6 @@
   "tryAgain": "حاول مرة أخرى",
   "previous": "السابق",
   "next": "التالي",
-  "persons": "{count, plural, =0{لا يوجد أشخاص} =1{شخص واحد} =2{شخصان} few{{count} أشخاص} many{{count} شخصًا} other{{count} شخص}}"
+  "persons": "{count, plural, =0{لا يوجد أشخاص} =1{شخص واحد} =2{شخصان} few{{count} أشخاص} many{{count} شخصًا} other{{count} شخص}}",
+  "days": "{count, plural, =0{لا توجد أيام} =1{يوم واحد} =2{يومان} few{{count} أيام} many{{count} يومًا} other{{count} يوم}}"
 }

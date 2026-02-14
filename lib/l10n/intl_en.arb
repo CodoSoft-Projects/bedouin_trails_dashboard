@@ -11,5 +11,14 @@
         "type": "int"
       }
     }
+  },
+  "days": "{count, plural, =0{No days} =1{1 day} other{{count} days}}",
+  "@days": {
+    "description": "Number of days",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

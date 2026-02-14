@@ -88,7 +88,8 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
           const SizedBox(height: 42),
           if (sectionType == _SectionType.info)
             TripInfoForm(canEdit: false, trip: TripModel.empty()),
-          if (sectionType == _SectionType.program) const TripProgramSection(),
+          if (sectionType == _SectionType.program)
+            TripProgramSection(trip: TripModel.empty()),
           if (sectionType == _SectionType.bookingDetails)
             const BookingDetailsSection(),
         ],

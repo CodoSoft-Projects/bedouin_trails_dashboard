@@ -72,7 +72,7 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
           if (showInfo)
             TripInfoForm(trip: widget.trip, canEdit: false)
           else
-            TripProgramSection(),
+            TripProgramSection(trip: widget.trip),
         ],
       ),
     );
