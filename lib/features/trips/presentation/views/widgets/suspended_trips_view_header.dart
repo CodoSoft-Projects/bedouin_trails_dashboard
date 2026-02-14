@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import '../../manager/trips_provider.dart';
 
 class SuspendedTripsViewHeader extends StatelessWidget {
   const SuspendedTripsViewHeader({super.key});
@@ -31,9 +33,16 @@ class _TripsSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<TripsProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
-      child: CustomSearchField(onChanged: (value) {}),
+      child: CustomSearchField(
+        controller: prov.inactiveTripSearchController,
+        onChanged: (value) {
+          // if (prov.checkGetAllActiveTrips != null || value.isEmpty) {}
+          prov.getAllInactiveTrips();
+        },
+      ),
     );
   }
 }

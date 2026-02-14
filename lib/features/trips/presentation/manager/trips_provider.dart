@@ -55,7 +55,6 @@ class TripsProvider extends ChangeNotifier {
   PaginationModel inactivePagination = PaginationModel.empty();
 
   var inactiveTripSearchController = TextEditingController();
-  var inactiveTripDurationController = TextEditingController();
 
   String inActiveTripsMessage = '';
   bool? checkGetAllInactiveTrips = false;
@@ -72,10 +71,10 @@ class TripsProvider extends ChangeNotifier {
     response.fold(
       (message) {
         inActiveTripsMessage = message;
-        checkGetAllActiveTrips = false;
+        checkGetAllInactiveTrips = false;
       },
       (tripsRespone) {
-        checkGetAllActiveTrips = true;
+        checkGetAllInactiveTrips = true;
         inactiveTrips = tripsRespone.trips;
         inactivePagination = tripsRespone.pagination;
       },
