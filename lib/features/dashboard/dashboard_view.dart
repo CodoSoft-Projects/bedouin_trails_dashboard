@@ -5,20 +5,47 @@ import 'package:provider/provider.dart';
 
 import '../../core/utils/size_config.dart';
 import '../profile/presentation/manager/profile_provider.dart';
+import '../trips/presentation/manager/trips_provider.dart';
 import 'functions/get_current_dashboard_view.dart';
 import 'providers/dashboard_manager.dart';
 import 'widgets/dashboard_app_bar.dart';
 import 'widgets/dashboard_drawer.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
   static const routeName = 'dashboard-view';
 
   @override
-  Widget build(BuildContext context) {
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
+  @override
+  void initState() {
+    super.initState();
+
+    /// to get account data
     Future.microtask(() {
       context.read<ProfileProvider>().getAccountData();
     });
+
+    /// to get dashboard features data.
+    Future.microtask(() {
+      context.read<TripsProvider>().getAllActiveTrips();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const DashboardViewManager();
+  }
+}
+
+class DashboardViewManager extends StatelessWidget {
+  const DashboardViewManager({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => DashboardManager(),
       child: Builder(

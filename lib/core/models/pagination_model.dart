@@ -41,4 +41,8 @@ class PaginationModel {
       "last_page": lastPage,
     };
   }
+
+  // Empty constructor
+  PaginationModel.empty()
+    : this(currentPage: 1, perPage: 10, total: 0, lastPage: 1);
 }

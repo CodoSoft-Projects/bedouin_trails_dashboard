@@ -7,6 +7,7 @@ import 'core/functions/open_hive_boxes.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
 import 'features/profile/presentation/manager/profile_provider.dart';
+import 'features/trips/presentation/manager/trips_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ Future<void> main() async {
       providers: [
         /// Core Providers
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
+        ChangeNotifierProvider(create: (_) => TripsProvider()),
       ],
       child: const BedouinTrails(),
     ),
