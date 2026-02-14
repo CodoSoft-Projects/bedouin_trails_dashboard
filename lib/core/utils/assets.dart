@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
   
+  static const String animationsEmptyGrid2 = "assets/animations/empty_grid2.json";
+
   static const String animationsHandGif = "assets/animations/hand_gif.gif";
 
   static const String animationsImageNotPreview = "assets/animations/Image_Not_Preview.json";

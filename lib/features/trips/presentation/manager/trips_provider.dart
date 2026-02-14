@@ -6,7 +6,7 @@ import '../../data/trips_repo.dart';
 
 class TripsProvider extends ChangeNotifier {
   TripsRepo repo = TripsRepo();
-  String message = '';
+  // String message = '';
 
   /// Get All Active Trips
   List<TripModel> trips = [];
@@ -15,6 +15,7 @@ class TripsProvider extends ChangeNotifier {
   var tripSearchController = TextEditingController();
   var tripDurationController = TextEditingController();
 
+  String allTripsMessage = '';
   bool? checkGetAllActiveTrips = false;
   Future<void> getAllActiveTrips({int page = 1}) async {
     //* Loading State
@@ -30,7 +31,7 @@ class TripsProvider extends ChangeNotifier {
     response.fold(
       (message) {
         checkGetAllActiveTrips = false;
-        message = message;
+        allTripsMessage = message;
       },
       (tripsRespone) {
         checkGetAllActiveTrips = true;
@@ -56,6 +57,7 @@ class TripsProvider extends ChangeNotifier {
   var inactiveTripSearchController = TextEditingController();
   var inactiveTripDurationController = TextEditingController();
 
+  String inActiveTripsMessage = '';
   bool? checkGetAllInactiveTrips = false;
   Future<void> getAllInactiveTrips({int page = 1}) async {
     //* Loading State
@@ -69,8 +71,8 @@ class TripsProvider extends ChangeNotifier {
 
     response.fold(
       (message) {
+        inActiveTripsMessage = message;
         checkGetAllActiveTrips = false;
-        message = message;
       },
       (tripsRespone) {
         checkGetAllActiveTrips = true;

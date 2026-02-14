@@ -32,13 +32,15 @@ class _Pagination extends StatelessWidget {
   Widget build(BuildContext context) {
     var prov = context.watch<TripsProvider>();
     return SliverToBoxAdapter(
-      child: CustomPagination(
-        currentPage: prov.pagination.currentPage,
-        totalPages: prov.pagination.lastPage,
-        onPageChanged: (page) {
-          prov.getAllActiveTrips(page: page);
-        },
-      ),
+      child: prov.checkGetAllActiveTrips == false
+          ? SizedBox()
+          : CustomPagination(
+              currentPage: prov.pagination.currentPage,
+              totalPages: prov.pagination.lastPage,
+              onPageChanged: (page) {
+                prov.getAllActiveTrips(page: page);
+              },
+            ),
     );
   }
 }

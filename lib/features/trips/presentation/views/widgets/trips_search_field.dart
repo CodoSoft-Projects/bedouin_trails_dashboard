@@ -15,9 +15,8 @@ class TripsSearchField extends StatelessWidget {
       child: CustomSearchField(
         controller: prov.tripSearchController,
         onChanged: (value) {
-          if (prov.checkGetAllActiveTrips != null || value.isEmpty) {
-            prov.getAllActiveTrips();
-          }
+          // if (prov.checkGetAllActiveTrips != null || value.isEmpty) {}
+          prov.getAllActiveTrips();
         },
       ),
     );

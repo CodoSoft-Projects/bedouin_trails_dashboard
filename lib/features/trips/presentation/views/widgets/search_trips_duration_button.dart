@@ -21,9 +21,8 @@ class SearchTripsDurationButton extends StatelessWidget {
         controller: prov.tripDurationController,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         onChanged: (value) {
-          if (prov.checkGetAllActiveTrips != null || value.isEmpty) {
-            prov.getAllActiveTrips();
-          }
+          // if (prov.checkGetAllActiveTrips != null || value.isEmpty) {}
+          prov.getAllActiveTrips();
         },
       ),
     );

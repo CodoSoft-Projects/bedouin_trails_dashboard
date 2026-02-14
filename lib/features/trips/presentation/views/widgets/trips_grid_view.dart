@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/models/trip/trip_model.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/api_error_widget.dart';
+import '../../../../../core/widgets/empty_grid_widget.dart';
 import '../../manager/trips_provider.dart';
 import '../trip_details_view.dart';
 import 'trip_card.dart';
@@ -21,36 +24,45 @@ class TripsGridView extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          var width = constraints.maxWidth;
-          var crossAxisCount = (width / 333).toInt();
-          return Skeletonizer(
-            enabled: prov.checkGetAllActiveTrips == null,
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: max(crossAxisCount, 1),
-                mainAxisSpacing: 12.0,
-                crossAxisSpacing: 12.0,
-                childAspectRatio: 336 / 572,
-                mainAxisExtent: 500,
-              ),
-              itemCount: trips.length,
-              itemBuilder: (context, index) {
-                return TripCard(
-                  trip: trips[index],
-                  onTripTap: () {
-                    prov.onSelectTrip(trips[index]);
-                    Navigator.of(context).pushNamed(TripDetailsView.routeName);
-                  },
+      child: prov.checkGetAllActiveTrips == false
+          ? ApiErrorView(
+              msg: prov.allTripsMessage,
+              onRetry: prov.getAllActiveTrips,
+            )
+          : trips.isNotEmpty
+          ? EmptyGridWidget(lottie: Assets.animationsEmptyGrid2)
+          : LayoutBuilder(
+              builder: (context, constraints) {
+                var width = constraints.maxWidth;
+                var crossAxisCount = (width / 333).toInt();
+                return Skeletonizer(
+                  enabled: prov.checkGetAllActiveTrips == null,
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: max(crossAxisCount, 1),
+                      mainAxisSpacing: 12.0,
+                      crossAxisSpacing: 12.0,
+                      childAspectRatio: 336 / 572,
+                      mainAxisExtent: 500,
+                    ),
+                    itemCount: trips.length,
+                    itemBuilder: (context, index) {
+                      return TripCard(
+                        trip: trips[index],
+                        onTripTap: () {
+                          prov.onSelectTrip(trips[index]);
+                          Navigator.of(
+                            context,
+                          ).pushNamed(TripDetailsView.routeName);
+                        },
+                      );
+                    },
+                  ),
                 );
               },
             ),
-          );
-        },
-      ),
     );
   }
 }

@@ -16,8 +16,6 @@ class ApiErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Center(
       child: Container(
         padding: const EdgeInsets.all(16),
@@ -67,9 +65,7 @@ class ApiErrorView extends StatelessWidget {
               Text(
                 msg,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.regular16(
-                  context,
-                ).copyWith(color: theme.hintColor, height: 1.5),
+                style: AppTextStyles.regular16(context),
               ),
 
               const SizedBox(height: 28),
