@@ -1,12 +1,13 @@
 import 'package:flutter/widgets.dart';
 
+import '../../../../core/enums/trip_status.dart';
 import '../../../../core/models/pagination_model.dart';
 import '../../../../core/models/trip/trip_model.dart';
 import '../../data/trips_repo.dart';
 
 class TripsProvider extends ChangeNotifier {
   TripsRepo repo = TripsRepo();
-  // String message = '';
+  String message = '';
 
   /// Get All Active Trips
   List<TripModel> trips = [];
@@ -81,5 +82,31 @@ class TripsProvider extends ChangeNotifier {
     );
 
     notifyListeners();
+  }
+
+  /// toggle trip status
+  bool? checkToggleTripStatus = false;
+
+  Future<void> toggleTripStatus({
+    required int id,
+    required TripStatus status,
+  }) async {
+    checkToggleTripStatus = null;
+    notifyListeners();
+
+    final response = await repo.toggleTripStatus(id: id, status: status);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkToggleTripStatus = false;
+        notifyListeners();
+      },
+      (model) {
+        checkToggleTripStatus = true;
+        message = model.message;
+        getAllActiveTrips();
+        getAllInactiveTrips();
+      },
+    );
   }
 }
