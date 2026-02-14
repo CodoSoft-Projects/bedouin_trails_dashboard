@@ -34,7 +34,7 @@ class _TripProgramDaysListViewState extends State<TripProgramDaysListView> {
               color: AppColors.whiteGrey,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 5,
+                itemCount: widget.trapDays.length,
                 itemBuilder: (_, index) => TripProgramDayItem(
                   dayNum: index + 1,
                   isSelected: index + 1 == selectedDay,

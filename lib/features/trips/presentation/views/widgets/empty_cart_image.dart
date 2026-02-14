@@ -12,7 +12,7 @@ class EmptyCartImage extends StatelessWidget {
     return CustomWhiteBox(
       child: Column(
         children: [
-          const Spacer(),
+          // const Spacer(),
           CircleAvatar(
             radius: 50,
             // ignore: deprecated_member_use
@@ -24,7 +24,7 @@ class EmptyCartImage extends StatelessWidget {
             'قم بإضافة صورة البطاقة',
             style: AppTextStyles.regular10(context),
           ),
-          const Spacer(),
+          // const Spacer(),
         ],
       ),
     );
