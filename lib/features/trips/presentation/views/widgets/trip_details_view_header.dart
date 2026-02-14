@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/enums/trip_status.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../manager/functions/toggle_trip_status.dart';
 import '../update_trip_view.dart';
 
 class TripDetailsViewHeader extends StatelessWidget {
@@ -43,9 +45,10 @@ class TripDetailsViewHeader extends StatelessWidget {
                 title: 'تاكيد',
                 desc: 'هل تريد ايقاف برنامج الرحلة',
                 onOk: () {
-                  DialogHelper.showSuccessDialog(
-                    context,
-                    title: 'تم ايقاف الرحلة',
+                  toggleTripStatus(
+                    context: context,
+                    id: trip.id,
+                    status: TripStatus.inactive,
                   );
                 },
                 onCancel: () {},

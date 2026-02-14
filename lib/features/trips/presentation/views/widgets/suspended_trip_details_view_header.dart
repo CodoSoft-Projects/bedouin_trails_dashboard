@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/enums/trip_status.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../manager/functions/toggle_trip_status.dart';
 
 class SuspendedTripDetailsViewHeader extends StatelessWidget {
   const SuspendedTripDetailsViewHeader({super.key, required this.trip});
@@ -54,10 +56,10 @@ class SuspendedTripDetailsViewHeader extends StatelessWidget {
                 title: 'تاكيد',
                 desc: 'هل تريد تفعيل برنامج الرحلة',
                 onOk: () {
-                  Navigator.pop(context);
-                  DialogHelper.showSuccessDialog(
-                    context,
-                    title: 'تم تفعيل برنامج الرحلة',
+                  toggleTripStatus(
+                    context: context,
+                    id: trip.id,
+                    status: TripStatus.active,
                   );
                 },
                 onCancel: () {},
