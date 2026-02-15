@@ -177,6 +177,24 @@ class TripsRepo {
     }
   }
 
+  // Add trip program day
+  Future<Either<String, SimpleModel>> addTripProgramDay({
+    required int tripId,
+  }) async {
+    try {
+      final response = await dio.post(
+        EndPoints.tripDay,
+        data: {"trap_id": tripId},
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in addTripProgramDay: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
   /// Add Cart to Trip Day
   Future<Either<String, SimpleModel>> addCartToTripDay({
     required int tripDayId,

@@ -269,6 +269,25 @@ class TripsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // Add trip program day
+  bool? checkAddingDay = false;
+  Future<void> addTripProgramDay({required int tripId}) async {
+    checkAddingDay = null;
+    notifyListeners();
+    final response = await repo.addTripProgramDay(tripId: tripId);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkAddingDay = false;
+      },
+      (model) {
+        checkAddingDay = true;
+        message = model.message;
+        getTripDetails();
+      },
+    );
+  }
+
   /// Add & Update Cart in the Trip Day
   PickedImage? cartImage;
   void uploadCartImage() async {

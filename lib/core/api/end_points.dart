@@ -11,6 +11,7 @@ class EndPoints {
 
   /// Trips
   static const trips = '/api/admin/traps';
+  static const tripDay = '/api/admin/trap-days';
   static const tripDayCart = '/api/admin/trap-day-cards';
 }
 
