@@ -190,7 +190,6 @@ class TripsRepo {
         "title": title,
         "description": description,
       };
-      log("Add Card to Trip Day Data: $data");
       final response = await dio.multipart(
         path: EndPoints.tripDayCard,
         pickedImage: image,
@@ -201,6 +200,35 @@ class TripsRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in addCardToTripDay: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Update Card of Trip Day
+  Future<Either<String, SimpleModel>> updateCardOfTripDay({
+    required int cartId,
+    required int tripDayId,
+    required String title,
+    required String description,
+    required PickedImage? image,
+  }) async {
+    try {
+      var data = {
+        "_method": "put",
+        "trap_day_id": tripDayId,
+        "title": title,
+        "description": description,
+      };
+      log("Update Card of Trip Day Data: $data");
+      final response = await dio.post(
+        '${EndPoints.tripDayCard}/$cartId',
+        data: data,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateCardOfTripDay: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

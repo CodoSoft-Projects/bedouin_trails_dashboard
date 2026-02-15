@@ -5,6 +5,7 @@ import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/functions/pick_multiple_image_universal.dart';
 import '../../../../core/models/pagination_model.dart';
 import '../../../../core/models/picked_image_model.dart';
+import '../../../../core/models/trip/trip_card_model.dart';
 import '../../../../core/models/trip/trip_model.dart';
 import '../../data/trips_repo.dart';
 
@@ -285,6 +286,12 @@ class TripsProvider extends ChangeNotifier {
     cartDescriptionController.clear();
   }
 
+  void fillCartControllers(TripCardModel cart) {
+    cartImage = null;
+    cartTitleController.text = cart.title;
+    cartDescriptionController.text = cart.description;
+  }
+
   bool? checkAddingCart = false;
   Future<void> addCardToTripDay({required int tripDayId}) async {
     checkAddingCart = null;
@@ -304,6 +311,38 @@ class TripsProvider extends ChangeNotifier {
       },
       (model) {
         checkAddingCart = true;
+        message = model.message;
+        clearCartControllers();
+        getTripDetails();
+      },
+    );
+  }
+
+  /// Update Card of Trip Day
+  bool? checkUpdatingCart = false;
+
+  Future<void> updateCardOfTripDay({
+    required int cartId,
+    required int tripDayId,
+  }) async {
+    checkUpdatingCart = null;
+    notifyListeners();
+
+    final response = await repo.updateCardOfTripDay(
+      cartId: cartId,
+      tripDayId: tripDayId,
+      title: cartTitleController.text,
+      description: cartDescriptionController.text,
+      image: cartImage,
+    );
+    response.fold(
+      (message) {
+        this.message = message;
+        checkUpdatingCart = false;
+        notifyListeners();
+      },
+      (model) {
+        checkUpdatingCart = true;
         message = model.message;
         clearCartControllers();
         getTripDetails();
