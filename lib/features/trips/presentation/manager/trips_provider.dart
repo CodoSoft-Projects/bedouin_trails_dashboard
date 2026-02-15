@@ -153,6 +153,7 @@ class TripsProvider extends ChangeNotifier {
   }
 
   /// Some fields for add or update trip info
+  var formKey = GlobalKey<FormState>();
   var tripNameController = TextEditingController();
   TripStatus tripStatus = TripStatus.unknown;
   var tripPriceController = TextEditingController();
@@ -173,5 +174,34 @@ class TripsProvider extends ChangeNotifier {
     tripPriceController.clear();
     tripFromController.clear();
     tripToController.clear();
+  }
+
+  /// update trip
+  bool? checkUpdateTrip = false;
+  Future<void> updateTrip() async {
+    checkUpdateTrip = null;
+    notifyListeners();
+
+    final response = await repo.updateTrip(
+      id: selectedTrip!.id,
+      name: tripNameController.text,
+      image: selectedTrip!.image,
+      price: double.parse(tripPriceController.text),
+      interfaceFrom: tripFromController.text,
+      interfaceTo: tripToController.text,
+      status: tripStatus,
+    );
+    response.fold(
+      (message) {
+        this.message = message;
+        checkUpdateTrip = false;
+        notifyListeners();
+      },
+      (model) {
+        checkUpdateTrip = true;
+        message = model.message;
+        getTripDetails();
+      },
+    );
   }
 }

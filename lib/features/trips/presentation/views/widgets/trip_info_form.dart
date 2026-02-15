@@ -1,9 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bedouin_trails_dashboard/core/enums/trip_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/functions/validation_of_input_fields.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -24,63 +29,95 @@ class TripInfoForm extends StatelessWidget {
       child: AbsorbPointer(
         absorbing: !canEdit,
         child: Skeletonizer(
-          enabled: context.watch<TripsProvider>().checkGetTripDetails == null,
-          child: Column(
-            spacing: 12,
-            children: [
-              CustomTextFormField(
-                labelText: 'عنوان الرحلة',
-                controller: !canEdit
-                    ? prov.tripNameController
-                    : TextEditingController(text: trip.name),
-              ),
-              CustomDropdownTextField<TripStatus>(
-                labelText: 'حالة الحجز للرحلة',
-                // value: prov.tripStatusController?.arName ?? TripStatus,
-                items: [TripStatus.active, TripStatus.inactive],
-                itemLabel: (item) => item.arName,
-                controller: !canEdit
-                    ? TextEditingController(text: prov.tripStatus.arName)
-                    : TextEditingController(text: trip.status.arName),
-              ),
-
-              CustomTextFormField(
-                labelText: 'سعر الرحلة',
-                controller: TextEditingController(text: trip.price.toString()),
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'الرجاء ادخال سعر الرحلة';
-                  }
-                  if (value.length > 8) {
-                    return 'يجب ان يكون سعر الرحلة اقل من 8 رقم';
-                  }
-                  return null;
-                },
-                suffixIcon: Icon(
-                  Icons.attach_money,
-                  color: AppColors.cyanGreen,
+          enabled: prov.checkGetTripDetails == null,
+          child: Form(
+            key: canEdit ? prov.formKey : null,
+            child: Column(
+              spacing: 12,
+              children: [
+                CustomTextFormField(
+                  labelText: 'عنوان الرحلة',
+                  validator: simpleValidation,
+                  controller: !canEdit
+                      ? prov.tripNameController
+                      : TextEditingController(text: trip.name),
                 ),
-              ),
-
-              CustomTextFormField(
-                labelText: 'نقطة بداية الرحلة',
-                controller: TextEditingController(text: trip.interfaceFrom),
-              ),
-
-              CustomTextFormField(
-                labelText: 'نقطة نهاية الرحلة',
-                controller: TextEditingController(text: trip.interfaceTo),
-              ),
-              const SizedBox(height: 24),
-              if (canEdit)
-                CustomButton(
-                  text: 'حفظ التعديلات',
-                  color: AppColors.sandyBrown,
-                  horizontalPadding: 42,
-                  onPressed: () {},
+                CustomDropdownTextField<TripStatus>(
+                  labelText: 'حالة الحجز للرحلة',
+                  value: prov.tripStatus,
+                  items: [TripStatus.active, TripStatus.inactive],
+                  itemLabel: (item) => item.arName,
+                  onSelected: (value) {
+                    if (value == null) return;
+                    prov.tripStatus = value;
+                  },
+                  controller: TextEditingController(text: trip.status.arName),
                 ),
-            ],
+
+                CustomTextFormField(
+                  labelText: 'سعر الرحلة',
+                  controller: TextEditingController(
+                    text: trip.price.toString(),
+                  ),
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'الرجاء ادخال سعر الرحلة';
+                    }
+                    if (value.length > 8) {
+                      return 'يجب ان يكون سعر الرحلة اقل من 8 رقم';
+                    }
+                    return null;
+                  },
+                  suffixIcon: Icon(
+                    Icons.attach_money,
+                    color: AppColors.cyanGreen,
+                  ),
+                ),
+
+                CustomTextFormField(
+                  labelText: 'نقطة بداية الرحلة',
+                  validator: simpleValidation,
+                  controller: !canEdit
+                      ? prov.tripFromController
+                      : TextEditingController(text: trip.interfaceFrom),
+                ),
+
+                CustomTextFormField(
+                  labelText: 'نقطة نهاية الرحلة',
+                  validator: simpleValidation,
+                  controller: !canEdit
+                      ? prov.tripToController
+                      : TextEditingController(text: trip.interfaceTo),
+                ),
+                const SizedBox(height: 24),
+                if (canEdit)
+                  CustomButton(
+                    text: 'حفظ التعديلات',
+                    color: AppColors.sandyBrown,
+                    horizontalPadding: 42,
+                    onPressed: () async {
+                      if (prov.formKey.currentState!.validate()) {
+                        //* Show loading dialog
+                        loadingDialog(context);
+
+                        await prov.updateTrip();
+
+                        //* Close loading dialog
+                        Navigator.pop(context);
+
+                        if (prov.checkUpdateTrip == true) {
+                          Navigator.pop(context);
+
+                          AppMessage.successBar(context, message: prov.message);
+                        } else if (prov.checkUpdateTrip == false) {
+                          AppMessage.errorBar(context, message: prov.message);
+                        }
+                      }
+                    },
+                  ),
+              ],
+            ),
           ),
         ),
       ),

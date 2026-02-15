@@ -91,6 +91,37 @@ class TripsRepo {
     }
   }
 
+  /// update trip
+  Future<Either<String, SimpleModel>> updateTrip({
+    required int id,
+    required String name,
+    required String image,
+    required double price,
+    required String interfaceFrom,
+    required String interfaceTo,
+    required TripStatus status,
+  }) async {
+    try {
+      var data = {
+        "_method": "put",
+        "status": status.name,
+        "name": name,
+        "image": image,
+        "price": price,
+        "interfaceFrom": interfaceFrom,
+        "interfaceTo": interfaceTo,
+      };
+      log("Toggle Trip Status Data: $data");
+      final response = await dio.post('${EndPoints.trips}/$id', data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateTrip: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
   /// Delete Trip
   Future<Either<String, SimpleModel>> deleteTrip({required int id}) async {
     try {
