@@ -176,4 +176,31 @@ class TripsRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Add Card to Trip Day
+  Future<Either<String, SimpleModel>> addCardToTripDay({
+    required int tripDayId,
+    required PickedImage image,
+    required String title,
+    required String description,
+  }) async {
+    try {
+      var data = {
+        "tripDayId": tripDayId,
+        "title": title,
+        "description": description,
+      };
+      final response = await dio.multipart(
+        path: EndPoints.tripDayCard,
+        pickedImage: image,
+        fields: data,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in addCardToTripDay: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }

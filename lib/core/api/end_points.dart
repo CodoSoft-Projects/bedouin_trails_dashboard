@@ -8,7 +8,10 @@ class EndPoints {
   static const resetPassword = '/api/admin/reset-password';
   static const logout = '/api/admin/logout';
   static const profile = '/api/admin/profile';
+
+  /// Trips
   static const trips = '/api/admin/traps';
+  static const tripDayCard = '/api/admin/trap-day-cards';
 }
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4
