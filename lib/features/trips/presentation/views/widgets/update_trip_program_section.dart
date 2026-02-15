@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -56,15 +60,16 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
               size: 18,
               borderSide: BorderSide.none,
               backgroundColor: AppColors.whiteGrey,
-              onPressed: () {},
+              onPressed: () => _adddNewDay(context),
             ),
-            CustomCircularButton(
-              icon: LucideIcons.trash2,
-              size: 18,
-              borderSide: BorderSide.none,
-              backgroundColor: AppColors.phosphorBlue,
-              onPressed: () {},
-            ),
+            if (hasDays)
+              CustomCircularButton(
+                icon: LucideIcons.trash2,
+                size: 18,
+                borderSide: BorderSide.none,
+                backgroundColor: AppColors.phosphorBlue,
+                onPressed: () {},
+              ),
           ],
         ),
         if (!hasDays) NoTripDayAdded(),
@@ -107,5 +112,22 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
         ],
       ],
     );
+  }
+
+  Future<void> _adddNewDay(BuildContext context) async {
+    //* Show loading dialog
+    loadingDialog(context);
+
+    var prov = context.read<TripsProvider>();
+    await prov.addTripProgramDay(tripId: widget.trip.id);
+
+    //* Close loading dialog
+    Navigator.pop(context);
+
+    if (prov.checkAddingDay == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkAddingDay == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
   }
 }
