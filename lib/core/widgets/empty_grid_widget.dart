@@ -18,27 +18,29 @@ class EmptyGridWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Lottie.asset(
-          lottie ?? Assets.animationsImageNotPreview,
-          height: 300,
-          repeat: repeat,
-        ),
-
-        if (message.isNotEmpty) ...[
-          const SizedBox(height: 12),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.regular24(
-              context,
-            ).copyWith(fontFamily: Constants.vexaFontFamily),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            lottie ?? Assets.animationsImageNotPreview,
+            height: 300,
+            repeat: repeat,
           ),
-          const SizedBox(height: 24),
+
+          if (message.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.regular24(
+                context,
+              ).copyWith(fontFamily: Constants.vexaFontFamily),
+            ),
+            const SizedBox(height: 24),
+          ],
         ],
-      ],
+      ),
     );
   }
 }

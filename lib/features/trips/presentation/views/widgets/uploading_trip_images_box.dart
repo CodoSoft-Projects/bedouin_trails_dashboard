@@ -1,17 +1,21 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../core/models/picked_image_model.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
+import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../manager/trips_provider.dart';
 
 class UploadingTripImagesBox extends StatelessWidget {
   const UploadingTripImagesBox({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<TripsProvider>();
     return SizedBox(
       width: 600,
       height: 400,
@@ -19,10 +23,12 @@ class UploadingTripImagesBox extends StatelessWidget {
         children: [
           Positioned.fill(
             child: CustomDottedBox(
-              child: UploadedImagesGrid(),
-              // child: Center(
-              //   child: EmptyGridWidget(message: 'قم بإضافة صور للرحلة'),
-              // ),
+              child: prov.tripImages.isNotEmpty
+                  ? UploadedImagesGrid(images: prov.tripImages)
+                  : EmptyGridWidget(
+                      repeat: false,
+                      message: 'قم بإضافة صور للرحلة',
+                    ),
             ),
           ),
 
@@ -33,7 +39,9 @@ class UploadingTripImagesBox extends StatelessWidget {
               icon: Icons.add,
               borderSide: BorderSide.none,
               backgroundColor: AppColors.lightGreen,
-              onPressed: () {},
+              onPressed: () {
+                prov.addTripImages();
+              },
             ),
           ),
         ],
@@ -43,14 +51,15 @@ class UploadingTripImagesBox extends StatelessWidget {
 }
 
 class UploadedImagesGrid extends StatelessWidget {
-  const UploadedImagesGrid({super.key});
+  const UploadedImagesGrid({super.key, required this.images});
+  final List<PickedImage> images;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         var width = constraints.maxWidth;
-        var crossAxisCount = (width / 100).toInt();
+        var crossAxisCount = (width / 120).toInt();
         return GridView.builder(
           shrinkWrap: true,
           // physics: const NeverScrollableScrollPhysics(),
@@ -59,11 +68,18 @@ class UploadedImagesGrid extends StatelessWidget {
             mainAxisSpacing: 12.0,
             crossAxisSpacing: 12.0,
             childAspectRatio: 1,
-            mainAxisExtent: 100,
+            mainAxisExtent: 120,
           ),
-          itemCount: 9,
+          itemCount: images.length,
           itemBuilder: (context, index) {
-            return _FileImage(onDelete: () {});
+            return _FileImage(
+              image: images[index],
+              onDelete: () {
+                context.read<TripsProvider>().removeImageFromUploadedList(
+                  images[index],
+                );
+              },
+            );
           },
         );
       },
@@ -72,9 +88,9 @@ class UploadedImagesGrid extends StatelessWidget {
 }
 
 class _FileImage extends StatelessWidget {
-  const _FileImage({required this.onDelete});
+  const _FileImage({required this.onDelete, required this.image});
   final VoidCallback onDelete;
-
+  final PickedImage image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -82,7 +98,7 @@ class _FileImage extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         image: DecorationImage(
-          image: AssetImage(Assets.imagesTestTripImage),
+          image: MemoryImage(image.bytes),
           fit: BoxFit.cover,
         ),
       ),
