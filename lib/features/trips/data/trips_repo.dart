@@ -158,4 +158,22 @@ class TripsRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Remove trip image
+  Future<Either<String, SimpleModel>> removeTripImage({
+    required int imageId,
+  }) async {
+    try {
+      final response = await dio.delete(
+        '${EndPoints.trips}/images/$imageId',
+        isFormData: false,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in removeTripImage: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }

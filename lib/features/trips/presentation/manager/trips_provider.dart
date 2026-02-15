@@ -208,17 +208,20 @@ class TripsProvider extends ChangeNotifier {
     );
   }
 
+  /// upload trip images
   List<PickedImage> tripImages = [];
   void addTripImages() async {
     tripImages += await pickMultipleImagesUniversal();
     notifyListeners();
   }
 
+  /// remove image from uploaded list
   void removeImageFromUploadedList(PickedImage image) {
     tripImages.remove(image);
     notifyListeners();
   }
 
+  /// update trip [upload images for trip]
   Future<void> updateTripImages() async {
     checkUpdateTrip = null;
     notifyListeners();
@@ -240,5 +243,27 @@ class TripsProvider extends ChangeNotifier {
         getTripDetails();
       },
     );
+  }
+
+  /// Remove trip image
+  bool? checkRemoveingImage = false;
+
+  Future<void> removeTripImage({required int imageId}) async {
+    checkRemoveingImage = null;
+    notifyListeners();
+    final response = await repo.removeTripImage(imageId: imageId);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkRemoveingImage = false;
+      },
+      (model) {
+        checkRemoveingImage = true;
+        message = model.message;
+        // remove the image from the selected trip galleries
+        selectedTrip!.galleries.removeWhere((element) => element.id == imageId);
+      },
+    );
+    notifyListeners();
   }
 }

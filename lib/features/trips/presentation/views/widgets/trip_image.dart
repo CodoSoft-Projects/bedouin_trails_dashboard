@@ -1,10 +1,15 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/gallery_model.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../manager/trips_provider.dart';
 
 class TripImage extends StatelessWidget {
   const TripImage({
@@ -43,10 +48,7 @@ class TripImage extends StatelessWidget {
                     desc: 'هل تريد حذف الصورة',
                     onCancel: () {},
                     onOk: () {
-                      DialogHelper.showSuccessDialog(
-                        context,
-                        title: 'تم حذف الصورة',
-                      );
+                      _remove(context);
                     },
                   );
                 },
@@ -56,5 +58,17 @@ class TripImage extends StatelessWidget {
             : null,
       ),
     );
+  }
+
+  Future<void> _remove(BuildContext context) async {
+    var prov = context.read<TripsProvider>();
+
+    await prov.removeTripImage(imageId: galleryModel.id);
+
+    if (prov.checkRemoveingImage == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkRemoveingImage == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
   }
 }
