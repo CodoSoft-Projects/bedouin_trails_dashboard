@@ -42,4 +42,11 @@ abstract class ApiConsumer {
     PickedImage? pickedImage,
     Map<String, String>? queryParameters,
   });
+
+  Future<Map<String, dynamic>> multipartMultipleImages({
+    required String path,
+    required Map<String, dynamic> fields,
+    List<PickedImage>? images,
+    Map<String, String>? queryParameters,
+  });
 }

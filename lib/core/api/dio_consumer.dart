@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:http_parser/http_parser.dart';
 
@@ -147,6 +149,53 @@ class DioConsumer extends ApiConsumer {
       }
 
       final formData = FormData.fromMap(formMap);
+
+      final response = await dio.post(
+        path,
+        data: formData,
+        queryParameters: queryParameters,
+        options: Options(contentType: 'multipart/form-data'),
+      );
+
+      return response.data;
+    } on DioException catch (e) {
+      handleDioException(e);
+      rethrow;
+    }
+  }
+
+  @override
+  Future<Map<String, dynamic>> multipartMultipleImages({
+    required String path,
+    required Map<String, dynamic> fields,
+    List<PickedImage>? images,
+    Map<String, String>? queryParameters,
+  }) async {
+    try {
+      final Map<String, dynamic> formMap = {...fields};
+
+      final List<MultipartFile> multipartImages = [];
+
+      if (images != null && images.isNotEmpty) {
+        for (final image in images) {
+          multipartImages.add(
+            MultipartFile.fromBytes(
+              image.bytes,
+              filename: image.fileName,
+              contentType: image.fileName.toLowerCase().endsWith('.png')
+                  ? MediaType('image', 'png')
+                  : MediaType('image', 'jpeg'),
+            ),
+          );
+        }
+
+        /// VERY IMPORTANT 🔥
+        /// this key MUST match backend
+        formMap['images[]'] = multipartImages;
+      }
+
+      final formData = FormData.fromMap(formMap);
+      log("📸 FormData: $formData");
 
       final response = await dio.post(
         path,
