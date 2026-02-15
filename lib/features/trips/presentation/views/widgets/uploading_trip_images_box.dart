@@ -15,7 +15,7 @@ class UploadingTripImagesBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<TripsProvider>();
+    var prov = context.read<TripsProvider>();
     return SizedBox(
       width: 600,
       height: 400,

@@ -132,7 +132,7 @@ class TripsRepo {
       final response = await dio.multipartMultipleImages(
         path: '${EndPoints.trips}/$id',
         images: images,
-        fields: {},
+        fields: {"_method": "put"},
       );
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {
