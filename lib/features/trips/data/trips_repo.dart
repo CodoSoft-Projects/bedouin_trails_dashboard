@@ -111,7 +111,7 @@ class TripsRepo {
         "interfaceFrom": interfaceFrom,
         "interfaceTo": interfaceTo,
       };
-      log("Toggle Trip Status Data: $data");
+      log("Update Trip Data: $data");
       final response = await dio.post('${EndPoints.trips}/$id', data: data);
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {

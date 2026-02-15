@@ -124,6 +124,7 @@ class TripsProvider extends ChangeNotifier {
       (model) {
         checkToggleTripStatus = true;
         message = model.message;
+        getTripDetails();
         getAllActiveTrips();
         getAllInactiveTrips();
       },

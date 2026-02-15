@@ -9,7 +9,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/api_error_widget.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
 import '../../manager/trips_provider.dart';
-import '../suspended_trip_details_view.dart';
+import '../trip_details_view.dart';
 import 'trip_card.dart';
 
 class SuspendedTripsGridView extends StatelessWidget {
@@ -58,7 +58,7 @@ class SuspendedTripsGridView extends StatelessWidget {
                           prov.onSelectTrip(trips[index]);
                           Navigator.of(
                             context,
-                          ).pushNamed(SuspendedTripDetailsView.routeName);
+                          ).pushNamed(TripDetailsView.routeName);
                         },
                       );
                     },

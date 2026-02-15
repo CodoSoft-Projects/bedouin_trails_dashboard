@@ -38,7 +38,7 @@ class TripInfoForm extends StatelessWidget {
                 CustomTextFormField(
                   labelText: 'عنوان الرحلة',
                   validator: simpleValidation,
-                  controller: !canEdit
+                  controller: canEdit
                       ? prov.tripNameController
                       : TextEditingController(text: trip.name),
                 ),
@@ -56,16 +56,17 @@ class TripInfoForm extends StatelessWidget {
 
                 CustomTextFormField(
                   labelText: 'سعر الرحلة',
-                  controller: TextEditingController(
-                    text: trip.price.toString(),
-                  ),
+                  controller: canEdit
+                      ? prov.tripPriceController
+                      : TextEditingController(text: trip.price.toString()),
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   validator: (value) {
-                    if (value!.isEmpty) {
+                    var price = double.tryParse(value ?? '0') ?? 0;
+                    if (value == null || value.isEmpty) {
                       return 'الرجاء ادخال سعر الرحلة';
                     }
-                    if (value.length > 8) {
-                      return 'يجب ان يكون سعر الرحلة اقل من 8 رقم';
+                    if (price > 999999) {
+                      return 'يجب ان يكون سعر الرحلة اقل من 999999 \$';
                     }
                     return null;
                   },
@@ -78,7 +79,7 @@ class TripInfoForm extends StatelessWidget {
                 CustomTextFormField(
                   labelText: 'نقطة بداية الرحلة',
                   validator: simpleValidation,
-                  controller: !canEdit
+                  controller: canEdit
                       ? prov.tripFromController
                       : TextEditingController(text: trip.interfaceFrom),
                 ),

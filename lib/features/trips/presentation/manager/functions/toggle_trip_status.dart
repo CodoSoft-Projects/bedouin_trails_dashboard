@@ -26,7 +26,7 @@ Future<void> toggleTripStatus({
 
   if (prov.checkToggleTripStatus == true) {
     //* Close opend view
-    Navigator.pop(context);
+    // Navigator.pop(context);
 
     //* Show success message
     AppMessage.successBar(context, message: prov.message);
