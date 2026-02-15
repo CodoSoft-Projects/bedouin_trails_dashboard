@@ -279,6 +279,12 @@ class TripsProvider extends ChangeNotifier {
   var cartTitleController = TextEditingController();
   var cartDescriptionController = TextEditingController();
 
+  void clearCartControllers() {
+    cartImage = null;
+    cartTitleController.clear();
+    cartDescriptionController.clear();
+  }
+
   bool? checkAddingCart = false;
   Future<void> addCardToTripDay({required int tripDayId}) async {
     checkAddingCart = null;
@@ -299,6 +305,7 @@ class TripsProvider extends ChangeNotifier {
       (model) {
         checkAddingCart = true;
         message = model.message;
+        clearCartControllers();
         getTripDetails();
       },
     );

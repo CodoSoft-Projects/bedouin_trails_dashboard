@@ -87,7 +87,12 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
                 text: 'إضافة بطاقة',
                 color: AppColors.sandyBrown,
                 onPressed: () {
-                  addNewTripProgramCartDialog(context);
+                  addNewTripProgramCartDialog(
+                    context,
+                    nextCardIdx:
+                        widget.trip.trapDays[selectedDay].cards.length + 1,
+                    day: widget.trip.trapDays[selectedDay],
+                  );
                 },
               ),
             ],
