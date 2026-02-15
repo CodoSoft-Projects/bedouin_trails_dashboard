@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../../core/enums/trip_status.dart';
+import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/functions/pick_multiple_image_universal.dart';
 import '../../../../core/models/pagination_model.dart';
 import '../../../../core/models/picked_image_model.dart';
@@ -265,5 +266,41 @@ class TripsProvider extends ChangeNotifier {
       },
     );
     notifyListeners();
+  }
+
+  /// Add & Update Cart in the Trip Day
+  PickedImage? cartImage;
+  void uploadCartImage() async {
+    cartImage = await pickImageUniversal();
+    notifyListeners();
+  }
+
+  var cartFormKey = GlobalKey<FormState>();
+  var cartTitleController = TextEditingController();
+  var cartDescriptionController = TextEditingController();
+
+  bool? checkAddingCart = false;
+  Future<void> addCardToTripDay({required int tripDayId}) async {
+    checkAddingCart = null;
+    notifyListeners();
+
+    final response = await repo.addCardToTripDay(
+      tripDayId: tripDayId,
+      image: cartImage!,
+      title: cartTitleController.text,
+      description: cartDescriptionController.text,
+    );
+    response.fold(
+      (message) {
+        this.message = message;
+        checkAddingCart = false;
+        notifyListeners();
+      },
+      (model) {
+        checkAddingCart = true;
+        message = model.message;
+        getTripDetails();
+      },
+    );
   }
 }

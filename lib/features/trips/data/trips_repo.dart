@@ -186,10 +186,11 @@ class TripsRepo {
   }) async {
     try {
       var data = {
-        "tripDayId": tripDayId,
+        "trap_day_id": tripDayId,
         "title": title,
         "description": description,
       };
+      log("Add Card to Trip Day Data: $data");
       final response = await dio.multipart(
         path: EndPoints.tripDayCard,
         pickedImage: image,
