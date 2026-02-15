@@ -65,6 +65,7 @@ class TripsProvider extends ChangeNotifier {
       (tripRes) {
         checkGetTripDetails = true;
         selectedTrip = tripRes.trip;
+        fillTripControllers(selectedTrip!);
       },
     );
     notifyListeners();
@@ -149,5 +150,28 @@ class TripsProvider extends ChangeNotifier {
         getAllInactiveTrips();
       },
     );
+  }
+
+  /// Some fields for add or update trip info
+  var tripNameController = TextEditingController();
+  TripStatus tripStatus = TripStatus.unknown;
+  var tripPriceController = TextEditingController();
+  var tripFromController = TextEditingController();
+  var tripToController = TextEditingController();
+
+  void fillTripControllers(TripModel trip) {
+    tripNameController.text = trip.name;
+    tripStatus = trip.status;
+    tripPriceController.text = trip.price.toString();
+    tripFromController.text = trip.interfaceFrom;
+    tripToController.text = trip.interfaceTo;
+  }
+
+  void clearTripControllers() {
+    tripNameController.clear();
+    tripStatus = TripStatus.unknown;
+    tripPriceController.clear();
+    tripFromController.clear();
+    tripToController.clear();
   }
 }

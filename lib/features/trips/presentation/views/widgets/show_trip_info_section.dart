@@ -18,7 +18,7 @@ class ShowTripInfoSection extends StatefulWidget {
 }
 
 class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
-  bool showInfo = false;
+  bool showInfo = true;
 
   void toggleInfo(bool val) {
     showInfo = val;
