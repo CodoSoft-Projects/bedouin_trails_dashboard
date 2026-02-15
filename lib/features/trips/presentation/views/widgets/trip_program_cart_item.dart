@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_card_model.dart';
@@ -8,6 +9,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../manager/trips_provider.dart';
 import 'update_trip_program_cart_dialog.dart';
 
 class TripProgramCartItem extends StatelessWidget {
@@ -48,7 +50,14 @@ class TripProgramCartItem extends StatelessWidget {
                         borderSide: BorderSide.none,
                         size: 18,
                         onPressed: () {
-                          updateTripProgramCartDialog(context);
+                          context.read<TripsProvider>().fillCartControllers(
+                            cartItem,
+                          );
+                          updateTripProgramCartDialog(
+                            context,
+                            cartIdx: cardNumber,
+                            cart: cartItem,
+                          );
                         },
                       ),
                       CustomCircularButton(

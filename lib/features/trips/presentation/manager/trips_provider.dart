@@ -276,18 +276,23 @@ class TripsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearCartImage() {
+    cartImage = null;
+    notifyListeners();
+  }
+
   var cartFormKey = GlobalKey<FormState>();
   var cartTitleController = TextEditingController();
   var cartDescriptionController = TextEditingController();
 
   void clearCartControllers() {
-    cartImage = null;
+    clearCartImage();
     cartTitleController.clear();
     cartDescriptionController.clear();
   }
 
   void fillCartControllers(TripCardModel cart) {
-    cartImage = null;
+    clearCartImage();
     cartTitleController.text = cart.title;
     cartDescriptionController.text = cart.description;
   }
@@ -323,14 +328,13 @@ class TripsProvider extends ChangeNotifier {
 
   Future<void> updateCardOfTripDay({
     required int cartId,
-    required int tripDayId,
+    // required int tripDayId,
   }) async {
     checkUpdatingCart = null;
     notifyListeners();
 
     final response = await repo.updateCardOfTripDay(
       cartId: cartId,
-      tripDayId: tripDayId,
       title: cartTitleController.text,
       description: cartDescriptionController.text,
       image: cartImage,
