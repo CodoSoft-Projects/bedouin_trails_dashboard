@@ -177,8 +177,8 @@ class TripsRepo {
     }
   }
 
-  /// Add Card to Trip Day
-  Future<Either<String, SimpleModel>> addCardToTripDay({
+  /// Add Cart to Trip Day
+  Future<Either<String, SimpleModel>> addCartToTripDay({
     required int tripDayId,
     required PickedImage image,
     required String title,
@@ -191,7 +191,7 @@ class TripsRepo {
         "description": description,
       };
       final response = await dio.multipart(
-        path: EndPoints.tripDayCard,
+        path: EndPoints.tripDayCart,
         pickedImage: image,
         fields: data,
       );
@@ -199,13 +199,13 @@ class TripsRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      log("Exception in addCardToTripDay: $e");
+      log("Exception in addCartToTripDay: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
 
-  /// Update Card of Trip Day
-  Future<Either<String, SimpleModel>> updateCardOfTripDay({
+  /// Update Cart of Trip Day
+  Future<Either<String, SimpleModel>> updateCartOfTripDay({
     required int cartId,
     required String title,
     required String description,
@@ -213,9 +213,8 @@ class TripsRepo {
   }) async {
     try {
       var data = {"_method": "put", "title": title, "description": description};
-      log("Update Card of Trip Day Data: $data");
       final response = await dio.multipart(
-        path: '${EndPoints.tripDayCard}/$cartId',
+        path: '${EndPoints.tripDayCart}/$cartId',
         fields: data,
         pickedImage: image,
       );
@@ -223,25 +222,25 @@ class TripsRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      log("Exception in updateCardOfTripDay: $e");
+      log("Exception in updateCartOfTripDay: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
 
-  /// Delete Card of Trip Day
-  Future<Either<String, SimpleModel>> deleteCardOfTripDay({
+  /// Delete Cart of Trip Day
+  Future<Either<String, SimpleModel>> deleteCartOfTripDay({
     required int cartId,
   }) async {
     try {
       final response = await dio.delete(
-        '${EndPoints.tripDayCard}/$cartId',
+        '${EndPoints.tripDayCart}/$cartId',
         isFormData: false,
       );
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      log("Exception in deleteCardOfTripDay: $e");
+      log("Exception in deleteCartOfTripDay: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

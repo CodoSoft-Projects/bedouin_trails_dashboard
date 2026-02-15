@@ -298,11 +298,11 @@ class TripsProvider extends ChangeNotifier {
   }
 
   bool? checkAddingCart = false;
-  Future<void> addCardToTripDay({required int tripDayId}) async {
+  Future<void> addCartToTripDay({required int tripDayId}) async {
     checkAddingCart = null;
     notifyListeners();
 
-    final response = await repo.addCardToTripDay(
+    final response = await repo.addCartToTripDay(
       tripDayId: tripDayId,
       image: cartImage!,
       title: cartTitleController.text,
@@ -323,17 +323,17 @@ class TripsProvider extends ChangeNotifier {
     );
   }
 
-  /// Update Card of Trip Day
+  /// Update Cart of Trip Day
   bool? checkUpdatingCart = false;
 
-  Future<void> updateCardOfTripDay({
+  Future<void> updateCartOfTripDay({
     required int cartId,
     // required int tripDayId,
   }) async {
     checkUpdatingCart = null;
     notifyListeners();
 
-    final response = await repo.updateCardOfTripDay(
+    final response = await repo.updateCartOfTripDay(
       cartId: cartId,
       title: cartTitleController.text,
       description: cartDescriptionController.text,
@@ -353,15 +353,15 @@ class TripsProvider extends ChangeNotifier {
       },
     );
   }
-  
-  /// Delete Card of Trip Day
+
+  /// Delete Cart of Trip Day
   bool? checkDeletingCart = false;
 
-  Future<void> deleteCardOfTripDay({required int cartId}) async {
+  Future<void> deleteCartOfTripDay({required int cartId}) async {
     checkDeletingCart = null;
     notifyListeners();
 
-    final response = await repo.deleteCardOfTripDay(cartId: cartId);
+    final response = await repo.deleteCartOfTripDay(cartId: cartId);
     response.fold(
       (message) {
         this.message = message;

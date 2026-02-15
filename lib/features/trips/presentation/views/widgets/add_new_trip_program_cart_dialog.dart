@@ -163,7 +163,7 @@ class NewCartForm extends StatelessWidget {
                 //* Show Loading Dialog
                 loadingDialog(context);
 
-                await prov.addCardToTripDay(tripDayId: day.id);
+                await prov.addCartToTripDay(tripDayId: day.id);
                 // close loading dialog
                 Navigator.pop(context);
 

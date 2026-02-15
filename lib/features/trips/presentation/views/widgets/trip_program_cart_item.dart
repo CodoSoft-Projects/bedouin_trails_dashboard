@@ -115,7 +115,7 @@ class TripProgramCartItem extends StatelessWidget {
     var prov = context.read<TripsProvider>();
     //* show loading dialog
     loadingDialog(context);
-    await prov.deleteCardOfTripDay(cartId: cartItem.id);
+    await prov.deleteCartOfTripDay(cartId: cartItem.id);
     //* close loading dialog
     Navigator.pop(context);
     if (prov.checkDeletingCart == true) {

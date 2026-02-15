@@ -160,7 +160,7 @@ class UpdateCartForm extends StatelessWidget {
                 //* Show Loading Dialog
                 loadingDialog(context);
 
-                await prov.updateCardOfTripDay(cartId: cart.id);
+                await prov.updateCartOfTripDay(cartId: cart.id);
                 // close loading dialog
                 Navigator.pop(context);
 
