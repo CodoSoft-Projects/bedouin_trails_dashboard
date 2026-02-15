@@ -7,6 +7,7 @@ import '../../../core/api/end_points.dart';
 import '../../../core/enums/trip_status.dart';
 import '../../../core/errors/exception.dart';
 import '../../../core/functions/is_arabic.dart';
+import '../../../core/models/picked_image_model.dart';
 import '../../../core/models/simple_model.dart';
 import '../../../core/models/trip/trip_response_model.dart';
 import '../../../core/models/trip/trips_response_model.dart';
@@ -118,6 +119,26 @@ class TripsRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in updateTrip: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// update trip [upload images for trip]
+  Future<Either<String, SimpleModel>> updateTripImages({
+    required int id,
+    required List<PickedImage> images,
+  }) async {
+    try {
+      final response = await dio.multipartMultipleImages(
+        path: '${EndPoints.trips}/$id',
+        images: images,
+        fields: {},
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateTripImages: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

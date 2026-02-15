@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
 import '../../../../core/enums/trip_status.dart';
+import '../../../../core/functions/pick_multiple_image_universal.dart';
 import '../../../../core/models/pagination_model.dart';
+import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/trip/trip_model.dart';
 import '../../data/trips_repo.dart';
 
@@ -201,6 +203,40 @@ class TripsProvider extends ChangeNotifier {
       (model) {
         checkUpdateTrip = true;
         message = model.message;
+        getTripDetails();
+      },
+    );
+  }
+
+  List<PickedImage> tripImages = [];
+  void addTripImages() async {
+    tripImages += await pickMultipleImagesUniversal();
+    notifyListeners();
+  }
+
+  void removeImageFromUploadedList(PickedImage image) {
+    tripImages.remove(image);
+    notifyListeners();
+  }
+
+  Future<void> updateTripImages() async {
+    checkUpdateTrip = null;
+    notifyListeners();
+
+    final response = await repo.updateTripImages(
+      id: selectedTrip!.id,
+      images: tripImages,
+    );
+    response.fold(
+      (message) {
+        checkUpdateTrip = false;
+        this.message = message;
+        notifyListeners();
+      },
+      (model) {
+        checkUpdateTrip = true;
+        message = model.message;
+        tripImages = [];
         getTripDetails();
       },
     );

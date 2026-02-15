@@ -7,7 +7,7 @@ import 'package:file_picker/file_picker.dart';
 import '../models/picked_image_model.dart';
 
 /// Pick MULTIPLE images (Web + Mobile + Desktop)
-/// Returns List<PickedImage>
+// Returns List<PickedImage>
 /// Returns empty list if user cancels
 ///
 Future<List<PickedImage>> pickMultipleImagesUniversal() async {
