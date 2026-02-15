@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -7,6 +8,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../manager/trips_provider.dart';
 import 'add_new_trip_program_cart_dialog.dart';
 import 'no_trip_day_added.dart';
 import 'trip_program_days_list_view.dart';
@@ -87,6 +89,7 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
                 text: 'إضافة بطاقة',
                 color: AppColors.sandyBrown,
                 onPressed: () {
+                  context.read<TripsProvider>().clearCartControllers();
                   addNewTripProgramCartDialog(
                     context,
                     nextCardIdx:

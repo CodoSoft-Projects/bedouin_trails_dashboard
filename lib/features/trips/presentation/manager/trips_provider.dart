@@ -353,4 +353,26 @@ class TripsProvider extends ChangeNotifier {
       },
     );
   }
+  
+  /// Delete Card of Trip Day
+  bool? checkDeletingCart = false;
+
+  Future<void> deleteCardOfTripDay({required int cartId}) async {
+    checkDeletingCart = null;
+    notifyListeners();
+
+    final response = await repo.deleteCardOfTripDay(cartId: cartId);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkDeletingCart = false;
+        notifyListeners();
+      },
+      (model) {
+        checkDeletingCart = true;
+        message = model.message;
+        getTripDetails();
+      },
+    );
+  }
 }

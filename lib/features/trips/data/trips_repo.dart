@@ -227,4 +227,22 @@ class TripsRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Delete Card of Trip Day
+  Future<Either<String, SimpleModel>> deleteCardOfTripDay({
+    required int cartId,
+  }) async {
+    try {
+      final response = await dio.delete(
+        '${EndPoints.tripDayCard}/$cartId',
+        isFormData: false,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in deleteCardOfTripDay: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }
