@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_card_model.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -71,10 +75,7 @@ class TripProgramCartItem extends StatelessWidget {
                             desc: 'هل تريد حذف البطاقة',
                             onCancel: () {},
                             onOk: () {
-                              DialogHelper.showSuccessDialog(
-                                context,
-                                title: 'تم حذف البطاقة',
-                              );
+                              _deleteCart(context);
                             },
                           );
                         },
@@ -108,6 +109,20 @@ class TripProgramCartItem extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _deleteCart(BuildContext context) async {
+    var prov = context.read<TripsProvider>();
+    //* show loading dialog
+    loadingDialog(context);
+    await prov.deleteCardOfTripDay(cartId: cartItem.id);
+    //* close loading dialog
+    Navigator.pop(context);
+    if (prov.checkDeletingCart == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkDeletingCart == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
   }
 }
 
