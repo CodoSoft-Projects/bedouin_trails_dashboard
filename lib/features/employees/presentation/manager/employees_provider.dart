@@ -134,4 +134,28 @@ class EmployeesProvider extends ChangeNotifier {
       },
     );
   }
+
+  /// Toggle Account Status
+  Future<void> toggleAccountStatus() async {
+    checkUpdatingEmployee = null;
+    notifyListeners();
+
+    final result = await repo.toggleAccountStatus(
+      id: selectedEmployee!.id,
+      status: selectedEmployee!.status == 1 ? 0 : 1,
+    );
+    result.fold(
+      (msg) {
+        message = msg;
+        checkUpdatingEmployee = false;
+        notifyListeners();
+      },
+      (model) {
+        checkUpdatingEmployee = true;
+        message = model.message;
+        selectEmployee(model.employee);
+        getAllEmployees();
+      },
+    );
+  }
 }

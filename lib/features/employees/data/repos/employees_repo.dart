@@ -50,4 +50,23 @@ class EmployeesRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Toggle Account Status
+  Future<Either<String, EmployeeResponseModel>> toggleAccountStatus({
+    required int id,
+    required int status,
+  }) async {
+    try {
+      var data = {"_method": "put", "status": status.toString()};
+      log("Toggle Account status: $data");
+
+      final response = await dio.post('${EndPoints.employees}/$id', data: data);
+      return Right(EmployeeResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in toggleAccountStatus: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }

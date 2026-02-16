@@ -13,6 +13,9 @@ class AccountModel {
   final PermissionsModel permissions;
   final String token;
 
+  //*
+  final int status;
+
   const AccountModel({
     required this.id,
     required this.firstName,
@@ -24,6 +27,9 @@ class AccountModel {
     required this.role,
     required this.permissions,
     required this.token,
+
+    //*
+    this.status = 0,
   });
 
   /// ================= FROM JSON =================
@@ -43,6 +49,9 @@ class AccountModel {
       role: _asString(json['role']),
       permissions: json['permission'] ?? PermissionsModel.empty(),
       token: _asString(json['token']),
+
+      //*
+      status: _asInt(json['status']),
     );
   }
 
@@ -59,6 +68,9 @@ class AccountModel {
       role: '',
       permissions: PermissionsModel.empty(),
       token: '',
+
+      //*
+      status: 0,
     );
   }
 
@@ -75,6 +87,9 @@ class AccountModel {
       "role": role,
       "permission": permissions.toJson(),
       "token": token,
+
+      //*
+      "status": status,
     };
   }
 
@@ -110,6 +125,7 @@ class AccountModel {
     String? role,
     PermissionsModel? permissions,
     String? token,
+    int? status,
   }) {
     return AccountModel(
       id: id ?? this.id,
@@ -122,6 +138,9 @@ class AccountModel {
       role: role ?? this.role,
       permissions: permissions ?? this.permissions,
       token: token ?? this.token,
+
+      //*
+      status: status ?? this.status,
     );
   }
 }
