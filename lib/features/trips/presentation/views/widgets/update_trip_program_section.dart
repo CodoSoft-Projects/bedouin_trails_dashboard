@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/functions/loading_dialog.dart';
 import '../../../../../core/helpers/app_message.dart';
+import '../../../../../core/helpers/dialog_helper.dart';
+import '../../../../../core/models/trip/trip_day_model.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -19,30 +21,18 @@ import 'trip_program_days_list_view.dart';
 import 'trip_program_list_view.dart';
 import 'trip_program_section_header.dart';
 
-class UpdateTripProgramSection extends StatefulWidget {
+class UpdateTripProgramSection extends StatelessWidget {
   const UpdateTripProgramSection({super.key, required this.trip});
   final TripModel trip;
 
   @override
-  State<UpdateTripProgramSection> createState() =>
-      _UpdateTripProgramSectionState();
-}
-
-class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
-  late int selectedDay;
-  late bool hasDays;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedDay = 0;
-    hasDays = widget.trip.trapDays.isNotEmpty;
-  }
-
-  void onDaySelected(int day) => setState(() => selectedDay = day);
-
-  @override
   Widget build(BuildContext context) {
+    var prov = context.watch<TripsProvider>();
+    TripModel trip = prov.selectedTrip!;
+    bool hasDays = trip.trapDays.isNotEmpty;
+    int selectedDay = prov.selectedDay;
+    TripDayModel? day = !hasDays ? null : trip.trapDays[selectedDay];
+
     return Column(
       spacing: 12,
       children: [
@@ -51,7 +41,7 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
           children: [
             Expanded(
               child: TripProgramSectionHeader(
-                numberOfDays: widget.trip.trapDays.length,
+                numberOfDays: trip.trapDays.length,
               ),
             ),
 
@@ -60,7 +50,7 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
               size: 18,
               borderSide: BorderSide.none,
               backgroundColor: AppColors.whiteGrey,
-              onPressed: () => _adddNewDay(context),
+              onPressed: () => _adddNewDay(context, prov: prov),
             ),
             if (hasDays)
               CustomCircularButton(
@@ -68,18 +58,21 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
                 size: 18,
                 borderSide: BorderSide.none,
                 backgroundColor: AppColors.phosphorBlue,
-                onPressed: () {},
+                onPressed: () {
+                  DialogHelper.showQuestionDialog(
+                    context,
+                    title: 'حذف اليوم',
+                    desc: 'هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟',
+                    onOk: () => _deleteDay(context, id: day!.id, prov: prov),
+                    onCancel: () {},
+                  );
+                },
               ),
           ],
         ),
         if (!hasDays) NoTripDayAdded(),
         if (hasDays) ...[
-          TripProgramDaysListView(
-            trapDays: widget.trip.trapDays,
-            onDaySelected: (int value) {
-              onDaySelected(value);
-            },
-          ),
+          TripProgramDaysListView(),
           Row(
             children: [
               Text(
@@ -97,29 +90,31 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
                   context.read<TripsProvider>().clearCartControllers();
                   addNewTripProgramCartDialog(
                     context,
-                    nextCardIdx:
-                        widget.trip.trapDays[selectedDay].cards.length + 1,
-                    day: widget.trip.trapDays[selectedDay],
+                    nextCardIdx: trip.trapDays[selectedDay].cards.length + 1,
+                    day: trip.trapDays[selectedDay],
                   );
                 },
               ),
             ],
           ),
+          // if (selectedDay > 0)
           TripProgramListView(
             canEdit: true,
-            cards: widget.trip.trapDays[selectedDay].cards,
+            cards: trip.trapDays[selectedDay].cards,
           ),
         ],
       ],
     );
   }
 
-  Future<void> _adddNewDay(BuildContext context) async {
+  Future<void> _adddNewDay(
+    BuildContext context, {
+    required TripsProvider prov,
+  }) async {
     //* Show loading dialog
     loadingDialog(context);
 
-    var prov = context.read<TripsProvider>();
-    await prov.addTripProgramDay(tripId: widget.trip.id);
+    await prov.addTripProgramDay(tripId: trip.id);
 
     //* Close loading dialog
     Navigator.pop(context);
@@ -127,6 +122,25 @@ class _UpdateTripProgramSectionState extends State<UpdateTripProgramSection> {
     if (prov.checkAddingDay == true) {
       AppMessage.successBar(context, message: prov.message);
     } else if (prov.checkAddingDay == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
+  }
+
+  Future<void> _deleteDay(
+    BuildContext context, {
+    required int id,
+    required TripsProvider prov,
+  }) async {
+    //* Show loading dialog
+    loadingDialog(context);
+    await prov.deleteTripProgramDay(id: id);
+
+    //* Close loading dialog
+    Navigator.pop(context);
+
+    if (prov.checkDeletingDay == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkDeletingDay == false) {
       AppMessage.errorBar(context, message: prov.message);
     }
   }

@@ -17,9 +17,12 @@ class TripDayModel {
     return TripDayModel(
       id: json?['id'] ?? 0,
       dayNumber: json?['day_number'] ?? 0,
-      cards: cardsJson
-          .map((e) => TripCardModel.fromJson(e))
-          .toList(),
+      cards: cardsJson.map((e) => TripCardModel.fromJson(e)).toList(),
     );
+  }
+  // to string
+  @override
+  String toString() {
+    return 'TripDayModel{id: $id, dayNumber: $dayNumber, cards: $cards}';
   }
 }

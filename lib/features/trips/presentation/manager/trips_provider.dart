@@ -69,6 +69,7 @@ class TripsProvider extends ChangeNotifier {
       (tripRes) {
         checkGetTripDetails = true;
         selectedTrip = tripRes.trip;
+        selectedDay = selectedTrip!.trapDays.isEmpty ? -1 : 0;
         fillTripControllers(selectedTrip!);
       },
     );
@@ -282,6 +283,32 @@ class TripsProvider extends ChangeNotifier {
       },
       (model) {
         checkAddingDay = true;
+        message = model.message;
+        getTripDetails();
+      },
+    );
+  }
+
+  /// Delete Trip Program Day
+  int selectedDay = 0;
+  void onDaySelected(int day) {
+    selectedDay = day;
+    notifyListeners();
+  }
+
+  ///
+  bool? checkDeletingDay = false;
+  Future<void> deleteTripProgramDay({required int id}) async {
+    checkDeletingDay = null;
+    notifyListeners();
+    final response = await repo.deleteTripProgramDay(id: id);
+    response.fold(
+      (message) {
+        this.message = message;
+        checkDeletingDay = false;
+      },
+      (model) {
+        checkDeletingDay = true;
         message = model.message;
         getTripDetails();
       },

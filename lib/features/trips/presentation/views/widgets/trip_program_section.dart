@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../manager/trips_provider.dart';
@@ -9,41 +10,23 @@ import 'trip_program_days_list_view.dart';
 import 'trip_program_list_view.dart';
 import 'trip_program_section_header.dart';
 
-class TripProgramSection extends StatefulWidget {
+class TripProgramSection extends StatelessWidget {
   const TripProgramSection({super.key});
 
   @override
-  State<TripProgramSection> createState() => _TripProgramSectionState();
-}
-
-class _TripProgramSectionState extends State<TripProgramSection> {
-  late int selectedDay;
-  late bool hasDays;
-
-  @override
-  void initState() {
-    super.initState();
-    selectedDay = 0;
-  }
-
-  void onDaySelected(int day) => setState(() => selectedDay = day);
-
-  @override
   Widget build(BuildContext context) {
-    var trip = context.watch<TripsProvider>().selectedTrip!;
-    hasDays = trip.trapDays.isNotEmpty;
+    var prov = context.watch<TripsProvider>();
+    TripModel trip = prov.selectedTrip!;
+    bool hasDays = trip.trapDays.isNotEmpty;
+    int selectedDay = prov.selectedDay;
+
     return Column(
       spacing: 12,
       children: [
         TripProgramSectionHeader(numberOfDays: trip.trapDays.length),
         if (!hasDays) NoTripDayAdded(),
         if (hasDays) ...[
-          TripProgramDaysListView(
-            onDaySelected: (value) {
-              onDaySelected(value);
-            },
-            trapDays: trip.trapDays,
-          ),
+          TripProgramDaysListView(),
           Row(
             children: [
               Text(

@@ -177,7 +177,7 @@ class TripsRepo {
     }
   }
 
-  // Add trip program day
+  /// Add trip program day
   Future<Either<String, SimpleModel>> addTripProgramDay({
     required int tripId,
   }) async {
@@ -191,6 +191,24 @@ class TripsRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in addTripProgramDay: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Delete Trip Program Day
+  Future<Either<String, SimpleModel>> deleteTripProgramDay({
+    required int id,
+  }) async {
+    try {
+      final response = await dio.delete(
+        '${EndPoints.tripDay}/$id',
+        isFormData: false,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in deleteTripProgramDay: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
