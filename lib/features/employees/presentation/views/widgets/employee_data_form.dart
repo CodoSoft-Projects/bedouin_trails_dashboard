@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
@@ -92,7 +96,26 @@ class EmployeeDataForm extends StatelessWidget {
                       text: 'حفظ التعديلات',
                       horizontalPadding: 75,
                       color: AppColors.sandyBrown,
-                      onPressed: () {},
+                      onPressed: () async {
+                        if (prov.formKey.currentState!.validate()) {
+                          //* show loading dialog
+                          loadingDialog(context);
+
+                          await prov.updateEmployeeData();
+
+                          //* close loading dialog
+                          Navigator.pop(context);
+
+                          if (prov.checkUpdatingEmployee == true) {
+                            AppMessage.successBar(
+                              context,
+                              message: prov.message,
+                            );
+                          } else if (prov.checkUpdatingEmployee == false) {
+                            AppMessage.errorBar(context, message: prov.message);
+                          }
+                        }
+                      },
                     ),
                   ],
                   const SizedBox(height: 16),
