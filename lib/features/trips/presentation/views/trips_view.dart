@@ -17,7 +17,11 @@ class TripsView extends StatelessWidget {
         const TripsViewHeader(),
         // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverToBoxAdapter(child: TripsGridView()),
-        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverFillRemaining(
+          hasScrollBody: false,
+          child: SizedBox(height: 12),
+        ),
         const _Pagination(),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],

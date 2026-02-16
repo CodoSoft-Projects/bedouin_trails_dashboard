@@ -17,7 +17,11 @@ class SuspendedTripsView extends StatelessWidget {
         const SuspendedTripsViewHeader(),
         // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverToBoxAdapter(child: SuspendedTripsGridView()),
-        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverFillRemaining(
+          hasScrollBody: false,
+          child: SizedBox(height: 12),
+        ),
         const _Pagination(),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],

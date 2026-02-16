@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/account_model.dart';
+import '../../../../core/models/pagination_model.dart';
 import '../../../../core/models/permissions_model.dart';
 import '../../../../core/models/picked_image_model.dart';
 import '../../data/repos/employees_repo.dart';
@@ -15,14 +16,21 @@ class EmployeesProvider extends ChangeNotifier {
 
   /// Get All Employees
   List<AccountModel> employees = [];
+  PaginationModel pagination = PaginationModel.empty();
+  var searchController = TextEditingController();
 
   bool? checkGettingEmployees = false;
 
-  Future<void> getAllEmployees() async {
+  Future<void> getAllEmployees({int page = 1, int? status}) async {
     checkGettingEmployees = null;
     notifyListeners();
 
-    final result = await repo.getAllEmployees();
+    final result = await repo.getAllEmployees(
+      page: page,
+      search: searchController.text.trim(),
+      status: status,
+    );
+
     result.fold(
       (msg) {
         message = msg;
