@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
@@ -50,6 +52,7 @@ class EmployeesProvider extends ChangeNotifier {
     emailController.text = employee.email;
     phoneController.text = employee.phone;
     permissions = employee.permissions;
+    log("Fill Employee Data: ${employee.toJson()}");
     notifyListeners();
   }
 
@@ -96,6 +99,39 @@ class EmployeesProvider extends ChangeNotifier {
   void selectEmployee(AccountModel employee) {
     selectedEmployee = employee;
     fillEmployeeData(employee);
+  }
+
+  //* ==========================================
+  /// Update Employee Data
+  bool? checkUpdatingEmployee = false;
+
+  Future<void> updateEmployeeData() async {
+    checkUpdatingEmployee = null;
     notifyListeners();
+
+    final result = await repo.updateEmployeeData(
+      account: AccountModel.empty().copyWith(
+        id: selectedEmployee!.id,
+        firstName: fnameController.text,
+        lastName: lnameController.text,
+        email: emailController.text,
+        phone: phoneController.text,
+        permissions: permissions,
+      ),
+      image: pickedImage,
+    );
+    result.fold(
+      (msg) {
+        message = msg;
+        checkUpdatingEmployee = false;
+        notifyListeners();
+      },
+      (model) {
+        checkUpdatingEmployee = true;
+        message = model.message;
+        selectEmployee(model.employee);
+        getAllEmployees();
+      },
+    );
   }
 }

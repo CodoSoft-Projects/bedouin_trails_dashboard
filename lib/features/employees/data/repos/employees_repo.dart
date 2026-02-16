@@ -6,8 +6,11 @@ import '../../../../core/api/dio_consumer.dart';
 import '../../../../core/api/end_points.dart';
 import '../../../../core/errors/exception.dart';
 import '../../../../core/functions/is_arabic.dart';
+import '../../../../core/models/account_model.dart';
+import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
+import '../models/employee_response_model.dart';
 import '../models/employees_response_model.dart';
 
 class EmployeesRepo {
@@ -22,6 +25,28 @@ class EmployeesRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in getAllEmployees: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Update Employee Data
+  Future<Either<String, EmployeeResponseModel>> updateEmployeeData({
+    required AccountModel account,
+    required PickedImage? image,
+  }) async {
+    try {
+      var data = {"_method": "put", ...account.toJson()};
+      log("Update Employee Data: $data");
+      final response = await dio.multipart(
+        path: '${EndPoints.employees}/${account.id}',
+        fields: data,
+        pickedImage: image,
+      );
+      return Right(EmployeeResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateEmployeeData: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

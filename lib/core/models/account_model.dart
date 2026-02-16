@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'permissions_model.dart';
 
 class AccountModel {
@@ -96,5 +97,31 @@ class AccountModel {
     if (value == null) return defaultValue;
     if (value is int) return value;
     return int.tryParse(value.toString()) ?? defaultValue;
+  }
+
+  AccountModel copyWith({
+    int? id,
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? phone,
+    String? image,
+    int? otp,
+    String? role,
+    PermissionsModel? permissions,
+    String? token,
+  }) {
+    return AccountModel(
+      id: id ?? this.id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      image: image ?? this.image,
+      otp: otp ?? this.otp,
+      role: role ?? this.role,
+      permissions: permissions ?? this.permissions,
+      token: token ?? this.token,
+    );
   }
 }
