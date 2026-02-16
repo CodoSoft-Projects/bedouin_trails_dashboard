@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/utils/size_config.dart';
+import '../employees/presentation/manager/employees_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
 import '../trips/presentation/manager/trips_provider.dart';
 import 'functions/get_current_dashboard_view.dart';
@@ -34,6 +35,7 @@ class _DashboardViewState extends State<DashboardView> {
       context.read<TripsProvider>()
         ..getAllActiveTrips()
         ..getAllInactiveTrips();
+      context.read<EmployeesProvider>().getAllEmployees();
     });
   }
 

@@ -16,7 +16,7 @@ class EmployeesRepo {
   /// Get All Employees
   Future<Either<String, EmployeesResponseModel>> getAllEmployees() async {
     try {
-      final response = await dio.get(EndPoints.employees);
+      final response = await dio.get(EndPoints.employees, isFormData: false);
       return Right(EmployeesResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
