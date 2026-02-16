@@ -102,6 +102,37 @@ class EmployeesProvider extends ChangeNotifier {
   }
 
   //* ==========================================
+  /// Add New Employee
+  bool? checkAddingNewEmployee = false;
+
+  Future<void> addNewEmployee() async {
+    checkAddingNewEmployee = null;
+    notifyListeners();
+
+    final result = await repo.addNewEmployee(
+      fname: fnameController.text,
+      lname: lnameController.text,
+      email: emailController.text,
+      phone: phoneController.text,
+      password: passwordController.text,
+      image: pickedImage!,
+      permissions: permissions,
+    );
+
+    result.fold(
+      (msg) {
+        message = msg;
+        checkAddingNewEmployee = false;
+        notifyListeners();
+      },
+      (model) {
+        checkAddingNewEmployee = true;
+        message = model.message;
+        getAllEmployees();
+      },
+    );
+  }
+
   /// Update Employee Data
   bool? checkUpdatingEmployee = false;
 

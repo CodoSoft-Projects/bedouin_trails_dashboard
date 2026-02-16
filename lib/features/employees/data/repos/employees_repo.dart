@@ -7,7 +7,9 @@ import '../../../../core/api/end_points.dart';
 import '../../../../core/errors/exception.dart';
 import '../../../../core/functions/is_arabic.dart';
 import '../../../../core/models/account_model.dart';
+import '../../../../core/models/permissions_model.dart';
 import '../../../../core/models/picked_image_model.dart';
+import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
 import '../models/employee_response_model.dart';
@@ -25,6 +27,42 @@ class EmployeesRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in getAllEmployees: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Add New Employee
+  Future<Either<String, SimpleModel>> addNewEmployee({
+    required String fname,
+    required String lname,
+    required String email,
+    required String phone,
+    required String password,
+    required PickedImage? image,
+    required PermissionsModel permissions,
+  }) async {
+    var data = {
+      "first_name": fname,
+      "last_name": lname,
+      "email": email,
+      "phone": phone,
+      "password": password,
+      "password_confirmation": password,
+      "role": "employee",
+      "permissions": permissions.toJson(),
+    };
+    log("Add New Employee: $data");
+    try {
+      final response = await dio.multipart(
+        path: EndPoints.register,
+        fields: data,
+        pickedImage: image,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in addNewEmployee: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

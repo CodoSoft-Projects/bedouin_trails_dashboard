@@ -2,6 +2,7 @@ class EndPoints {
   static const baseUrl = 'https://covery.online/BedouinTrails/public';
 
   /// Auth Endpoints
+  static const register = '/api/admin/register';
   static const login = '/api/admin/login';
   static const forgetPassword = '/api/admin/forget-password';
   static const verifyOTP = '/api/admin/verify-otp';
