@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_name_field.dart';
-import '../../../../../core/widgets/custom_password_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../../core/widgets/labeled_checkbox.dart';
+import '../../manager/employees_provider.dart';
 
 class EmployeeDataForm extends StatelessWidget {
   const EmployeeDataForm({super.key, required this.canEdit});
@@ -19,6 +20,7 @@ class EmployeeDataForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<EmployeesProvider>();
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: AbsorbPointer(
@@ -27,57 +29,75 @@ class EmployeeDataForm extends StatelessWidget {
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 555),
 
-            child: Column(
-              spacing: 16,
-              children: [
-                const SizedBox(height: 8),
-                _ProfileImage(canEdit: canEdit),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomNameField(
-                        labelText: 'الإسم الأول',
-                        controller: TextEditingController(text: "خالد"),
+            child: Form(
+              key: canEdit ? prov.formKey : null,
+              child: Column(
+                spacing: 16,
+                children: [
+                  const SizedBox(height: 8),
+                  _ProfileImage(canEdit: canEdit),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomNameField(
+                          labelText: 'الإسم الأول',
+                          controller: canEdit
+                              ? prov.fnameController
+                              : TextEditingController(
+                                  text: prov.fnameController.text,
+                                ),
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: CustomNameField(
-                        labelText: 'الإسم الثاني',
-                        controller: TextEditingController(text: "محمد"),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: CustomNameField(
+                          labelText: 'الإسم الثاني',
+                          controller: canEdit
+                              ? prov.lnameController
+                              : TextEditingController(
+                                  text: prov.lnameController.text,
+                                ),
+                        ),
                       ),
+                    ],
+                  ),
+
+                  CustomEmailField(
+                    labelText: 'البريد الإلكتروني',
+                    controller: canEdit
+                        ? prov.emailController
+                        : TextEditingController(
+                            text: prov.emailController.text,
+                          ),
+                  ),
+
+                  CustomPhoneTextField(
+                    labelText: 'رقم الهاتف',
+                    controller: canEdit
+                        ? prov.phoneController
+                        : TextEditingController(
+                            text: prov.phoneController.text,
+                          ),
+                  ),
+
+                  // CustomPasswordField(
+                  //   labelText: 'كلمة المرور',
+                  //   controller: TextEditingController(text: "12345678"),
+                  // ),
+                  const _Permissions(),
+                  if (canEdit) ...[
+                    const SizedBox(height: 16),
+                    CustomButton(
+                      text: 'حفظ التعديلات',
+                      horizontalPadding: 75,
+                      color: AppColors.sandyBrown,
+                      onPressed: () {},
                     ),
                   ],
-                ),
-
-                CustomEmailField(
-                  labelText: 'البريد الإلكتروني',
-                  controller: TextEditingController(text: "zV2lM@example.com"),
-                ),
-
-                CustomPhoneTextField(
-                  labelText: 'رقم الهاتف',
-                  controller: TextEditingController(text: "01012345678"),
-                ),
-
-                CustomPasswordField(
-                  labelText: 'كلمة المرور',
-                  controller: TextEditingController(text: "12345678"),
-                ),
-
-                _Permissions(),
-                if (canEdit) ...[
                   const SizedBox(height: 16),
-                  CustomButton(
-                    text: 'حفظ التعديلات',
-                    horizontalPadding: 75,
-                    color: AppColors.sandyBrown,
-                    onPressed: () {},
-                  ),
                 ],
-                const SizedBox(height: 16),
-              ],
+              ),
             ),
           ),
         ),
@@ -91,6 +111,7 @@ class _ProfileImage extends StatelessWidget {
   final bool canEdit;
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<EmployeesProvider>();
     return SizedBox(
       height: 200,
       width: 200,
@@ -103,12 +124,19 @@ class _ProfileImage extends StatelessWidget {
               shape: BoxShape.circle,
               color: AppColors.white,
               border: Border.all(color: AppColors.borderGrey, width: 2),
-              image: const DecorationImage(
-                image: AssetImage(Assets.imagesTestUser),
+              image: DecorationImage(
+                image: prov.pickedImage == null || canEdit == false
+                    ? customCachedNetworkImageprovider(
+                        prov.selectedEmployee?.image,
+                      )
+                    : MemoryImage(prov.pickedImage!.bytes),
                 fit: BoxFit.cover,
               ),
             ),
-            child: Icon(LucideIcons.user, color: AppColors.sandyBrown),
+            child: Visibility(
+              visible: prov.pickedImage == null,
+              child: Icon(LucideIcons.user, color: AppColors.sandyBrown),
+            ),
           ),
 
           Visibility(
@@ -117,8 +145,14 @@ class _ProfileImage extends StatelessWidget {
               bottom: 0,
               right: 32,
               child: CustomCircularButton(
-                icon: LucideIcons.penLine,
-                onPressed: () {},
+                icon: prov.pickedImage == null
+                    ? LucideIcons.penLine
+                    : LucideIcons.x,
+                onPressed: () {
+                  (prov.pickedImage == null)
+                      ? prov.onPickImage()
+                      : prov.onClearImage();
+                },
               ),
             ),
           ),
@@ -133,6 +167,7 @@ class _Permissions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<EmployeesProvider>();
     return CustomWhiteBox(
       color: AppColors.whiteGrey,
       child: Column(
@@ -151,28 +186,38 @@ class _Permissions extends StatelessWidget {
           const SizedBox(height: 12),
           LabeledCheckbox(
             labelText: 'إدارة الرحلات السياحية',
-            value: false,
-            onChanged: (value) {},
+            value: prov.permissions.manageTrips,
+            onChanged: (value) {
+              prov.onChangePermission(manageTrips: value);
+            },
           ),
           LabeledCheckbox(
             labelText: 'إدارة الرحلات الموقوفة',
-            value: false,
-            onChanged: (value) {},
+            value: prov.permissions.manageSuspendedTrips,
+            onChanged: (value) {
+              prov.onChangePermission(manageSuspendedTrips: value);
+            },
           ),
           LabeledCheckbox(
             labelText: 'إدارة المستخدمين',
-            value: true,
-            onChanged: (value) {},
+            value: prov.permissions.manageUsers,
+            onChanged: (value) {
+              prov.onChangePermission(manageUsers: value);
+            },
           ),
           LabeledCheckbox(
             labelText: 'إدارة طلبات الحجز',
-            value: false,
-            onChanged: (value) {},
+            value: prov.permissions.manageBookingRequests,
+            onChanged: (value) {
+              prov.onChangePermission(manageBookingRequests: value);
+            },
           ),
           LabeledCheckbox(
             labelText: 'إدارة الموقع الإلكتروني',
-            value: true,
-            onChanged: (value) {},
+            value: prov.permissions.manageWebsite,
+            onChanged: (value) {
+              prov.onChangePermission(manageWebsite: value);
+            },
           ),
         ],
       ),

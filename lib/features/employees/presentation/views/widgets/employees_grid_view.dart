@@ -53,6 +53,9 @@ class EmployeesGridView extends StatelessWidget {
                         email: employee.email,
                         imgUrl: employee.image,
                         onTap: () {
+                          prov
+                            ..clearEmployeeData()
+                            ..selectEmployee(employee);
                           Navigator.of(
                             context,
                           ).pushNamed(EmployeeDetailsView.routeName);
