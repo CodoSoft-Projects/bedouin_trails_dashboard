@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
-import '../utils/assets.dart';
+import 'custom_cached_network_image.dart';
 import 'custom_white_box.dart';
 
 class CustomPersonCard extends StatelessWidget {
@@ -45,7 +45,7 @@ class CustomPersonCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
                   image: DecorationImage(
-                    image: AssetImage(Assets.imagesTestUser2),
+                    image: customCachedNetworkImageprovider(imgUrl!),
                     fit: BoxFit.cover,
                   ),
                 ),

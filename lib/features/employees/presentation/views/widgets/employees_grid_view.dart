@@ -1,8 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/models/account_model.dart';
+import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/custom_person_card.dart';
+import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../manager/employees_provider.dart';
 import '../employee_details_view.dart';
 
 class EmployeesGridView extends StatelessWidget {
@@ -10,36 +16,51 @@ class EmployeesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<EmployeesProvider>();
+    List<AccountModel> employees = prov.checkGettingEmployees == null
+        ? List.generate(6, (index) => AccountModel.empty())
+        : prov.employees;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: LayoutBuilder(
         builder: (context, constraints) {
           var width = constraints.maxWidth;
           var crossAxisCount = (width / 210).toInt();
-          return GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: max(crossAxisCount, 1),
-              mainAxisSpacing: 12.0,
-              crossAxisSpacing: 12.0,
-              childAspectRatio: 221 / 386,
-              mainAxisExtent: 386,
-            ),
-            itemCount: 20,
-            itemBuilder: (context, index) {
-              return CustomPersonCard(
-                name: 'محمد خالد ابن سلمان',
-                phone: '+20 0109876543',
-                email: 'a7med123@gmail.com',
-                onTap: () {
-                  Navigator.of(
-                    context,
-                  ).pushNamed(EmployeeDetailsView.routeName);
-                },
-              );
-            },
-          );
+          return employees.isEmpty
+              ? EmptyGridWidget(
+                  message: "لا يوجد موظفين",
+                  lottie: Assets.animationsEmptyGrid2,
+                )
+              : Skeletonizer(
+                  enabled: prov.checkGettingEmployees == null,
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: max(crossAxisCount, 1),
+                      mainAxisSpacing: 12.0,
+                      crossAxisSpacing: 12.0,
+                      childAspectRatio: 221 / 386,
+                      mainAxisExtent: 386,
+                    ),
+                    itemCount: employees.length,
+                    itemBuilder: (context, index) {
+                      var employee = employees[index];
+                      return CustomPersonCard(
+                        name: employee.fullName,
+                        phone: employee.phone,
+                        email: employee.email,
+                        imgUrl: employee.image,
+                        onTap: () {
+                          Navigator.of(
+                            context,
+                          ).pushNamed(EmployeeDetailsView.routeName);
+                        },
+                      );
+                    },
+                  ),
+                );
         },
       ),
     );
