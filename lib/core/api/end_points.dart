@@ -13,6 +13,9 @@ class EndPoints {
   static const trips = '/api/admin/traps';
   static const tripDay = '/api/admin/trap-days';
   static const tripDayCart = '/api/admin/trap-day-cards';
+
+  /// Employees
+  static const employees = '/api/admin/employees';
 }
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4
