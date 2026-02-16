@@ -90,12 +90,12 @@ class PermissionsModel {
 
     if (value is bool) return value;
 
-    // if (value is int) return value == 1;
+    if (value is int) return value == 1;
 
-    // if (value is String) {
-    //   final v = value.toLowerCase();
-    //   return v == '1' || v == 'true';
-    // }
+    if (value is String) {
+      final v = value.toLowerCase();
+      return v == '1' || v == 'true';
+    }
 
     return false;
   }

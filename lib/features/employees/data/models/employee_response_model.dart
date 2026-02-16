@@ -12,12 +12,10 @@ class EmployeeResponseModel {
   });
 
   factory EmployeeResponseModel.fromJson(Map<String, dynamic>? json) {
-    final dataList = (json?['data'] as List?) ?? [];
-
     return EmployeeResponseModel(
       status: json?['status'] ?? false,
       message: json?['message'] ?? '',
-      employee: AccountModel.fromJson(dataList.isNotEmpty ? dataList[0] : {}),
+      employee: AccountModel.fromJson(json?['data'] ?? {}),
     );
   }
 }

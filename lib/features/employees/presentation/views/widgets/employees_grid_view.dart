@@ -6,6 +6,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/models/account_model.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/api_error_widget.dart';
 import '../../../../../core/widgets/custom_person_card.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
 import '../../manager/employees_provider.dart';
@@ -27,7 +28,9 @@ class EmployeesGridView extends StatelessWidget {
         builder: (context, constraints) {
           var width = constraints.maxWidth;
           var crossAxisCount = (width / 210).toInt();
-          return employees.isEmpty
+          return prov.checkGettingEmployees == false
+              ? ApiErrorView(msg: prov.message, onRetry: prov.getAllEmployees)
+              : employees.isEmpty
               ? EmptyGridWidget(
                   message: "لا يوجد موظفين",
                   lottie: Assets.animationsEmptyGrid2,

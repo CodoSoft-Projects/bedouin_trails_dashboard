@@ -175,6 +175,7 @@ class EmployeesProvider extends ChangeNotifier {
       (model) {
         checkUpdatingEmployee = true;
         message = model.message;
+        onClearImage();
         selectEmployee(model.employee);
         getAllEmployees();
       },
@@ -188,7 +189,7 @@ class EmployeesProvider extends ChangeNotifier {
 
     final result = await repo.toggleAccountStatus(
       id: selectedEmployee!.id,
-      status: selectedEmployee!.status == 1 ? 0 : 1,
+      status: selectedEmployee!.status,
     );
     result.fold(
       (msg) {

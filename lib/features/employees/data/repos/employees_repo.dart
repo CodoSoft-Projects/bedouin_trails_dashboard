@@ -99,10 +99,10 @@ class EmployeesRepo {
   /// Toggle Account Status
   Future<Either<String, EmployeeResponseModel>> toggleAccountStatus({
     required int id,
-    required int status,
+    required bool status,
   }) async {
     try {
-      var data = {"_method": "put", "status": status};
+      var data = {"_method": "put", "status": status ? 0 : 1};
       log("Toggle Account status: $data");
 
       final response = await dio.post('${EndPoints.employees}/$id', data: data);

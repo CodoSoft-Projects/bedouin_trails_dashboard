@@ -12,9 +12,7 @@ class AccountModel {
   final String role;
   final PermissionsModel permissions;
   final String token;
-
-  //*
-  final int status;
+  final bool status;
 
   const AccountModel({
     required this.id,
@@ -27,9 +25,7 @@ class AccountModel {
     required this.role,
     required this.permissions,
     required this.token,
-
-    //*
-    this.status = 0,
+    this.status = false,
   });
 
   /// ================= FROM JSON =================
@@ -47,11 +43,9 @@ class AccountModel {
       image: _asString(json['image']),
       otp: _asInt(json['otp']),
       role: _asString(json['role']),
-      permissions: json['permission'] ?? PermissionsModel.empty(),
+      permissions: PermissionsModel.fromJson(json['permission'] ?? {}),
       token: _asString(json['token']),
-
-      //*
-      status: _asInt(json['status']),
+      status: _asBool(json['status']),
     );
   }
 
@@ -68,9 +62,7 @@ class AccountModel {
       role: '',
       permissions: PermissionsModel.empty(),
       token: '',
-
-      //*
-      status: 0,
+      status: false,
     );
   }
 
@@ -82,14 +74,11 @@ class AccountModel {
       "last_name": lastName,
       "email": email,
       "phone": phone,
-      "image": image,
       "otp": otp,
       "role": role,
       "permission": permissions.toJson(),
       "token": token,
-
-      //*
-      "status": status,
+      "status": status ? 1 : 0,
     };
   }
 
@@ -114,6 +103,21 @@ class AccountModel {
     return int.tryParse(value.toString()) ?? defaultValue;
   }
 
+  static bool _asBool(dynamic value) {
+    if (value == null) return false;
+
+    if (value is bool) return value;
+
+    if (value is int) return value == 1;
+
+    if (value is String) {
+      final v = value.toLowerCase();
+      return v == '1' || v == 'true';
+    }
+
+    return false;
+  }
+
   AccountModel copyWith({
     int? id,
     String? firstName,
@@ -125,7 +129,7 @@ class AccountModel {
     String? role,
     PermissionsModel? permissions,
     String? token,
-    int? status,
+    bool? status,
   }) {
     return AccountModel(
       id: id ?? this.id,
@@ -138,8 +142,6 @@ class AccountModel {
       role: role ?? this.role,
       permissions: permissions ?? this.permissions,
       token: token ?? this.token,
-
-      //*
       status: status ?? this.status,
     );
   }

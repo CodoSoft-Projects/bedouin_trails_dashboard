@@ -16,16 +16,16 @@ class BlockEmployeeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<EmployeesProvider>();
-    bool isActive = prov.selectedEmployee?.status == 1;
+    bool isActive = prov.selectedEmployee?.status == true;
 
     return CustomButton(
-      text: isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
-      color: isActive ? AppColors.cyanGreen : AppColors.red,
+      text: !isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
+      color: !isActive ? AppColors.cyanGreen : AppColors.red,
       onPressed: () {
         DialogHelper.showQuestionDialog(
           context,
-          title: isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
-          desc: isActive
+          title: !isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
+          desc: !isActive
               ? 'هل انت متاكد من الغاء حظر الموظف ؟'
               : 'هل انت متاكد من حظر الموظف ؟',
           onCancel: () {},

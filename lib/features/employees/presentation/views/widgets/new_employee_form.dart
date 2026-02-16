@@ -36,7 +36,7 @@ class NewEmployeeForm extends StatelessWidget {
               spacing: 16,
               children: [
                 const SizedBox(height: 8),
-                _ProfileImage(),
+                const _ProfileImage(),
                 const SizedBox(height: 8),
                 Row(
                   children: [
