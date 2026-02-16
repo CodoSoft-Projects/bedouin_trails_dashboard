@@ -48,6 +48,24 @@ class PermissionsModel {
     };
   }
 
+  // copy with
+  PermissionsModel copyWith({
+    bool? manageTrips,
+    bool? manageSuspendedTrips,
+    bool? manageUsers,
+    bool? manageBookingRequests,
+    bool? manageWebsite,
+  }) {
+    return PermissionsModel(
+      manageTrips: manageTrips ?? this.manageTrips,
+      manageSuspendedTrips: manageSuspendedTrips ?? this.manageSuspendedTrips,
+      manageUsers: manageUsers ?? this.manageUsers,
+      manageBookingRequests:
+          manageBookingRequests ?? this.manageBookingRequests,
+      manageWebsite: manageWebsite ?? this.manageWebsite,
+    );
+  }
+
   /// ================= HELPERS =================
 
   /// has at least one permission
