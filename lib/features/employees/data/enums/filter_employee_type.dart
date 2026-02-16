@@ -11,22 +11,22 @@ enum FilterEmployeeType {
 
 // extension for retun json key => val
 extension FilterEmployeeTypeExtension on FilterEmployeeType {
-  Map<String, dynamic> get key {
+  String get key {
     switch (this) {
       case FilterEmployeeType.active:
-        return {"status": 1};
+        return 'status=${true}';
       case FilterEmployeeType.inactive:
-        return {"status": 0};
+        return 'status=${false}';
       case FilterEmployeeType.manageTrips:
-        return {'manage_trips': true};
+        return 'permissions=manage_trips';
       case FilterEmployeeType.manageSuspendedTrips:
-        return {'manage_suspended_trips': true};
+        return 'permissions=manage_suspended_trips';
       case FilterEmployeeType.manageUsers:
-        return {'manage_users': true};
+        return 'permissions=manage_users';
       case FilterEmployeeType.manageBookingRequests:
-        return {'booking_requests': true};
+        return 'permissions=booking_requests';
       case FilterEmployeeType.manageWebsite:
-        return {'manage_website': true};
+        return 'permissions=manage_website';
     }
   }
 

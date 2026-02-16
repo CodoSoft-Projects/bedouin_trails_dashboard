@@ -12,6 +12,7 @@ import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
+import '../enums/filter_employee_type.dart';
 import '../models/employee_response_model.dart';
 import '../models/employees_response_model.dart';
 
@@ -22,14 +23,12 @@ class EmployeesRepo {
   Future<Either<String, EmployeesResponseModel>> getAllEmployees({
     required int page,
     required String search,
-    int? status,
+    required FilterEmployeeType filter,
   }) async {
     try {
-      var path = '${EndPoints.employees}?page=$page&search=$search';
-      final response = await dio.get(
-        status != null ? '$path&status=$status' : path,
-        isFormData: false,
-      );
+      var path =
+          '${EndPoints.employees}?page=$page&search=$search'; //${filter.key}
+      final response = await dio.get(path, isFormData: false);
       return Right(EmployeesResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);

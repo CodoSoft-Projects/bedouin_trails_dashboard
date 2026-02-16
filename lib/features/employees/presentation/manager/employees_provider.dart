@@ -7,6 +7,7 @@ import '../../../../core/models/account_model.dart';
 import '../../../../core/models/pagination_model.dart';
 import '../../../../core/models/permissions_model.dart';
 import '../../../../core/models/picked_image_model.dart';
+import '../../data/enums/filter_employee_type.dart';
 import '../../data/repos/employees_repo.dart';
 
 class EmployeesProvider extends ChangeNotifier {
@@ -18,6 +19,7 @@ class EmployeesProvider extends ChangeNotifier {
   List<AccountModel> employees = [];
   PaginationModel pagination = PaginationModel.empty();
   var searchController = TextEditingController();
+  FilterEmployeeType filter = FilterEmployeeType.active;
 
   bool? checkGettingEmployees = false;
 
@@ -28,7 +30,7 @@ class EmployeesProvider extends ChangeNotifier {
     final result = await repo.getAllEmployees(
       page: page,
       search: searchController.text.trim(),
-      status: status,
+      filter: filter,
     );
 
     result.fold(
@@ -42,6 +44,11 @@ class EmployeesProvider extends ChangeNotifier {
       },
     );
     notifyListeners();
+  }
+
+  void onChangeFilter(FilterEmployeeType filter) {
+    this.filter = filter;
+    getAllEmployees();
   }
 
   /// Employee data controllers
