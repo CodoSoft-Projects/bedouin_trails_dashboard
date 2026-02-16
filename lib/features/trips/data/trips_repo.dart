@@ -92,6 +92,36 @@ class TripsRepo {
     }
   }
 
+  /// Add new trip
+  Future<Either<String, TripResponseModel>> addNewTrip({
+    required String name,
+    required double price,
+    required String interfaceFrom,
+    required String interfaceTo,
+    required List<PickedImage> images,
+  }) async {
+    try {
+      var data = {
+        "name": name,
+        "price": price,
+        "interfaceFrom": interfaceFrom,
+        "interfaceTo": interfaceTo,
+      };
+      log("Add New Trip Data: $data");
+      final response = await dio.multipartMultipleImages(
+        path: EndPoints.trips,
+        images: images,
+        fields: data,
+      );
+      return Right(TripResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in addNewTrip: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
   /// update trip
   Future<Either<String, SimpleModel>> updateTrip({
     required int id,

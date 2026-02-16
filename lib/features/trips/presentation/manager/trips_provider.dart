@@ -242,7 +242,7 @@ class TripsProvider extends ChangeNotifier {
       (model) {
         checkUpdateTrip = true;
         message = model.message;
-        tripImages = [];
+        clearUploadedImages();
         getTripDetails();
       },
     );
@@ -250,6 +250,10 @@ class TripsProvider extends ChangeNotifier {
 
   /// Remove trip image
   bool? checkRemoveingImage = false;
+  void clearUploadedImages() {
+    tripImages = [];
+    notifyListeners();
+  }
 
   Future<void> removeTripImage({required int imageId}) async {
     checkRemoveingImage = null;
@@ -268,6 +272,37 @@ class TripsProvider extends ChangeNotifier {
       },
     );
     notifyListeners();
+  }
+
+  /// Add new trip
+  bool? checkAddingTrip = false;
+
+  Future<void> addNewTrip() async {
+    checkAddingTrip = null;
+    notifyListeners();
+
+    final response = await repo.addNewTrip(
+      name: tripNameController.text,
+      images: tripImages,
+      price: double.parse(tripPriceController.text),
+      interfaceFrom: tripFromController.text,
+      interfaceTo: tripToController.text,
+    );
+    response.fold(
+      (message) {
+        this.message = message;
+        checkAddingTrip = false;
+        notifyListeners();
+      },
+      (model) {
+        checkAddingTrip = true;
+        message = model.message;
+        onSelectTrip(model.trip);
+        clearTripControllers();
+        clearUploadedImages();
+        getAllActiveTrips();
+      },
+    );
   }
 
   // Add trip program day
