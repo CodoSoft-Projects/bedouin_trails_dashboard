@@ -57,7 +57,7 @@ class EmployeesRepo {
     required int status,
   }) async {
     try {
-      var data = {"_method": "put", "status": status.toString()};
+      var data = {"_method": "put", "status": status};
       log("Toggle Account status: $data");
 
       final response = await dio.post('${EndPoints.employees}/$id', data: data);

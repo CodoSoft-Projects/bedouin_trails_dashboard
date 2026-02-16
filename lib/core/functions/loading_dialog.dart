@@ -6,6 +6,7 @@ import '../widgets/loading_icon_widget.dart';
 Future<dynamic> loadingDialog(BuildContext context) {
   return showDialog(
     context: context,
+    barrierDismissible: false,
     builder: (context) {
       return SizedBox(
         height: 100,
