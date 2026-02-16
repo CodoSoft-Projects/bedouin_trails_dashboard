@@ -160,6 +160,7 @@ class TripsProvider extends ChangeNotifier {
 
   /// Some fields for add or update trip info
   var formKey = GlobalKey<FormState>();
+  var newTripFormKey = GlobalKey<FormState>();
   var tripNameController = TextEditingController();
   TripStatus tripStatus = TripStatus.unknown;
   var tripPriceController = TextEditingController();

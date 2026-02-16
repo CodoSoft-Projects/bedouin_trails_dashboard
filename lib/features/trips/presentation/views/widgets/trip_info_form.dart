@@ -60,16 +60,7 @@ class TripInfoForm extends StatelessWidget {
                       ? prov.tripPriceController
                       : TextEditingController(text: trip.price.toString()),
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: (value) {
-                    var price = double.tryParse(value ?? '0') ?? 0;
-                    if (value == null || value.isEmpty) {
-                      return 'الرجاء ادخال سعر الرحلة';
-                    }
-                    if (price > 999999) {
-                      return 'يجب ان يكون سعر الرحلة اقل من 999999 \$';
-                    }
-                    return null;
-                  },
+                  validator: priceValidation,
                   suffixIcon: Icon(
                     Icons.attach_money,
                     color: AppColors.cyanGreen,
@@ -124,4 +115,5 @@ class TripInfoForm extends StatelessWidget {
       ),
     );
   }
+
 }

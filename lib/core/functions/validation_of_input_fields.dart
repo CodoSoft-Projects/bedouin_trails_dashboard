@@ -99,6 +99,17 @@ bool validatorOfEgyptianPhoneBool(String? value) {
   return isValid;
 }
 
+String? priceValidation(String? value) {
+  var price = double.tryParse(value ?? '0') ?? 0;
+  if (value == null || value.isEmpty) {
+    return 'الرجاء ادخال سعر الرحلة';
+  }
+  if (price > 999999) {
+    return 'يجب ان يكون سعر الرحلة اقل من 999999 \$';
+  }
+  return null;
+}
+
 String? simpleValidation(String? value) {
   if (value == null || value.isEmpty) {
     return 'هذا الحقل مطلوب';
