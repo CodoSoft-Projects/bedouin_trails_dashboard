@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/picked_image_model.dart';
 import '../../data/models/article_model.dart';
 import '../../data/repos/articles_repo.dart';
@@ -12,6 +13,7 @@ class ArticlesProvider extends ChangeNotifier {
   List<ArticleModel> articles = [];
   ArticleModel? selectedArticle;
   PickedImage? pickedImage;
+  var formKey = GlobalKey<FormState>();
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
 
@@ -53,5 +55,41 @@ class ArticlesProvider extends ChangeNotifier {
   void onSelectArticle(ArticleModel article) {
     selectedArticle = article;
     fillControllers(article);
+  }
+
+  void onPickImage() async {
+    pickedImage = await pickImageUniversal();
+    notifyListeners();
+  }
+
+  void onClearImage() {
+    pickedImage = null;
+    notifyListeners();
+  }
+
+  /// Add New Article
+  bool? checkAddingArticle = false;
+
+  Future<void> addNewArticle() async {
+    checkAddingArticle = null;
+    notifyListeners();
+
+    final result = await repo.addNewArticle(
+      image: pickedImage!,
+      title: titleController.text,
+      description: descriptionController.text,
+    );
+    result.fold(
+      (msg) {
+        message = msg;
+        checkAddingArticle = false;
+      },
+      (model) {
+        message = model.message;
+        checkAddingArticle = true;
+        getAllArticles();
+      },
+    );
+    notifyListeners();
   }
 }
