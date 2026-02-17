@@ -14,9 +14,9 @@ extension FilterEmployeeTypeExtension on FilterEmployeeType {
   String get key {
     switch (this) {
       case FilterEmployeeType.active:
-        return 'status=${true}';
+        return 'status=${1}';
       case FilterEmployeeType.inactive:
-        return 'status=${false}';
+        return 'status=${0}';
       case FilterEmployeeType.manageTrips:
         return 'permissions=manage_trips';
       case FilterEmployeeType.manageSuspendedTrips:

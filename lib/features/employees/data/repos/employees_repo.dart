@@ -27,7 +27,7 @@ class EmployeesRepo {
   }) async {
     try {
       var path =
-          '${EndPoints.employees}?page=$page&search=$search'; //${filter.key}
+          '${EndPoints.employees}?page=$page&search=$search&${filter.key}';
       final response = await dio.get(path, isFormData: false);
       return Right(EmployeesResponseModel.fromJson(response));
     } on ServerException catch (e) {
