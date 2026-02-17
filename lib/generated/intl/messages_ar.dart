@@ -31,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "days": m0,
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no_pemissions_msg": MessageLookupByLibrary.simpleMessage(
+      "لا تملك صلاحيات حالياً 👋 \nتم تسجيل دخولك بنجاح، لكن لم يتم منحك أي صلاحيات لاستخدام لوحة التحكم بعد. \nيرجى التواصل مع مسؤول النظام لتفعيل الصلاحيات الخاصة بك.",
+    ),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),

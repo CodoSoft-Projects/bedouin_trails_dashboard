@@ -31,6 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "days": m0,
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "no_pemissions_msg": MessageLookupByLibrary.simpleMessage(
+      "You currently don\'t have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions.",
+    ),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),

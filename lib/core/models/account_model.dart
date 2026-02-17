@@ -78,7 +78,7 @@ class AccountModel {
       "role": role,
       "permission": permissions.toJson(),
       "token": token,
-      "status": status ? 1 : 0,
+      // "status": status ? 1 : 0,
     };
   }
 

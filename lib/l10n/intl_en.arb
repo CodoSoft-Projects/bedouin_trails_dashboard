@@ -20,5 +20,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "no_pemissions_msg": "You currently don't have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions."
 }

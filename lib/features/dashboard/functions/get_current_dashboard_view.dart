@@ -7,6 +7,7 @@ import '../../trips/presentation/views/suspended_trips_view.dart';
 import '../../trips/presentation/views/trips_view.dart';
 import '../../users/presentation/views/users_view.dart';
 import '../enum/dashboard_type.dart';
+import '../widgets/no_permissions_view.dart';
 
 Widget getCurrentDashboardView(DashboardType? view) {
   switch (view) {
@@ -25,6 +26,6 @@ Widget getCurrentDashboardView(DashboardType? view) {
     case DashboardType.siteManagement:
       return const SettingsView();
     default:
-      return const Center(child: Text('No View Selected'));
+      return const NoPermissionView();
   }
 }

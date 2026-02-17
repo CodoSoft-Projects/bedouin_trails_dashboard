@@ -99,6 +99,16 @@ class S {
       args: [count],
     );
   }
+
+  /// `You currently don't have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions.`
+  String get no_pemissions_msg {
+    return Intl.message(
+      'You currently don\'t have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions.',
+      name: 'no_pemissions_msg',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
