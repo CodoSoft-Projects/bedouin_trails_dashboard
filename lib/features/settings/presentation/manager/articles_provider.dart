@@ -88,6 +88,7 @@ class ArticlesProvider extends ChangeNotifier {
       (model) {
         message = model.message;
         checkAddingArticle = true;
+        clearControllers();
         getAllArticles();
       },
     );
@@ -126,6 +127,30 @@ class ArticlesProvider extends ChangeNotifier {
   void replaceArticle(ArticleModel article) {
     final index = articles.indexWhere((element) => element.id == article.id);
     articles[index] = article;
+    notifyListeners();
+  }
+
+  /// Delete Article
+  bool? checkDeletingArticle = false;
+
+  Future<void> deleteArticle() async {
+    checkDeletingArticle = null;
+    notifyListeners();
+
+    final result = await repo.deleteArticle(id: selectedArticle!.id);
+    result.fold(
+      (msg) {
+        message = msg;
+        checkDeletingArticle = false;
+      },
+      (model) {
+        message = model.message;
+        checkDeletingArticle = true;
+        articles.removeWhere((element) => element.id == selectedArticle!.id);
+        selectedArticle = null;
+        if (articles.isNotEmpty) onSelectArticle(articles.first);
+      },
+    );
     notifyListeners();
   }
 }

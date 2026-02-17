@@ -80,4 +80,20 @@ class ArticlesRepo {
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
+
+  /// Delete Article
+  Future<Either<String, SimpleModel>> deleteArticle({required int id}) async {
+    try {
+      final response = await dio.delete(
+        '${EndPoints.articles}/$id',
+        isFormData: false,
+      );
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in deleteArticle: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
 }
