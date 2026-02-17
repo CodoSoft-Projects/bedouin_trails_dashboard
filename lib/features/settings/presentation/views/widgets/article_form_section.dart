@@ -1,14 +1,19 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/constants.dart';
+import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../manager/articles_provider.dart';
 import 'update_article_dialog.dart';
 
 class ArticleFormSection extends StatelessWidget {
@@ -82,56 +87,52 @@ class _ArticleForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var article = TextEditingController(
-      text:
-          '''تخيّل أنك بين رمال صحراء ذهبية تمتد إلى الأفق، محاط بجمال طبيعي ساحر، وتتنفس هواءً نقياً بعيداً عن ضوضاء المدينة… هذه هي تجربة السفاري في واحة سيوة. من أول لحظة تصل فيها، ستجد نفسك في عالم مختلف تماماً، حيث تمتزج الطبيعة مع التاريخ والثقافة بطريقة فريدة.
-          ماذا نقدم في رحلاتنا؟
-          جولات 4×4 وسط الصحراء: اكتشف الكثبان الرملية الذهبية على متن سيارات مجهزة، وتمتع بمغامرة مليئة بالإثارة.
-          زيارة المعالم الطبيعية: مثل بحيرة المالح، عيون سيوة الطبيعية، وواحة الطيور حيث يمكن رؤية أنواع نادرة من الطيور والحيوانات الصحراوية.
-          تجربة الثقافة المحلية: التقي بسكان سيوة المحليين، وتعلم عن عاداتهم وتقاليدهم، وزُر قرية شالي القديمة التي تحكي قصص الواحة عبر العصور.
-          المبيت في الخيام البدوية: عيش تجربة التخييم الصحراوي تحت سماء مليئة بالنجوم، مع جلسات نار تقليدية وأطباق صحراوية لذيذة.
-          أفضل أوقات الرحلات
-          تقدم رحلاتنا خيارات متنوعة لتناسب جميع الأوقات:
-          رحلة يوم كامل: مناسبة لمحبي المغامرات القصيرة.''',
-    );
+    var prov = context.watch<ArticlesProvider>();
+
     return SingleChildScrollView(
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 500),
           child: AbsorbPointer(
-            child: Column(
-              spacing: 12,
-              children: [
-                const SizedBox(height: 32),
-                AspectRatio(
-                  aspectRatio: 584 / 264,
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                        image: AssetImage(Assets.imagesTestTripImage),
-                        fit: BoxFit.cover,
+            child: Skeletonizer(
+              enabled: prov.checkGettingArticles == null,
+              child: Column(
+                spacing: 12,
+                children: [
+                  const SizedBox(height: 32),
+                  AspectRatio(
+                    aspectRatio: 584 / 264,
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: customCachedNetworkImageprovider(
+                            prov.selectedArticle?.image ?? '',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 32),
-                CustomTextFormField(
-                  labelText: 'عنوان المقال',
-                  controller: TextEditingController(
-                    text: 'مغامرة بين الرمال والنجوم',
+                  const SizedBox(height: 32),
+                  CustomTextFormField(
+                    labelText: 'عنوان المقال',
+                    controller: prov.titleController,
                   ),
-                ),
 
-                CustomTextFormField(
-                  labelText: 'محتوي المقالة',
-                  lines: (article.text.length / 40).ceil(),
-                  controller: article,
-                ),
+                  CustomTextFormField(
+                    labelText: 'محتوي المقالة',
+                    lines: max(
+                      2,
+                      (prov.descriptionController.text.length / 40).ceil(),
+                    ),
+                    controller: prov.descriptionController,
+                  ),
 
-                const SizedBox(height: 32),
-              ],
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
           ),
         ),

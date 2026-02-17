@@ -1,6 +1,7 @@
 import 'package:bedouin_trails_dashboard/core/widgets/custom_white_box.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -64,18 +65,21 @@ class _ArticlesListView extends StatelessWidget {
     List<ArticleModel> articles = prov.checkGettingArticles == null
         ? loadingArticles
         : prov.articles;
-    return ListView.separated(
-      itemCount: articles.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 8),
-      itemBuilder: (context, index) {
-        return CartItem(
-          isSelected: prov.selectedArticle == articles[index],
-          text: articles[index].title,
-          onTap: () {
-            prov.onSelectArticle(articles[index]);
-          },
-        );
-      },
+    return Skeletonizer(
+      enabled: prov.checkGettingArticles == null,
+      child: ListView.separated(
+        itemCount: articles.length,
+        separatorBuilder: (context, index) => const SizedBox(height: 8),
+        itemBuilder: (context, index) {
+          return CartItem(
+            isSelected: prov.selectedArticle == articles[index],
+            text: articles[index].title,
+            onTap: () {
+              prov.onSelectArticle(articles[index]);
+            },
+          );
+        },
+      ),
     );
   }
 }
