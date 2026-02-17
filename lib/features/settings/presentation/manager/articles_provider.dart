@@ -40,9 +40,10 @@ class ArticlesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void fillControllers(ArticleModel article) {
-    titleController.text = article.title;
-    descriptionController.text = article.description;
+  void fillControllers(ArticleModel? article) {
+    var articlee = article ?? selectedArticle;
+    titleController.text = articlee!.title;
+    descriptionController.text = articlee.description;
     notifyListeners();
   }
 
@@ -115,8 +116,16 @@ class ArticlesProvider extends ChangeNotifier {
         message = model.message;
         checkUpdatingArticle = true;
         onSelectArticle(model.article);
+        replaceArticle(model.article);
       },
     );
+    notifyListeners();
+  }
+
+  /// Replace article form the list with new article
+  void replaceArticle(ArticleModel article) {
+    final index = articles.indexWhere((element) => element.id == article.id);
+    articles[index] = article;
     notifyListeners();
   }
 }

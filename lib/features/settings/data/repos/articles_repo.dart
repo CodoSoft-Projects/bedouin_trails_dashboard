@@ -61,7 +61,11 @@ class ArticlesRepo {
     required String description,
     PickedImage? image,
   }) async {
-    Map<String, dynamic> data = {'title': title, 'description': description};
+    Map<String, dynamic> data = {
+      "_method": "PUT",
+      'title': title,
+      'description': description,
+    };
     try {
       final response = await dio.multipart(
         path: '${EndPoints.articles}/$id',

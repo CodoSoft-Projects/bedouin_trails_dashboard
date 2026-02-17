@@ -49,6 +49,9 @@ class ArticleFormSection extends StatelessWidget {
                 borderSide: BorderSide.none,
                 size: 18,
                 onPressed: () {
+                  context.read<ArticlesProvider>()
+                    ..onClearImage()
+                    ..fillControllers(null);
                   updateArticleDialog(context);
                 },
               ),
@@ -127,10 +130,11 @@ class _ArticleForm extends StatelessWidget {
                     labelText: 'محتوي المقالة',
                     lines: max(
                       2,
-                      ((prov.selectedArticle?.title.length ?? 0) / 40).ceil(),
+                      ((prov.selectedArticle?.description.length ?? 0) / 40)
+                          .ceil(),
                     ),
                     controller: TextEditingController(
-                      text: prov.selectedArticle?.title ?? '',
+                      text: prov.selectedArticle?.description ?? '',
                     ),
                   ),
 

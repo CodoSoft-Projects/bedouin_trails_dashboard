@@ -5,6 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/functions/validation_of_input_fields.dart';
 import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -71,12 +72,18 @@ class _Form extends StatelessWidget {
                   Row(
                     children: [
                       CustomCircularButton(
-                        icon: LucideIcons.upload,
+                        icon: prov.pickedImage == null
+                            ? LucideIcons.upload
+                            : LucideIcons.x,
                         size: 18,
                         borderSide: BorderSide.none,
                         backgroundColor: AppColors.whiteGrey,
                         onPressed: () {
-                          prov.onPickImage();
+                          if (prov.pickedImage == null) {
+                            prov.onPickImage();
+                          } else {
+                            prov.onClearImage();
+                          }
                         },
                       ),
                     ],
@@ -89,12 +96,14 @@ class _Form extends StatelessWidget {
           CustomTextFormField(
             labelText: 'عنوان المقالة',
             hintText: 'عنوان المقالة',
+            validator: simpleValidation,
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
             labelText: 'محتوي المقالة',
             hintText: 'محتوي المقالة',
+            validator: simpleValidation,
             lines: 10,
             controller: prov.descriptionController,
           ),
