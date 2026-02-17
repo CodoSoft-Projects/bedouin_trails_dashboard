@@ -92,4 +92,31 @@ class ArticlesProvider extends ChangeNotifier {
     );
     notifyListeners();
   }
+
+  /// Update Article
+  bool? checkUpdatingArticle = false;
+
+  Future<void> updateArticle() async {
+    checkUpdatingArticle = null;
+    notifyListeners();
+
+    final result = await repo.updateArticle(
+      id: selectedArticle!.id,
+      image: pickedImage,
+      title: titleController.text,
+      description: descriptionController.text,
+    );
+    result.fold(
+      (msg) {
+        message = msg;
+        checkUpdatingArticle = false;
+      },
+      (model) {
+        message = model.message;
+        checkUpdatingArticle = true;
+        onSelectArticle(model.article);
+      },
+    );
+    notifyListeners();
+  }
 }

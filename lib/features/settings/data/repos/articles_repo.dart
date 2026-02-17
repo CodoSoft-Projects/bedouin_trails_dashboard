@@ -10,7 +10,8 @@ import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
-import '../models/articles_respnse_model.dart';
+import '../models/article_response_model.dart';
+import '../models/articles_response_model.dart';
 
 class ArticlesRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
@@ -49,6 +50,29 @@ class ArticlesRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in addNewArticle: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Update Article
+  Future<Either<String, ArticleResponseModel>> updateArticle({
+    required int id,
+    required String title,
+    required String description,
+    PickedImage? image,
+  }) async {
+    Map<String, dynamic> data = {'title': title, 'description': description};
+    try {
+      final response = await dio.multipart(
+        path: '${EndPoints.articles}/$id',
+        pickedImage: image,
+        fields: data,
+      );
+      return Right(ArticleResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateArticle: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }
