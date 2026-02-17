@@ -16,7 +16,7 @@ class ArticlesRepo {
   /// Get All Articles
   Future<Either<String, ArticlesResponseModel>> getAllArticles() async {
     try {
-      final response = await dio.get(EndPoints.articles);
+      final response = await dio.get(EndPoints.articles, isFormData: false);
       return Right(ArticlesResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
