@@ -42,10 +42,10 @@ class ArticlesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var prov = context.watch<ArticlesProvider>();
     if (prov.checkGettingArticles == false) {
-      ApiErrorView(msg: prov.message, onRetry: prov.getAllArticles);
+      return ApiErrorView(msg: prov.message, onRetry: prov.getAllArticles);
     }
     if (prov.articles.isEmpty && prov.checkGettingArticles == true) {
-      return const NoArticlesScreen();
+      return const NoArticlesSection();
     }
     return Padding(
       padding: const EdgeInsets.all(16.0),

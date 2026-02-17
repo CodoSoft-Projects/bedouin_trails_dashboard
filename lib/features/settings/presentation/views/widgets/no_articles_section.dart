@@ -7,8 +7,8 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../manager/articles_provider.dart';
 import 'add_article_dialog.dart';
 
-class NoArticlesScreen extends StatelessWidget {
-  const NoArticlesScreen({super.key});
+class NoArticlesSection extends StatelessWidget {
+  const NoArticlesSection({super.key});
 
   @override
   Widget build(BuildContext context) {
