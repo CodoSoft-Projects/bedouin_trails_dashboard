@@ -3,12 +3,12 @@ import 'about_us_model.dart';
 class AboutUsItemsResponseModel {
   final bool status;
   final String message;
-  final List<AboutUsModel> articles;
+  final List<AboutUsModel> items;
 
   const AboutUsItemsResponseModel({
     required this.status,
     required this.message,
-    required this.articles,
+    required this.items,
   });
 
   factory AboutUsItemsResponseModel.fromJson(Map<String, dynamic>? json) {
@@ -16,14 +16,14 @@ class AboutUsItemsResponseModel {
       return const AboutUsItemsResponseModel(
         status: false,
         message: '',
-        articles: [],
+        items: [],
       );
     }
 
     return AboutUsItemsResponseModel(
       status: json['status'] ?? false,
       message: json['message'] ?? '',
-      articles: AboutUsModel.listFromJson(json['data']),
+      items: AboutUsModel.listFromJson(json['data']),
     );
   }
 
@@ -31,7 +31,7 @@ class AboutUsItemsResponseModel {
     return {
       'status': status,
       'message': message,
-      'data': articles.map((e) => e.toJson()).toList(),
+      'data': items.map((e) => e.toJson()).toList(),
     };
   }
 }
