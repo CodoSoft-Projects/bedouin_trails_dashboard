@@ -36,6 +36,7 @@ class NoArticlesScreen extends StatelessWidget {
                     Icon(
                       Icons.article_outlined,
                       size: 95,
+                      // ignore: deprecated_member_use
                       color: AppColors.sandyBrown.withOpacity(.9),
                     ),
 

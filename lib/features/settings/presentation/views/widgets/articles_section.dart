@@ -38,6 +38,9 @@ class ArticlesSection extends StatelessWidget {
                 backgroundColor: AppColors.lightGreen,
                 size: 18,
                 onPressed: () {
+                  context.read<ArticlesProvider>()
+                    ..clearControllers()
+                    ..onClearImage();
                   addArticleDialog(context);
                 },
               ),

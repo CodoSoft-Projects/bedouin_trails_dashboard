@@ -8,6 +8,7 @@ import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
 import 'features/employees/presentation/manager/employees_provider.dart';
 import 'features/profile/presentation/manager/profile_provider.dart';
+import 'features/settings/presentation/manager/articles_provider.dart';
 import 'features/trips/presentation/manager/trips_provider.dart';
 
 Future<void> main() async {
@@ -24,6 +25,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
         ChangeNotifierProvider(create: (_) => TripsProvider()),
         ChangeNotifierProvider(create: (_) => EmployeesProvider()),
+        ChangeNotifierProvider(create: (_) => ArticlesProvider()),
       ],
       child: const BedouinTrails(),
     ),

@@ -1,12 +1,20 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
+import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dialog.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
+import '../../manager/articles_provider.dart';
 
 Future<dynamic> addArticleDialog(BuildContext context) {
   return showDialog(
@@ -26,68 +34,111 @@ class _Form extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 16,
-      children: [
-        const SizedBox(width: 600),
-        AspectRatio(
-          aspectRatio: 584 / 264,
-          child: Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.borderGrey),
-              borderRadius: BorderRadius.circular(16),
-            ),
+    var prov = context.watch<ArticlesProvider>();
+    return Form(
+      key: prov.formKey,
+      child: Column(
+        spacing: 16,
+        children: [
+          const SizedBox(width: 600),
+          AspectRatio(
+            aspectRatio: 584 / 264,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.borderGrey),
+                borderRadius: BorderRadius.circular(16),
+                image: prov.pickedImage == null
+                    ? null
+                    : DecorationImage(
+                        image: MemoryImage(prov.pickedImage!.bytes),
+                        fit: BoxFit.cover,
+                      ),
+              ),
 
-            child: Column(
-              children: [
-                const Spacer(),
-                Text(
-                  'صورة المقالة',
-                  style: AppTextStyles.regular18(
-                    context,
-                  ).copyWith(color: AppColors.blue),
-                ),
-                const Spacer(),
-                Row(
-                  children: [
-                    CustomCircularButton(
-                      icon: LucideIcons.upload,
-                      size: 18,
-                      borderSide: BorderSide.none,
-                      backgroundColor: AppColors.whiteGrey,
-                      onPressed: () {},
+              child: Column(
+                children: [
+                  const Spacer(),
+                  if (prov.pickedImage == null)
+                    Text(
+                      'صورة المقالة',
+                      style: AppTextStyles.regular18(
+                        context,
+                      ).copyWith(color: AppColors.blue),
                     ),
-                  ],
-                ),
-              ],
+                  const Spacer(),
+                  Row(
+                    children: [
+                      CustomCircularButton(
+                        icon: LucideIcons.upload,
+                        size: 18,
+                        borderSide: BorderSide.none,
+                        backgroundColor: AppColors.whiteGrey,
+                        onPressed: () {
+                          prov.onPickImage();
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
 
-        CustomTextFormField(
-          labelText: 'عنوان المقالة',
-          hintText: 'عنوان المقالة',
-        ),
+          CustomTextFormField(
+            labelText: 'عنوان المقالة',
+            hintText: 'عنوان المقالة',
+            controller: prov.titleController,
+          ),
 
-        CustomTextFormField(
-          labelText: 'محتوي المقالة',
-          hintText: 'محتوي المقالة',
-          lines: 10,
-          //
-        ),
+          CustomTextFormField(
+            labelText: 'محتوي المقالة',
+            hintText: 'محتوي المقالة',
+            lines: 10,
+            controller: prov.descriptionController,
+          ),
 
-        const SizedBox(height: 16),
+          const SizedBox(height: 16),
 
-        CustomButton(
-          text: 'حفظ',
-          color: AppColors.sandyBrown,
-          horizontalPadding: 72,
-          onPressed: () {},
-        ),
-        const SizedBox(height: 16),
-      ],
+          CustomButton(
+            text: 'حفظ',
+            color: AppColors.sandyBrown,
+            horizontalPadding: 72,
+            onPressed: () async {
+              if (prov.formKey.currentState!.validate()) {
+                if (prov.pickedImage == null) {
+                  DialogHelper.showErrorDialog(
+                    context,
+                    title: 'يرجى اختيار صورة',
+                  );
+                  return;
+                }
+                //* show loading dialog
+                loadingDialog(context);
+
+                await prov.addNewArticle();
+
+                //* close loading dialog
+                Navigator.pop(context);
+
+                if (prov.checkAddingArticle == true) {
+                  Navigator.pop(context);
+
+                  AppMessage.successBar(context, message: prov.message);
+                } else if (prov.checkAddingArticle == false) {
+                  DialogHelper.showErrorDialog(
+                    context,
+                    title: S.of(context).error,
+                    desc: prov.message,
+                  );
+                }
+              }
+            },
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }

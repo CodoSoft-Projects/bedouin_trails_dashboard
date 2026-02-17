@@ -118,16 +118,20 @@ class _ArticleForm extends StatelessWidget {
                   const SizedBox(height: 32),
                   CustomTextFormField(
                     labelText: 'عنوان المقال',
-                    controller: prov.titleController,
+                    controller: TextEditingController(
+                      text: prov.selectedArticle?.title ?? '',
+                    ),
                   ),
 
                   CustomTextFormField(
                     labelText: 'محتوي المقالة',
                     lines: max(
                       2,
-                      (prov.descriptionController.text.length / 40).ceil(),
+                      ((prov.selectedArticle?.title.length ?? 0) / 40).ceil(),
                     ),
-                    controller: prov.descriptionController,
+                    controller: TextEditingController(
+                      text: prov.selectedArticle?.title ?? '',
+                    ),
                   ),
 
                   const SizedBox(height: 32),
