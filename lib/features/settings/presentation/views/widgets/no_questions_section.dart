@@ -13,6 +13,7 @@ class NoQuestionsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.read<QuestionsProvider>();
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Center(
@@ -109,6 +110,7 @@ class NoQuestionsSection extends StatelessWidget {
                   text: S.of(context).add_new_question,
                   color: AppColors.sandyBrown,
                   onPressed: () {
+                    prov.clearControllers();
                     addQuestionDialog(context);
                   },
                 ),
@@ -119,7 +121,7 @@ class NoQuestionsSection extends StatelessWidget {
               /// ===== Refresh =====
               TextButton.icon(
                 onPressed: () {
-                  context.read<QuestionsProvider>().getAllQuestions();
+                  prov.getAllQuestions();
                 },
                 icon: const Icon(Icons.refresh),
                 label: Text(S.of(context).refresh),

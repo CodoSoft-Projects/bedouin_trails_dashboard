@@ -16,6 +16,7 @@ class NoArticlesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+    var prov = context.read<ArticlesProvider>();
 
     return Scaffold(
       backgroundColor: AppColors.white,
@@ -66,7 +67,10 @@ class NoArticlesSection extends StatelessWidget {
                 child: CustomButton(
                   text: s.add_new_article,
                   color: AppColors.sandyBrown,
-                  onPressed: () => addArticleDialog(context),
+                  onPressed: () {
+                    prov.clearControllers();
+                    addArticleDialog(context);
+                  },
                 ),
               ),
 
@@ -74,8 +78,9 @@ class NoArticlesSection extends StatelessWidget {
 
               /// Refresh
               TextButton.icon(
-                onPressed: () =>
-                    context.read<ArticlesProvider>().getAllArticles(),
+                onPressed: () {
+                  prov.getAllArticles();
+                },
                 icon: const Icon(Icons.refresh),
                 label: Text(s.refresh),
               ),

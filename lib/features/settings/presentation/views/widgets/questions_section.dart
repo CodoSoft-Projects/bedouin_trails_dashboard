@@ -38,6 +38,7 @@ class QuestionsSection extends StatelessWidget {
                 backgroundColor: AppColors.lightGreen,
                 size: 18,
                 onPressed: () {
+                  context.read<QuestionsProvider>().clearControllers();
                   addQuestionDialog(context);
                 },
               ),
