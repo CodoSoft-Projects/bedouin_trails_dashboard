@@ -26,10 +26,16 @@ class ArticlesProvider extends ChangeNotifier {
       },
       (model) {
         articles = model.articles;
+        articles.isNotEmpty ? selectedArticle = articles.first : null;
         message = model.message;
         checkGettingArticles = true;
       },
     );
+    notifyListeners();
+  }
+
+  void onSelectArticle(ArticleModel article) {
+    selectedArticle = article;
     notifyListeners();
   }
 }

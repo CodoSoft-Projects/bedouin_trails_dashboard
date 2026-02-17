@@ -5,8 +5,14 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key, this.isSelected = false, this.onTap});
+  const CartItem({
+    super.key,
+    this.isSelected = false,
+    this.onTap,
+    required this.text,
+  });
   final bool isSelected;
+  final String text;
   final VoidCallback? onTap;
 
   @override
@@ -18,7 +24,7 @@ class CartItem extends StatelessWidget {
         onTap: onTap,
         contentPadding: const EdgeInsets.symmetric(horizontal: 6),
         title: Text(
-          'ما الذي يشمله سعر الرحلة ؟',
+          text,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: AppTextStyles.regular20(context),

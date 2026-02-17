@@ -14,12 +14,7 @@ class ArticleModel {
   /// ------------------ FROM JSON ------------------
   factory ArticleModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return const ArticleModel(
-        id: 0,
-        title: '',
-        description: '',
-        image: '',
-      );
+      return const ArticleModel(id: 0, title: '', description: '', image: '');
     }
 
     return ArticleModel(
@@ -46,4 +41,24 @@ class ArticleModel {
 
     return list.map((e) => ArticleModel.fromJson(e)).toList();
   }
+
+  static const empty = ArticleModel(
+    id: 0,
+    title: '',
+    description: '',
+    image: '',
+  );
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ArticleModel &&
+          runtimeType == other.runtimeType &&
+          other.id == id &&
+          other.title == title &&
+          other.description == description &&
+          other.image == image;
+
+  @override
+  int get hashCode => id.hashCode;
 }

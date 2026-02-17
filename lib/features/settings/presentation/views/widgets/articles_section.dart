@@ -1,9 +1,12 @@
 import 'package:bedouin_trails_dashboard/core/widgets/custom_white_box.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../data/models/article_model.dart';
+import '../../manager/articles_provider.dart';
 import 'add_article_dialog.dart';
 import 'question_item.dart';
 
@@ -40,17 +43,39 @@ class ArticlesSection extends StatelessWidget {
             ],
           ),
 
-          Expanded(
-            child: ListView.separated(
-              itemCount: 6,
-              separatorBuilder: (context, index) => const SizedBox(height: 8),
-              itemBuilder: (context, index) {
-                return CartItem(isSelected: index == 1, onTap: () {});
-              },
-            ),
-          ),
+          Expanded(child: _ArticlesListView()),
         ],
       ),
+    );
+  }
+}
+
+class _ArticlesListView extends StatelessWidget {
+  const _ArticlesListView();
+
+  @override
+  Widget build(BuildContext context) {
+    var prov = context.watch<ArticlesProvider>();
+    List<ArticleModel> loadingArticles = List.generate(
+      6,
+      (index) => ArticleModel.empty,
+    );
+
+    List<ArticleModel> articles = prov.checkGettingArticles == null
+        ? loadingArticles
+        : prov.articles;
+    return ListView.separated(
+      itemCount: articles.length,
+      separatorBuilder: (context, index) => const SizedBox(height: 8),
+      itemBuilder: (context, index) {
+        return CartItem(
+          isSelected: prov.selectedArticle == articles[index],
+          text: articles[index].title,
+          onTap: () {
+            prov.onSelectArticle(articles[index]);
+          },
+        );
+      },
     );
   }
 }
