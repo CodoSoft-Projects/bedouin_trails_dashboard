@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 
-import '../services/hive_services.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
+import '../services/hive_services.dart';
 
 class LogoutProvider extends ChangeNotifier {
   final AuthRepo repo = AuthRepo();
 
   // logout
-  bool? checkLogin = false;
+  bool? checklogout = false;
   String message = '';
 
   Future<void> logout() async {
-    checkLogin = null;
+    checklogout = null;
     message = '';
     notifyListeners();
 
     final res = await repo.logout();
     res.fold(
       (msg) {
-        checkLogin = false;
+        checklogout = false;
         message = msg;
       },
       (model) {
-        checkLogin = true;
+        checklogout = true;
         message = model.message;
         HiveServices.clearAccountModel();
         HiveServices.setAdminLoggedOut();

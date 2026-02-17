@@ -43,14 +43,14 @@ class _Button extends StatelessWidget {
               onOk: () async {
                 await provider.logout();
 
-                if (provider.checkLogin == true) {
+                if (provider.checklogout == true) {
                   AppMessage.successBar(context, message: provider.message);
                   Navigator.pushNamedAndRemoveUntil(
                     context,
                     LoginView.routeName,
                     (_) => false,
                   );
-                } else if (provider.checkLogin == false) {
+                } else if (provider.checklogout == false) {
                   var isUnauthenticated = checkUnauthenticated(
                     context,
                     msg: provider.message,

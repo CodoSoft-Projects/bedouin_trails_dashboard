@@ -34,7 +34,7 @@ class DashboardAppBar extends StatelessWidget {
           // LanguageIconButton(color: AppColors.black),
           Expanded(
             child: Text(
-              prov.currentView.arName,
+              prov.currentView?.arName ?? '',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.regular24(

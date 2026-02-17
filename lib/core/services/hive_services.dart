@@ -22,6 +22,7 @@ class HiveServices {
     if (data.image.isNotEmpty) adminBox.put(ApiKeys.image, data.image);
 
     if (data.role.isNotEmpty) adminBox.put(ApiKeys.role, data.role);
+    adminBox.put(ApiKeys.status, data.status);
     if (data.permissions.toJson().isNotEmpty) {
       adminBox.put(ApiKeys.permissions, data.permissions.toJson());
     }
@@ -44,6 +45,7 @@ class HiveServices {
       email: adminBox.get(ApiKeys.email),
       image: adminBox.get(ApiKeys.image),
       role: adminBox.get(ApiKeys.role),
+      status: adminBox.get(ApiKeys.status, defaultValue: false),
       permissions: permissions,
     );
     log("Get Admin Data: ${accountModel.toJson()}");

@@ -8,5 +8,6 @@ class ApiKeys {
   static const String image = 'image';
   static const String id = 'id';
   static const String role = 'role';
+  static const String status = 'status';
   static const String permissions = 'permissions';
 }

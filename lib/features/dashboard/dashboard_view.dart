@@ -55,6 +55,9 @@ class DashboardViewManager extends StatelessWidget {
       child: Builder(
         builder: (context) {
           SizeConfig.init(context);
+          Future.microtask(() {
+            context.read<DashboardManager>().getAccountData();
+          });
           return Scaffold(
             key: context.watch<DashboardManager>().scaffoldKey,
             drawer: DashboardDrawer(),
