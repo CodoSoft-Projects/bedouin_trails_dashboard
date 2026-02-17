@@ -1,26 +1,26 @@
 import 'question_model.dart';
 
-class ArticleResponseModel {
+class QuestionResponseModel {
   final bool status;
   final String message;
   final QuestionModel question;
 
-  const ArticleResponseModel({
+  const QuestionResponseModel({
     required this.status,
     required this.message,
     required this.question,
   });
 
-  factory ArticleResponseModel.fromJson(Map<String, dynamic>? json) {
+  factory QuestionResponseModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return const ArticleResponseModel(
+      return const QuestionResponseModel(
         status: false,
         message: '',
         question: QuestionModel.empty,
       );
     }
 
-    return ArticleResponseModel(
+    return QuestionResponseModel(
       status: json['status'] ?? false,
       message: json['message'] ?? '',
       question: QuestionModel.fromJson(json['data']),
