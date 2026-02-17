@@ -18,15 +18,15 @@ extension FilterEmployeeTypeExtension on FilterEmployeeType {
       case FilterEmployeeType.inactive:
         return 'status=${0}';
       case FilterEmployeeType.manageTrips:
-        return 'permissions=manage_trips';
+        return 'permission=manage_trips';
       case FilterEmployeeType.manageSuspendedTrips:
-        return 'permissions=manage_suspended_trips';
+        return 'permission=manage_suspended_trips';
       case FilterEmployeeType.manageUsers:
-        return 'permissions=manage_users';
+        return 'permission=manage_users';
       case FilterEmployeeType.manageBookingRequests:
-        return 'permissions=booking_requests';
+        return 'permission=booking_requests';
       case FilterEmployeeType.manageWebsite:
-        return 'permissions=manage_website';
+        return 'permission=manage_website';
     }
   }
 
