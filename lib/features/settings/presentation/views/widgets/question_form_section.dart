@@ -1,6 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -8,6 +16,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../manager/questions_provider.dart';
 import 'update_question_dialog.dart';
 
 class QuestionFormSection extends StatelessWidget {
@@ -15,65 +24,84 @@ class QuestionFormSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<QuestionsProvider>();
     return CustomDottedBox(
       hPadding: 18,
       vPadding: 12,
       borderColor: AppColors.borderGrey,
       child: Column(
         children: [
-          Row(
-            spacing: 8,
-            children: [
-              Expanded(
-                child: Text(
-                  'بيانات عرض السؤال :',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.regular24(
-                    context,
-                  ).copyWith(fontFamily: Constants.vexaFontFamily),
+          Skeletonizer(
+            enabled: prov.checkGettingQuestions == null,
+            child: Row(
+              spacing: 8,
+              children: [
+                Expanded(
+                  child: Text(
+                    'بيانات عرض السؤال :',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTextStyles.regular24(
+                      context,
+                    ).copyWith(fontFamily: Constants.vexaFontFamily),
+                  ),
                 ),
-              ),
 
-              const Spacer(),
+                const Spacer(),
 
-              CustomCircularButton(
-                backgroundColor: AppColors.whiteGrey,
-                icon: LucideIcons.squarePen,
-                borderSide: BorderSide.none,
-                size: 18,
-                onPressed: () {
-                  updateQuestionDialog(context);
-                },
-              ),
+                CustomCircularButton(
+                  backgroundColor: AppColors.whiteGrey,
+                  icon: LucideIcons.squarePen,
+                  borderSide: BorderSide.none,
+                  size: 18,
+                  onPressed: () {
+                    prov.fillControllers(null);
+                    updateQuestionDialog(context);
+                  },
+                ),
 
-              CustomCircularButton(
-                backgroundColor: AppColors.whiteGrey,
-                icon: LucideIcons.trash2,
-                borderSide: BorderSide.none,
-                size: 18,
-                onPressed: () {
-                  DialogHelper.showQuestionDialog(
-                    context,
-                    title: 'تاكيد',
-                    desc: 'هل تريد حذف هذا السؤال؟',
-                    onCancel: () {},
-                    onOk: () {
-                      DialogHelper.showSuccessDialog(
-                        context,
-                        title: 'تم حذف السؤال بنجاح',
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+                CustomCircularButton(
+                  backgroundColor: AppColors.whiteGrey,
+                  icon: LucideIcons.trash2,
+                  borderSide: BorderSide.none,
+                  size: 18,
+                  onPressed: () {
+                    DialogHelper.showQuestionDialog(
+                      context,
+                      title: 'تاكيد',
+                      desc: 'هل تريد حذف هذا السؤال؟',
+                      onCancel: () {},
+                      onOk: () {
+                        _delete(context);
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 32),
           _QuestionForm(),
         ],
       ),
     );
+  }
+
+  Future<void> _delete(BuildContext context) async {
+    //* show loading dialog
+    loadingDialog(context);
+
+    var prov = context.read<QuestionsProvider>();
+    await prov.deleteQuestion();
+
+    //* close dialog
+    Navigator.pop(context);
+
+    if (prov.checkDeletingQuestion == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkDeletingQuestion == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
   }
 }
 
@@ -82,32 +110,38 @@ class _QuestionForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<QuestionsProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 500),
       child: AbsorbPointer(
-        child: Column(
-          spacing: 12,
-          children: [
-            const SizedBox(height: 32),
+        child: Skeletonizer(
+          enabled: prov.checkGettingQuestions == null,
+          child: Column(
+            spacing: 12,
+            children: [
+              const SizedBox(height: 32),
 
-            CustomTextFormField(
-              labelText: 'السؤال',
-              controller: TextEditingController(
-                text: 'ما الذي يشمله سعر الرحلة ؟!',
+              CustomTextFormField(
+                labelText: 'السؤال',
+                controller: TextEditingController(
+                  text: prov.selectedQuestion?.question ?? '',
+                ),
               ),
-            ),
 
-            CustomTextFormField(
-              labelText: 'الإجابة',
-              lines: 7,
-              controller: TextEditingController(
-                text:
-                    'رحلتك تشمل النقل بسيارات الدفع الرباعي، مرشدين محترفين، التخييم، وبعض الأنشطة الصحراوية حسب الباقة. أي تكاليف إضافية سيتم توضيحها مسبقًا',
+              CustomTextFormField(
+                labelText: 'الإجابة',
+                lines: max(
+                  2,
+                  ((prov.selectedQuestion?.answer.length ?? 0) / 40).ceil(),
+                ),
+                controller: TextEditingController(
+                  text: prov.selectedQuestion?.answer ?? '',
+                ),
               ),
-            ),
 
-            const SizedBox(height: 32),
-          ],
+              const SizedBox(height: 32),
+            ],
+          ),
         ),
       ),
     );

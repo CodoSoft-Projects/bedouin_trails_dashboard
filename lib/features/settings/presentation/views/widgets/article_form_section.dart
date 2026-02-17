@@ -25,59 +25,63 @@ class ArticleFormSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<ArticlesProvider>();
     return CustomDottedBox(
       hPadding: 18,
       vPadding: 12,
       borderColor: AppColors.borderGrey,
       child: Column(
         children: [
-          Row(
-            spacing: 8,
-            children: [
-              Expanded(
-                child: Text(
-                  'بيانات عرض المقال :',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.regular24(
-                    context,
-                  ).copyWith(fontFamily: Constants.vexaFontFamily),
+          Skeletonizer(
+            enabled: prov.checkGettingArticles == null,
+            child: Row(
+              spacing: 8,
+              children: [
+                Expanded(
+                  child: Text(
+                    'بيانات عرض المقال :',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTextStyles.regular24(
+                      context,
+                    ).copyWith(fontFamily: Constants.vexaFontFamily),
+                  ),
                 ),
-              ),
 
-              const Spacer(),
+                const Spacer(),
 
-              CustomCircularButton(
-                backgroundColor: AppColors.whiteGrey,
-                icon: LucideIcons.squarePen,
-                borderSide: BorderSide.none,
-                size: 18,
-                onPressed: () {
-                  context.read<ArticlesProvider>()
-                    ..onClearImage()
-                    ..fillControllers(null);
-                  updateArticleDialog(context);
-                },
-              ),
+                CustomCircularButton(
+                  backgroundColor: AppColors.whiteGrey,
+                  icon: LucideIcons.squarePen,
+                  borderSide: BorderSide.none,
+                  size: 18,
+                  onPressed: () {
+                    prov
+                      ..onClearImage()
+                      ..fillControllers(null);
+                    updateArticleDialog(context);
+                  },
+                ),
 
-              CustomCircularButton(
-                backgroundColor: AppColors.whiteGrey,
-                icon: LucideIcons.trash2,
-                borderSide: BorderSide.none,
-                size: 18,
-                onPressed: () {
-                  DialogHelper.showQuestionDialog(
-                    context,
-                    title: 'تاكيد',
-                    desc: 'هل تريد حذف هذا المقال؟',
-                    onCancel: () {},
-                    onOk: () {
-                      _delete(context);
-                    },
-                  );
-                },
-              ),
-            ],
+                CustomCircularButton(
+                  backgroundColor: AppColors.whiteGrey,
+                  icon: LucideIcons.trash2,
+                  borderSide: BorderSide.none,
+                  size: 18,
+                  onPressed: () {
+                    DialogHelper.showQuestionDialog(
+                      context,
+                      title: 'تاكيد',
+                      desc: 'هل تريد حذف هذا المقال؟',
+                      onCancel: () {},
+                      onOk: () {
+                        _delete(context);
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
           Expanded(child: _ArticleForm()),
         ],
