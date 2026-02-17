@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -5,6 +7,8 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/functions/loading_dialog.dart';
+import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -68,10 +72,7 @@ class ArticleFormSection extends StatelessWidget {
                     desc: 'هل تريد حذف هذا المقال؟',
                     onCancel: () {},
                     onOk: () {
-                      DialogHelper.showSuccessDialog(
-                        context,
-                        title: 'تم حذف المقال بنجاح',
-                      );
+                      _delete(context);
                     },
                   );
                 },
@@ -82,6 +83,23 @@ class ArticleFormSection extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _delete(BuildContext context) async {
+    //* show loading dialog
+    loadingDialog(context);
+
+    var prov = context.read<ArticlesProvider>();
+    await prov.deleteArticle();
+
+    //* close dialog
+    Navigator.pop(context);
+
+    if (prov.checkDeletingArticle == true) {
+      AppMessage.successBar(context, message: prov.message);
+    } else if (prov.checkDeletingArticle == false) {
+      AppMessage.errorBar(context, message: prov.message);
+    }
   }
 }
 
