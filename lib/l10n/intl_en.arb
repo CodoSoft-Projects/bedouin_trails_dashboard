@@ -21,5 +21,14 @@
       }
     }
   },
-  "no_pemissions_msg": "You currently don't have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions."
+  "no_pemissions_msg": "You currently don't have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions.",
+  "no_questions_title": "No FAQs Yet",
+  "no_questions_msg": "Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.",
+  "no_questions_hint": "You can add questions about booking, payment methods, trip cancellation, or any common inquiry.",
+  "add_new_question": "Add New Question",
+  "no_articles_title": "No Articles Yet",
+  "no_articles_msg": "Start by adding your first article so it appears in the dashboard and users can read it inside the application.",
+  "no_articles_hint": "You can add articles about trips, travel tips, or special offers.",
+  "add_new_article": "Add New Article",
+  "refresh": "Refresh"
 }

@@ -109,6 +109,91 @@ class S {
       args: [],
     );
   }
+
+  /// `No FAQs Yet`
+  String get no_questions_title {
+    return Intl.message(
+      'No FAQs Yet',
+      name: 'no_questions_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.`
+  String get no_questions_msg {
+    return Intl.message(
+      'Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.',
+      name: 'no_questions_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can add questions about booking, payment methods, trip cancellation, or any common inquiry.`
+  String get no_questions_hint {
+    return Intl.message(
+      'You can add questions about booking, payment methods, trip cancellation, or any common inquiry.',
+      name: 'no_questions_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Question`
+  String get add_new_question {
+    return Intl.message(
+      'Add New Question',
+      name: 'add_new_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Articles Yet`
+  String get no_articles_title {
+    return Intl.message(
+      'No Articles Yet',
+      name: 'no_articles_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start by adding your first article so it appears in the dashboard and users can read it inside the application.`
+  String get no_articles_msg {
+    return Intl.message(
+      'Start by adding your first article so it appears in the dashboard and users can read it inside the application.',
+      name: 'no_articles_msg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can add articles about trips, travel tips, or special offers.`
+  String get no_articles_hint {
+    return Intl.message(
+      'You can add articles about trips, travel tips, or special offers.',
+      name: 'no_articles_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Article`
+  String get add_new_article {
+    return Intl.message(
+      'Add New Article',
+      name: 'add_new_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Refresh`
+  String get refresh {
+    return Intl.message('Refresh', name: 'refresh', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

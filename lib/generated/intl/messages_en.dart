@@ -28,14 +28,35 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_new_article": MessageLookupByLibrary.simpleMessage("Add New Article"),
+    "add_new_question": MessageLookupByLibrary.simpleMessage(
+      "Add New Question",
+    ),
     "days": m0,
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "no_articles_hint": MessageLookupByLibrary.simpleMessage(
+      "You can add articles about trips, travel tips, or special offers.",
+    ),
+    "no_articles_msg": MessageLookupByLibrary.simpleMessage(
+      "Start by adding your first article so it appears in the dashboard and users can read it inside the application.",
+    ),
+    "no_articles_title": MessageLookupByLibrary.simpleMessage(
+      "No Articles Yet",
+    ),
     "no_pemissions_msg": MessageLookupByLibrary.simpleMessage(
       "You currently don\'t have access 👋 \nYou have logged in successfully, but no permissions have been assigned to your account yet.\nPlease contact the system administrator to activate your permissions.",
     ),
+    "no_questions_hint": MessageLookupByLibrary.simpleMessage(
+      "You can add questions about booking, payment methods, trip cancellation, or any common inquiry.",
+    ),
+    "no_questions_msg": MessageLookupByLibrary.simpleMessage(
+      "Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.",
+    ),
+    "no_questions_title": MessageLookupByLibrary.simpleMessage("No FAQs Yet"),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+    "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
   };
 }

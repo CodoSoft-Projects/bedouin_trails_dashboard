@@ -28,14 +28,35 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
+    "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
     "days": m0,
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no_articles_hint": MessageLookupByLibrary.simpleMessage(
+      "يمكنك إضافة مقالات عن الرحلات، النصائح السياحية، أو العروض الخاصة.",
+    ),
+    "no_articles_msg": MessageLookupByLibrary.simpleMessage(
+      "ابدأ بإضافة أول مقال ليظهر في لوحة التحكم ويمكن للمستخدمين قراءته داخل التطبيق.",
+    ),
+    "no_articles_title": MessageLookupByLibrary.simpleMessage(
+      "لا توجد مقالات بعد",
+    ),
     "no_pemissions_msg": MessageLookupByLibrary.simpleMessage(
       "لا تملك صلاحيات حالياً 👋 \nتم تسجيل دخولك بنجاح، لكن لم يتم منحك أي صلاحيات لاستخدام لوحة التحكم بعد. \nيرجى التواصل مع مسؤول النظام لتفعيل الصلاحيات الخاصة بك.",
     ),
+    "no_questions_hint": MessageLookupByLibrary.simpleMessage(
+      "يمكنك إضافة أسئلة حول الحجز، طرق الدفع، إلغاء الرحلات أو أي استفسار متكرر.",
+    ),
+    "no_questions_msg": MessageLookupByLibrary.simpleMessage(
+      "ابدأ بإضافة الأسئلة الشائعة لمساعدة المستخدمين والإجابة على استفساراتهم داخل التطبيق.",
+    ),
+    "no_questions_title": MessageLookupByLibrary.simpleMessage(
+      "لا توجد أسئلة شائعة بعد",
+    ),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
+    "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
   };
 }
