@@ -1,9 +1,13 @@
 import 'package:bedouin_trails_dashboard/core/widgets/custom_white_box.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../data/models/question_model.dart';
+import '../../manager/questions_provider.dart';
 import 'add_question_dialog.dart';
 import 'question_item.dart';
 
@@ -40,20 +44,42 @@ class QuestionsSection extends StatelessWidget {
             ],
           ),
 
-          Expanded(
-            child: ListView.separated(
-              itemCount: 10,
-              separatorBuilder: (context, index) => const SizedBox(height: 8),
-              itemBuilder: (context, index) {
-                return CartItem(
-                  isSelected: index == 0,
-                  text: 'سؤال',
-                  onTap: () {},
-                );
-              },
-            ),
-          ),
+          Expanded(child: _QuestionsListView()),
         ],
+      ),
+    );
+  }
+}
+
+class _QuestionsListView extends StatelessWidget {
+  const _QuestionsListView();
+
+  @override
+  Widget build(BuildContext context) {
+    var prov = context.watch<QuestionsProvider>();
+    List<QuestionModel> loadingQuestions = List.generate(
+      6,
+      (index) => QuestionModel.empty,
+    );
+
+    List<QuestionModel> questions = prov.checkGettingQuestions == null
+        ? loadingQuestions
+        : prov.questions;
+
+    return Skeletonizer(
+      enabled: prov.checkGettingQuestions == null,
+      child: ListView.separated(
+        itemCount: questions.length,
+        separatorBuilder: (context, index) => const SizedBox(height: 8),
+        itemBuilder: (context, index) {
+          return CartItem(
+            isSelected: prov.selectedQuestion == questions[index],
+            text: questions[index].question,
+            onTap: () {
+              prov.onSelectQuestion(questions[index]);
+            },
+          );
+        },
       ),
     );
   }
