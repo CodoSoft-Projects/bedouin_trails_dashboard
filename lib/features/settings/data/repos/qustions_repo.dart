@@ -12,7 +12,7 @@ import '../../../../core/utils/constants.dart';
 import '../models/question_response_model.dart';
 import '../models/questions_response_model.dart';
 
-class QuestionRepo {
+class QuestionsRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Questions
