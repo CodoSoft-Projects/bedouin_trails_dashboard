@@ -109,6 +109,7 @@ class NoQuestionsSection extends StatelessWidget {
                 child: CustomButton(
                   text: S.of(context).add_new_question,
                   color: AppColors.sandyBrown,
+                  icon: const Icon(Icons.add),
                   onPressed: () {
                     prov.clearControllers();
                     addQuestionDialog(context);

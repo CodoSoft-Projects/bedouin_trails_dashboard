@@ -126,7 +126,7 @@ class ArticlesProvider extends ChangeNotifier {
   /// Replace article form the list with new article
   void replaceArticle(ArticleModel article) {
     final index = articles.indexWhere((element) => element.id == article.id);
-    articles[index] = article;
+    if (index != -1) articles[index] = article;
     notifyListeners();
   }
 

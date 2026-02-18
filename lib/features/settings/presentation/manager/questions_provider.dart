@@ -111,7 +111,7 @@ class QuestionsProvider extends ChangeNotifier {
   /// Replace Question form the list with new Question
   void replaceQuestion(QuestionModel question) {
     final index = questions.indexWhere((element) => element.id == question.id);
-    questions[index] = question;
+    if (index != -1) questions[index] = question;
     notifyListeners();
   }
 

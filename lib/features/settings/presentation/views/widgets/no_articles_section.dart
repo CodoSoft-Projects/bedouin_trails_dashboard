@@ -67,6 +67,7 @@ class NoArticlesSection extends StatelessWidget {
                 child: CustomButton(
                   text: s.add_new_article,
                   color: AppColors.sandyBrown,
+                  icon: const Icon(Icons.add),
                   onPressed: () {
                     prov.clearControllers();
                     addArticleDialog(context);
