@@ -13,6 +13,7 @@ import 'features/settings/presentation/manager/ads_provider.dart';
 import 'features/settings/presentation/manager/articles_provider.dart';
 import 'features/settings/presentation/manager/questions_provider.dart';
 import 'features/trips/presentation/manager/trips_provider.dart';
+import 'features/users/presentation/manager/users_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,9 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => QuestionsProvider()),
         ChangeNotifierProvider(create: (_) => AboutUsProvider()),
         ChangeNotifierProvider(create: (_) => AdsProvider()),
+
+        //* Users Providers
+        ChangeNotifierProvider(create: (_) => UsersProvider()),
       ],
       child: const BedouinTrails(),
     ),

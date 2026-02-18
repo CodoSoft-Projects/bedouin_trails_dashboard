@@ -1,14 +1,17 @@
+import 'pagination_model.dart';
 import 'user_model.dart';
 
 class UsersResponseModel {
   final bool status;
   final String message;
   final List<UserModel> users;
+  final PaginationModel pagination;
 
   const UsersResponseModel({
     required this.status,
     required this.message,
     required this.users,
+    required this.pagination,
   });
 
   /// ================= FROM JSON =================
@@ -29,15 +32,17 @@ class UsersResponseModel {
       status: json['status'] ?? false,
       message: json['message'] ?? '',
       users: parsedUsers,
+      pagination: PaginationModel.fromJson(json['pagination']),
     );
   }
 
   /// ================= EMPTY =================
   factory UsersResponseModel.empty() {
-    return const UsersResponseModel(
+    return UsersResponseModel(
       status: false,
       message: '',
       users: [],
+      pagination: PaginationModel.empty(),
     );
   }
 

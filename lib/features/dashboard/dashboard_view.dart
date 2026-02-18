@@ -7,6 +7,7 @@ import '../../core/utils/size_config.dart';
 import '../employees/presentation/manager/employees_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
 import '../trips/presentation/manager/trips_provider.dart';
+import '../users/presentation/manager/users_provider.dart';
 import 'providers/dashboard_manager.dart';
 import 'widgets/dashboard_drawer.dart';
 import 'widgets/dashboard_view_body.dart';
@@ -35,6 +36,8 @@ class _DashboardViewState extends State<DashboardView> {
         ..getAllActiveTrips()
         ..getAllInactiveTrips();
       context.read<EmployeesProvider>().getAllEmployees();
+      //* Users Providers
+      context.read<UsersProvider>().getAllUsers();
     });
   }
 
