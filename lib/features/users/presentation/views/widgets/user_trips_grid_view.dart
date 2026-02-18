@@ -2,12 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../../../../core/enums/order_status.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../trips/presentation/views/widgets/trip_card.dart';
 import '../user_trip_details_view.dart';
 
 class UserTripsGridView extends StatelessWidget {
-  const UserTripsGridView({super.key});
+  const UserTripsGridView({super.key, required this.orderStatus});
+  final OrderStatus orderStatus;
 
   @override
   Widget build(BuildContext context) {

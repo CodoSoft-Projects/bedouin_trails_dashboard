@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/enums/order_status.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
@@ -18,12 +19,7 @@ class _UserDetailsViewState extends State<UserDetailsView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int currentIndex = 0;
-  List<String> tabs = [
-    'حجوزات معلقة',
-    'حجوزات مدفوعة',
-    'حجوزات مكتملة',
-    'حجوزات ملغاة',
-  ];
+  List<OrderStatus> tabs = OrderStatus.values;
   @override
   void initState() {
     super.initState();
@@ -83,7 +79,7 @@ class _UserDetailsViewState extends State<UserDetailsView>
                           : AppColors.whiteGrey,
                     ),
                     child: Text(
-                      e,
+                      e.label(context),
                       style: AppTextStyles.medium16(context).copyWith(
                         color: currentIndex == tabs.indexOf(e)
                             ? AppColors.white
@@ -101,10 +97,10 @@ class _UserDetailsViewState extends State<UserDetailsView>
         controller: _tabController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          const UserTripsGridView(),
-          const UserTripsGridView(),
-          const UserTripsGridView(),
-          const UserTripsGridView(),
+          UserTripsGridView(orderStatus: tabs[0]),
+          UserTripsGridView(orderStatus: tabs[1]),
+          UserTripsGridView(orderStatus: tabs[2]),
+          UserTripsGridView(orderStatus: tabs[3]),
         ],
       ),
     );
