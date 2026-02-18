@@ -12,7 +12,6 @@ import '../../features/profile/presentation/views/profile_view.dart';
 import '../../features/settings/presentation/views/about_us_view.dart';
 import '../../features/settings/presentation/views/articles_view.dart';
 import '../../features/settings/presentation/views/questions_view.dart';
-import '../../features/settings/presentation/views/update_ads_view.dart';
 import '../../features/trips/presentation/views/new_trip_view.dart';
 import '../../features/trips/presentation/views/trip_details_view.dart';
 import '../../features/trips/presentation/views/update_trip_view.dart';
@@ -66,8 +65,6 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     /// Settings Routs
     // case AdsView.routeName:
     //   return MaterialPageRoute(builder: (_) => const AdsView());
-    case UpdateAdsView.routeName:
-      return MaterialPageRoute(builder: (_) => const UpdateAdsView());
     case QuestionsView.routeName:
       return MaterialPageRoute(builder: (_) => const QuestionsView());
     case ArticlesView.routeName:
