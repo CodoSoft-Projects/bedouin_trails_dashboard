@@ -36,7 +36,7 @@ class UsersGridView extends StatelessWidget {
           var crossAxisCount = (width / 210).toInt();
           return prov.checkGettingAllUser == false
               ? ApiErrorView(msg: prov.message, onRetry: prov.getAllUsers)
-              : users.isNotEmpty
+              : users.isEmpty
               ? EmptyGridWidget(
                   lottie: Assets.animationsEmptyGrid2,
                   message: 'لا يوجد مستخدمين',

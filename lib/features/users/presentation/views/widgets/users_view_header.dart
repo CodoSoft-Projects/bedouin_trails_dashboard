@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import '../../manager/users_provider.dart';
 
 class UsersViewHeader extends StatelessWidget {
   const UsersViewHeader({super.key});
@@ -20,20 +22,26 @@ class UsersViewHeader extends StatelessWidget {
       expandedHeight: 60,
       title: Row(
         spacing: 8,
-        children: [const Spacer(), _TripsSearchField(), const Spacer()],
+        children: [const Spacer(), _UsersSearchField(), const Spacer()],
       ),
     );
   }
 }
 
-class _TripsSearchField extends StatelessWidget {
-  const _TripsSearchField();
+class _UsersSearchField extends StatelessWidget {
+  const _UsersSearchField();
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<UsersProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
-      child: CustomSearchField(onChanged: (value) {}),
+      child: CustomSearchField(
+        controller: prov.searchController,
+        onChanged: (value) {
+          prov.getAllUsers();
+        },
+      ),
     );
   }
 }
