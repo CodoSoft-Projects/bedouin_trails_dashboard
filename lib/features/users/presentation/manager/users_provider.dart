@@ -8,6 +8,7 @@ class UsersProvider extends ChangeNotifier {
 
   String message = '';
   List<UserModel> users = [];
+  UserModel? selectedUser;
   var searchController = TextEditingController();
 
   /// Get All Users
@@ -31,4 +32,8 @@ class UsersProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void onSelectUser(UserModel user) {
+    selectedUser = user;
+    notifyListeners();
+  }
 }

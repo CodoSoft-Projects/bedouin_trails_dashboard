@@ -36,10 +36,10 @@ class UsersGridView extends StatelessWidget {
           var crossAxisCount = (width / 210).toInt();
           return prov.checkGettingAllUser == false
               ? ApiErrorView(msg: prov.message, onRetry: prov.getAllUsers)
-              : users.isEmpty
+              : users.isNotEmpty
               ? EmptyGridWidget(
                   lottie: Assets.animationsEmptyGrid2,
-                  message: 'لا يوجد رحلات',
+                  message: 'لا يوجد مستخدمين',
                 )
               : Skeletonizer(
                   enabled: prov.checkGettingAllUser == null,
@@ -61,6 +61,7 @@ class UsersGridView extends StatelessWidget {
                         email: users[index].email,
                         imgUrl: users[index].image,
                         onTap: () {
+                          prov.onSelectUser(users[index]);
                           Navigator.pushNamed(
                             context,
                             UserDetailsView.routeName,
