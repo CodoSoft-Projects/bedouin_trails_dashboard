@@ -22,6 +22,7 @@ class EndPoints {
   static const articles = '/api/admin/articles';
   static const questions = '/api/admin/common-questions';
   static const aboutUs = '/api/admin/about-us';
+  static const ads = '/api/admin/sliders';
 }
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4
