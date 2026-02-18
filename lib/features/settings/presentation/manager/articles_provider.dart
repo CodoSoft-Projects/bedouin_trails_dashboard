@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/picked_image_model.dart';
-import '../../data/models/article_model.dart';
+import '../../data/models/settings_item_model.dart';
 import '../../data/repos/articles_repo.dart';
 
 class ArticlesProvider extends ChangeNotifier {
@@ -10,8 +10,8 @@ class ArticlesProvider extends ChangeNotifier {
 
   String message = '';
 
-  List<ArticleModel> articles = [];
-  ArticleModel? selectedArticle;
+  List<SettingsItemModel> articles = [];
+  SettingsItemModel? selectedArticle;
   PickedImage? pickedImage;
   var formKey = GlobalKey<FormState>();
   var titleController = TextEditingController();
@@ -31,7 +31,7 @@ class ArticlesProvider extends ChangeNotifier {
         checkGettingArticles = false;
       },
       (model) {
-        articles = model.articles;
+        articles = model.items;
         if (articles.isNotEmpty) onSelectArticle(articles.first);
         message = model.message;
         checkGettingArticles = true;
@@ -40,7 +40,7 @@ class ArticlesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void fillControllers(ArticleModel? article) {
+  void fillControllers(SettingsItemModel? article) {
     var articlee = article ?? selectedArticle;
     titleController.text = articlee!.title;
     descriptionController.text = articlee.description;
@@ -53,7 +53,7 @@ class ArticlesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onSelectArticle(ArticleModel article) {
+  void onSelectArticle(SettingsItemModel article) {
     selectedArticle = article;
     fillControllers(article);
   }
@@ -116,15 +116,15 @@ class ArticlesProvider extends ChangeNotifier {
       (model) {
         message = model.message;
         checkUpdatingArticle = true;
-        onSelectArticle(model.article);
-        replaceArticle(model.article);
+        onSelectArticle(model.item);
+        replaceArticle(model.item);
       },
     );
     notifyListeners();
   }
 
   /// Replace article form the list with new article
-  void replaceArticle(ArticleModel article) {
+  void replaceArticle(SettingsItemModel article) {
     final index = articles.indexWhere((element) => element.id == article.id);
     if (index != -1) articles[index] = article;
     notifyListeners();

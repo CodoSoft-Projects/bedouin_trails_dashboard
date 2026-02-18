@@ -6,7 +6,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import '../../../data/models/about_us_model.dart';
+import '../../../data/models/settings_item_model.dart';
 import '../../manager/about_us_provider.dart';
 import 'add_about_us_item_dialog.dart';
 import 'question_item.dart';
@@ -60,12 +60,12 @@ class _ItemsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<AboutUsProvider>();
-    List<AboutUsModel> loadingItems = List.generate(
+    List<SettingsItemModel> loadingItems = List.generate(
       6,
-      (index) => AboutUsModel.empty,
+      (index) => SettingsItemModel.empty,
     );
 
-    List<AboutUsModel> items = prov.checkGettingItems == null
+    List<SettingsItemModel> items = prov.checkGettingItems == null
         ? loadingItems
         : prov.items;
     return Skeletonizer(

@@ -10,17 +10,17 @@ import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
-import '../models/article_response_model.dart';
-import '../models/articles_response_model.dart';
+import '../models/settings_items_respone.dart';
+import '../models/settings_item_response.dart';
 
 class ArticlesRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Articles
-  Future<Either<String, ArticlesResponseModel>> getAllArticles() async {
+  Future<Either<String, SettingsItemsResponse>> getAllArticles() async {
     try {
       final response = await dio.get(EndPoints.articles, isFormData: false);
-      return Right(ArticlesResponseModel.fromJson(response));
+      return Right(SettingsItemsResponse.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
@@ -55,7 +55,7 @@ class ArticlesRepo {
   }
 
   /// Update Article
-  Future<Either<String, ArticleResponseModel>> updateArticle({
+  Future<Either<String, SettingsItemResponse>> updateArticle({
     required int id,
     required String title,
     required String description,
@@ -72,7 +72,7 @@ class ArticlesRepo {
         pickedImage: image,
         fields: data,
       );
-      return Right(ArticleResponseModel.fromJson(response));
+      return Right(SettingsItemResponse.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {

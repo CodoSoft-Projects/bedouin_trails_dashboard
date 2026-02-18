@@ -6,7 +6,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import '../../../data/models/article_model.dart';
+import '../../../data/models/settings_item_model.dart';
 import '../../manager/articles_provider.dart';
 import 'add_article_dialog.dart';
 import 'question_item.dart';
@@ -60,12 +60,12 @@ class _ArticlesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<ArticlesProvider>();
-    List<ArticleModel> loadingArticles = List.generate(
+    List<SettingsItemModel> loadingArticles = List.generate(
       6,
-      (index) => ArticleModel.empty,
+      (index) => SettingsItemModel.empty,
     );
 
-    List<ArticleModel> articles = prov.checkGettingArticles == null
+    List<SettingsItemModel> articles = prov.checkGettingArticles == null
         ? loadingArticles
         : prov.articles;
     return Skeletonizer(

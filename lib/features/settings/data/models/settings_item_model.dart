@@ -1,10 +1,10 @@
-class ArticleModel {
+class SettingsItemModel {
   final int id;
   final String title;
   final String description;
   final String image;
 
-  const ArticleModel({
+  const SettingsItemModel({
     required this.id,
     required this.title,
     required this.description,
@@ -12,12 +12,17 @@ class ArticleModel {
   });
 
   /// ------------------ FROM JSON ------------------
-  factory ArticleModel.fromJson(Map<String, dynamic>? json) {
+  factory SettingsItemModel.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return const ArticleModel(id: 0, title: '', description: '', image: '');
+      return const SettingsItemModel(
+        id: 0,
+        title: '',
+        description: '',
+        image: '',
+      );
     }
 
-    return ArticleModel(
+    return SettingsItemModel(
       id: json['id'] ?? 0,
       title: json['title'] ?? '',
       description: json['description'] ?? '',
@@ -36,13 +41,13 @@ class ArticleModel {
   }
 
   /// ------------------ LIST PARSER ------------------
-  static List<ArticleModel> listFromJson(List? list) {
+  static List<SettingsItemModel> listFromJson(List? list) {
     if (list == null || list.isEmpty) return [];
 
-    return list.map((e) => ArticleModel.fromJson(e)).toList();
+    return list.map((e) => SettingsItemModel.fromJson(e)).toList();
   }
 
-  static const empty = ArticleModel(
+  static const empty = SettingsItemModel(
     id: 0,
     title: '',
     description: '',
@@ -52,7 +57,7 @@ class ArticleModel {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ArticleModel &&
+      other is SettingsItemModel &&
           runtimeType == other.runtimeType &&
           other.id == id &&
           other.title == title &&

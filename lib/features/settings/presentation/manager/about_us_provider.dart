@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/picked_image_model.dart';
-import '../../data/models/about_us_model.dart';
+import '../../data/models/settings_item_model.dart';
 import '../../data/repos/about_us_repo.dart';
 
 class AboutUsProvider extends ChangeNotifier {
@@ -10,8 +10,8 @@ class AboutUsProvider extends ChangeNotifier {
 
   String message = '';
 
-  List<AboutUsModel> items = [];
-  AboutUsModel? selectedItem;
+  List<SettingsItemModel> items = [];
+  SettingsItemModel? selectedItem;
   PickedImage? pickedImage;
   var formKey = GlobalKey<FormState>();
   var titleController = TextEditingController();
@@ -40,7 +40,7 @@ class AboutUsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void fillControllers(AboutUsModel? item) {
+  void fillControllers(SettingsItemModel? item) {
     var newItem = item ?? selectedItem;
     titleController.text = newItem!.title;
     descriptionController.text = newItem.description;
@@ -53,7 +53,7 @@ class AboutUsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onSelectItem(AboutUsModel item) {
+  void onSelectItem(SettingsItemModel item) {
     selectedItem = item;
     fillControllers(item);
   }
@@ -124,7 +124,7 @@ class AboutUsProvider extends ChangeNotifier {
   }
 
   /// Replace item form the list with new item
-  void replaceItem(AboutUsModel item) {
+  void replaceItem(SettingsItemModel item) {
     final index = items.indexWhere((element) => element.id == item.id);
     if (index != -1) items[index] = item;
     notifyListeners();

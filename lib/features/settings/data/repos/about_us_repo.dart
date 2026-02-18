@@ -10,17 +10,18 @@ import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
-import '../models/about_us_items_response_model.dart';
-import '../models/about_us_response_model.dart';
+import '../models/settings_item_response.dart';
+import '../models/settings_items_respone.dart';
+
 
 class AboutUsRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Items
-  Future<Either<String, AboutUsItemsResponseModel>> getAllItems() async {
+  Future<Either<String, SettingsItemsResponse>> getAllItems() async {
     try {
       final response = await dio.get(EndPoints.aboutUs, isFormData: false);
-      return Right(AboutUsItemsResponseModel.fromJson(response));
+      return Right(SettingsItemsResponse.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
@@ -55,7 +56,7 @@ class AboutUsRepo {
   }
 
   /// Update item
-  Future<Either<String, AboutUsResponseModel>> updateItem({
+  Future<Either<String, SettingsItemResponse>> updateItem({
     required int id,
     required String title,
     required String description,
@@ -72,7 +73,7 @@ class AboutUsRepo {
         pickedImage: image,
         fields: data,
       );
-      return Right(AboutUsResponseModel.fromJson(response));
+      return Right(SettingsItemResponse.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
