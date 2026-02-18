@@ -71,6 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_questions_title": MessageLookupByLibrary.simpleMessage(
       "لا توجد أسئلة شائعة بعد",
     ),
+    "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
+    "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
+    "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
+    "order_pending": MessageLookupByLibrary.simpleMessage("حجوزات معلقة"),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),

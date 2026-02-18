@@ -37,5 +37,9 @@
   "no_ads_title": "No Advertisements Yet",
   "no_ads_description": "You haven't created any advertisements. Start promoting your offers, discounts, or important announcements to reach your customers.",
   "no_ads_hint": "Advertisements help increase engagement and sales.",
-  "add_ad_btn": "Create Advertisement"
+  "add_ad_btn": "Create Advertisement",
+  "order_pending": "Pending Bookings",
+  "order_accepted": "Completed Bookings",
+  "order_payed": "Paid Bookings",
+  "order_cancelled": "Cancelled Bookings"
 }

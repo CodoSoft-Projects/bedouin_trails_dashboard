@@ -71,6 +71,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.",
     ),
     "no_questions_title": MessageLookupByLibrary.simpleMessage("No FAQs Yet"),
+    "order_accepted": MessageLookupByLibrary.simpleMessage(
+      "Completed Bookings",
+    ),
+    "order_cancelled": MessageLookupByLibrary.simpleMessage(
+      "Cancelled Bookings",
+    ),
+    "order_payed": MessageLookupByLibrary.simpleMessage("Paid Bookings"),
+    "order_pending": MessageLookupByLibrary.simpleMessage("Pending Bookings"),
     "persons": m1,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),

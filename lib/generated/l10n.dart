@@ -264,6 +264,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Pending Bookings`
+  String get order_pending {
+    return Intl.message(
+      'Pending Bookings',
+      name: 'order_pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed Bookings`
+  String get order_accepted {
+    return Intl.message(
+      'Completed Bookings',
+      name: 'order_accepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Paid Bookings`
+  String get order_payed {
+    return Intl.message(
+      'Paid Bookings',
+      name: 'order_payed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelled Bookings`
+  String get order_cancelled {
+    return Intl.message(
+      'Cancelled Bookings',
+      name: 'order_cancelled',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

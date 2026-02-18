@@ -1,4 +1,5 @@
 import '../../enums/trip_status.dart';
+import '../order_model.dart';
 import 'gallery_model.dart';
 import 'trip_day_model.dart';
 
@@ -16,6 +17,9 @@ class TripModel {
   final List<GalleryModel> galleries;
   final List<TripDayModel> trapDays;
 
+  //* For user trip details
+  final OrderModel? userOrder;
+
   const TripModel({
     required this.id,
     required this.name,
@@ -29,6 +33,8 @@ class TripModel {
     required this.countPeople,
     required this.galleries,
     required this.trapDays,
+    //* For user trip details
+    this.userOrder,
   });
 
   /// Safe double parser (backend sends "5000.00" as String)
@@ -55,6 +61,8 @@ class TripModel {
       rate: _parseDouble(json?['rate']),
       galleries: galleriesJson.map((e) => GalleryModel.fromJson(e)).toList(),
       trapDays: daysJson.map((e) => TripDayModel.fromJson(e)).toList(),
+      //* For user trip details
+      userOrder: OrderModel.fromJson(json?['order']),
     );
   }
 
@@ -71,5 +79,5 @@ class TripModel {
       status = TripStatus.active,
       rate = 0.0,
       galleries = const [],
-      trapDays = const [];
+      trapDays = const [], userOrder = null;
 }
