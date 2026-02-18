@@ -6,13 +6,13 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
-import '../../../data/models/article_model.dart';
-import '../../manager/articles_provider.dart';
-import 'add_article_dialog.dart';
+import '../../../data/models/about_us_model.dart';
+import '../../manager/about_us_provider.dart';
+import 'add_about_us_item_dialog.dart';
 import 'question_item.dart';
 
-class ArticlesSection extends StatelessWidget {
-  const ArticlesSection({super.key});
+class AboutUsSection extends StatelessWidget {
+  const AboutUsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,47 +38,47 @@ class ArticlesSection extends StatelessWidget {
                 backgroundColor: AppColors.lightGreen,
                 size: 18,
                 onPressed: () {
-                  context.read<ArticlesProvider>()
+                  context.read<AboutUsProvider>()
                     ..clearControllers()
                     ..onClearImage();
-                  addArticleDialog(context);
+                  addAboutUsItemDialog(context);
                 },
               ),
             ],
           ),
 
-          Expanded(child: _ArticlesListView()),
+          Expanded(child: _ItemsListView()),
         ],
       ),
     );
   }
 }
 
-class _ArticlesListView extends StatelessWidget {
-  const _ArticlesListView();
+class _ItemsListView extends StatelessWidget {
+  const _ItemsListView();
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<ArticlesProvider>();
-    List<ArticleModel> loadingArticles = List.generate(
+    var prov = context.watch<AboutUsProvider>();
+    List<AboutUsModel> loadingItems = List.generate(
       6,
-      (index) => ArticleModel.empty,
+      (index) => AboutUsModel.empty,
     );
 
-    List<ArticleModel> articles = prov.checkGettingArticles == null
-        ? loadingArticles
-        : prov.articles;
+    List<AboutUsModel> items = prov.checkGettingItems == null
+        ? loadingItems
+        : prov.items;
     return Skeletonizer(
-      enabled: prov.checkGettingArticles == null,
+      enabled: prov.checkGettingItems == null,
       child: ListView.separated(
-        itemCount: articles.length,
+        itemCount: items.length,
         separatorBuilder: (context, index) => const SizedBox(height: 8),
         itemBuilder: (context, index) {
           return CartItem(
-            isSelected: prov.selectedArticle == articles[index],
-            text: articles[index].title,
+            isSelected: prov.selectedItem == items[index],
+            text: items[index].title,
             onTap: () {
-              prov.onSelectArticle(articles[index]);
+              prov.onSelectItem(items[index]);
             },
           );
         },
