@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../core/widgets/custom_pagination.dart';
+import '../manager/users_provider.dart';
 import 'widgets/users_grid_view.dart';
 import 'widgets/users_view_header.dart';
 
@@ -13,8 +16,33 @@ class UsersView extends StatelessWidget {
         const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const UsersViewHeader(),
         const SliverToBoxAdapter(child: UsersGridView()),
-        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        const SliverFillRemaining(
+          hasScrollBody: false,
+          child: SizedBox(height: 12),
+        ),
+        const _Pagination(),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
+    );
+  }
+}
+
+class _Pagination extends StatelessWidget {
+  const _Pagination();
+
+  @override
+  Widget build(BuildContext context) {
+    var prov = context.watch<UsersProvider>();
+    return SliverToBoxAdapter(
+      child: prov.checkGettingAllUser == false
+          ? SizedBox()
+          : CustomPagination(
+              currentPage: prov.pagination.currentPage,
+              totalPages: prov.pagination.lastPage,
+              onPageChanged: (page) {
+                prov.getAllUsers(page: page);
+              },
+            ),
     );
   }
 }
