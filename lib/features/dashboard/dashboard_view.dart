@@ -7,10 +7,9 @@ import '../../core/utils/size_config.dart';
 import '../employees/presentation/manager/employees_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
 import '../trips/presentation/manager/trips_provider.dart';
-import 'functions/get_current_dashboard_view.dart';
 import 'providers/dashboard_manager.dart';
-import 'widgets/dashboard_app_bar.dart';
 import 'widgets/dashboard_drawer.dart';
+import 'widgets/dashboard_view_body.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -41,62 +40,38 @@ class _DashboardViewState extends State<DashboardView> {
 
   @override
   Widget build(BuildContext context) {
-    return const DashboardViewManager();
-  }
-}
-
-class DashboardViewManager extends StatelessWidget {
-  const DashboardViewManager({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => DashboardManager(),
-      child: Builder(
-        builder: (context) {
-          Future.microtask(() {
-            context.read<DashboardManager>().getAccountData();
-          });
-          SizeConfig.init(context);
-          return Scaffold(
-            key: context.watch<DashboardManager>().scaffoldKey,
-            drawer: const DashboardDrawer(),
-            body: const DashboardViewBody(),
-          );
-        },
-      ),
+      child: const DashboardViewManager(),
     );
   }
 }
 
-class DashboardViewBody extends StatelessWidget {
-  const DashboardViewBody({super.key});
+class DashboardViewManager extends StatefulWidget {
+  const DashboardViewManager({super.key});
+
+  @override
+  State<DashboardViewManager> createState() => _DashboardViewManagerState();
+}
+
+class _DashboardViewManagerState extends State<DashboardViewManager> {
+  @override
+  void initState() {
+    super.initState();
+
+    //* To manage features visibility based on permissions
+    Future.microtask(() {
+      SizeConfig.init(context);
+      context.read<DashboardManager>().getAccountData();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    var isDesktop = SizeConfig.isDesktop();
-    return SafeArea(
-      child: Row(
-        children: [
-          if (isDesktop) DashboardDrawer(),
-          Expanded(
-            child: Column(
-              children: [
-                const DashboardAppBar(),
-                Expanded(
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: getCurrentDashboardView(
-                      context.watch<DashboardManager>().currentView,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return Scaffold(
+      key: context.watch<DashboardManager>().scaffoldKey,
+      drawer: const DashboardDrawer(),
+      body: const DashboardViewBody(),
     );
   }
 }
