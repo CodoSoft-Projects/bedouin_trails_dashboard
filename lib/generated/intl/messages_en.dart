@@ -71,6 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Start adding frequently asked questions to help users and answer their inquiries داخل التطبيق.",
     ),
     "no_questions_title": MessageLookupByLibrary.simpleMessage("No FAQs Yet"),
+    "no_trips_description": MessageLookupByLibrary.simpleMessage(
+      "No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.",
+    ),
+    "no_trips_title": MessageLookupByLibrary.simpleMessage("No Trips Yet"),
     "order_accepted": MessageLookupByLibrary.simpleMessage(
       "Completed Bookings",
     ),

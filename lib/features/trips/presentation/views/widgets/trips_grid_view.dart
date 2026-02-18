@@ -5,9 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/models/trip/trip_model.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/api_error_widget.dart';
-import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../../../../core/widgets/no_trip_section.dart';
 import '../../manager/trips_provider.dart';
 import '../trip_details_view.dart';
 import 'trip_card.dart';
@@ -30,10 +29,7 @@ class TripsGridView extends StatelessWidget {
               onRetry: prov.getAllActiveTrips,
             )
           : trips.isEmpty
-          ? EmptyGridWidget(
-              lottie: Assets.animationsEmptyGrid2,
-              message: 'لا يوجد رحلات',
-            )
+          ? NoTripSection(showDesc: true)
           : LayoutBuilder(
               builder: (context, constraints) {
                 var width = constraints.maxWidth;

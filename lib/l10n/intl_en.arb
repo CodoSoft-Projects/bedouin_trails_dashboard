@@ -41,5 +41,7 @@
   "order_pending": "Pending Bookings",
   "order_accepted": "Completed Bookings",
   "order_payed": "Paid Bookings",
-  "order_cancelled": "Cancelled Bookings"
+  "order_cancelled": "Cancelled Bookings",
+  "no_trips_title": "No Trips Yet",
+  "no_trips_description": "No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app."
 }

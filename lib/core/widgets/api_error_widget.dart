@@ -44,7 +44,7 @@ class ApiErrorView extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
-                  Icons.wifi_off_rounded,
+                  Icons.error_sharp,
                   color: Colors.redAccent.shade700,
                   size: 46,
                 ),

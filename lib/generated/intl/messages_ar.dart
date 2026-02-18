@@ -71,6 +71,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_questions_title": MessageLookupByLibrary.simpleMessage(
       "لا توجد أسئلة شائعة بعد",
     ),
+    "no_trips_description": MessageLookupByLibrary.simpleMessage(
+      "لم يتم إضافة أي رحلة بعد.\nبمجرد إنشاء أول رحلة ستظهر هنا ويمكن للمستخدمين حجزها من التطبيق.",
+    ),
+    "no_trips_title": MessageLookupByLibrary.simpleMessage(
+      "لا توجد رحلات حالياً",
+    ),
     "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
     "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
     "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),

@@ -304,6 +304,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No Trips Yet`
+  String get no_trips_title {
+    return Intl.message(
+      'No Trips Yet',
+      name: 'no_trips_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.`
+  String get no_trips_description {
+    return Intl.message(
+      'No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.',
+      name: 'no_trips_description',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
