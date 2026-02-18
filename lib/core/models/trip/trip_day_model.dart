@@ -25,4 +25,11 @@ class TripDayModel {
   String toString() {
     return 'TripDayModel{id: $id, dayNumber: $dayNumber, cards: $cards}';
   }
+
+  // to json
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'day_number': dayNumber,
+        'cards': cards.map((e) => e.toJson()).toList(),
+      };
 }

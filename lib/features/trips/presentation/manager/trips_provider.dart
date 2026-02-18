@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 
 import '../../../../core/enums/trip_status.dart';
@@ -52,7 +54,8 @@ class TripsProvider extends ChangeNotifier {
   TripModel? selectedTrip;
   void onSelectTrip(TripModel trip) {
     selectedTrip = trip;
-    getTripDetails();
+    log("Selected Trip:\n${trip.toJson()}");
+    notifyListeners();
   }
 
   /// Get trip details

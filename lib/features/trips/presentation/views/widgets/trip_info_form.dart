@@ -78,7 +78,7 @@ class TripInfoForm extends StatelessWidget {
                 CustomTextFormField(
                   labelText: 'نقطة نهاية الرحلة',
                   validator: simpleValidation,
-                  controller: !canEdit
+                  controller: canEdit
                       ? prov.tripToController
                       : TextEditingController(text: trip.interfaceTo),
                 ),
@@ -115,5 +115,4 @@ class TripInfoForm extends StatelessWidget {
       ),
     );
   }
-
 }

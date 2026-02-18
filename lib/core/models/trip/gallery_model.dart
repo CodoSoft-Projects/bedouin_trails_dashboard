@@ -10,4 +10,6 @@ class GalleryModel {
 
   // empty constructor
   GalleryModel.empty() : this(id: 0, image: '');
+
+  Map<String, dynamic> toJson() => {'id': id, 'image': image};
 }

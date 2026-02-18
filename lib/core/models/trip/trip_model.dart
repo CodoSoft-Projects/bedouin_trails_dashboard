@@ -66,6 +66,25 @@ class TripModel {
     );
   }
 
+  // TO json
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'mainImage': image,
+      'price': price,
+      'interfaceFrom': interfaceFrom,
+      'interfaceTo': interfaceTo,
+      'duration': duration,
+      'countPeople': countPeople,
+      'status': status.toString().split('.').last,
+      'rate': rate,
+      'galleries': galleries.map((e) => e.toJson()).toList(),
+      'trapDays': trapDays.map((e) => e.toJson()).toList(),
+      'order': userOrder?.toJson(),
+    };
+  }
+
   // empty construtor
   TripModel.empty()
     : id = 0,

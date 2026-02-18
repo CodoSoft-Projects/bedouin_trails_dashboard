@@ -22,4 +22,12 @@ class TripCardModel {
       image: json?['image'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'day_number': dayNumber,
+    'title': title,
+    'description': description,
+    'image': image,
+  };
 }
