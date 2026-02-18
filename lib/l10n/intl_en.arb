@@ -33,5 +33,9 @@
   "refresh": "Refresh",
   "no_about_title": "No About Us Information",
   "no_about_description": "You haven't added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
-  "add_about_btn": "Add About Us"
+  "add_about_btn": "Add About Us",
+  "no_ads_title": "No Advertisements Yet",
+  "no_ads_description": "You haven't created any advertisements. Start promoting your offers, discounts, or important announcements to reach your customers.",
+  "no_ads_hint": "Advertisements help increase engagement and sales.",
+  "add_ad_btn": "Create Advertisement"
 }

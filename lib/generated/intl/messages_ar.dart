@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
     ),
+    "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
     "days": m0,
@@ -42,6 +43,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_about_title": MessageLookupByLibrary.simpleMessage(
       "لا توجد معلومات عن الشركة",
     ),
+    "no_ads_description": MessageLookupByLibrary.simpleMessage(
+      "لم تقم بإنشاء أي إعلان حتى الآن. ابدأ بعرض العروض أو الخصومات أو التنبيهات المهمة للوصول إلى عملائك.",
+    ),
+    "no_ads_hint": MessageLookupByLibrary.simpleMessage(
+      "الإعلانات تساعد على زيادة التفاعل والمبيعات.",
+    ),
+    "no_ads_title": MessageLookupByLibrary.simpleMessage("لا توجد إعلانات بعد"),
     "no_articles_hint": MessageLookupByLibrary.simpleMessage(
       "يمكنك إضافة مقالات عن الرحلات، النصائح السياحية، أو العروض الخاصة.",
     ),

@@ -224,6 +224,46 @@ class S {
       args: [],
     );
   }
+
+  /// `No Advertisements Yet`
+  String get no_ads_title {
+    return Intl.message(
+      'No Advertisements Yet',
+      name: 'no_ads_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You haven't created any advertisements. Start promoting your offers, discounts, or important announcements to reach your customers.`
+  String get no_ads_description {
+    return Intl.message(
+      'You haven\'t created any advertisements. Start promoting your offers, discounts, or important announcements to reach your customers.',
+      name: 'no_ads_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisements help increase engagement and sales.`
+  String get no_ads_hint {
+    return Intl.message(
+      'Advertisements help increase engagement and sales.',
+      name: 'no_ads_hint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Advertisement`
+  String get add_ad_btn {
+    return Intl.message(
+      'Create Advertisement',
+      name: 'add_ad_btn',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

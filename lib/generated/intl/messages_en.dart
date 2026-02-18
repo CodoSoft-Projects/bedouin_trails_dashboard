@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
+    "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("Add New Article"),
     "add_new_question": MessageLookupByLibrary.simpleMessage(
       "Add New Question",
@@ -41,6 +42,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_about_title": MessageLookupByLibrary.simpleMessage(
       "No About Us Information",
+    ),
+    "no_ads_description": MessageLookupByLibrary.simpleMessage(
+      "You haven\'t created any advertisements. Start promoting your offers, discounts, or important announcements to reach your customers.",
+    ),
+    "no_ads_hint": MessageLookupByLibrary.simpleMessage(
+      "Advertisements help increase engagement and sales.",
+    ),
+    "no_ads_title": MessageLookupByLibrary.simpleMessage(
+      "No Advertisements Yet",
     ),
     "no_articles_hint": MessageLookupByLibrary.simpleMessage(
       "You can add articles about trips, travel tips, or special offers.",

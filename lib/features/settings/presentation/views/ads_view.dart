@@ -6,7 +6,7 @@ import '../../../../core/widgets/custom_app_bar.dart';
 import '../manager/ads_provider.dart';
 import 'widgets/article_form_section.dart';
 import 'widgets/articles_section.dart';
-import 'widgets/no_articles_section.dart';
+import 'widgets/no_ads_section.dart';
 
 class AdsView extends StatefulWidget {
   const AdsView({super.key});
@@ -45,7 +45,7 @@ class AdsViewBody extends StatelessWidget {
       return ApiErrorView(msg: prov.message, onRetry: prov.getAllAds);
     }
     if (prov.adsItems.isEmpty && prov.checkGettingAds == true) {
-      return const NoArticlesSection();
+      return const NoAdsSection();
     }
     return Padding(
       padding: const EdgeInsets.all(16.0),
