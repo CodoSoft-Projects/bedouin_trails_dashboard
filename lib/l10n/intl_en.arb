@@ -30,5 +30,8 @@
   "no_articles_msg": "Start by adding your first article so it appears in the dashboard and users can read it inside the application.",
   "no_articles_hint": "You can add articles about trips, travel tips, or special offers.",
   "add_new_article": "Add New Article",
-  "refresh": "Refresh"
+  "refresh": "Refresh",
+  "no_about_title": "No About Us Information",
+  "no_about_description": "You haven't added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
+  "add_about_btn": "Add About Us"
 }

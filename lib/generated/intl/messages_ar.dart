@@ -28,11 +28,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_about_btn": MessageLookupByLibrary.simpleMessage(
+      "إضافة معلومات الشركة",
+    ),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
     "days": m0,
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no_about_description": MessageLookupByLibrary.simpleMessage(
+      "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
+    ),
+    "no_about_title": MessageLookupByLibrary.simpleMessage(
+      "لا توجد معلومات عن الشركة",
+    ),
     "no_articles_hint": MessageLookupByLibrary.simpleMessage(
       "يمكنك إضافة مقالات عن الرحلات، النصائح السياحية، أو العروض الخاصة.",
     ),

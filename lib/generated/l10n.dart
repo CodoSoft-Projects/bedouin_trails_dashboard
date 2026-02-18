@@ -194,6 +194,36 @@ class S {
   String get refresh {
     return Intl.message('Refresh', name: 'refresh', desc: '', args: []);
   }
+
+  /// `No About Us Information`
+  String get no_about_title {
+    return Intl.message(
+      'No About Us Information',
+      name: 'no_about_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You haven't added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.`
+  String get no_about_description {
+    return Intl.message(
+      'You haven\'t added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.',
+      name: 'no_about_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add About Us`
+  String get add_about_btn {
+    return Intl.message(
+      'Add About Us',
+      name: 'add_about_btn',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
