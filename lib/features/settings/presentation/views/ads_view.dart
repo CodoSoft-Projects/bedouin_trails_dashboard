@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import '../../../../core/widgets/api_error_widget.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../manager/ads_provider.dart';
+import 'widgets/ads_items_section.dart';
 import 'widgets/article_form_section.dart';
-import 'widgets/articles_section.dart';
 import 'widgets/no_ads_section.dart';
 
 class AdsView extends StatefulWidget {
@@ -53,7 +53,7 @@ class AdsViewBody extends StatelessWidget {
         spacing: 12,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(flex: 3, child: ArticlesSection()),
+          Expanded(flex: 3, child: AdsItemsSection()),
           Expanded(flex: 5, child: ArticleFormSection()),
         ],
       ),
