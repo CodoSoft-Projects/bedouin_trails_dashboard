@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import 'about_us_view.dart';
 import 'ads_view.dart';
 import 'articles_view.dart';
 import 'questions_view.dart';
@@ -25,6 +26,10 @@ class SettingsView extends StatelessWidget {
         SettingsButton(
           text: 'إدارة المقالات',
           routeName: ArticlesView.routeName,
+        ),
+        SettingsButton(
+          text: 'إدارة صفحة من نحن',
+          routeName: AboutUsView.routeName,
         ),
       ],
     );

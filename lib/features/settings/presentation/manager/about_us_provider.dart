@@ -126,7 +126,7 @@ class AboutUsProvider extends ChangeNotifier {
   /// Replace item form the list with new item
   void replaceItem(AboutUsModel item) {
     final index = items.indexWhere((element) => element.id == item.id);
-    items[index] = item;
+    if (index != -1) items[index] = item;
     notifyListeners();
   }
 

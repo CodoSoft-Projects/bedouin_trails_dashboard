@@ -26,7 +26,7 @@ class AboutUsSection extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'فقرة المقالات',
+                  'العناصر المعروضة',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.regular24(context),
