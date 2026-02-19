@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:bedouin_trails_dashboard/core/enums/trip_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +11,6 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../../core/widgets/custom_dropdown_field.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 import '../../manager/trips_provider.dart';
 
@@ -42,18 +40,18 @@ class TripInfoForm extends StatelessWidget {
                       ? prov.tripNameController
                       : TextEditingController(text: trip.name),
                 ),
-                CustomDropdownTextField<TripStatus>(
-                  labelText: 'حالة الحجز للرحلة',
-                  value: prov.tripStatus,
-                  items: [TripStatus.active, TripStatus.inactive],
-                  itemLabel: (item) => item.arName,
-                  onSelected: (value) {
-                    if (value == null) return;
-                    prov.tripStatus = value;
-                  },
-                  controller: TextEditingController(text: trip.status.arName),
-                ),
 
+                // CustomDropdownTextField<TripStatus>(
+                //   labelText: 'حالة الحجز للرحلة',
+                //   value: prov.tripStatus,
+                //   items: [TripStatus.active, TripStatus.inactive],
+                //   itemLabel: (item) => item.arName,
+                //   onSelected: (value) {
+                //     if (value == null) return;
+                //     prov.tripStatus = value;
+                //   },
+                //   controller: TextEditingController(text: trip.status.arName),
+                // ),
                 CustomTextFormField(
                   labelText: 'سعر الرحلة',
                   controller: canEdit
