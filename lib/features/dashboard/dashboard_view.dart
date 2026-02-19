@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/utils/size_config.dart';
 import '../employees/presentation/manager/employees_provider.dart';
+import '../orders/presentation/manager/orders_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
 import '../trips/presentation/manager/trips_provider.dart';
 import '../users/presentation/manager/users_provider.dart';
@@ -38,6 +39,7 @@ class _DashboardViewState extends State<DashboardView> {
       context.read<EmployeesProvider>().getAllEmployees();
       //* Users Providers
       context.read<UsersProvider>().getAllUsers();
+      context.read<OrdesProvider>().getAllOrdersUsers();
     });
   }
 

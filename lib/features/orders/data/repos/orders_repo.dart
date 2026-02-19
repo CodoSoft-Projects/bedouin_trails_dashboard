@@ -1,0 +1,60 @@
+import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
+
+import '../../../../core/api/dio_consumer.dart';
+import '../../../../core/api/end_points.dart';
+import '../../../../core/enums/order_status.dart';
+import '../../../../core/errors/exception.dart';
+import '../../../../core/functions/is_arabic.dart';
+import '../../../../core/models/simple_model.dart';
+import '../../../../core/models/users_response_model.dart';
+import '../../../../core/services/service_locator.dart';
+import '../../../../core/utils/constants.dart';
+
+class OrdersRepo {
+  final DioConsumer dio = getit.get<DioConsumer>();
+
+  /// Get All Orders Users
+  Future<Either<String, UsersResponseModel>> getAllOrdersUsers({
+    int page = 1,
+    String search = '',
+    OrderStatus status = OrderStatus.pending,
+  }) async {
+    try {
+      final response = await dio.get(
+        EndPoints.users,
+        isFormData: false,
+        queryParameters: {
+          'page': page.toString(),
+          'search': search,
+          'status': status.toApi(),
+        },
+      );
+      return Right(UsersResponseModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in getAllOrdersUsers: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Update order status
+  Future<Either<String, SimpleModel>> updateOrderStatus({
+    required int id,
+    required OrderStatus status,
+  }) async {
+    try {
+      var data = {"_method": "put", "status": status.toApi()};
+      log("Update Trip Status Data: $data");
+      final response = await dio.post('${EndPoints.orders}/$id', data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateOrderStatus: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+}
