@@ -8,7 +8,6 @@ import '../../../../core/enums/order_status.dart';
 import '../../../../core/errors/exception.dart';
 import '../../../../core/functions/is_arabic.dart';
 import '../../../../core/models/simple_model.dart';
-import '../../../../core/models/users_response_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
 import '../models/orders_response_model.dart';
@@ -17,14 +16,14 @@ class OrdersRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Orders Users
-  Future<Either<String, OrdersResponseModel>> getAllOrdersUsers({
+  Future<Either<String, OrdersResponseModel>> getAllOrders({
     int page = 1,
     String search = '',
     OrderStatus status = OrderStatus.pending,
   }) async {
     try {
       final response = await dio.get(
-        EndPoints.users,
+        EndPoints.orders,
         isFormData: false,
         queryParameters: {
           'page': page.toString(),
@@ -36,7 +35,7 @@ class OrdersRepo {
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {
-      log("Exception in getAllOrdersUsers: $e");
+      log("Exception in getAllOrders: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

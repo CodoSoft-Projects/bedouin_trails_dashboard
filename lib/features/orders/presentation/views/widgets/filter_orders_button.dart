@@ -7,14 +7,13 @@ import '../../manager/orders_provider.dart';
 
 class FilterOrdersButton extends StatelessWidget {
   const FilterOrdersButton({super.key});
- 
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<OrdesProvider>();
+    var prov = context.watch<OrdersProvider>();
 
     return CustomPopupMenuButton<OrderStatus>(
-      initialValue:prov.orderStatus,
+      initialValue: prov.orderStatus,
       items: prov.orderStatuses,
       itemLabelBuilder: (item) => item.label(context),
       onSelected: (idx) {

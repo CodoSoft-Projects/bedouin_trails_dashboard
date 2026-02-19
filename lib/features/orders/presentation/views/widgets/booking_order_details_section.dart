@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/models/order_model.dart';
-import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_name_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../manager/orders_provider.dart';
 
-class BookingDetailsSection extends StatelessWidget {
-  const BookingDetailsSection({super.key, required this.trip});
-  final TripModel trip;
+class BookingOrderDetailsSection extends StatelessWidget {
+  const BookingOrderDetailsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    OrderModel userOrder = trip.userOrder ?? OrderModel.empty();
+    var prov = context.watch<OrdersProvider>();
+    OrderModel order = prov.selectedOrder ?? OrderModel.empty();
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: AbsorbPointer(
@@ -33,7 +34,7 @@ class BookingDetailsSection extends StatelessWidget {
                       child: CustomNameField(
                         labelText: 'الإسم الأول',
                         controller: TextEditingController(
-                          text: userOrder.firstName,
+                          text: order.firstName,
                         ),
                       ),
                     ),
@@ -41,9 +42,7 @@ class BookingDetailsSection extends StatelessWidget {
                     Expanded(
                       child: CustomNameField(
                         labelText: 'الإسم الثاني',
-                        controller: TextEditingController(
-                          text: userOrder.lastName,
-                        ),
+                        controller: TextEditingController(text: order.lastName),
                       ),
                     ),
                   ],
@@ -51,12 +50,12 @@ class BookingDetailsSection extends StatelessWidget {
 
                 CustomEmailField(
                   labelText: 'البريد الإلكتروني',
-                  controller: TextEditingController(text: userOrder.email),
+                  controller: TextEditingController(text: order.email),
                 ),
 
                 CustomPhoneTextField(
                   labelText: 'رقم الهاتف',
-                  controller: TextEditingController(text: userOrder.phone),
+                  controller: TextEditingController(text: order.phone),
                 ),
 
                 Row(
@@ -65,7 +64,7 @@ class BookingDetailsSection extends StatelessWidget {
                       child: CustomTextFormField(
                         labelText: 'عدد الأطفال',
                         controller: TextEditingController(
-                          text: userOrder.numberOfChildren.toString(),
+                          text: order.numberOfChildren.toString(),
                         ),
                       ),
                     ),
@@ -74,7 +73,7 @@ class BookingDetailsSection extends StatelessWidget {
                       child: CustomTextFormField(
                         labelText: 'عدد البالغين',
                         controller: TextEditingController(
-                          text: userOrder.numberOfAdults.toString(),
+                          text: order.numberOfAdults.toString(),
                         ),
                       ),
                     ),
@@ -88,7 +87,7 @@ class BookingDetailsSection extends StatelessWidget {
                         labelText: 'تاريخ تسجيل الرحلة',
                         prefixIcon: _Calender(),
                         controller: TextEditingController(
-                          text: userOrder.startDate,
+                          text: order.startDate,
                         ),
                       ),
                     ),
@@ -97,9 +96,7 @@ class BookingDetailsSection extends StatelessWidget {
                       child: CustomTextFormField(
                         labelText: 'تاريخ المغادرة',
                         prefixIcon: _Calender(),
-                        controller: TextEditingController(
-                          text: userOrder.endDate,
-                        ),
+                        controller: TextEditingController(text: order.endDate),
                       ),
                     ),
                   ],
@@ -108,19 +105,16 @@ class BookingDetailsSection extends StatelessWidget {
                 CustomTextFormField(
                   labelText: 'ألاستفسار (الملاحظات)',
                   lines: 5,
-                  controller: TextEditingController(
-                    text: userOrder.description,
-                  ),
+                  controller: TextEditingController(text: order.description),
                 ),
 
-                // TODO : show the correct price after added to the order model
                 Row(
                   children: [
                     Expanded(
                       child: CustomTextFormField(
                         labelText: 'سعر الفرد',
                         controller: TextEditingController(
-                          text: trip.price.toString(),
+                          text: order.trip.price.toString(),
                         ),
                         suffixIcon: Icon(
                           Icons.attach_money,
@@ -133,7 +127,7 @@ class BookingDetailsSection extends StatelessWidget {
                       child: CustomTextFormField(
                         labelText: 'السعر الإجمالي',
                         controller: TextEditingController(
-                          text: trip.price.toString(),
+                          text: order.trip.price.toString(),
                         ),
                         suffixIcon: Icon(
                           Icons.attach_money,

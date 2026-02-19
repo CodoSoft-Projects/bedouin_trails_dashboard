@@ -5,7 +5,7 @@ import '../../../../core/models/order_model.dart';
 import '../../../../core/models/pagination_model.dart';
 import '../../data/repos/orders_repo.dart';
 
-class OrdesProvider extends ChangeNotifier {
+class OrdersProvider extends ChangeNotifier {
   OrdersRepo repo = OrdersRepo();
 
   String message = '';

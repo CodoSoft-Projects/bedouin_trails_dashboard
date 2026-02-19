@@ -32,7 +32,7 @@ class _Pagination extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<OrdesProvider>();
+    var prov = context.watch<OrdersProvider>();
     return SliverToBoxAdapter(
       child: prov.checkGettingAllUser == false
           ? SizedBox()

@@ -39,7 +39,7 @@ class _DashboardViewState extends State<DashboardView> {
       context.read<EmployeesProvider>().getAllEmployees();
       //* Users Providers
       context.read<UsersProvider>().getAllUsers();
-      context.read<OrdesProvider>().getAllOrdersUsers();
+      context.read<OrdersProvider>().getAllOrdersUsers();
     });
   }
 

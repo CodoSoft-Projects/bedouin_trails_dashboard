@@ -39,7 +39,7 @@ class _OrdersSearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<OrdesProvider>();
+    var prov = context.watch<OrdersProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
       child: CustomSearchField(

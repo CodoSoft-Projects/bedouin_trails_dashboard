@@ -4,26 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../core/models/user_model.dart';
+import '../../../../../core/models/order_model.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/api_error_widget.dart';
 import '../../../../../core/widgets/custom_person_card.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../../../trips/presentation/manager/trips_provider.dart';
 import '../../manager/orders_provider.dart';
+import '../order_details_view.dart';
 
 class OrdersGridView extends StatelessWidget {
   const OrdersGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var prov = context.watch<OrdesProvider>();
+    var prov = context.watch<OrdersProvider>();
 
-    List<UserModel> loadingList = List.generate(
+    List<OrderModel> loadingList = List.generate(
       8,
-      (index) => UserModel.empty(),
+      (index) => OrderModel.empty(),
     );
 
-    List<UserModel> users = prov.checkGettingAllUser == null
+    List<OrderModel> orders = prov.checkGettingAllUser == null
         ? loadingList
         : prov.orders;
 
@@ -35,7 +37,7 @@ class OrdersGridView extends StatelessWidget {
           var crossAxisCount = (width / 210).toInt();
           return prov.checkGettingAllUser == false
               ? ApiErrorView(msg: prov.message, onRetry: prov.getAllOrdersUsers)
-              : users.isEmpty
+              : orders.isEmpty
               ? EmptyGridWidget(
                   lottie: Assets.animationsEmptyGrid2,
                   message: 'لا يوجد مستخدمين',
@@ -52,19 +54,23 @@ class OrdersGridView extends StatelessWidget {
                       childAspectRatio: 221 / 386,
                       mainAxisExtent: 386,
                     ),
-                    itemCount: users.length,
+                    itemCount: orders.length,
                     itemBuilder: (context, index) {
+                      var user = orders[index].user;
                       return CustomPersonCard(
-                        name: users[index].fullName,
-                        phone: users[index].phone,
-                        email: users[index].email,
-                        imgUrl: users[index].image,
+                        name: user.fullName,
+                        phone: user.phone,
+                        email: user.email,
+                        imgUrl: user.image,
                         onTap: () {
-                          prov.onSelectUser(users[index]);
-                          // Navigator.pushNamed(
-                          //   context,
-                          //   UserDetailsView.routeName,
-                          // );
+                          prov.onSelectUser(orders[index]);
+                          context.read<TripsProvider>()
+                            ..onSelectTrip(orders[index].trip)
+                            ..getTripDetails();
+                          Navigator.pushNamed(
+                            context,
+                            OrderDetailsView.routeName,
+                          );
                         },
                       );
                     },

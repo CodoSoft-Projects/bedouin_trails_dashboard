@@ -10,7 +10,7 @@ import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../trips/presentation/manager/trips_provider.dart';
 import '../../../../trips/presentation/views/widgets/trip_info_form.dart';
 import '../../../../trips/presentation/views/widgets/trip_program_section.dart';
-import 'booking_details_section.dart';
+import 'booking_order_details_section.dart';
 
 enum _SectionType { info, program, bookingDetails }
 
@@ -95,7 +95,7 @@ class _OrderTripInfoSectionState extends State<OrderTripInfoSection> {
             TripInfoForm(canEdit: false, trip: trip),
           if (sectionType == _SectionType.program) TripProgramSection(),
           if (sectionType == _SectionType.bookingDetails)
-            BookingDetailsSection(trip: trip),
+            BookingOrderDetailsSection(),
         ],
       ),
     );
