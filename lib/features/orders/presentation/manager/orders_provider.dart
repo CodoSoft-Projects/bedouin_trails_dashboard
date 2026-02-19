@@ -17,6 +17,11 @@ class OrdesProvider extends ChangeNotifier {
   List<OrderStatus> orderStatuses = OrderStatus.values.toList();
   OrderStatus orderStatus = OrderStatus.pending;
 
+  void onChangeOrderStatus(int idx) {
+    orderStatus = orderStatuses[idx];
+    getAllOrdersUsers();
+  }
+
   /// Get All Orders Users
   bool? checkGettingAllUser = false;
   Future<void> getAllOrdersUsers({int page = 1}) async {
@@ -26,6 +31,7 @@ class OrdesProvider extends ChangeNotifier {
     final result = await repo.getAllOrdersUsers(
       search: searchController.text,
       page: page,
+      status: orderStatus,
     );
     result.fold(
       (msg) {
