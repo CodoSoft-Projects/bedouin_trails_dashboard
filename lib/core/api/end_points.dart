@@ -26,6 +26,9 @@ class EndPoints {
 
   /// Users
   static const users = '/api/admin/users';
+
+  /// Orders
+  static const orders = '/api/admin/orders';
 }
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4

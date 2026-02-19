@@ -4,8 +4,10 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/api/dio_consumer.dart';
 import '../../../../core/api/end_points.dart';
+import '../../../../core/enums/order_status.dart';
 import '../../../../core/errors/exception.dart';
 import '../../../../core/functions/is_arabic.dart';
+import '../../../../core/models/simple_model.dart';
 import '../../../../core/models/trip/trips_response_model.dart';
 import '../../../../core/models/users_response_model.dart';
 import '../../../../core/services/service_locator.dart';
@@ -52,6 +54,24 @@ class UsersRepo {
       return Left(e.errorModel.message);
     } catch (e) {
       log("Exception in getUserTrips: $e");
+      return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
+    }
+  }
+
+  /// Update order status
+  Future<Either<String, SimpleModel>> updateOrderStatus({
+    required int id,
+    required OrderStatus status,
+  }) async {
+    try {
+      var data = {"_method": "put", "status": status.toApi()};
+      log("Update Trip Status Data: $data");
+      final response = await dio.post('${EndPoints.trips}/$id', data: data);
+      return Right(SimpleModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e.errorModel.message);
+    } catch (e) {
+      log("Exception in updateOrderStatus: $e");
       return Left(isArabic() ? Constants.kArErrorMsg : Constants.kEnErrorMsg);
     }
   }

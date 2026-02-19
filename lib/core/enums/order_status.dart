@@ -10,9 +10,7 @@ enum OrderStatus {
   cancelled, // حجوزات ملغاة
 }
 
-
 extension OrderStatusExtension on OrderStatus {
-
   /// ===============================
   /// Convert API string -> Enum
   /// ===============================
@@ -61,5 +59,4 @@ extension OrderStatusExtension on OrderStatus {
         return S.of(context).order_cancelled;
     }
   }
-
 }
