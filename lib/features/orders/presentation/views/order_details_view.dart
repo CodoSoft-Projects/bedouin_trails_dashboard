@@ -5,6 +5,7 @@ import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../trips/presentation/views/widgets/show_trip_images_section.dart';
 import 'widgets/order_details_view_header.dart';
 import 'widgets/order_trip_info_section.dart';
+import 'widgets/user_info_list_tile.dart';
 
 class OrderDetailsView extends StatelessWidget {
   const OrderDetailsView({super.key});
@@ -14,7 +15,10 @@ class OrderDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
     return Scaffold(
-      appBar: customAppBar(context, title: 'تفاصيل الرحلة', showBack: true),
+      appBar: customAppBar(context,
+        titleWidgt: const UserInfoListTile()
+      
+      , showBack: true),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
