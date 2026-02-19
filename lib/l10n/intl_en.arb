@@ -12,6 +12,15 @@
       }
     }
   },
+  "bookings": "{count, plural, =0{No bookings} =1{1 booking} other{{count} bookings}}",
+  "@bookings": {
+    "description": "Number of bookings",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "days": "{count, plural, =0{No days} =1{1 day} other{{count} days}}",
   "@days": {
     "description": "Number of days",

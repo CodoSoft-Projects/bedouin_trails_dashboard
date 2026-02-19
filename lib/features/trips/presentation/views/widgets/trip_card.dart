@@ -81,7 +81,7 @@ class TripCard extends StatelessWidget {
                       child: CustomWhiteBox(
                         child: Center(
                           child: Text(
-                            S.of(context).persons(trip.countPeople),
+                            S.of(context).bookings(trip.countPeople),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.regular16(context),

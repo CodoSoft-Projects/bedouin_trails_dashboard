@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, strict_top_level_inference
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -21,9 +21,12 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   static String m0(count) =>
-      "${Intl.plural(count, zero: 'No days', one: '1 day', other: '${count} days')}";
+      "${Intl.plural(count, zero: 'No bookings', one: '1 booking', other: '${count} bookings')}";
 
   static String m1(count) =>
+      "${Intl.plural(count, zero: 'No days', one: '1 day', other: '${count} days')}";
+
+  static String m2(count) =>
       "${Intl.plural(count, zero: 'No persons', one: '1 person', other: '${count} persons')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -34,7 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_new_question": MessageLookupByLibrary.simpleMessage(
       "Add New Question",
     ),
-    "days": m0,
+    "bookings": m0,
+    "days": m1,
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
@@ -83,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "order_payed": MessageLookupByLibrary.simpleMessage("Paid Bookings"),
     "order_pending": MessageLookupByLibrary.simpleMessage("Pending Bookings"),
-    "persons": m1,
+    "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),

@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, strict_top_level_inference
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -21,9 +21,12 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   static String m0(count) =>
-      "${Intl.plural(count, zero: 'لا توجد أيام', one: 'يوم واحد', two: 'يومان', few: '${count} أيام', many: '${count} يومًا', other: '${count} يوم')}";
+      "${Intl.plural(count, zero: 'لا توجد حجوزات', one: 'حجز واحد', two: 'حجزان', few: '${count} حجوزات', many: '${count} حجزًا', other: '${count} حجز')}";
 
   static String m1(count) =>
+      "${Intl.plural(count, zero: 'لا توجد أيام', one: 'يوم واحد', two: 'يومان', few: '${count} أيام', many: '${count} يومًا', other: '${count} يوم')}";
+
+  static String m2(count) =>
       "${Intl.plural(count, zero: 'لا يوجد أشخاص', one: 'شخص واحد', two: 'شخصان', few: '${count} أشخاص', many: '${count} شخصًا', other: '${count} شخص')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -34,7 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
-    "days": m0,
+    "bookings": m0,
+    "days": m1,
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
@@ -81,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
     "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
     "order_pending": MessageLookupByLibrary.simpleMessage("حجوزات معلقة"),
-    "persons": m1,
+    "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),

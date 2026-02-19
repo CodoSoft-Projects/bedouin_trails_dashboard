@@ -87,6 +87,19 @@ class S {
     );
   }
 
+  /// `{count, plural, =0{No bookings} =1{1 booking} other{{count} bookings}}`
+  String bookings(int count) {
+    return Intl.plural(
+      count,
+      zero: 'No bookings',
+      one: '1 booking',
+      other: '$count bookings',
+      name: 'bookings',
+      desc: 'Number of bookings',
+      args: [count],
+    );
+  }
+
   /// `{count, plural, =0{No days} =1{1 day} other{{count} days}}`
   String days(int count) {
     return Intl.plural(
