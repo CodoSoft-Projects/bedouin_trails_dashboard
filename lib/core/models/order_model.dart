@@ -1,4 +1,5 @@
 import '../enums/order_status.dart';
+import 'trip/trip_model.dart';
 
 class OrderModel {
   final int id;
@@ -12,6 +13,8 @@ class OrderModel {
   final OrderStatus status;
   final String startDate;
   final String endDate;
+  //* Will be filled in orders feature
+  final TripModel trip;
 
   const OrderModel({
     required this.id,
@@ -25,6 +28,7 @@ class OrderModel {
     required this.status,
     required this.startDate,
     required this.endDate,
+    required this.trip,
   });
 
   /// ================= FROM JSON =================
@@ -43,6 +47,7 @@ class OrderModel {
       status: OrderStatusExtension.fromString(json['status']),
       startDate: json['start_date'] ?? '',
       endDate: json['end_date'] ?? '',
+      trip: TripModel.fromJson(json['trap']),
     );
   }
 
@@ -65,7 +70,7 @@ class OrderModel {
 
   /// ================= EMPTY =================
   factory OrderModel.empty() {
-    return const OrderModel(
+    return  OrderModel(
       id: 0,
       firstName: '',
       lastName: '',
@@ -77,6 +82,7 @@ class OrderModel {
       status: OrderStatus.pending,
       startDate: '',
       endDate: '',
+      trip: TripModel.empty(),
     );
   }
 
@@ -93,6 +99,7 @@ class OrderModel {
     OrderStatus? status,
     String? startDate,
     String? endDate,
+    TripModel? trip,
   }) {
     return OrderModel(
       id: id ?? this.id,
@@ -106,6 +113,7 @@ class OrderModel {
       status: status ?? this.status,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
+      trip: trip ?? this.trip,
     );
   }
 
