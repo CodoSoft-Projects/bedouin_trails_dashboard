@@ -1,5 +1,6 @@
 import '../enums/order_status.dart';
 import 'trip/trip_model.dart';
+import 'user_model.dart';
 
 class OrderModel {
   final int id;
@@ -10,10 +11,11 @@ class OrderModel {
   final String description;
   final int numberOfAdults;
   final int numberOfChildren;
+  final double totalPrice;
   final OrderStatus status;
   final String startDate;
   final String endDate;
-  //* Will be filled in orders feature
+  final UserModel user;
   final TripModel trip;
 
   const OrderModel({
@@ -25,9 +27,11 @@ class OrderModel {
     required this.description,
     required this.numberOfAdults,
     required this.numberOfChildren,
+    required this.totalPrice,
     required this.status,
     required this.startDate,
     required this.endDate,
+    required this.user,
     required this.trip,
   });
 
@@ -44,9 +48,11 @@ class OrderModel {
       description: json['description'] ?? '',
       numberOfAdults: json['number_of_adults'] ?? 0,
       numberOfChildren: json['number_of_children'] ?? 0,
+      totalPrice: (json['total_price'] ?? 0).toDouble(),
       status: OrderStatusExtension.fromString(json['status']),
       startDate: json['start_date'] ?? '',
       endDate: json['end_date'] ?? '',
+      user: UserModel.fromJson(json['user']),
       trip: TripModel.fromJson(json['trap']),
     );
   }
@@ -62,15 +68,18 @@ class OrderModel {
       'description': description,
       'number_of_adults': numberOfAdults,
       'number_of_children': numberOfChildren,
+      'total_price': totalPrice,
       'status': status.toApi(),
       'start_date': startDate,
       'end_date': endDate,
+      'user': user.toJson(),
+      'trip': trip.toJson(),
     };
   }
 
   /// ================= EMPTY =================
   factory OrderModel.empty() {
-    return  OrderModel(
+    return OrderModel(
       id: 0,
       firstName: '',
       lastName: '',
@@ -79,41 +88,12 @@ class OrderModel {
       description: '',
       numberOfAdults: 0,
       numberOfChildren: 0,
+      totalPrice: 0,
       status: OrderStatus.pending,
       startDate: '',
       endDate: '',
+      user: UserModel.empty(),
       trip: TripModel.empty(),
-    );
-  }
-
-  /// ================= COPY WITH =================
-  OrderModel copyWith({
-    int? id,
-    String? firstName,
-    String? lastName,
-    String? email,
-    String? phone,
-    String? description,
-    int? numberOfAdults,
-    int? numberOfChildren,
-    OrderStatus? status,
-    String? startDate,
-    String? endDate,
-    TripModel? trip,
-  }) {
-    return OrderModel(
-      id: id ?? this.id,
-      firstName: firstName ?? this.firstName,
-      lastName: lastName ?? this.lastName,
-      email: email ?? this.email,
-      phone: phone ?? this.phone,
-      description: description ?? this.description,
-      numberOfAdults: numberOfAdults ?? this.numberOfAdults,
-      numberOfChildren: numberOfChildren ?? this.numberOfChildren,
-      status: status ?? this.status,
-      startDate: startDate ?? this.startDate,
-      endDate: endDate ?? this.endDate,
-      trip: trip ?? this.trip,
     );
   }
 
