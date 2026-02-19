@@ -7,6 +7,7 @@ import 'core/functions/open_hive_boxes.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
 import 'features/employees/presentation/manager/employees_provider.dart';
+import 'features/orders/presentation/manager/orders_provider.dart';
 import 'features/profile/presentation/manager/profile_provider.dart';
 import 'features/settings/presentation/manager/about_us_provider.dart';
 import 'features/settings/presentation/manager/ads_provider.dart';
@@ -37,6 +38,9 @@ Future<void> main() async {
 
         //* Users Providers
         ChangeNotifierProvider(create: (_) => UsersProvider()),
+
+        //* Oreders Users Providers
+        ChangeNotifierProvider(create: (_) => OrdesProvider()),
       ],
       child: const BedouinTrails(),
     ),

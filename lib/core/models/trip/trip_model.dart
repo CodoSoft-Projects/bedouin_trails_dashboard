@@ -98,5 +98,6 @@ class TripModel {
       status = TripStatus.active,
       rate = 0.0,
       galleries = const [],
-      trapDays = const [], userOrder = null;
+      trapDays = const [],
+      userOrder = null;
 }
