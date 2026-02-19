@@ -78,4 +78,28 @@ class UsersProvider extends ChangeNotifier {
   List<TripModel> filterUserTripsByStatus(OrderStatus status) {
     return userTrips.where((trip) => trip.userOrder?.status == status).toList();
   }
+
+  /// Update order status
+  bool? checkUpdatingOrderStatus = false;
+  Future<void> updateOrderStatus({
+    required int id,
+    required OrderStatus status,
+  }) async {
+    checkUpdatingOrderStatus = null;
+    notifyListeners();
+
+    final result = await repo.updateOrderStatus(id: id, status: status);
+    result.fold(
+      (msg) {
+        message = msg;
+        checkUpdatingOrderStatus = false;
+      },
+      (model) {
+        message = model.message;
+        checkUpdatingOrderStatus = true;
+        getUserTrips();
+      },
+    );
+    notifyListeners();
+  }
 }
