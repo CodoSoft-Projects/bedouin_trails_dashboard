@@ -66,7 +66,7 @@ class UsersRepo {
     try {
       var data = {"_method": "put", "status": status.toApi()};
       log("Update Trip Status Data: $data");
-      final response = await dio.post('${EndPoints.trips}/$id', data: data);
+      final response = await dio.post('${EndPoints.orders}/$id', data: data);
       return Right(SimpleModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
