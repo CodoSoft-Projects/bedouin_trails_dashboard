@@ -11,12 +11,13 @@ import '../../../../core/models/simple_model.dart';
 import '../../../../core/models/users_response_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
+import '../models/orders_response_model.dart';
 
 class OrdersRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
 
   /// Get All Orders Users
-  Future<Either<String, UsersResponseModel>> getAllOrdersUsers({
+  Future<Either<String, OrdersResponseModel>> getAllOrdersUsers({
     int page = 1,
     String search = '',
     OrderStatus status = OrderStatus.pending,
@@ -31,7 +32,7 @@ class OrdersRepo {
           'status': status.toApi(),
         },
       );
-      return Right(UsersResponseModel.fromJson(response));
+      return Right(OrdersResponseModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e.errorModel.message);
     } catch (e) {

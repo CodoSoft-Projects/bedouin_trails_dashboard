@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/enums/order_status.dart';
+import '../../../../core/models/order_model.dart';
 import '../../../../core/models/pagination_model.dart';
-import '../../../../core/models/user_model.dart';
 import '../../data/repos/orders_repo.dart';
 
 class OrdesProvider extends ChangeNotifier {
   OrdersRepo repo = OrdersRepo();
 
   String message = '';
-  List<UserModel> users = [];
-  UserModel? selectedUser;
+  List<OrderModel> orders = [];
+  OrderModel? selectedOrder;
   PaginationModel pagination = PaginationModel.empty();
   var searchController = TextEditingController();
 
@@ -28,7 +28,7 @@ class OrdesProvider extends ChangeNotifier {
     checkGettingAllUser = null;
     notifyListeners();
 
-    final result = await repo.getAllOrdersUsers(
+    final result = await repo.getAllOrders(
       search: searchController.text,
       page: page,
       status: orderStatus,
@@ -40,7 +40,7 @@ class OrdesProvider extends ChangeNotifier {
       },
       (model) {
         message = model.message;
-        users = model.users;
+        orders = model.orders;
         pagination = model.pagination;
         checkGettingAllUser = true;
       },
@@ -48,8 +48,8 @@ class OrdesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void onSelectUser(UserModel user) {
-    selectedUser = user;
+  void onSelectUser(OrderModel user) {
+    selectedOrder = user;
     notifyListeners();
   }
 

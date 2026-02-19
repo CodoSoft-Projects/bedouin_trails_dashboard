@@ -1,14 +1,17 @@
 import '../../../../core/models/order_model.dart';
+import '../../../../core/models/pagination_model.dart';
 
 class OrdersResponseModel {
   final bool status;
   final String message;
   final List<OrderModel> orders;
+  final PaginationModel pagination;
 
   const OrdersResponseModel({
     required this.status,
     required this.message,
     required this.orders,
+    required this.pagination,
   });
 
   factory OrdersResponseModel.fromJson(Map<String, dynamic>? json) {
@@ -28,11 +31,17 @@ class OrdersResponseModel {
       status: json['status'] ?? false,
       message: json['message'] ?? '',
       orders: parsedOrders,
+      pagination: PaginationModel.fromJson(json['pagination']),
     );
   }
 
   factory OrdersResponseModel.empty() {
-    return const OrdersResponseModel(status: false, message: '', orders: []);
+    return OrdersResponseModel(
+      status: false,
+      message: '',
+      orders: [],
+      pagination: PaginationModel.empty(),
+    );
   }
 
   bool get isEmpty => orders.isEmpty;

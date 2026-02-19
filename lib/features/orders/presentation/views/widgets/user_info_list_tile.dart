@@ -12,7 +12,7 @@ class UserInfoListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<OrdesProvider>();
-    var user = prov.selectedUser ?? UserModel.empty();
+    var user = prov.selectedOrder ?? UserModel.empty();
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(user.fullName, style: AppTextStyles.bold22(context)),

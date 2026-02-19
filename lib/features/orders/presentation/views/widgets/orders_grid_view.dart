@@ -25,7 +25,7 @@ class OrdersGridView extends StatelessWidget {
 
     List<UserModel> users = prov.checkGettingAllUser == null
         ? loadingList
-        : prov.users;
+        : prov.orders;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
