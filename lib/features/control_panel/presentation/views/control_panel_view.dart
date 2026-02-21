@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/assets.dart';
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
 import '../../domain/entities/panel_header_entity.dart';
+import '../manager/control_panel_provider.dart';
 import 'widgets/orders_chart_section.dart';
 import 'widgets/panel_bottom_grid.dart';
 import 'widgets/panel_charts_grid.dart';
@@ -100,10 +105,21 @@ class _RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prov = context.watch<ControlPanelProvider>();
     return Column(
       spacing: 12,
       children: [
-        PanelHeaderItem(panelHeaderEntity: grownItem),
+        Skeletonizer(
+          enabled: prov.checkGetting == null,
+          child: PanelHeaderItem(
+            panelHeaderEntity: PanelHeaderEntity(
+              title: 'نسبة نمو الواردات للشهر الحالي',
+              subtitle: '${prov.controlPanelData.averageRating} %',
+              image: Assets.imagesGrownIcon,
+              backgroundColor: AppColors.white,
+            ),
+          ),
+        ),
         OrdersChartSection(),
       ],
     );

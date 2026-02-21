@@ -65,10 +65,3 @@ List<PanelHeaderEntity> panelBottomList({
     backgroundColor: AppColors.white,
   ),
 ];
-
-PanelHeaderEntity grownItem = PanelHeaderEntity(
-  title: 'نسبة نمو الواردات للشهر الحالي',
-  subtitle: '12 %',
-  image: Assets.imagesGrownIcon,
-  backgroundColor: AppColors.white,
-);
