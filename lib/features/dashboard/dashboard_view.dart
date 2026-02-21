@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/utils/size_config.dart';
 import '../employees/presentation/manager/employees_provider.dart';
 import '../orders/presentation/manager/orders_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
@@ -66,7 +65,6 @@ class _DashboardViewManagerState extends State<DashboardViewManager> {
 
     //* To manage features visibility based on permissions
     Future.microtask(() {
-      SizeConfig.init(context);
       context.read<DashboardManager>().getAccountData();
     });
   }
