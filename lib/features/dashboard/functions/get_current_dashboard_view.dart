@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../control_panel/presentation/views/control_panel_view.dart';
 import '../../employees/presentation/views/employees_view.dart';
 import '../../orders/presentation/views/orders_view.dart';
 import '../../settings/presentation/views/settings_view.dart';
@@ -12,7 +13,7 @@ import '../widgets/no_permissions_view.dart';
 Widget getCurrentDashboardView(DashboardType? view) {
   switch (view) {
     case DashboardType.controlPanel:
-      return const Center(child: Text('Control Panel View'));
+      return const ControlPanelView();
     case DashboardType.trips:
       return const TripsView();
     case DashboardType.suspendedTrips:

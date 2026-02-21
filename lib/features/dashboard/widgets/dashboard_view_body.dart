@@ -12,6 +12,7 @@ class DashboardViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     var isDesktop = SizeConfig.isDesktop();
     return SafeArea(
       child: Row(
