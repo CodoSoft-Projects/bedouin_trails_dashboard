@@ -12,10 +12,12 @@ class PanelHeaderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 160,
+      width: double.infinity,
       padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: panelHeaderEntity.backgroundColor,
-        border: Border.all(color: AppColors.whiteGrey),
+        border: Border.all(color: AppColors.borderGrey),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
+import '../../domain/entities/panel_header_entity.dart';
 import 'widgets/panel_bottom_grid.dart';
 import 'widgets/panel_charts_grid.dart';
 import 'widgets/panel_header_grid.dart';
+import 'widgets/panel_header_item.dart';
 
 class ControlPanelView extends StatelessWidget {
   const ControlPanelView({super.key});
@@ -26,21 +28,22 @@ class _Desktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const SizedBox(height: 12),
-        const PanelHeaderGrid(),
-        const SizedBox(height: 16),
+        SizedBox(height: 12),
+        PanelHeaderGrid(),
+        SizedBox(height: 16),
 
         Row(
           spacing: 12,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(flex: 3, child: SizedBox()),
-            const Expanded(flex: 3, child: PanelChartsGrid()),
-            const Expanded(flex: 2, child: PanelBottomGrid()),
+            Expanded(flex: 5, child: _RightSection()),
+            Expanded(flex: 5, child: PanelChartsGrid()),
+            Expanded(flex: 4, child: PanelBottomGrid()),
           ],
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
       ],
     );
   }
@@ -52,18 +55,21 @@ class _Tablet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 12,
       children: [
         const SizedBox(height: 12),
         const PanelHeaderGrid(),
-        const SizedBox(height: 16),
 
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 12,
           children: [
-            const Expanded(flex: 2, child: PanelChartsGrid()),
-            const Expanded(child: PanelBottomGrid()),
+            const Expanded(child: _RightSection()),
+            const Expanded(child: PanelChartsGrid()),
           ],
         ),
+        PanelBottomGrid(),
+        const SizedBox(height: 16),
       ],
     );
   }
@@ -79,8 +85,25 @@ class _Mobile extends StatelessWidget {
       children: [
         SizedBox(height: 12),
         PanelHeaderGrid(),
+        _RightSection(),
         PanelChartsGrid(),
         PanelBottomGrid(),
+        SizedBox(height: 12),
+      ],
+    );
+  }
+}
+
+class _RightSection extends StatelessWidget {
+  const _RightSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      spacing: 12,
+      children: [
+        PanelHeaderItem(panelHeaderEntity: grownItem),
+        SizedBox(),
       ],
     );
   }

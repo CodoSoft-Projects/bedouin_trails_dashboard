@@ -14,8 +14,8 @@ class PanelBottomGrid extends StatelessWidget {
       builder: (context, constraints) {
         var width = constraints.maxWidth;
         var crossAxisCount = (width / 200).toInt();
-        // crossAxisCount = (crossAxisCount / 2).toInt() * 2;
-    
+        crossAxisCount = (crossAxisCount / 3).toInt() * 3;
+
         return GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -28,9 +28,7 @@ class PanelBottomGrid extends StatelessWidget {
           ),
           itemCount: panelBottomList.length,
           itemBuilder: (context, index) {
-            return PanelHeaderItem(
-              panelHeaderEntity: panelBottomList[index],
-            );
+            return PanelHeaderItem(panelHeaderEntity: panelBottomList[index]);
           },
         );
       },

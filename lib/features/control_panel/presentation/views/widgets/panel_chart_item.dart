@@ -18,7 +18,7 @@ class PanelChartItem extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: AppColors.white,
-        border: Border.all(color: AppColors.whiteGrey),
+        border: Border.all(color: AppColors.borderGrey),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
