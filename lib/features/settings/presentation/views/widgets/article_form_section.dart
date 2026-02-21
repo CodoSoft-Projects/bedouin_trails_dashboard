@@ -17,6 +17,7 @@ import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/articles_provider.dart';
 import 'update_article_dialog.dart';
 
@@ -100,6 +101,8 @@ class ArticleFormSection extends StatelessWidget {
     Navigator.pop(context);
 
     if (prov.checkDeletingArticle == true) {
+      getControlPanelData(context);
+
       AppMessage.successBar(context, message: prov.message);
     } else if (prov.checkDeletingArticle == false) {
       AppMessage.errorBar(context, message: prov.message);

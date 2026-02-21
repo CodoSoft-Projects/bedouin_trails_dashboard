@@ -10,6 +10,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/trips_provider.dart';
 import '../update_trip_view.dart';
 
@@ -81,6 +82,8 @@ class NewTripInfoForm extends StatelessWidget {
                   Navigator.pop(context);
 
                   if (prov.checkAddingTrip == true) {
+                    getControlPanelData(context);
+
                     //* Go to UpdateTripView to complete the trip information
                     Navigator.of(
                       context,

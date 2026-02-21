@@ -9,6 +9,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/orders_provider.dart';
 
 class OrderDetailsViewHeader extends StatelessWidget {
@@ -91,6 +92,7 @@ class OrderDetailsViewHeader extends StatelessWidget {
     if (orderProv.checkUpdatingOrderStatus == true) {
       //* close details view
       Navigator.pop(context);
+      getControlPanelData(context);
 
       AppMessage.successBar(context, message: orderProv.message);
     } else if (orderProv.checkUpdatingOrderStatus == false) {

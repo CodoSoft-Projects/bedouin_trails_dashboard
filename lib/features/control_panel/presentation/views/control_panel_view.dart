@@ -5,6 +5,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
+import '../../../../core/widgets/api_error_widget.dart';
 import '../../domain/entities/panel_header_entity.dart';
 import '../manager/control_panel_provider.dart';
 import 'widgets/orders_chart_section.dart';
@@ -18,14 +19,17 @@ class ControlPanelView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: AdaptiveLayoutWidget(
-        desktopLayout: (context) => const _Desktop(),
-        tabletLayout: (context) => const _Tablet(),
-        mobileLayout: (context) => const _Mobile(),
-      ),
-    );
+    var prov = context.watch<ControlPanelProvider>();
+    return prov.checkGetting == false
+        ? ApiErrorView(msg: prov.message, onRetry: prov.getControlPanelData)
+        : SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: AdaptiveLayoutWidget(
+              desktopLayout: (context) => const _Desktop(),
+              tabletLayout: (context) => const _Tablet(),
+              mobileLayout: (context) => const _Mobile(),
+            ),
+          );
   }
 }
 

@@ -16,6 +16,7 @@ import '../../../../../core/widgets/custom_password_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../../core/widgets/labeled_checkbox.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/employees_provider.dart';
 
 class NewEmployeeForm extends StatelessWidget {
@@ -102,6 +103,7 @@ class NewEmployeeForm extends StatelessWidget {
                         //* Close add-employee-view
                         Navigator.pop(context);
 
+                        getControlPanelData(context);
                         AppMessage.successBar(context, message: prov.message);
                       } else if (prov.checkAddingNewEmployee == false) {
                         AppMessage.errorBar(context, message: prov.message);

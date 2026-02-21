@@ -9,6 +9,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../../../trips/presentation/manager/trips_provider.dart';
 import '../../manager/users_provider.dart';
 
@@ -94,6 +95,7 @@ class UserTripDetailsViewHeader extends StatelessWidget {
     if (userProv.checkUpdatingOrderStatus == true) {
       //* close details view
       Navigator.pop(context);
+      getControlPanelData(context);
 
       AppMessage.successBar(context, message: userProv.message);
     } else if (userProv.checkUpdatingOrderStatus == false) {

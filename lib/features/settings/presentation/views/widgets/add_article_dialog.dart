@@ -15,6 +15,7 @@ import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dialog.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/articles_provider.dart';
 
 Future<dynamic> addArticleDialog(BuildContext context) {
@@ -133,7 +134,8 @@ class _Form extends StatelessWidget {
 
                 if (prov.checkAddingArticle == true) {
                   Navigator.pop(context);
-
+                  getControlPanelData(context);
+                  
                   AppMessage.successBar(context, message: prov.message);
                 } else if (prov.checkAddingArticle == false) {
                   DialogHelper.showErrorDialog(
