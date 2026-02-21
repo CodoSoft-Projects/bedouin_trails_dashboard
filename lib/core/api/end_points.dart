@@ -10,6 +10,9 @@ class EndPoints {
   static const logout = '/api/admin/logout';
   static const profile = '/api/admin/profile';
 
+  /// Control Panel
+  static const controlPanel = '/api/admin/home';
+
   /// Trips
   static const trips = '/api/admin/traps';
   static const tripDay = '/api/admin/trap-days';
