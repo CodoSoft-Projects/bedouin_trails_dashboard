@@ -17,20 +17,25 @@ class PanelHeaderEntity {
   });
 }
 
-List<PanelHeaderEntity> panelHeadersList = [
+List<PanelHeaderEntity> panelHeadersList({
+  required BuildContext context,
+  required int newBookings,
+  required int users,
+  required int articles,
+}) => [
   PanelHeaderEntity(
     title: 'حجوزات جديدة لليوم',
-    subtitle: '12',
+    subtitle: newBookings.toString(),
     image: Assets.imagesNewBookingIcon,
   ),
   PanelHeaderEntity(
     title: 'عدد المستخدمين',
-    subtitle: '800',
+    subtitle: users.toString(),
     image: Assets.imagesUsersIcon,
   ),
   PanelHeaderEntity(
     title: 'عدد المقالات في الموقع',
-    subtitle: '24',
+    subtitle: articles.toString(),
     image: Assets.imagesReportsIcon,
   ),
 ];
