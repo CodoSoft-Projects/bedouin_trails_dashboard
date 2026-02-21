@@ -14,6 +14,8 @@ class Assets {
 
   static const String imagesCamelCircle = "assets/images/camel_circle.png";
 
+  static const String imagesEmployeesIcon = "assets/images/employees_icon.png";
+
   static const String imagesForgetImage = "assets/images/forget_image.png";
 
   static const String imagesLoginImage = "assets/images/login_image.png";
@@ -29,5 +31,7 @@ class Assets {
   static const String imagesTestUser = "assets/images/test_user.png";
 
   static const String imagesTestUser2 = "assets/images/test_user2.png";
+
+  static const String imagesTripsIcon = "assets/images/trips_icon.png";
 }
 

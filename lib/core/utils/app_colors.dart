@@ -14,4 +14,5 @@ abstract class AppColors {
   static const cyanYellow = Color(0xffDAFE2A);
   static const red = Color(0xffFF383C);
   static const babyBlue = Color(0xffF2F8FF);
+  static const chartGrey = Color(0xffE3E3E3);
 }
