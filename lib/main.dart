@@ -6,6 +6,7 @@ import 'bedouin_trails.dart';
 import 'core/functions/open_hive_boxes.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
+import 'features/control_panel/presentation/manager/control_panel_provider.dart';
 import 'features/employees/presentation/manager/employees_provider.dart';
 import 'features/orders/presentation/manager/orders_provider.dart';
 import 'features/profile/presentation/manager/profile_provider.dart';
@@ -30,6 +31,9 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
         ChangeNotifierProvider(create: (_) => TripsProvider()),
         ChangeNotifierProvider(create: (_) => EmployeesProvider()),
+        //* Control Panel
+        ChangeNotifierProvider(create: (_) => ControlPanelProvider()),
+
         //* Settings Providers
         ChangeNotifierProvider(create: (_) => ArticlesProvider()),
         ChangeNotifierProvider(create: (_) => QuestionsProvider()),

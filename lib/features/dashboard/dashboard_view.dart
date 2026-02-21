@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../employees/presentation/manager/employees_provider.dart';
 import '../orders/presentation/manager/orders_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
@@ -39,6 +40,7 @@ class _DashboardViewState extends State<DashboardView> {
       //* Users Providers
       context.read<UsersProvider>().getAllUsers();
       context.read<OrdersProvider>().getAllOrdersUsers();
+      getControlPanelData(context);
     });
   }
 
