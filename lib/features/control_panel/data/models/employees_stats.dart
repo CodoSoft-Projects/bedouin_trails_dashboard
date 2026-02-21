@@ -29,4 +29,10 @@ class EmployeesStats {
       totalEmployeesInactive: 0,
     );
   }
+
+  double get activePercentage {
+    int total = totalEmployeesActive + totalEmployeesInactive;
+    if (total == 0) return 0.0;
+    return (totalEmployeesActive / total) * 100;
+  }
 }

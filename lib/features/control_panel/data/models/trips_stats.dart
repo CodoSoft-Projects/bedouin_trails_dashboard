@@ -2,10 +2,7 @@ class TripsStats {
   final int totalActive;
   final int totalInactive;
 
-  const TripsStats({
-    required this.totalActive,
-    required this.totalInactive,
-  });
+  const TripsStats({required this.totalActive, required this.totalInactive});
 
   factory TripsStats.fromJson(Map<String, dynamic>? json) {
     if (json == null) return TripsStats.empty();
@@ -17,13 +14,16 @@ class TripsStats {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'totalActive': totalActive,
-      'totalInactive': totalInactive,
-    };
+    return {'totalActive': totalActive, 'totalInactive': totalInactive};
   }
 
   factory TripsStats.empty() {
     return const TripsStats(totalActive: 0, totalInactive: 0);
+  }
+
+  double get activePercentage {
+    int total = totalActive + totalInactive;
+    if (total == 0) return 0.0;
+    return (totalActive / total) * 100;
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../data/models/employees_stats.dart';
+import '../../data/models/trips_stats.dart';
 
 class PanelChartItemEntity {
   final String image;
@@ -23,24 +25,28 @@ class PanelChartItemEntity {
   });
 }
 
-List<PanelChartItemEntity> panelChartItems = [
+List<PanelChartItemEntity> panelChartItems({
+  required BuildContext context,
+  required TripsStats t,
+  required EmployeesStats e,
+}) => [
   PanelChartItemEntity(
     title: 'الموظفين',
     image: Assets.imagesEmployeesIcon,
-    value: 13,
+    value: e.activePercentage,
     activeColor: AppColors.sandyBrown,
     inactiveColor: AppColors.chartGrey,
-    activeText: '13 موظف موقوف',
-    inactiveText: '100 الموظفين',
+    activeText: '${e.totalEmployeesActive} موظف نشط',
+    inactiveText: '${e.totalEmployeesInactive} موظف موقوف',
   ),
 
   PanelChartItemEntity(
     title: 'الرحلات السياحية',
     image: Assets.imagesTripsIcon,
-    value: 7,
+    value: t.activePercentage,
     activeColor: AppColors.red,
     inactiveColor: AppColors.chartGrey,
-    activeText: '100 الرحلات السياحية',
-    inactiveText: '19 الرحلات الموقوفة',
+    activeText: '${t.totalActive} الرحلات النشطة',
+    inactiveText: '${t.totalInactive} الرحلات الموقوفة',
   ),
 ];
