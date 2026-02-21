@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
 import '../../domain/entities/panel_header_entity.dart';
+import 'widgets/orders_chart_section.dart';
 import 'widgets/panel_bottom_grid.dart';
 import 'widgets/panel_charts_grid.dart';
 import 'widgets/panel_header_grid.dart';
@@ -103,7 +104,7 @@ class _RightSection extends StatelessWidget {
       spacing: 12,
       children: [
         PanelHeaderItem(panelHeaderEntity: grownItem),
-        SizedBox(),
+        OrdersChartSection(),
       ],
     );
   }

@@ -36,6 +36,7 @@ dependencies:
   dio: ^5.9.1
   dotted_border: ^3.1.0
   file_picker: ^10.3.10
+  fl_chart: ^1.1.1
   flutter:
     sdk: flutter
   flutter_localizations:
