@@ -40,23 +40,28 @@ List<PanelHeaderEntity> panelHeadersList({
   ),
 ];
 
-List<PanelHeaderEntity> panelBottomList = [
+List<PanelHeaderEntity> panelBottomList({
+  required BuildContext context,
+  required double revenueGrowth,
+  required int cancelRate,
+  required int newUsersPercentage,
+}) => [
   PanelHeaderEntity(
     title: 'معدل التقييمات',
-    subtitle: '4.5 / 5',
+    subtitle: '$revenueGrowth / 5',
     image: Assets.imagesRattingIcon,
     backgroundColor: AppColors.white,
   ),
   PanelHeaderEntity(
     title: 'معدل إلغاء الحجوزات',
-    subtitle: '6 %',
+    subtitle: '$cancelRate %',
     image: Assets.imagesCancelIcon,
     backgroundColor: AppColors.white,
   ),
   PanelHeaderEntity(
     title: 'معدل زيادة المستخدمين الجدد',
     image: Assets.imagesUsersIcon,
-    subtitle: '84 %',
+    subtitle: '$newUsersPercentage %',
     backgroundColor: AppColors.white,
   ),
 ];
