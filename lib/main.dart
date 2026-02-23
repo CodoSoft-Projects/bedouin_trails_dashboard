@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'bedouin_trails.dart';
 import 'core/functions/open_hive_boxes.dart';
+import 'core/providers/language_provider.dart';
 import 'core/services/service_locator.dart';
 import 'core/utils/k_platform.dart';
 import 'features/control_panel/presentation/manager/control_panel_provider.dart';
@@ -28,6 +29,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         /// Core Providers
+        ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
         ChangeNotifierProvider(create: (_) => TripsProvider()),
         ChangeNotifierProvider(create: (_) => EmployeesProvider()),

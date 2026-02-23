@@ -27,7 +27,7 @@ Future<void> openHiveBoxes() async {
   // ✅ Open all required boxes in parallel
   await Future.wait([
     Hive.openBox(ApiKeys.accountData),
-    Hive.openBox<String>(Constants.language),
+    Hive.openBox(Constants.language),
     Hive.openBox(Constants.isLoggedIn),
   ]);
 }
