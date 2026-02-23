@@ -45,5 +45,7 @@ class Assets {
   static const String imagesTripsIcon = "assets/images/trips_icon.png";
 
   static const String imagesUsersIcon = "assets/images/users_icon.png";
+
+  static const String imagesWindowsIcon = "assets/images/windows_icon.png";
 }
 
