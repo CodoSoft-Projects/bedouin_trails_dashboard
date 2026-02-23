@@ -16,6 +16,8 @@ class Assets {
 
   static const String imagesCancelIcon = "assets/images/cancel_icon.png";
 
+  static const String imagesEg = "assets/images/eg.svg";
+
   static const String imagesEmployeesIcon = "assets/images/employees_icon.png";
 
   static const String imagesForgetImage = "assets/images/forget_image.png";
@@ -43,6 +45,8 @@ class Assets {
   static const String imagesTestUser2 = "assets/images/test_user2.png";
 
   static const String imagesTripsIcon = "assets/images/trips_icon.png";
+
+  static const String imagesUs = "assets/images/us.svg";
 
   static const String imagesUsersIcon = "assets/images/users_icon.png";
 

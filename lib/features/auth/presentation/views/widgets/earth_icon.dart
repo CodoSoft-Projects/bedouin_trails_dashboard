@@ -5,6 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../core/widgets/languages_dialog.dart';
 
 // earth
 class EarthIocon extends StatelessWidget {
@@ -36,7 +37,9 @@ class EarthIocon extends StatelessWidget {
           size: 18,
           iconColor: AppColors.white,
           backgroundColor: Colors.white.withOpacity(0.2),
-          onPressed: () {},
+          onPressed: () {
+            languagesDialog(context);
+          },
         ),
 
         const Spacer(),

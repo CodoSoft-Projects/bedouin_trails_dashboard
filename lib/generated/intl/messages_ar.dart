@@ -38,8 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
     "bookings": m0,
+    "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "days": m1,
-    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
@@ -88,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
-    "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
   };
 }

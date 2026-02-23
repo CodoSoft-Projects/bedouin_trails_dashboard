@@ -1,4 +1,6 @@
 {
+  "change_language": "Change Language",
+  "select_language": "Select Language",
   "error": "Error",
   "tryAgain": "Try Again",
   "previous": "Previous",

@@ -1,6 +1,8 @@
 {
-  "error": "خطأ",
-  "tryAgain": "حاول مرة أخرى",
+  "change_language": "تغيير اللغة",
+  "select_language": "اختر اللغة",
+  "error": "خطأ",
+  "tryAgain": "حاول مرة أخرى",
   "previous": "السابق",
   "next": "التالي",
   "persons": "{count, plural, =0{لا يوجد أشخاص} =1{شخص واحد} =2{شخصان} few{{count} أشخاص} many{{count} شخصًا} other{{count} شخص}}",

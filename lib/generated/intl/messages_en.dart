@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Add New Question",
     ),
     "bookings": m0,
+    "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "days": m1,
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+    "select_language": MessageLookupByLibrary.simpleMessage("Select Language"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
   };
 }

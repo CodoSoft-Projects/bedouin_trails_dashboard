@@ -19,7 +19,7 @@ class LanguageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _changeLanguage(String langCode) async {
+  Future<void> changeLanguage(String langCode) async {
     final box = Hive.box(Constants.language);
     await box.put('langCode', langCode);
     _currentLocale = Locale(langCode);
@@ -27,11 +27,11 @@ class LanguageProvider extends ChangeNotifier {
   }
 
   Future<void> toArabic() async {
-    await _changeLanguage('ar');
+    await changeLanguage('ar');
   }
 
   Future<void> toEnglish() async {
-    await _changeLanguage('en');
+    await changeLanguage('en');
   }
 
   bool isAabic() {
@@ -41,4 +41,6 @@ class LanguageProvider extends ChangeNotifier {
       return false;
     }
   }
+
+  String get langCode => _currentLocale!.languageCode;
 }
