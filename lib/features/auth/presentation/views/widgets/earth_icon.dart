@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../../../core/functions/is_arabic.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/languages_dialog.dart';
@@ -15,8 +16,9 @@ class EarthIocon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        if (!isArabic()) const SizedBox(width: 40),
+
         if (showBackIcon) ...[
           CustomCircularButton(
             icon: Icons.arrow_back_ios_new_rounded,
@@ -27,9 +29,8 @@ class EarthIocon extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          const Spacer(flex: 5),
-        ] else
-          const Spacer(flex: 7),
+          const SizedBox(width: 12),
+        ],
 
         CustomCircularButton(
           icon: LucideIcons.earth,

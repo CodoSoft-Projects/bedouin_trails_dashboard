@@ -7,6 +7,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/size_config.dart';
 import '../../../../../core/widgets/app_logo.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../core/widgets/languages_dialog.dart';
 
 class AuthAppBar extends StatelessWidget {
   const AuthAppBar({super.key, this.showBackIcon = true});
@@ -35,7 +36,9 @@ class AuthAppBar extends StatelessWidget {
             size: 18,
             iconColor: AppColors.black,
             backgroundColor: Colors.white.withOpacity(0.2),
-            onPressed: () {},
+            onPressed: () {
+              languagesDialog(context);
+            },
           ),
         ],
         const Spacer(),
