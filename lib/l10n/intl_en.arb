@@ -213,5 +213,17 @@
   "articlesSection": "Articles Section",
   "faqSection": "Frequently Asked Questions Section",
   "displayData": "Display Data",
-  "image": "Image"
+  "image": "Image",
+  "search": "Search",
+  "activeAccounts": "Active Accounts",
+  "inactiveAccounts": "Inactive Accounts",
+  "manageTrips": "Manage Trips",
+  "manageSuspendedTrips": "Manage Suspended Trips",
+  "manageUsers": "Manage Users",
+  "manageBookingRequests": "Manage Booking Requests",
+  "manageWebsite": "Manage Website",
+  "addNewEmployee": "Add New Employee",
+  "employeeData": "Employee Data",
+  "editEmployeeData": "Edit Employee Data",
+  "": ""
 }

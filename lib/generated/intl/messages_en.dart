@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "activateTrip": MessageLookupByLibrary.simpleMessage(
       "Activate Trip Program",
     ),
+    "activeAccounts": MessageLookupByLibrary.simpleMessage("Active Accounts"),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("Active Employee"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("Active Trips"),
     "ad": MessageLookupByLibrary.simpleMessage("Advertisement"),
@@ -43,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "addImagesTitle": MessageLookupByLibrary.simpleMessage(
       "Add Images for the Trip",
     ),
+    "addNewEmployee": MessageLookupByLibrary.simpleMessage("Add New Employee"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("Add New Trip"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
@@ -133,6 +135,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "editAd": MessageLookupByLibrary.simpleMessage("Edit Advertisement Data"),
     "editArticle": MessageLookupByLibrary.simpleMessage("Edit Article Data"),
+    "editEmployeeData": MessageLookupByLibrary.simpleMessage(
+      "Edit Employee Data",
+    ),
     "editQuestion": MessageLookupByLibrary.simpleMessage("Edit Question Data"),
     "editTripData": MessageLookupByLibrary.simpleMessage("Edit Trip Data"),
     "element": MessageLookupByLibrary.simpleMessage("Element"),
@@ -145,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "Email not found. Please check the email address and try again.",
     ),
+    "employeeData": MessageLookupByLibrary.simpleMessage("Employee Data"),
     "employees": MessageLookupByLibrary.simpleMessage("Employees"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "faqSection": MessageLookupByLibrary.simpleMessage(
@@ -162,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "image": MessageLookupByLibrary.simpleMessage("Image"),
+    "inactiveAccounts": MessageLookupByLibrary.simpleMessage(
+      "Inactive Accounts",
+    ),
     "inactiveEmployee": MessageLookupByLibrary.simpleMessage(
       "Suspended Employee",
     ),
@@ -189,12 +198,21 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "manageAds": MessageLookupByLibrary.simpleMessage("Manage Advertisements"),
     "manageArticles": MessageLookupByLibrary.simpleMessage("Manage Articles"),
+    "manageBookingRequests": MessageLookupByLibrary.simpleMessage(
+      "Manage Booking Requests",
+    ),
     "manageFAQ": MessageLookupByLibrary.simpleMessage(
       "Manage Frequently Asked Questions",
     ),
     "manageSiteAdvertisement": MessageLookupByLibrary.simpleMessage(
       "Manage Site Advertisement",
     ),
+    "manageSuspendedTrips": MessageLookupByLibrary.simpleMessage(
+      "Manage Suspended Trips",
+    ),
+    "manageTrips": MessageLookupByLibrary.simpleMessage("Manage Trips"),
+    "manageUsers": MessageLookupByLibrary.simpleMessage("Manage Users"),
+    "manageWebsite": MessageLookupByLibrary.simpleMessage("Manage Website"),
     "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
     "mustAddImageCard": MessageLookupByLibrary.simpleMessage(
       "Must add image for the card",
@@ -311,6 +329,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "searchTrip": MessageLookupByLibrary.simpleMessage("Search for a trip"),
     "selectImage": MessageLookupByLibrary.simpleMessage(
       "Please select an image",

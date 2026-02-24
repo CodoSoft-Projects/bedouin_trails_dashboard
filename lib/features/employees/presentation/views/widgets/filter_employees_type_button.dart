@@ -17,7 +17,7 @@ class FilterEmployeesTypeButton extends StatelessWidget {
     return CustomPopupMenuButton<FilterEmployeeType>(
       initialValue: prov.filter,
       items: items,
-      itemLabelBuilder: (item) => item.arName,
+      itemLabelBuilder: (item) => item.label(context),
       onSelected: (idx) {
         log("Selected: ${items[idx]}");
         prov.onChangeFilter(items[idx]);

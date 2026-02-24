@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import 'widgets/block_employee_button.dart';
 import 'widgets/employee_data_form.dart';
 
@@ -18,12 +19,12 @@ class _EmployeeDetailsViewState extends State<EmployeeDetailsView>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int currentIndex = 0;
-  List<String> tabs = ['بيانات الموظف', 'تعديل بيانات الموظف'];
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(
-      length: tabs.length,
+      length: 2,
       animationDuration: const Duration(milliseconds: 300),
       vsync: this,
     );
@@ -37,10 +38,14 @@ class _EmployeeDetailsViewState extends State<EmployeeDetailsView>
 
   @override
   Widget build(BuildContext context) {
+    List<String> tabs = [
+      S.of(context).employeeData,
+      S.of(context).editEmployeeData,
+    ];
     return Scaffold(
       appBar: customAppBar(
         context,
-        title: 'بيانات الموظف',
+        title: S.of(context).employeeData,
 
         bottom: TabBar(
           onTap: (index) {

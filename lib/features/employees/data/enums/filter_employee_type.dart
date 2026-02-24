@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+
+import '../../../../generated/l10n.dart';
+
 enum FilterEmployeeType {
   active,
   inactive,
@@ -30,41 +34,28 @@ extension FilterEmployeeTypeExtension on FilterEmployeeType {
     }
   }
 
-  String get arName {
+  String label(BuildContext context) {
     switch (this) {
       case FilterEmployeeType.active:
-        return 'الحسابات المفعلة';
-      case FilterEmployeeType.inactive:
-        return 'الحسابات المعطلة';
-      case FilterEmployeeType.manageTrips:
-        return 'ادارة الرحلات السياحية';
-      case FilterEmployeeType.manageSuspendedTrips:
-        return 'ادارة الرحلات الموقوفة';
-      case FilterEmployeeType.manageUsers:
-        return 'ادارة المستخدمين';
-      case FilterEmployeeType.manageBookingRequests:
-        return 'ادارة طلبات الحجز';
-      case FilterEmployeeType.manageWebsite:
-        return 'ادارة الموقع';
-    }
-  }
+        return S.of(context).activeAccounts;
 
-  String get enName {
-    switch (this) {
-      case FilterEmployeeType.active:
-        return 'Active Accounts';
       case FilterEmployeeType.inactive:
-        return 'Inactive Accounts';
+        return S.of(context).inactiveAccounts;
+
       case FilterEmployeeType.manageTrips:
-        return 'Manage Trips';
+        return S.of(context).manageTrips;
+
       case FilterEmployeeType.manageSuspendedTrips:
-        return 'Manage Suspended Trips';
+        return S.of(context).manageSuspendedTrips;
+
       case FilterEmployeeType.manageUsers:
-        return 'Manage Users';
+        return S.of(context).manageUsers;
+
       case FilterEmployeeType.manageBookingRequests:
-        return 'Manage Booking Requests';
+        return S.of(context).manageBookingRequests;
+
       case FilterEmployeeType.manageWebsite:
-        return 'Manage Website';
+        return S.of(context).manageWebsite;
     }
   }
 }

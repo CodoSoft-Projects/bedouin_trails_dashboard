@@ -213,5 +213,17 @@
   "articlesSection": "فقرة المقالات",
   "faqSection": "فقرة الأسئلة الشائعة",
   "displayData": "بيانات عرض",
-  "image": "صورة"
+  "image": "صورة",
+  "search": "بحث",
+  "activeAccounts": "الحسابات المفعلة",
+  "inactiveAccounts": "الحسابات المعطلة",
+  "manageTrips": "ادارة الرحلات السياحية",
+  "manageSuspendedTrips": "ادارة الرحلات الموقوفة",
+  "manageUsers": "ادارة المستخدمين",
+  "manageBookingRequests": "ادارة طلبات الحجز",
+  "manageWebsite": "ادارة الموقع",
+  "addNewEmployee": "اضافة موظف جديد",
+  "employeeData": "بيانات الموظف",
+  "editEmployeeData": "تعديل بيانات الموظف",
+  "": ""
 }

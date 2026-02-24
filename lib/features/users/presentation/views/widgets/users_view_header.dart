@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/users_provider.dart';
 
 class UsersViewHeader extends StatelessWidget {
@@ -37,6 +38,7 @@ class _UsersSearchField extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
       child: CustomSearchField(
+        hintText: S.of(context).search,
         controller: prov.searchController,
         onChanged: (value) {
           prov.getAllUsers();

@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "accountData": MessageLookupByLibrary.simpleMessage("بيانات الحساب"),
     "activateTrip": MessageLookupByLibrary.simpleMessage("تفعيل برنامج الرحلة"),
+    "activeAccounts": MessageLookupByLibrary.simpleMessage("الحسابات المفعلة"),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("موظف نشط"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
     "ad": MessageLookupByLibrary.simpleMessage("إعلان"),
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
     "addImagesTitle": MessageLookupByLibrary.simpleMessage("إضافة صور للرحلة"),
+    "addNewEmployee": MessageLookupByLibrary.simpleMessage("اضافة موظف جديد"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("اضافة رحلة جديدة"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
@@ -135,6 +137,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "editAd": MessageLookupByLibrary.simpleMessage("تعديل بيانات الإعلان"),
     "editArticle": MessageLookupByLibrary.simpleMessage("تعديل بيانات المقالة"),
+    "editEmployeeData": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات الموظف",
+    ),
     "editQuestion": MessageLookupByLibrary.simpleMessage("تعديل بيانات السؤال"),
     "editTripData": MessageLookupByLibrary.simpleMessage("تعديل بيانات الرحلة"),
     "element": MessageLookupByLibrary.simpleMessage("عنصر"),
@@ -147,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
     ),
+    "employeeData": MessageLookupByLibrary.simpleMessage("بيانات الموظف"),
     "employees": MessageLookupByLibrary.simpleMessage("الموظفين"),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "faqSection": MessageLookupByLibrary.simpleMessage("فقرة الأسئلة الشائعة"),
@@ -164,6 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "نسيت كلمة المرور؟",
     ),
     "image": MessageLookupByLibrary.simpleMessage("صورة"),
+    "inactiveAccounts": MessageLookupByLibrary.simpleMessage(
+      "الحسابات المعطلة",
+    ),
     "inactiveEmployee": MessageLookupByLibrary.simpleMessage("موظف موقوف"),
     "inquiry": MessageLookupByLibrary.simpleMessage("الاستفسار (الملاحظات)"),
     "invalid_code": MessageLookupByLibrary.simpleMessage(
@@ -187,10 +196,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "manageAboutUs": MessageLookupByLibrary.simpleMessage("إدارة صفحة من نحن"),
     "manageAds": MessageLookupByLibrary.simpleMessage("إدارة الاعلانات"),
     "manageArticles": MessageLookupByLibrary.simpleMessage("إدارة المقالات"),
+    "manageBookingRequests": MessageLookupByLibrary.simpleMessage(
+      "ادارة طلبات الحجز",
+    ),
     "manageFAQ": MessageLookupByLibrary.simpleMessage("إدارة الأسئلة الشائعة"),
     "manageSiteAdvertisement": MessageLookupByLibrary.simpleMessage(
       "إدارة إعلان الموقع",
     ),
+    "manageSuspendedTrips": MessageLookupByLibrary.simpleMessage(
+      "ادارة الرحلات الموقوفة",
+    ),
+    "manageTrips": MessageLookupByLibrary.simpleMessage(
+      "ادارة الرحلات السياحية",
+    ),
+    "manageUsers": MessageLookupByLibrary.simpleMessage("ادارة المستخدمين"),
+    "manageWebsite": MessageLookupByLibrary.simpleMessage("ادارة الموقع"),
     "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
     "mustAddImageCard": MessageLookupByLibrary.simpleMessage(
       "يجب اضافة صورة للبطاقة",
@@ -301,6 +321,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
+    "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "searchTrip": MessageLookupByLibrary.simpleMessage("ابحث عن رحلة"),
     "selectImage": MessageLookupByLibrary.simpleMessage("يرجى اختيار صورة"),
     "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),

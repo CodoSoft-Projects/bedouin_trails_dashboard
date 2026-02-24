@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/employees_provider.dart';
 import '../new_employee_view.dart';
 
@@ -12,7 +13,7 @@ class AddNewEmployeeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      text: 'اضافة موظف جديد',
+      text: S.of(context).addNewEmployee,
       color: AppColors.blue,
       onPressed: () {
         context.read<EmployeesProvider>().clearEmployeeData();

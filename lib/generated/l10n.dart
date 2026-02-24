@@ -1819,6 +1819,113 @@ class S {
   String get image {
     return Intl.message('Image', name: 'image', desc: '', args: []);
   }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `Active Accounts`
+  String get activeAccounts {
+    return Intl.message(
+      'Active Accounts',
+      name: 'activeAccounts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inactive Accounts`
+  String get inactiveAccounts {
+    return Intl.message(
+      'Inactive Accounts',
+      name: 'inactiveAccounts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Trips`
+  String get manageTrips {
+    return Intl.message(
+      'Manage Trips',
+      name: 'manageTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Suspended Trips`
+  String get manageSuspendedTrips {
+    return Intl.message(
+      'Manage Suspended Trips',
+      name: 'manageSuspendedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Users`
+  String get manageUsers {
+    return Intl.message(
+      'Manage Users',
+      name: 'manageUsers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Booking Requests`
+  String get manageBookingRequests {
+    return Intl.message(
+      'Manage Booking Requests',
+      name: 'manageBookingRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Website`
+  String get manageWebsite {
+    return Intl.message(
+      'Manage Website',
+      name: 'manageWebsite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Employee`
+  String get addNewEmployee {
+    return Intl.message(
+      'Add New Employee',
+      name: 'addNewEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employee Data`
+  String get employeeData {
+    return Intl.message(
+      'Employee Data',
+      name: 'employeeData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Employee Data`
+  String get editEmployeeData {
+    return Intl.message(
+      'Edit Employee Data',
+      name: 'editEmployeeData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the '' key
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
