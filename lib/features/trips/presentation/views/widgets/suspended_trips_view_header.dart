@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 
 class SuspendedTripsViewHeader extends StatelessWidget {
@@ -39,6 +40,7 @@ class _TripsSearchField extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
       child: CustomSearchField(
+        hintText: S.of(context).searchTrip,
         controller: prov.inactiveTripSearchController,
         onChanged: (value) {
           log(value);

@@ -26,13 +26,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) =>
       "${Intl.plural(count, zero: 'No days', one: '1 day', other: '${count} days')}";
 
-  static String m2(count) =>
-      "${Intl.plural(count, zero: 'No persons', one: '1 person', other: '${count} persons')}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "activeEmployee": MessageLookupByLibrary.simpleMessage("Active Employee"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("Active Trips"),
+    "addNewTrip": MessageLookupByLibrary.simpleMessage("Add New Trip"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("Add New Article"),
@@ -155,7 +153,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "Your password has been reset successfully. You can now log in using your new password.",
     ),
-    "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "ratingRate": MessageLookupByLibrary.simpleMessage("Rating Rate"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
@@ -170,6 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password_title": MessageLookupByLibrary.simpleMessage(
       "Reset Password",
     ),
+    "searchTrip": MessageLookupByLibrary.simpleMessage("Search for a trip"),
     "select_language": MessageLookupByLibrary.simpleMessage("Select Language"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("Site Management"),
@@ -179,6 +177,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many requests. Please wait a moment before trying again.",
+    ),
+    "tripDuration": MessageLookupByLibrary.simpleMessage(
+      "Trip Duration (Days)",
     ),
     "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
@@ -226,6 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "verify_email_title": MessageLookupByLibrary.simpleMessage(
       "Verify Your Email",
     ),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("View Details"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

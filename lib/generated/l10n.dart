@@ -94,19 +94,6 @@ class S {
     return Intl.message('Next', name: 'next', desc: '', args: []);
   }
 
-  /// `{count, plural, =0{No persons} =1{1 person} other{{count} persons}}`
-  String persons(int count) {
-    return Intl.plural(
-      count,
-      zero: 'No persons',
-      one: '1 person',
-      other: '$count persons',
-      name: 'persons',
-      desc: 'Number of persons',
-      args: [count],
-    );
-  }
-
   /// `{count, plural, =0{No bookings} =1{1 booking} other{{count} bookings}}`
   String bookings(int count) {
     return Intl.plural(
@@ -883,6 +870,41 @@ class S {
     return Intl.message(
       'Active Trips',
       name: 'activeTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Duration (Days)`
+  String get tripDuration {
+    return Intl.message(
+      'Trip Duration (Days)',
+      name: 'tripDuration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for a trip`
+  String get searchTrip {
+    return Intl.message(
+      'Search for a trip',
+      name: 'searchTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Trip`
+  String get addNewTrip {
+    return Intl.message('Add New Trip', name: 'addNewTrip', desc: '', args: []);
+  }
+
+  /// `View Details`
+  String get viewDetails {
+    return Intl.message(
+      'View Details',
+      name: 'viewDetails',
       desc: '',
       args: [],
     );

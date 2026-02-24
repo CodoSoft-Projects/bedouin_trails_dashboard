@@ -26,13 +26,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(count) =>
       "${Intl.plural(count, zero: 'لا توجد أيام', one: 'يوم واحد', two: 'يومان', few: '${count} أيام', many: '${count} يومًا', other: '${count} يوم')}";
 
-  static String m2(count) =>
-      "${Intl.plural(count, zero: 'لا يوجد أشخاص', one: 'شخص واحد', two: 'شخصان', few: '${count} أشخاص', many: '${count} شخصًا', other: '${count} شخص')}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "activeEmployee": MessageLookupByLibrary.simpleMessage("موظف نشط"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
+    "addNewTrip": MessageLookupByLibrary.simpleMessage("اضافة رحلة جديدة"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
     ),
@@ -155,7 +153,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
     ),
-    "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "ratingRate": MessageLookupByLibrary.simpleMessage("معدل التقييمات"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
@@ -170,6 +167,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password_title": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
+    "searchTrip": MessageLookupByLibrary.simpleMessage("ابحث عن رحلة"),
     "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("إدارة الموقع"),
@@ -180,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),
+    "tripDuration": MessageLookupByLibrary.simpleMessage("مدة الرحلة (يوم)"),
     "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
     "usersManagement": MessageLookupByLibrary.simpleMessage(
@@ -228,6 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "verify_email_title": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني",
     ),
+    "viewDetails": MessageLookupByLibrary.simpleMessage("عرض التفاصيل"),
     "yes": MessageLookupByLibrary.simpleMessage("نعم"),
   };
 }

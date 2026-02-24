@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 import '../new_trip_view.dart';
 
@@ -12,7 +13,7 @@ class AddNewTripButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      text: 'اضافة رحلة جديدة',
+      text: S.of(context).addNewTrip,
       color: AppColors.blue,
       onPressed: () {
         context.read<TripsProvider>()

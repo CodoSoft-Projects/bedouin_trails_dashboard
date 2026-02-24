@@ -5,7 +5,6 @@
   "tryAgain": "حاول مرة أخرى",
   "previous": "السابق",
   "next": "التالي",
-  "persons": "{count, plural, =0{لا يوجد أشخاص} =1{شخص واحد} =2{شخصان} few{{count} أشخاص} many{{count} شخصًا} other{{count} شخص}}",
   "bookings": "{count, plural, =0{لا توجد حجوزات} =1{حجز واحد} =2{حجزان} few{{count} حجوزات} many{{count} حجزًا} other{{count} حجز}}",
   "@bookings": {
     "description": "Number of bookings",
@@ -16,6 +15,14 @@
     }
   },
   "days": "{count, plural, =0{لا توجد أيام} =1{يوم واحد} =2{يومان} few{{count} أيام} many{{count} يومًا} other{{count} يوم}}",
+  "@days": {
+    "description": "Number of days",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "no_pemissions_msg": "لا تملك صلاحيات حالياً 👋 \nتم تسجيل دخولك بنجاح، لكن لم يتم منحك أي صلاحيات لاستخدام لوحة التحكم بعد. \nيرجى التواصل مع مسؤول النظام لتفعيل الصلاحيات الخاصة بك.",
   "no_questions_title": "لا توجد أسئلة شائعة بعد",
   "no_questions_msg": "ابدأ بإضافة الأسئلة الشائعة لمساعدة المستخدمين والإجابة على استفساراتهم داخل التطبيق.",
@@ -98,5 +105,9 @@
   "booking": "حجز",
   "activeEmployee": "موظف نشط",
   "inactiveEmployee": "موظف موقوف",
-  "activeTrips": "الرحلات النشطة"
+  "activeTrips": "الرحلات النشطة",
+  "tripDuration": "مدة الرحلة (يوم)",
+  "searchTrip": "ابحث عن رحلة",
+  "addNewTrip": "اضافة رحلة جديدة",
+  "viewDetails": "عرض التفاصيل"
 }

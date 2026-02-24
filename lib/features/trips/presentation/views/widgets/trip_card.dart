@@ -68,7 +68,7 @@ class TripCard extends StatelessWidget {
                       child: CustomWhiteBox(
                         child: Center(
                           child: Text(
-                            '${trip.duration} أيام',
+                            S.of(context).days(trip.duration),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyles.regular16(context),
@@ -97,7 +97,7 @@ class TripCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomButton(
-                        text: 'عرض التفاصيل',
+                        text: S.of(context).viewDetails,
                         color: AppColors.sandyBrown,
                         onPressed: onTripTap,
                       ),

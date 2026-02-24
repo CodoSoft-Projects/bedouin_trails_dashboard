@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 
 class SearchTripsDurationButton extends StatelessWidget {
@@ -15,7 +16,7 @@ class SearchTripsDurationButton extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 150),
       child: CustomTextFormField(
-        hintText: 'مدة الرحلة (يوم)',
+        hintText: S.of(context).tripDuration,
         color: AppColors.white,
         showBorder: true,
         controller: prov.tripDurationController,
