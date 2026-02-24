@@ -26,7 +26,7 @@ class ProfileForm extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CustomNameField(
-                      labelText: 'الإسم الأول',
+                      labelText: S.of(context).firstName,
                       controller: TextEditingController(
                         text: prov.fnameController.text,
                       ),
@@ -35,7 +35,7 @@ class ProfileForm extends StatelessWidget {
                   const SizedBox(width: 16),
                   Expanded(
                     child: CustomNameField(
-                      labelText: 'الإسم الثاني',
+                      labelText: S.of(context).lastName,
                       controller: TextEditingController(
                         text: prov.lnameController.text,
                       ),
@@ -45,14 +45,14 @@ class ProfileForm extends StatelessWidget {
               ),
 
               CustomEmailField(
-                labelText: 'البريد الإلكتروني',
+                labelText: S.of(context).email,
                 controller: TextEditingController(
                   text: prov.emailController.text,
                 ),
               ),
 
               CustomPhoneTextField(
-                labelText: 'رقم الجوال',
+                labelText: S.of(context).mobileNumber,
                 controller: TextEditingController(
                   text: prov.phoneController.text,
                 ),

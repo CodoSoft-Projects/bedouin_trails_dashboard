@@ -64,14 +64,14 @@ class ProfileViewHeader extends StatelessWidget {
                   const Spacer(),
                   if (!showInProfile)
                     CustomButton(
-                      text: "تغيير كلمة المرور",
+                      text: S.of(context).changePassword,
                       color: AppColors.whiteGrey,
                       textColor: AppColors.sandyBrown,
                       onPressed: () => changePasswordDialog(context),
                     ),
                   if (showInProfile)
                     CustomButton(
-                      text: 'تعديل بيانات الحساب',
+                      text: S.of(context).editAccountData,
                       color: AppColors.whiteGrey,
                       textColor: AppColors.sandyBrown,
                       onPressed: () {

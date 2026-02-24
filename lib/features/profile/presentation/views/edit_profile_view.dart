@@ -19,7 +19,7 @@ class EditProfileView extends StatelessWidget {
           child: Column(
             children: [
               ProfileViewHeader(
-                title: 'تعديل بيانات الحساب',
+                title: S.of(context).editAccountData,
                 showInProfile: false,
               ),
               const SizedBox(height: 32),

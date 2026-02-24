@@ -14,7 +14,10 @@ class ProfileView extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              ProfileViewHeader(title: 'بيانات الحساب', showInProfile: true),
+              ProfileViewHeader(
+                title: S.of(context).accountData,
+                showInProfile: true,
+              ),
               const SizedBox(height: 32),
               ProfileForm(),
             ],

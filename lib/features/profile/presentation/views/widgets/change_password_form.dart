@@ -26,18 +26,18 @@ class ChangePasswordForm extends StatelessWidget {
         children: [
           const SizedBox(height: 24),
           CustomPasswordField(
-            hintText: 'كلمة المرور الحالية',
-            labelText: 'كلمة المرور الحالية',
+            hintText: S.of(context).currentPassword,
+            labelText: S.of(context).currentPassword,
             controller: prov.currentPassword,
           ),
           CustomPasswordField(
-            hintText: 'كلمة المرور الجديدة',
-            labelText: 'كلمة المرور الجديدة',
+            hintText: S.of(context).newPassword,
+            labelText: S.of(context).newPassword,
             controller: prov.password,
           ),
           CustomPasswordField(
-            hintText: 'تاكيد كلمة المرور',
-            labelText: 'تاكيد كلمة المرور',
+            hintText: S.of(context).password_confirmation,
+            labelText: S.of(context).password_confirmation,
             controller: prov.passwordConfirmation,
           ),
           const SizedBox(height: 24),
@@ -45,7 +45,7 @@ class ChangePasswordForm extends StatelessWidget {
             const LoadingIconWidget()
           else
             CustomButton(
-              text: 'حفظ',
+              text: S.of(context).save,
               color: AppColors.sandyBrown,
               horizontalPadding: 72,
               onPressed: () async {
@@ -54,7 +54,7 @@ class ChangePasswordForm extends StatelessWidget {
                   DialogHelper.showErrorDialog(
                     context,
                     title: S.of(context).error,
-                    desc: 'كلمة المرور الجديدة غير متطابقة',
+                    desc: S.of(context).passwordsMismatch,
                   );
                   return;
                 }

@@ -12,14 +12,14 @@ import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../manager/profile_provider.dart';
 
 class EditProfileForm extends StatelessWidget {
-  const EditProfileForm({super.key,});
+  const EditProfileForm({super.key});
   @override
   Widget build(BuildContext context) {
     var prov = context.read<ProfileProvider>();
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 600),
       child: Form(
-        key:  prov.formKey ,
+        key: prov.formKey,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -29,49 +29,49 @@ class EditProfileForm extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CustomNameField(
-                      labelText: 'الإسم الأول',
+                      labelText: S.of(context).firstName,
                       controller: prov.fnameController,
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: CustomNameField(
-                      labelText: 'الإسم الثاني',
+                      labelText: S.of(context).lastName,
                       controller: prov.lnameController,
                     ),
                   ),
                 ],
               ),
-    
+
               CustomEmailField(
-                labelText: 'البريد الإلكتروني',
+                labelText: S.of(context).email,
                 controller: prov.emailController,
               ),
-    
+
               CustomPhoneTextField(
-                labelText: 'رقم الجوال',
+                labelText: S.of(context).mobileNumber,
                 controller: prov.phoneController,
               ),
-    
+
               const SizedBox(height: 24),
-                CustomButton(
-                  text: 'حفظ التغييرات',
-                  color: AppColors.sandyBrown,
-                  horizontalPadding: 72,
-                  onPressed: () async {
-                    if (prov.formKey.currentState!.validate()) {
-                      await prov.updateProfile();
-                      prov.formKey.currentState!.reset();
-    
-                      if (prov.checkUpdateProfile == true) {
-                        Navigator.pop(context);
-                        AppMessage.successBar(context, message: prov.message);
-                      } else if (prov.checkUpdateProfile == false) {
-                        AppMessage.errorBar(context, message: prov.message);
-                      }
+              CustomButton(
+                text: S.of(context).saveChanges,
+                color: AppColors.sandyBrown,
+                horizontalPadding: 72,
+                onPressed: () async {
+                  if (prov.formKey.currentState!.validate()) {
+                    await prov.updateProfile();
+                    prov.formKey.currentState!.reset();
+
+                    if (prov.checkUpdateProfile == true) {
+                      Navigator.pop(context);
+                      AppMessage.successBar(context, message: prov.message);
+                    } else if (prov.checkUpdateProfile == false) {
+                      AppMessage.errorBar(context, message: prov.message);
                     }
-                  },
-                ),
+                  }
+                },
+              ),
             ],
           ),
         ),

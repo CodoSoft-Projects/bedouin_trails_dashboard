@@ -28,9 +28,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accountData": MessageLookupByLibrary.simpleMessage("بيانات الحساب"),
     "activateTrip": MessageLookupByLibrary.simpleMessage("تفعيل برنامج الرحلة"),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("موظف نشط"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
+    "ad": MessageLookupByLibrary.simpleMessage("إعلان"),
+    "adContent": MessageLookupByLibrary.simpleMessage("محتوي الإعلان"),
+    "adTitle": MessageLookupByLibrary.simpleMessage("عنوان الإعلان"),
     "addCard": MessageLookupByLibrary.simpleMessage("إضافة بطاقة"),
     "addCardImage": MessageLookupByLibrary.simpleMessage(
       "قم بإضافة صورة البطاقة",
@@ -44,7 +48,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
+    "answer": MessageLookupByLibrary.simpleMessage("الإجابة"),
+    "article": MessageLookupByLibrary.simpleMessage("مقالة"),
+    "articleContent": MessageLookupByLibrary.simpleMessage("محتوي المقالة"),
+    "articleTitle": MessageLookupByLibrary.simpleMessage("عنوان المقالة"),
+    "articlesSection": MessageLookupByLibrary.simpleMessage("فقرة المقالات"),
     "booking": MessageLookupByLibrary.simpleMessage("حجز"),
+    "bookingDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الحجز"),
     "bookingRequests": MessageLookupByLibrary.simpleMessage(
       "طلبات حجز الرحلات",
     ),
@@ -57,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "وصف برنامج البطاقة :",
     ),
     "cardTitle": MessageLookupByLibrary.simpleMessage("عنوان البطاقة :"),
+    "changePassword": MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرمز إلى بريدك الإلكتروني.",
@@ -64,8 +75,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "code_verified": MessageLookupByLibrary.simpleMessage(
       "تم التحقق من الرمز بنجاح.",
     ),
+    "completePayment": MessageLookupByLibrary.simpleMessage("إتمام دفع الحجز"),
     "confirmActivateTrip": MessageLookupByLibrary.simpleMessage(
       "هل تريد تفعيل برنامج الرحلة",
+    ),
+    "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا الإعلان؟",
+    ),
+    "confirmDeleteArticle": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا المقال؟",
     ),
     "confirmDeleteCard": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف البطاقة",
@@ -73,23 +91,66 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmDeleteDay": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟",
     ),
+    "confirmDeleteElement": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا العنصر؟",
+    ),
+    "confirmDeleteQuestion": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا السؤال؟",
+    ),
+    "confirmPayment": MessageLookupByLibrary.simpleMessage("تأكيد إتمام الدفع"),
+    "confirmPaymentMessage": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من إتمام دفع الحجز؟",
+    ),
+    "confirmReject": MessageLookupByLibrary.simpleMessage("تأكيد رفض الحجز"),
+    "confirmRejectMessage": MessageLookupByLibrary.simpleMessage(
+      "هل أنت متأكد من رفض طلب الحجز؟",
+    ),
     "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
       "هل تريد ايقاف برنامج الرحلة",
     ),
     "confirmation": MessageLookupByLibrary.simpleMessage("تاكيد"),
     "controlPanel": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
+    "currentPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الحالية",
+    ),
     "dayNumber": MessageLookupByLibrary.simpleMessage("اليوم"),
     "days": m1,
+    "deleteAd": MessageLookupByLibrary.simpleMessage("حذف الإعلان"),
+    "deleteArticle": MessageLookupByLibrary.simpleMessage("حذف المقالة"),
     "deleteDay": MessageLookupByLibrary.simpleMessage("حذف اليوم"),
+    "deleteElement": MessageLookupByLibrary.simpleMessage("حذف العنصر"),
     "deleteImage": MessageLookupByLibrary.simpleMessage("حذف الصورة"),
+    "deleteQuestion": MessageLookupByLibrary.simpleMessage("حذف السؤال"),
+    "departureDate": MessageLookupByLibrary.simpleMessage("تاريخ المغادرة"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
+    "displayData": MessageLookupByLibrary.simpleMessage("بيانات عرض"),
+    "displayedElements": MessageLookupByLibrary.simpleMessage(
+      "العناصر المعروضة",
+    ),
+    "editAboutItem": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات العنصر",
+    ),
+    "editAccountData": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات الحساب",
+    ),
+    "editAd": MessageLookupByLibrary.simpleMessage("تعديل بيانات الإعلان"),
+    "editArticle": MessageLookupByLibrary.simpleMessage("تعديل بيانات المقالة"),
+    "editQuestion": MessageLookupByLibrary.simpleMessage("تعديل بيانات السؤال"),
     "editTripData": MessageLookupByLibrary.simpleMessage("تعديل بيانات الرحلة"),
+    "element": MessageLookupByLibrary.simpleMessage("عنصر"),
+    "elementContent": MessageLookupByLibrary.simpleMessage("محتوي العنصر"),
+    "elementDisplayData": MessageLookupByLibrary.simpleMessage(
+      "بيانات عرض العنصر :",
+    ),
+    "elementTitle": MessageLookupByLibrary.simpleMessage("عنوان العنصر"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
     ),
     "employees": MessageLookupByLibrary.simpleMessage("الموظفين"),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "faqSection": MessageLookupByLibrary.simpleMessage("فقرة الأسئلة الشائعة"),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
       "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
     ),
@@ -102,10 +163,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgot_password": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور؟",
     ),
+    "image": MessageLookupByLibrary.simpleMessage("صورة"),
     "inactiveEmployee": MessageLookupByLibrary.simpleMessage("موظف موقوف"),
+    "inquiry": MessageLookupByLibrary.simpleMessage("الاستفسار (الملاحظات)"),
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
     ),
+    "lastName": MessageLookupByLibrary.simpleMessage("الاسم الثاني"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_note": MessageLookupByLibrary.simpleMessage(
       "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
@@ -120,12 +184,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
     ),
+    "manageAboutUs": MessageLookupByLibrary.simpleMessage("إدارة صفحة من نحن"),
+    "manageAds": MessageLookupByLibrary.simpleMessage("إدارة الاعلانات"),
+    "manageArticles": MessageLookupByLibrary.simpleMessage("إدارة المقالات"),
+    "manageFAQ": MessageLookupByLibrary.simpleMessage("إدارة الأسئلة الشائعة"),
+    "manageSiteAdvertisement": MessageLookupByLibrary.simpleMessage(
+      "إدارة إعلان الموقع",
+    ),
+    "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
     "mustAddImageCard": MessageLookupByLibrary.simpleMessage(
       "يجب اضافة صورة للبطاقة",
     ),
     "mustAddImages": MessageLookupByLibrary.simpleMessage(
       "يجب إضافة صور للرحلة",
     ),
+    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
     "newUsersGrowthRate": MessageLookupByLibrary.simpleMessage(
       "معدل زيادة المستخدمين الجدد",
     ),
@@ -134,12 +207,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "noDaysTitle": MessageLookupByLibrary.simpleMessage(
       "لم يتم إضافة أيام الرحلة بعد",
     ),
+    "noEmployees": MessageLookupByLibrary.simpleMessage("لا يوجد موظفين"),
     "noImagesMessage": MessageLookupByLibrary.simpleMessage(
       "لا توجد صور مضافة حاليّا 💷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل",
     ),
     "noTripDaysMessage": MessageLookupByLibrary.simpleMessage(
       "قم بإضافة أيام الرحلة لإكمال بيانات الرحلة",
     ),
+    "noUsers": MessageLookupByLibrary.simpleMessage("لا يوجد مستخدمين"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
     ),
@@ -180,9 +255,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_trips_title": MessageLookupByLibrary.simpleMessage(
       "لا توجد رحلات حالياً",
     ),
+    "numberOfAdults": MessageLookupByLibrary.simpleMessage("عدد البالغين"),
     "numberOfArticles": MessageLookupByLibrary.simpleMessage(
       "عدد المقالات في الموقع",
     ),
+    "numberOfChildren": MessageLookupByLibrary.simpleMessage("عدد الأطفال"),
     "numberOfUsers": MessageLookupByLibrary.simpleMessage("عدد المستخدمين"),
     "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
@@ -199,10 +276,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "password_reset_success": MessageLookupByLibrary.simpleMessage(
       "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
     ),
+    "passwordsMismatch": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الجديدة غير متطابقة",
+    ),
+    "perPersonPrice": MessageLookupByLibrary.simpleMessage("سعر الفرد"),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
+    "profileData": MessageLookupByLibrary.simpleMessage("بيانات الملف الشخصي"),
     "programCards": MessageLookupByLibrary.simpleMessage("بطاقات البرنامج :"),
+    "question": MessageLookupByLibrary.simpleMessage("السؤال"),
     "ratingRate": MessageLookupByLibrary.simpleMessage("معدل التقييمات"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "rejectBooking": MessageLookupByLibrary.simpleMessage("رفض طلب الحجز"),
     "resend_code": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
     "reset_password_note": MessageLookupByLibrary.simpleMessage(
@@ -217,8 +302,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
     "searchTrip": MessageLookupByLibrary.simpleMessage("ابحث عن رحلة"),
+    "selectImage": MessageLookupByLibrary.simpleMessage("يرجى اختيار صورة"),
     "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "siteAdvertisement": MessageLookupByLibrary.simpleMessage("الإعلانات"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("إدارة الموقع"),
     "stopTrip": MessageLookupByLibrary.simpleMessage("إيقاف برنامج الرحلة"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("الرحلات الموقوفة"),
@@ -229,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),
+    "totalPrice": MessageLookupByLibrary.simpleMessage("السعر الإجمالي"),
     "tripData": MessageLookupByLibrary.simpleMessage("بيانات الرحلة :"),
     "tripDays": MessageLookupByLibrary.simpleMessage("أيام الرحلة :"),
     "tripDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الرحلة"),
@@ -238,6 +326,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "tripLabel": MessageLookupByLibrary.simpleMessage("رحلة :"),
     "tripPrice": MessageLookupByLibrary.simpleMessage("سعر الرحلة"),
     "tripProgram": MessageLookupByLibrary.simpleMessage("برنامج الرحلة"),
+    "tripRegistrationDate": MessageLookupByLibrary.simpleMessage(
+      "تاريخ تسجيل الرحلة",
+    ),
     "tripStartPoint": MessageLookupByLibrary.simpleMessage("نقطة بداية الرحلة"),
     "tripTitle": MessageLookupByLibrary.simpleMessage("عنوان الرحلة"),
     "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),

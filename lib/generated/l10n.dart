@@ -1244,6 +1244,581 @@ class S {
       args: [],
     );
   }
+
+  /// `First Name`
+  String get firstName {
+    return Intl.message('First Name', name: 'firstName', desc: '', args: []);
+  }
+
+  /// `Last Name`
+  String get lastName {
+    return Intl.message('Last Name', name: 'lastName', desc: '', args: []);
+  }
+
+  /// `Mobile Number`
+  String get mobileNumber {
+    return Intl.message(
+      'Mobile Number',
+      name: 'mobileNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Password`
+  String get currentPassword {
+    return Intl.message(
+      'Current Password',
+      name: 'currentPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Password`
+  String get newPassword {
+    return Intl.message(
+      'New Password',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New passwords do not match`
+  String get passwordsMismatch {
+    return Intl.message(
+      'New passwords do not match',
+      name: 'passwordsMismatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select an image`
+  String get selectImage {
+    return Intl.message(
+      'Please select an image',
+      name: 'selectImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Users`
+  String get noUsers {
+    return Intl.message('No Users', name: 'noUsers', desc: '', args: []);
+  }
+
+  /// `No Employees`
+  String get noEmployees {
+    return Intl.message(
+      'No Employees',
+      name: 'noEmployees',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Data`
+  String get accountData {
+    return Intl.message(
+      'Account Data',
+      name: 'accountData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Account Data`
+  String get editAccountData {
+    return Intl.message(
+      'Edit Account Data',
+      name: 'editAccountData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Password`
+  String get changePassword {
+    return Intl.message(
+      'Change Password',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile Data`
+  String get profileData {
+    return Intl.message(
+      'Profile Data',
+      name: 'profileData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage About Us Page`
+  String get manageAboutUs {
+    return Intl.message(
+      'Manage About Us Page',
+      name: 'manageAboutUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Advertisements`
+  String get manageAds {
+    return Intl.message(
+      'Manage Advertisements',
+      name: 'manageAds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Articles`
+  String get manageArticles {
+    return Intl.message(
+      'Manage Articles',
+      name: 'manageArticles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Frequently Asked Questions`
+  String get manageFAQ {
+    return Intl.message(
+      'Manage Frequently Asked Questions',
+      name: 'manageFAQ',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Site Advertisement`
+  String get manageSiteAdvertisement {
+    return Intl.message(
+      'Manage Site Advertisement',
+      name: 'manageSiteAdvertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question`
+  String get question {
+    return Intl.message('Question', name: 'question', desc: '', args: []);
+  }
+
+  /// `Answer`
+  String get answer {
+    return Intl.message('Answer', name: 'answer', desc: '', args: []);
+  }
+
+  /// `Edit Question Data`
+  String get editQuestion {
+    return Intl.message(
+      'Edit Question Data',
+      name: 'editQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Question`
+  String get deleteQuestion {
+    return Intl.message(
+      'Delete Question',
+      name: 'deleteQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this question?`
+  String get confirmDeleteQuestion {
+    return Intl.message(
+      'Do you want to delete this question?',
+      name: 'confirmDeleteQuestion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article`
+  String get article {
+    return Intl.message('Article', name: 'article', desc: '', args: []);
+  }
+
+  /// `Article Title`
+  String get articleTitle {
+    return Intl.message(
+      'Article Title',
+      name: 'articleTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article Content`
+  String get articleContent {
+    return Intl.message(
+      'Article Content',
+      name: 'articleContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Article Data`
+  String get editArticle {
+    return Intl.message(
+      'Edit Article Data',
+      name: 'editArticle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Article`
+  String get deleteArticle {
+    return Intl.message(
+      'Delete Article',
+      name: 'deleteArticle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this article?`
+  String get confirmDeleteArticle {
+    return Intl.message(
+      'Do you want to delete this article?',
+      name: 'confirmDeleteArticle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement`
+  String get ad {
+    return Intl.message('Advertisement', name: 'ad', desc: '', args: []);
+  }
+
+  /// `Advertisement Title`
+  String get adTitle {
+    return Intl.message(
+      'Advertisement Title',
+      name: 'adTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement Content`
+  String get adContent {
+    return Intl.message(
+      'Advertisement Content',
+      name: 'adContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Advertisement Data`
+  String get editAd {
+    return Intl.message(
+      'Edit Advertisement Data',
+      name: 'editAd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Advertisement`
+  String get deleteAd {
+    return Intl.message(
+      'Delete Advertisement',
+      name: 'deleteAd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this advertisement?`
+  String get confirmDeleteAd {
+    return Intl.message(
+      'Do you want to delete this advertisement?',
+      name: 'confirmDeleteAd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Element`
+  String get element {
+    return Intl.message('Element', name: 'element', desc: '', args: []);
+  }
+
+  /// `Element Title`
+  String get elementTitle {
+    return Intl.message(
+      'Element Title',
+      name: 'elementTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Element Content`
+  String get elementContent {
+    return Intl.message(
+      'Element Content',
+      name: 'elementContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Element Display Data:`
+  String get elementDisplayData {
+    return Intl.message(
+      'Element Display Data:',
+      name: 'elementDisplayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Element Data`
+  String get editAboutItem {
+    return Intl.message(
+      'Edit Element Data',
+      name: 'editAboutItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Element`
+  String get deleteElement {
+    return Intl.message(
+      'Delete Element',
+      name: 'deleteElement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this element?`
+  String get confirmDeleteElement {
+    return Intl.message(
+      'Do you want to delete this element?',
+      name: 'confirmDeleteElement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Displayed Elements`
+  String get displayedElements {
+    return Intl.message(
+      'Displayed Elements',
+      name: 'displayedElements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking Details`
+  String get bookingDetails {
+    return Intl.message(
+      'Booking Details',
+      name: 'bookingDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Payment`
+  String get completePayment {
+    return Intl.message(
+      'Complete Payment',
+      name: 'completePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Payment Completion`
+  String get confirmPayment {
+    return Intl.message(
+      'Confirm Payment Completion',
+      name: 'confirmPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure about completing the payment?`
+  String get confirmPaymentMessage {
+    return Intl.message(
+      'Are you sure about completing the payment?',
+      name: 'confirmPaymentMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reject Booking Request`
+  String get rejectBooking {
+    return Intl.message(
+      'Reject Booking Request',
+      name: 'rejectBooking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Rejection`
+  String get confirmReject {
+    return Intl.message(
+      'Confirm Rejection',
+      name: 'confirmReject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure about rejecting the booking?`
+  String get confirmRejectMessage {
+    return Intl.message(
+      'Are you sure about rejecting the booking?',
+      name: 'confirmRejectMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of Adults`
+  String get numberOfAdults {
+    return Intl.message(
+      'Number of Adults',
+      name: 'numberOfAdults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of Children`
+  String get numberOfChildren {
+    return Intl.message(
+      'Number of Children',
+      name: 'numberOfChildren',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Registration Date`
+  String get tripRegistrationDate {
+    return Intl.message(
+      'Trip Registration Date',
+      name: 'tripRegistrationDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Departure Date`
+  String get departureDate {
+    return Intl.message(
+      'Departure Date',
+      name: 'departureDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inquiry (Notes)`
+  String get inquiry {
+    return Intl.message('Inquiry (Notes)', name: 'inquiry', desc: '', args: []);
+  }
+
+  /// `Per Person Price`
+  String get perPersonPrice {
+    return Intl.message(
+      'Per Person Price',
+      name: 'perPersonPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Price`
+  String get totalPrice {
+    return Intl.message('Total Price', name: 'totalPrice', desc: '', args: []);
+  }
+
+  /// `Advertisements`
+  String get siteAdvertisement {
+    return Intl.message(
+      'Advertisements',
+      name: 'siteAdvertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Articles Section`
+  String get articlesSection {
+    return Intl.message(
+      'Articles Section',
+      name: 'articlesSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Frequently Asked Questions Section`
+  String get faqSection {
+    return Intl.message(
+      'Frequently Asked Questions Section',
+      name: 'faqSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Display Data`
+  String get displayData {
+    return Intl.message(
+      'Display Data',
+      name: 'displayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image`
+  String get image {
+    return Intl.message('Image', name: 'image', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
