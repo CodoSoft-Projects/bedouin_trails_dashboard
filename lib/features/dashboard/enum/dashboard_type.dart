@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../generated/l10n.dart';
+
 enum DashboardType {
   controlPanel, // لوحة التحكم
   trips, // الرحلات السياحية
@@ -12,41 +14,22 @@ enum DashboardType {
 }
 
 extension DashboardTypeExtension on DashboardType {
-  String get arName {
+  String label(BuildContext context) {
     switch (this) {
       case DashboardType.controlPanel:
-        return 'لوحة التحكم';
+        return S.of(context).controlPanel;
       case DashboardType.trips:
-        return 'الرحلات السياحية';
+        return S.of(context).trips;
       case DashboardType.suspendedTrips:
-        return 'الرحلات الموقوفة';
+        return S.of(context).suspendedTrips;
       case DashboardType.users:
-        return 'متابعة المستخدمين';
+        return S.of(context).usersManagement;
       case DashboardType.employees:
-        return 'الموظفين';
+        return S.of(context).employeesManagement;
       case DashboardType.bookingRequests:
-        return 'طلبات حجز الرحلات';
+        return S.of(context).bookingRequests;
       case DashboardType.siteManagement:
-        return 'إدارة الموقع';
-    }
-  }
-
-  String get enName {
-    switch (this) {
-      case DashboardType.controlPanel:
-        return 'Control Panel';
-      case DashboardType.trips:
-        return 'Trips';
-      case DashboardType.suspendedTrips:
-        return 'Suspended Trips';
-      case DashboardType.users:
-        return 'User Monitoring';
-      case DashboardType.employees:
-        return 'Employees';
-      case DashboardType.bookingRequests:
-        return 'Booking Requests';
-      case DashboardType.siteManagement:
-        return 'Site Management';
+        return S.of(context).siteManagement;
     }
   }
 

@@ -37,6 +37,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
+    "bookingRequests": MessageLookupByLibrary.simpleMessage(
+      "طلبات حجز الرحلات",
+    ),
     "bookings": m0,
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
@@ -45,11 +48,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "code_verified": MessageLookupByLibrary.simpleMessage(
       "تم التحقق من الرمز بنجاح.",
     ),
+    "controlPanel": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
     "days": m1,
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
     ),
+    "employeesManagement": MessageLookupByLibrary.simpleMessage("الموظفين"),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
       "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
@@ -147,10 +152,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "siteManagement": MessageLookupByLibrary.simpleMessage("إدارة الموقع"),
+    "suspendedTrips": MessageLookupByLibrary.simpleMessage("الرحلات الموقوفة"),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),
+    "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "usersManagement": MessageLookupByLibrary.simpleMessage(
+      "متابعة المستخدمين",
+    ),
     "validation_email_invalid": MessageLookupByLibrary.simpleMessage(
       "يرجى إدخال بريد إلكتروني صالح",
     ),

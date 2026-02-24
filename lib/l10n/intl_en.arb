@@ -93,5 +93,12 @@
   "validation_phone_invalid": "Please enter a valid Egyptian phone number",
   "validation_price_required": "Please enter the trip price",
   "validation_price_max": "Trip price must be less than 999,999$",
-  "validation_required": "This field is required"
+  "validation_required": "This field is required",
+  "controlPanel": "Control Panel",
+  "trips": "Trips",
+  "suspendedTrips": "Suspended Trips",
+  "usersManagement": "Users Management",
+  "employeesManagement": "Employees Management",
+  "bookingRequests": "Booking Requests",
+  "siteManagement": "Site Management"
 }

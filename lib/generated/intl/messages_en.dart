@@ -37,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_new_question": MessageLookupByLibrary.simpleMessage(
       "Add New Question",
     ),
+    "bookingRequests": MessageLookupByLibrary.simpleMessage("Booking Requests"),
     "bookings": m0,
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
@@ -45,10 +46,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "code_verified": MessageLookupByLibrary.simpleMessage(
       "The code has been verified successfully.",
     ),
+    "controlPanel": MessageLookupByLibrary.simpleMessage("Control Panel"),
     "days": m1,
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "Email not found. Please check the email address and try again.",
+    ),
+    "employeesManagement": MessageLookupByLibrary.simpleMessage(
+      "Employees Management",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
@@ -147,10 +152,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "select_language": MessageLookupByLibrary.simpleMessage("Select Language"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "siteManagement": MessageLookupByLibrary.simpleMessage("Site Management"),
+    "suspendedTrips": MessageLookupByLibrary.simpleMessage("Suspended Trips"),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many requests. Please wait a moment before trying again.",
     ),
+    "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "usersManagement": MessageLookupByLibrary.simpleMessage("Users Management"),
     "validation_email_invalid": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address",
     ),

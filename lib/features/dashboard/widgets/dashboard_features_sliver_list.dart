@@ -37,7 +37,7 @@ class DashboardFeaturesSliverList extends StatelessWidget {
             child: ListTile(
               leading: Icon(viewType.icon),
               title: Text(
-                viewType.arName,
+                viewType.label(context),
                 style: AppTextStyles.regular18(context),
               ),
               onTap: () => prov.changeView(viewType),

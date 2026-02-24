@@ -712,6 +712,71 @@ class S {
       args: [],
     );
   }
+
+  /// `Control Panel`
+  String get controlPanel {
+    return Intl.message(
+      'Control Panel',
+      name: 'controlPanel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trips`
+  String get trips {
+    return Intl.message('Trips', name: 'trips', desc: '', args: []);
+  }
+
+  /// `Suspended Trips`
+  String get suspendedTrips {
+    return Intl.message(
+      'Suspended Trips',
+      name: 'suspendedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Users Management`
+  String get usersManagement {
+    return Intl.message(
+      'Users Management',
+      name: 'usersManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Employees Management`
+  String get employeesManagement {
+    return Intl.message(
+      'Employees Management',
+      name: 'employeesManagement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Booking Requests`
+  String get bookingRequests {
+    return Intl.message(
+      'Booking Requests',
+      name: 'bookingRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Site Management`
+  String get siteManagement {
+    return Intl.message(
+      'Site Management',
+      name: 'siteManagement',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
