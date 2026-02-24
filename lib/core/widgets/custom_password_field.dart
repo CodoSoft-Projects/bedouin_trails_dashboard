@@ -34,7 +34,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       obscureText: obscureText,
       labelText: widget.labelText,
       keyboardType: TextInputType.visiblePassword,
-      validator: (value) => validatorOfPassword(value),
+      validator: (value) => validatorOfPassword(context, value),
       onChanged: (value) {
         validPassword = validatorOfPasswordBool(value);
         setState(() {});

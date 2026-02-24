@@ -151,6 +151,39 @@ class MessageLookup extends MessageLookupByLibrary {
       "Too many requests. Please wait a moment before trying again.",
     ),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "validation_email_invalid": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address",
+    ),
+    "validation_email_required": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email address",
+    ),
+    "validation_password_length": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters",
+    ),
+    "validation_password_required": MessageLookupByLibrary.simpleMessage(
+      "Please enter your password",
+    ),
+    "validation_phone_invalid": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid Egyptian phone number",
+    ),
+    "validation_phone_required": MessageLookupByLibrary.simpleMessage(
+      "Please enter your phone number",
+    ),
+    "validation_price_max": MessageLookupByLibrary.simpleMessage(
+      "Trip price must be less than 999,999\$",
+    ),
+    "validation_price_required": MessageLookupByLibrary.simpleMessage(
+      "Please enter the trip price",
+    ),
+    "validation_required": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
+    ),
+    "validation_username_invalid": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid name",
+    ),
+    "validation_username_length": MessageLookupByLibrary.simpleMessage(
+      "Name must be at least 3 characters",
+    ),
     "verify": MessageLookupByLibrary.simpleMessage("Verify"),
     "verify_email_note": MessageLookupByLibrary.simpleMessage(
       "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",

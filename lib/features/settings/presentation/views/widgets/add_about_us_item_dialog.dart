@@ -96,14 +96,16 @@ class _Form extends StatelessWidget {
           CustomTextFormField(
             labelText: 'عنوان العنصر',
             hintText: 'عنوان العنصر',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
             labelText: 'محتوي العنصر',
             hintText: 'محتوي العنصر',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             lines: 10,
             controller: prov.descriptionController,
           ),

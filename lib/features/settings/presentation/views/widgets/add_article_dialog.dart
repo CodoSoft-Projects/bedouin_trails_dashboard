@@ -97,14 +97,16 @@ class _Form extends StatelessWidget {
           CustomTextFormField(
             labelText: 'عنوان المقالة',
             hintText: 'عنوان المقالة',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
             labelText: 'محتوي المقالة',
             hintText: 'محتوي المقالة',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             lines: 10,
             controller: prov.descriptionController,
           ),
@@ -135,7 +137,7 @@ class _Form extends StatelessWidget {
                 if (prov.checkAddingArticle == true) {
                   Navigator.pop(context);
                   getControlPanelData(context);
-                  
+
                   AppMessage.successBar(context, message: prov.message);
                 } else if (prov.checkAddingArticle == false) {
                   DialogHelper.showErrorDialog(

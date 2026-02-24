@@ -151,6 +151,39 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "validation_email_invalid": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال بريد إلكتروني صالح",
+    ),
+    "validation_email_required": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل البريد الإلكتروني",
+    ),
+    "validation_password_length": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    ),
+    "validation_password_required": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل كلمة المرور",
+    ),
+    "validation_phone_invalid": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال رقم هاتف مصري صحيح",
+    ),
+    "validation_phone_required": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل رقم الهاتف",
+    ),
+    "validation_price_max": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يكون سعر الرحلة أقل من  \$999999",
+    ),
+    "validation_price_required": MessageLookupByLibrary.simpleMessage(
+      "الرجاء إدخال سعر الرحلة",
+    ),
+    "validation_required": MessageLookupByLibrary.simpleMessage(
+      "هذا الحقل مطلوب",
+    ),
+    "validation_username_invalid": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال اسم صحيح",
+    ),
+    "validation_username_length": MessageLookupByLibrary.simpleMessage(
+      "يجب أن يكون الاسم 3 أحرف على الأقل",
+    ),
     "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
     "verify_email_note": MessageLookupByLibrary.simpleMessage(
       "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",

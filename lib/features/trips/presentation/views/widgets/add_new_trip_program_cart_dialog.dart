@@ -133,14 +133,16 @@ class NewCartForm extends StatelessWidget {
           const _BlueLable(lable: 'عنوان البطاقة :'),
           CustomTextFormField(
             hintText: 'العنوان',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.cartTitleController,
           ),
 
           const _BlueLable(lable: 'وصف برنامج البطاقة :'),
           CustomTextFormField(
             hintText: 'الوصف',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.cartDescriptionController,
             lines: 8,
           ),

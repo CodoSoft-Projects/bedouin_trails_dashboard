@@ -602,6 +602,116 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter your email address`
+  String get validation_email_required {
+    return Intl.message(
+      'Please enter your email address',
+      name: 'validation_email_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get validation_email_invalid {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'validation_email_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get validation_password_required {
+    return Intl.message(
+      'Please enter your password',
+      name: 'validation_password_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters`
+  String get validation_password_length {
+    return Intl.message(
+      'Password must be at least 8 characters',
+      name: 'validation_password_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name must be at least 3 characters`
+  String get validation_username_length {
+    return Intl.message(
+      'Name must be at least 3 characters',
+      name: 'validation_username_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid name`
+  String get validation_username_invalid {
+    return Intl.message(
+      'Please enter a valid name',
+      name: 'validation_username_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number`
+  String get validation_phone_required {
+    return Intl.message(
+      'Please enter your phone number',
+      name: 'validation_phone_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid Egyptian phone number`
+  String get validation_phone_invalid {
+    return Intl.message(
+      'Please enter a valid Egyptian phone number',
+      name: 'validation_phone_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the trip price`
+  String get validation_price_required {
+    return Intl.message(
+      'Please enter the trip price',
+      name: 'validation_price_required',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip price must be less than 999,999$`
+  String get validation_price_max {
+    return Intl.message(
+      'Trip price must be less than 999,999\$',
+      name: 'validation_price_max',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field is required`
+  String get validation_required {
+    return Intl.message(
+      'This field is required',
+      name: 'validation_required',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

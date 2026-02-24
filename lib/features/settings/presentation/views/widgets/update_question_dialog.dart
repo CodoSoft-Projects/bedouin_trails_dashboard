@@ -44,7 +44,8 @@ class _Form extends StatelessWidget {
           CustomTextFormField(
             labelText: 'السؤال',
             hintText: 'السؤال',
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.questionController,
           ),
 
@@ -52,7 +53,8 @@ class _Form extends StatelessWidget {
             labelText: 'الإجابة',
             hintText: 'الإجابة',
             lines: 7,
-            validator: simpleValidation,
+            validator: (value) => simpleValidation(context, value),
+
             controller: prov.answerController,
           ),
 

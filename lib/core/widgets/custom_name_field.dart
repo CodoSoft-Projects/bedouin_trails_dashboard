@@ -31,7 +31,7 @@ class _CustomNameFieldState extends State<CustomNameField> {
       controller: widget.controller,
       labelText: widget.labelText,
       keyboardType: TextInputType.name,
-      validator: (value) => validatorOfUserName(value),
+      validator: (value) => validatorOfUserName(context, value),
       onChanged: (value) {
         validName = validatorOfUserNameBool(value);
         setState(() {});

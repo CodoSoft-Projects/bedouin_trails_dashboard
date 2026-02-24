@@ -1,4 +1,8 @@
 // تعريف نمط التحقق من البريد الإلكتروني
+import 'package:flutter/material.dart';
+
+import '../../generated/l10n.dart';
+
 String pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$';
 RegExp regexEmail = RegExp(pattern);
 
@@ -7,11 +11,11 @@ RegExp regexPassword = RegExp(
   r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$',
 );
 
-String? validatorOfEmail(String? value) {
+String? validatorOfEmail(BuildContext context, String? value) {
   if (value == null || value.isEmpty) {
-    return 'من فضلك أدخل البريد الإلكتروني';
+    return S.of(context).validation_email_required;
   } else if (!regexEmail.hasMatch(value)) {
-    return 'يرجى إدخال بريد إلكتروني صالح';
+    return S.of(context).validation_email_invalid;
   }
   return null;
 }
@@ -25,11 +29,11 @@ bool validatorOfEmailBool(String? value) {
   return true;
 }
 
-String? validatorOfPassword(String? value) {
+String? validatorOfPassword(BuildContext context, String? value) {
   if (value == null || value.isEmpty) {
-    return 'من فضلك أدخل كلمة المرور';
+    return S.of(context).validation_password_required;
   } else if (value.length < 8) {
-    return 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل';
+    return S.of(context).validation_password_length;
   } else {
     // if (!regexPassword.hasMatch(value)) {
     //   return 'يجب أن تحتوي كلمة المرور على حرف كبير وصغير ورقم ورمز خاص';
@@ -53,9 +57,9 @@ bool validatorOfPasswordBool(String? value) {
   }
 }
 
-String? validatorOfUserName(String? value) {
+String? validatorOfUserName(BuildContext context, String? value) {
   if (value == null || value.trim().length < 3) {
-    return 'يجب أن يكون الاسم 3 أحرف على الأقل';
+    return S.of(context).validation_username_length;
   }
 
   bool upper = value.contains(RegExp(r'[A-Z]'));
@@ -64,7 +68,7 @@ String? validatorOfUserName(String? value) {
   if ((upper && lower) || arabicNameRegExp.hasMatch(value)) {
     return null;
   } else {
-    return 'يرجى إدخال اسم صحيح يحتوي على أحرف كبيرة وصغيرة';
+    return S.of(context).validation_username_invalid;
   }
 }
 
@@ -84,11 +88,11 @@ bool validatorOfUserNameBool(String? value) {
 }
 
 final RegExp regexPhone = RegExp(r'^0(10|11|12|15)\d{8}$');
-String? validatorOfEgyptianPhone(String? value) {
+String? validatorOfEgyptianPhone(BuildContext context, String? value) {
   if (value == null || value.isEmpty) {
-    return 'من فضلك أدخل رقم الهاتف';
+    return S.of(context).validation_phone_required;
   } else if (!regexPhone.hasMatch(value)) {
-    return 'يرجى إدخال رقم هاتف مصري صحيح';
+    return S.of(context).validation_phone_invalid;
   }
   return null;
 }
@@ -99,20 +103,20 @@ bool validatorOfEgyptianPhoneBool(String? value) {
   return isValid;
 }
 
-String? priceValidation(String? value) {
+String? priceValidation(BuildContext context, String? value) {
   var price = double.tryParse(value ?? '0') ?? 0;
   if (value == null || value.isEmpty) {
-    return 'الرجاء ادخال سعر الرحلة';
+    return S.of(context).validation_price_required;
   }
   if (price > 999999) {
-    return 'يجب ان يكون سعر الرحلة اقل من 999999 \$';
+    return S.of(context).validation_price_max;
   }
   return null;
 }
 
-String? simpleValidation(String? value) {
+String? simpleValidation(BuildContext context, String? value) {
   if (value == null || value.isEmpty) {
-    return 'هذا الحقل مطلوب';
+    return S.of(context).validation_required;
   }
   return null;
 }

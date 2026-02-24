@@ -35,7 +35,8 @@ class TripInfoForm extends StatelessWidget {
               children: [
                 CustomTextFormField(
                   labelText: 'عنوان الرحلة',
-                  validator: simpleValidation,
+                  validator: (value) => simpleValidation(context, value),
+
                   controller: canEdit
                       ? prov.tripNameController
                       : TextEditingController(text: trip.name),
@@ -58,7 +59,7 @@ class TripInfoForm extends StatelessWidget {
                       ? prov.tripPriceController
                       : TextEditingController(text: trip.price.toString()),
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: priceValidation,
+                  validator: (value) => priceValidation(context, value),
                   suffixIcon: Icon(
                     Icons.attach_money,
                     color: AppColors.cyanGreen,
@@ -67,7 +68,8 @@ class TripInfoForm extends StatelessWidget {
 
                 CustomTextFormField(
                   labelText: 'نقطة بداية الرحلة',
-                  validator: simpleValidation,
+                  validator: (value) => simpleValidation(context, value),
+
                   controller: canEdit
                       ? prov.tripFromController
                       : TextEditingController(text: trip.interfaceFrom),
@@ -75,7 +77,8 @@ class TripInfoForm extends StatelessWidget {
 
                 CustomTextFormField(
                   labelText: 'نقطة نهاية الرحلة',
-                  validator: simpleValidation,
+                  validator: (value) => simpleValidation(context, value),
+
                   controller: canEdit
                       ? prov.tripToController
                       : TextEditingController(text: trip.interfaceTo),

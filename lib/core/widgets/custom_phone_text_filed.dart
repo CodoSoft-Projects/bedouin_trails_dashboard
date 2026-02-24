@@ -37,7 +37,7 @@ class _CustomPhoneTextFieldState extends State<CustomPhoneTextField> {
         LucideIcons.check600,
         color: validPhone ? AppColors.blue : Colors.transparent,
       ),
-      validator: (value) => validatorOfEgyptianPhone(value),
+      validator: (value) => validatorOfEgyptianPhone(context, value),
       onChanged: (value) {
         validPhone = validatorOfEgyptianPhoneBool(value);
         setState(() {});

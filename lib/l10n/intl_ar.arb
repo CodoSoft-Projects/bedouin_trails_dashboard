@@ -66,5 +66,16 @@
   "password_reset_failed": "فشل في إعادة تعيين كلمة المرور. الرجاء المحاولة مرة أخرى.",
   "invalid_code": "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
   "email_not_found": "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
-  "too_many_requests": "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى."
+  "too_many_requests": "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
+  "validation_email_required": "من فضلك أدخل البريد الإلكتروني",
+  "validation_email_invalid": "يرجى إدخال بريد إلكتروني صالح",
+  "validation_password_required": "من فضلك أدخل كلمة المرور",
+  "validation_password_length": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+  "validation_username_length": "يجب أن يكون الاسم 3 أحرف على الأقل",
+  "validation_username_invalid": "يرجى إدخال اسم صحيح",
+  "validation_phone_required": "من فضلك أدخل رقم الهاتف",
+  "validation_phone_invalid": "يرجى إدخال رقم هاتف مصري صحيح",
+  "validation_price_required": "الرجاء إدخال سعر الرحلة",
+  "validation_price_max": "يجب أن يكون سعر الرحلة أقل من  $999999",
+  "validation_required": "هذا الحقل مطلوب"
 }

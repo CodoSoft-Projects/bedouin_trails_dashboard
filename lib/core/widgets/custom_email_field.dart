@@ -30,7 +30,7 @@ class _CustomEmailFieldState extends State<CustomEmailField> {
       controller: widget.controller,
       labelText: widget.labelText,
       keyboardType: TextInputType.emailAddress,
-      validator: (value) => validatorOfEmail(value),
+      validator: (value) => validatorOfEmail(context, value),
       onChanged: (value) {
         validEmail = validatorOfEmailBool(value);
         setState(() {});

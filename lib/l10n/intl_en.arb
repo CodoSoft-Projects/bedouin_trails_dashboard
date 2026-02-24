@@ -82,5 +82,16 @@
   "password_reset_failed": "Failed to reset the password. Please try again.",
   "invalid_code": "Invalid verification code. Please try again.",
   "email_not_found": "Email not found. Please check the email address and try again.",
-  "too_many_requests": "Too many requests. Please wait a moment before trying again."
+  "too_many_requests": "Too many requests. Please wait a moment before trying again.",
+  "validation_email_required": "Please enter your email address",
+  "validation_email_invalid": "Please enter a valid email address",
+  "validation_password_required": "Please enter your password",
+  "validation_password_length": "Password must be at least 8 characters",
+  "validation_username_length": "Name must be at least 3 characters",
+  "validation_username_invalid": "Please enter a valid name",
+  "validation_phone_required": "Please enter your phone number",
+  "validation_phone_invalid": "Please enter a valid Egyptian phone number",
+  "validation_price_required": "Please enter the trip price",
+  "validation_price_max": "Trip price must be less than 999,999$",
+  "validation_required": "This field is required"
 }
