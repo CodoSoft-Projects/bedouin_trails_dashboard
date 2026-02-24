@@ -23,7 +23,7 @@ Future<dynamic> updateAdsItemDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'تعديل بيانات الإعلان',
+        title: S.of(context).editAdvertisementData,
         content: _Form(),
       );
     },

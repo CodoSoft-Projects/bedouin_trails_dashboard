@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/api_error_widget.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/articles_provider.dart';
 import 'widgets/article_form_section.dart';
 import 'widgets/articles_section.dart';
@@ -29,7 +30,7 @@ class _ArticlesViewState extends State<ArticlesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, title: 'إدارة المقالات'),
+      appBar: customAppBar(context, title: S.of(context).manageArticles),
       body: const ArticlesViewBody(),
     );
   }

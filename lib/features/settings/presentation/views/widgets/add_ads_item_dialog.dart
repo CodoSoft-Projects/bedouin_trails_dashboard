@@ -23,7 +23,7 @@ Future<dynamic> addAdsItemDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'إضافة إعلان جديد',
+        title: S.of(context).addNewAdvertisement,
         content: _Form(),
       );
     },
@@ -63,7 +63,7 @@ class _Form extends StatelessWidget {
                   const Spacer(),
                   if (prov.pickedImage == null)
                     Text(
-                      'صورة الإعلان',
+                      S.of(context).advertisementImage,
                       style: AppTextStyles.regular18(
                         context,
                       ).copyWith(color: AppColors.blue),
@@ -94,8 +94,8 @@ class _Form extends StatelessWidget {
           ),
 
           CustomTextFormField(
-            labelText: 'عنوان الإعلان',
-            hintText: 'عنوان الإعلان',
+            labelText: S.of(context).advertisementTitle,
+            hintText: S.of(context).advertisementTitle,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.titleController,
@@ -113,7 +113,7 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 16),
 
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             color: AppColors.sandyBrown,
             horizontalPadding: 72,
             onPressed: () async {
@@ -121,7 +121,7 @@ class _Form extends StatelessWidget {
                 if (prov.pickedImage == null) {
                   DialogHelper.showErrorDialog(
                     context,
-                    title: 'يرجى اختيار صورة',
+                    title: S.of(context).pleaseSelectImage,
                   );
                   return;
                 }

@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, strict_top_level_inference
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -44,7 +44,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "addImagesTitle": MessageLookupByLibrary.simpleMessage(
       "Add Images for the Trip",
     ),
+    "addNewAdvertisement": MessageLookupByLibrary.simpleMessage(
+      "Add New Advertisement",
+    ),
+    "addNewArticle": MessageLookupByLibrary.simpleMessage("Add New Article"),
     "addNewEmployee": MessageLookupByLibrary.simpleMessage("Add New Employee"),
+    "addNewItem": MessageLookupByLibrary.simpleMessage("Add New Item"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("Add New Trip"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
@@ -52,10 +57,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_new_question": MessageLookupByLibrary.simpleMessage(
       "Add New Question",
     ),
+    "advertisementContent": MessageLookupByLibrary.simpleMessage(
+      "Advertisement Content",
+    ),
+    "advertisementDisplayData": MessageLookupByLibrary.simpleMessage(
+      "Advertisement Display Data:",
+    ),
+    "advertisementImage": MessageLookupByLibrary.simpleMessage(
+      "Advertisement Image",
+    ),
+    "advertisementTitle": MessageLookupByLibrary.simpleMessage(
+      "Advertisement Title",
+    ),
+    "advertisements": MessageLookupByLibrary.simpleMessage("Advertisements"),
     "answer": MessageLookupByLibrary.simpleMessage("Answer"),
     "article": MessageLookupByLibrary.simpleMessage("Article"),
     "articleContent": MessageLookupByLibrary.simpleMessage("Article Content"),
+    "articleDisplayData": MessageLookupByLibrary.simpleMessage(
+      "Article Display Data:",
+    ),
+    "articleImage": MessageLookupByLibrary.simpleMessage("Article Image"),
+    "articleSection": MessageLookupByLibrary.simpleMessage("Articles Section"),
     "articleTitle": MessageLookupByLibrary.simpleMessage("Article Title"),
+    "articleTitleShort": MessageLookupByLibrary.simpleMessage("Article Title"),
     "articlesSection": MessageLookupByLibrary.simpleMessage("Articles Section"),
     "blockEmployee": MessageLookupByLibrary.simpleMessage("Block Employee"),
     "booking": MessageLookupByLibrary.simpleMessage("Booking"),
@@ -88,6 +112,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete this advertisement?",
     ),
+    "confirmDeleteAdvertisement": MessageLookupByLibrary.simpleMessage(
+      "Do you want to delete this advertisement?",
+    ),
     "confirmDeleteArticle": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete this article?",
     ),
@@ -99,6 +126,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "confirmDeleteElement": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete this element?",
+    ),
+    "confirmDeleteItem": MessageLookupByLibrary.simpleMessage(
+      "Do you want to delete this item?",
     ),
     "confirmDeleteQuestion": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete this question?",
@@ -136,16 +166,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "displayedElements": MessageLookupByLibrary.simpleMessage(
       "Displayed Elements",
     ),
+    "displayedItems": MessageLookupByLibrary.simpleMessage("Displayed Items"),
     "editAboutItem": MessageLookupByLibrary.simpleMessage("Edit Element Data"),
     "editAccountData": MessageLookupByLibrary.simpleMessage(
       "Edit Account Data",
     ),
     "editAd": MessageLookupByLibrary.simpleMessage("Edit Advertisement Data"),
+    "editAdvertisementData": MessageLookupByLibrary.simpleMessage(
+      "Edit Advertisement Data",
+    ),
     "editArticle": MessageLookupByLibrary.simpleMessage("Edit Article Data"),
+    "editArticleData": MessageLookupByLibrary.simpleMessage(
+      "Edit Article Data",
+    ),
     "editEmployeeData": MessageLookupByLibrary.simpleMessage(
       "Edit Employee Data",
     ),
+    "editItemData": MessageLookupByLibrary.simpleMessage("Edit Item Data"),
     "editQuestion": MessageLookupByLibrary.simpleMessage("Edit Question Data"),
+    "editQuestionData": MessageLookupByLibrary.simpleMessage(
+      "Edit Question Data",
+    ),
     "editTripData": MessageLookupByLibrary.simpleMessage("Edit Trip Data"),
     "element": MessageLookupByLibrary.simpleMessage("Element"),
     "elementContent": MessageLookupByLibrary.simpleMessage("Element Content"),
@@ -160,9 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "employeeData": MessageLookupByLibrary.simpleMessage("Employee Data"),
     "employees": MessageLookupByLibrary.simpleMessage("Employees"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
-    "faqSection": MessageLookupByLibrary.simpleMessage(
-      "Frequently Asked Questions Section",
-    ),
+    "faqSection": MessageLookupByLibrary.simpleMessage("FAQ Section"),
     "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
       "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
@@ -186,6 +225,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "Invalid verification code. Please try again.",
     ),
+    "itemContent": MessageLookupByLibrary.simpleMessage("Item Content"),
+    "itemDisplayData": MessageLookupByLibrary.simpleMessage(
+      "Item Display Data:",
+    ),
+    "itemImage": MessageLookupByLibrary.simpleMessage("Item Image"),
+    "itemTitle": MessageLookupByLibrary.simpleMessage("Item Title"),
     "jobRole": MessageLookupByLibrary.simpleMessage("Job Role"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -203,6 +248,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Do you want to logout from the dashboard?",
     ),
     "manageAboutUs": MessageLookupByLibrary.simpleMessage(
+      "Manage About Us Page",
+    ),
+    "manageAboutUsPage": MessageLookupByLibrary.simpleMessage(
       "Manage About Us Page",
     ),
     "manageAds": MessageLookupByLibrary.simpleMessage("Manage Advertisements"),
@@ -316,10 +364,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "perPersonPrice": MessageLookupByLibrary.simpleMessage("Per Person Price"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "pleaseSelectImage": MessageLookupByLibrary.simpleMessage(
+      "Please select an image",
+    ),
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "profileData": MessageLookupByLibrary.simpleMessage("Profile Data"),
     "programCards": MessageLookupByLibrary.simpleMessage("Program Cards :"),
     "question": MessageLookupByLibrary.simpleMessage("Question"),
+    "questionDisplayData": MessageLookupByLibrary.simpleMessage(
+      "Question Display Data:",
+    ),
     "ratingRate": MessageLookupByLibrary.simpleMessage("Rating Rate"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "rejectBooking": MessageLookupByLibrary.simpleMessage(

@@ -17,6 +17,7 @@ import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/about_us_provider.dart';
 import 'update_about_us_item_dialog.dart';
 
@@ -39,7 +40,7 @@ class AboutUsFormSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'بيانات عرض العنصر :',
+                    S.of(context).itemDisplayData,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTextStyles.regular24(
@@ -71,8 +72,8 @@ class AboutUsFormSection extends StatelessWidget {
                   onPressed: () {
                     DialogHelper.showQuestionDialog(
                       context,
-                      title: 'تاكيد',
-                      desc: 'هل تريد حذف هذا العنصر؟',
+                      title: S.of(context).confirmation,
+                      desc: S.of(context).confirmDeleteItem,
                       onCancel: () {},
                       onOk: () {
                         _delete(context);
@@ -142,14 +143,14 @@ class _ItemForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   CustomTextFormField(
-                    labelText: 'عنوان العنصر',
+                    labelText: S.of(context).itemTitle,
                     controller: TextEditingController(
                       text: prov.selectedItem?.title ?? '',
                     ),
                   ),
 
                   CustomTextFormField(
-                    labelText: 'محتوي العنصر',
+                 labelText:    S.of(context).itemContent,
                     lines: max(
                       2,
                       ((prov.selectedItem?.description.length ?? 0) / 40)

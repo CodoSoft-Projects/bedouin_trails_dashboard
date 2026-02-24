@@ -1795,14 +1795,9 @@ class S {
     );
   }
 
-  /// `Frequently Asked Questions Section`
+  /// `FAQ Section`
   String get faqSection {
-    return Intl.message(
-      'Frequently Asked Questions Section',
-      name: 'faqSection',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('FAQ Section', name: 'faqSection', desc: '', args: []);
   }
 
   /// `Display Data`
@@ -1975,6 +1970,251 @@ class S {
     return Intl.message(
       'Are you sure you want to block the employee?',
       name: 'confirmBlockEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage About Us Page`
+  String get manageAboutUsPage {
+    return Intl.message(
+      'Manage About Us Page',
+      name: 'manageAboutUsPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item Display Data:`
+  String get itemDisplayData {
+    return Intl.message(
+      'Item Display Data:',
+      name: 'itemDisplayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this item?`
+  String get confirmDeleteItem {
+    return Intl.message(
+      'Do you want to delete this item?',
+      name: 'confirmDeleteItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item Title`
+  String get itemTitle {
+    return Intl.message('Item Title', name: 'itemTitle', desc: '', args: []);
+  }
+
+  /// `Item Content`
+  String get itemContent {
+    return Intl.message(
+      'Item Content',
+      name: 'itemContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Displayed Items`
+  String get displayedItems {
+    return Intl.message(
+      'Displayed Items',
+      name: 'displayedItems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Item`
+  String get addNewItem {
+    return Intl.message('Add New Item', name: 'addNewItem', desc: '', args: []);
+  }
+
+  /// `Item Image`
+  String get itemImage {
+    return Intl.message('Item Image', name: 'itemImage', desc: '', args: []);
+  }
+
+  /// `Please select an image`
+  String get pleaseSelectImage {
+    return Intl.message(
+      'Please select an image',
+      name: 'pleaseSelectImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Advertisement`
+  String get addNewAdvertisement {
+    return Intl.message(
+      'Add New Advertisement',
+      name: 'addNewAdvertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement Image`
+  String get advertisementImage {
+    return Intl.message(
+      'Advertisement Image',
+      name: 'advertisementImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement Title`
+  String get advertisementTitle {
+    return Intl.message(
+      'Advertisement Title',
+      name: 'advertisementTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement Content`
+  String get advertisementContent {
+    return Intl.message(
+      'Advertisement Content',
+      name: 'advertisementContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add New Article`
+  String get addNewArticle {
+    return Intl.message(
+      'Add New Article',
+      name: 'addNewArticle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article Image`
+  String get articleImage {
+    return Intl.message(
+      'Article Image',
+      name: 'articleImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisement Display Data:`
+  String get advertisementDisplayData {
+    return Intl.message(
+      'Advertisement Display Data:',
+      name: 'advertisementDisplayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to delete this advertisement?`
+  String get confirmDeleteAdvertisement {
+    return Intl.message(
+      'Do you want to delete this advertisement?',
+      name: 'confirmDeleteAdvertisement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article Title`
+  String get articleTitleShort {
+    return Intl.message(
+      'Article Title',
+      name: 'articleTitleShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Advertisements`
+  String get advertisements {
+    return Intl.message(
+      'Advertisements',
+      name: 'advertisements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Articles Section`
+  String get articleSection {
+    return Intl.message(
+      'Articles Section',
+      name: 'articleSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article Display Data:`
+  String get articleDisplayData {
+    return Intl.message(
+      'Article Display Data:',
+      name: 'articleDisplayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Question Display Data:`
+  String get questionDisplayData {
+    return Intl.message(
+      'Question Display Data:',
+      name: 'questionDisplayData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Item Data`
+  String get editItemData {
+    return Intl.message(
+      'Edit Item Data',
+      name: 'editItemData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Advertisement Data`
+  String get editAdvertisementData {
+    return Intl.message(
+      'Edit Advertisement Data',
+      name: 'editAdvertisementData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Article Data`
+  String get editArticleData {
+    return Intl.message(
+      'Edit Article Data',
+      name: 'editArticleData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Question Data`
+  String get editQuestionData {
+    return Intl.message(
+      'Edit Question Data',
+      name: 'editQuestionData',
       desc: '',
       args: [],
     );

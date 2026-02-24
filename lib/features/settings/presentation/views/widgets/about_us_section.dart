@@ -6,6 +6,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../data/models/settings_item_model.dart';
 import '../../manager/about_us_provider.dart';
 import 'add_about_us_item_dialog.dart';
@@ -26,7 +27,7 @@ class AboutUsSection extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'العناصر المعروضة',
+                  S.of(context).displayedItems,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.regular24(context),

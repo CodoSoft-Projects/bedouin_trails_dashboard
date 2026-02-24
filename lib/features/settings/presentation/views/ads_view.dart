@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/api_error_widget.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/ads_provider.dart';
 import 'widgets/ads_form_section.dart';
 import 'widgets/ads_items_section.dart';
@@ -29,7 +30,7 @@ class _AdsViewState extends State<AdsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, title: 'إدارة الاعلانات'),
+      appBar: customAppBar(context, title: S.of(context).manageSiteAdvertisement),
       body: const AdsViewBody(),
     );
   }

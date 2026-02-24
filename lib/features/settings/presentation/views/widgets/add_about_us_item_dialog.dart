@@ -23,7 +23,7 @@ Future<dynamic> addAboutUsItemDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'إضافة عنصر جديد',
+        title: S.of(context).addNewItem,
         content: _Form(),
       );
     },
@@ -63,7 +63,7 @@ class _Form extends StatelessWidget {
                   const Spacer(),
                   if (prov.pickedImage == null)
                     Text(
-                      'صورة العنصر',
+                      S.of(context).itemImage,
                       style: AppTextStyles.regular18(
                         context,
                       ).copyWith(color: AppColors.blue),
@@ -94,16 +94,16 @@ class _Form extends StatelessWidget {
           ),
 
           CustomTextFormField(
-            labelText: 'عنوان العنصر',
-            hintText: 'عنوان العنصر',
+            labelText: S.of(context).itemTitle,
+            hintText: S.of(context).itemTitle,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
-            labelText: 'محتوي العنصر',
-            hintText: 'محتوي العنصر',
+            labelText: S.of(context).itemContent,
+            hintText: S.of(context).itemContent,
             validator: (value) => simpleValidation(context, value),
 
             lines: 10,
@@ -113,7 +113,7 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 16),
 
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             color: AppColors.sandyBrown,
             horizontalPadding: 72,
             onPressed: () async {
@@ -121,7 +121,7 @@ class _Form extends StatelessWidget {
                 if (prov.pickedImage == null) {
                   DialogHelper.showErrorDialog(
                     context,
-                    title: 'يرجى اختيار صورة',
+                    title: S.of(context).pleaseSelectImage,
                   );
                   return;
                 }

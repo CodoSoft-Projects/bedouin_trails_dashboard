@@ -23,7 +23,7 @@ Future<dynamic> updateArticleDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'تعديل بيانات المقالة',
+        title: S.of(context).editArticleData,
         content: _Form(),
       );
     },
@@ -88,16 +88,16 @@ class _Form extends StatelessWidget {
           ),
 
           CustomTextFormField(
-            labelText: 'عنوان المقالة',
-            hintText: 'عنوان المقالة',
+            labelText: S.of(context).articleTitle,
+            hintText: S.of(context).articleTitle,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
-            labelText: 'محتوي المقالة',
-            hintText: 'محتوي المقالة',
+            labelText: S.of(context).articleContent,
+            hintText: S.of(context).articleContent,
             validator: (value) => simpleValidation(context, value),
 
             lines: 10,
@@ -107,7 +107,7 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 16),
 
           CustomButton(
-            text: 'حفظ التعديلات',
+            text: S.of(context).saveChanges,
             color: AppColors.sandyBrown,
             horizontalPadding: 72,
             onPressed: () async {

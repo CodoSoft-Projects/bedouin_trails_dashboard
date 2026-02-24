@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/api_error_widget.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/questions_provider.dart';
 import 'widgets/no_questions_section.dart';
 import 'widgets/question_form_section.dart';
@@ -29,7 +30,7 @@ class _QuestionsViewState extends State<QuestionsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(context, title: 'إدارة الأسئلة الشائعة'),
+      appBar: customAppBar(context, title: S.of(context).manageFAQ),
       body: const QuestionsViewBody(),
     );
   }

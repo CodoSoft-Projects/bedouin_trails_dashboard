@@ -50,6 +50,7 @@ class LanguageButton extends StatelessWidget {
           AbsorbPointer(
             child: Radio(
               value: isSelected,
+              // ignore: deprecated_member_use
               groupValue: true,
               fillColor: WidgetStateProperty.all(AppColors.sandyBrown),
             ),

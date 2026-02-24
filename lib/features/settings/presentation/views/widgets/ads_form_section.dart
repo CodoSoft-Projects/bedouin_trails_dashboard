@@ -17,6 +17,7 @@ import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/ads_provider.dart';
 import 'update_ads_item_dialog.dart';
 
@@ -39,7 +40,7 @@ class AdsFormSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'بيانات عرض الإعلان :',
+                    S.of(context).advertisementDisplayData,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTextStyles.regular24(
@@ -71,8 +72,8 @@ class AdsFormSection extends StatelessWidget {
                   onPressed: () {
                     DialogHelper.showQuestionDialog(
                       context,
-                      title: 'تاكيد',
-                      desc: 'هل تريد حذف هذا الإعلان؟',
+                      title: S.of(context).confirmation,
+                      desc: S.of(context).confirmDeleteAdvertisement,
                       onCancel: () {},
                       onOk: () {
                         _delete(context);
@@ -142,7 +143,7 @@ class _AdsItemForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   CustomTextFormField(
-                    labelText: 'عنوان المقال',
+                    labelText: S.of(context).advertisementTitle,
                     controller: TextEditingController(
                       text: prov.selectedItem?.title ?? '',
                     ),

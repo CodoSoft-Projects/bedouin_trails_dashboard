@@ -24,7 +24,7 @@ Future<dynamic> addArticleDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'إضافة مقالة جديدة',
+        title: S.of(context).addNewArticle,
         content: _Form(),
       );
     },
@@ -64,7 +64,7 @@ class _Form extends StatelessWidget {
                   const Spacer(),
                   if (prov.pickedImage == null)
                     Text(
-                      'صورة المقالة',
+                      S.of(context).articleImage,
                       style: AppTextStyles.regular18(
                         context,
                       ).copyWith(color: AppColors.blue),
@@ -95,16 +95,16 @@ class _Form extends StatelessWidget {
           ),
 
           CustomTextFormField(
-            labelText: 'عنوان المقالة',
-            hintText: 'عنوان المقالة',
+            labelText: S.of(context).articleTitle,
+            hintText: S.of(context).articleTitle,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
-            labelText: 'محتوي المقالة',
-            hintText: 'محتوي المقالة',
+            labelText: S.of(context).articleContent,
+            hintText: S.of(context).articleContent,
             validator: (value) => simpleValidation(context, value),
 
             lines: 10,
@@ -114,7 +114,7 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 16),
 
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             color: AppColors.sandyBrown,
             horizontalPadding: 72,
             onPressed: () async {
@@ -122,7 +122,7 @@ class _Form extends StatelessWidget {
                 if (prov.pickedImage == null) {
                   DialogHelper.showErrorDialog(
                     context,
-                    title: 'يرجى اختيار صورة',
+                    title: S.of(context).pleaseSelectImage,
                   );
                   return;
                 }

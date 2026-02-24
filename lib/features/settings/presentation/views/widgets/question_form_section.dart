@@ -16,6 +16,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/questions_provider.dart';
 import 'update_question_dialog.dart';
 
@@ -38,7 +39,7 @@ class QuestionFormSection extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'بيانات عرض السؤال :',
+                    S.of(context).questionDisplayData,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppTextStyles.regular24(
@@ -68,8 +69,8 @@ class QuestionFormSection extends StatelessWidget {
                   onPressed: () {
                     DialogHelper.showQuestionDialog(
                       context,
-                      title: 'تاكيد',
-                      desc: 'هل تريد حذف هذا السؤال؟',
+                      title: S.of(context).confirmation,
+                      desc: S.of(context).confirmDeleteQuestion,
                       onCancel: () {},
                       onOk: () {
                         _delete(context);
@@ -122,14 +123,14 @@ class _QuestionForm extends StatelessWidget {
               const SizedBox(height: 32),
 
               CustomTextFormField(
-                labelText: 'السؤال',
+                labelText: S.of(context).question,
                 controller: TextEditingController(
                   text: prov.selectedQuestion?.question ?? '',
                 ),
               ),
 
               CustomTextFormField(
-                labelText: 'الإجابة',
+                labelText: S.of(context).answer,
                 lines: max(
                   2,
                   ((prov.selectedQuestion?.answer.length ?? 0) / 40).ceil(),

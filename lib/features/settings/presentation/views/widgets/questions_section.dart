@@ -6,6 +6,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../data/models/question_model.dart';
 import '../../manager/questions_provider.dart';
 import 'add_question_dialog.dart';
@@ -26,7 +27,7 @@ class QuestionsSection extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'فقرة الأسئلة الشائعة',
+                  S.of(context).faqSection,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AppTextStyles.regular24(context),

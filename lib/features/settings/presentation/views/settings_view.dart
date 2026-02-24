@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../../generated/l10n.dart';
 import 'about_us_view.dart';
 import 'ads_view.dart';
 import 'articles_view.dart';
@@ -13,22 +14,22 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
+      children: [
         Divider(thickness: 1, height: 1, color: AppColors.borderGrey),
         SettingsButton(
-          text: 'إدارة إعلان الموقع',
+          text: S.of(context).manageSiteAdvertisement,
           routeName: AdsView.routeName,
         ),
         SettingsButton(
-          text: 'إدارة الأسئلة الشائعة',
+          text: S.of(context).manageFAQ,
           routeName: QuestionsView.routeName,
         ),
         SettingsButton(
-          text: 'إدارة المقالات',
+          text: S.of(context).manageArticles,
           routeName: ArticlesView.routeName,
         ),
         SettingsButton(
-          text: 'إدارة صفحة من نحن',
+          text: S.of(context).manageAboutUsPage,
           routeName: AboutUsView.routeName,
         ),
       ],

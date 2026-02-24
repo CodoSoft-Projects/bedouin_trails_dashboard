@@ -20,7 +20,7 @@ Future<dynamic> addQuestionDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 500,
-        title: 'إضافة سؤال جديد',
+        title: S.of(context).add_new_question,
         content: _Form(),
       );
     },
@@ -41,16 +41,16 @@ class _Form extends StatelessWidget {
           const SizedBox(width: 500),
 
           CustomTextFormField(
-            labelText: 'السؤال',
-            hintText: 'السؤال',
+            labelText: S.of(context).question,
+            hintText: S.of(context).question,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.questionController,
           ),
 
           CustomTextFormField(
-            labelText: 'الإجابة',
-            hintText: 'الإجابة',
+            labelText: S.of(context).answer,
+            hintText: S.of(context).answer,
             lines: 7,
             validator: (value) => simpleValidation(context, value),
 
@@ -60,7 +60,7 @@ class _Form extends StatelessWidget {
           const SizedBox(height: 16),
 
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             color: AppColors.sandyBrown,
             horizontalPadding: 72,
             onPressed: () async {

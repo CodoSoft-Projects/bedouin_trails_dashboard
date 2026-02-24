@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, strict_top_level_inference
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -42,7 +42,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
     "addImagesTitle": MessageLookupByLibrary.simpleMessage("إضافة صور للرحلة"),
+    "addNewAdvertisement": MessageLookupByLibrary.simpleMessage(
+      "إضافة إعلان جديد",
+    ),
+    "addNewArticle": MessageLookupByLibrary.simpleMessage("إضافة مقالة جديدة"),
     "addNewEmployee": MessageLookupByLibrary.simpleMessage("اضافة موظف جديد"),
+    "addNewItem": MessageLookupByLibrary.simpleMessage("إضافة عنصر جديد"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("اضافة رحلة جديدة"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
@@ -50,10 +55,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
+    "advertisementContent": MessageLookupByLibrary.simpleMessage(
+      "محتوي الإعلان",
+    ),
+    "advertisementDisplayData": MessageLookupByLibrary.simpleMessage(
+      "بيانات عرض الإعلان :",
+    ),
+    "advertisementImage": MessageLookupByLibrary.simpleMessage("صورة الإعلان"),
+    "advertisementTitle": MessageLookupByLibrary.simpleMessage("عنوان الإعلان"),
+    "advertisements": MessageLookupByLibrary.simpleMessage(" الإعلانات"),
     "answer": MessageLookupByLibrary.simpleMessage("الإجابة"),
     "article": MessageLookupByLibrary.simpleMessage("مقالة"),
     "articleContent": MessageLookupByLibrary.simpleMessage("محتوي المقالة"),
+    "articleDisplayData": MessageLookupByLibrary.simpleMessage(
+      "بيانات عرض المقال :",
+    ),
+    "articleImage": MessageLookupByLibrary.simpleMessage("صورة المقالة"),
+    "articleSection": MessageLookupByLibrary.simpleMessage("فقرة المقالات"),
     "articleTitle": MessageLookupByLibrary.simpleMessage("عنوان المقالة"),
+    "articleTitleShort": MessageLookupByLibrary.simpleMessage("عنوان المقال"),
     "articlesSection": MessageLookupByLibrary.simpleMessage("فقرة المقالات"),
     "blockEmployee": MessageLookupByLibrary.simpleMessage("حظر الموظف"),
     "booking": MessageLookupByLibrary.simpleMessage("حجز"),
@@ -88,6 +108,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف هذا الإعلان؟",
     ),
+    "confirmDeleteAdvertisement": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا الإعلان؟",
+    ),
     "confirmDeleteArticle": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف هذا المقال؟",
     ),
@@ -98,6 +121,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟",
     ),
     "confirmDeleteElement": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا العنصر؟",
+    ),
+    "confirmDeleteItem": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف هذا العنصر؟",
     ),
     "confirmDeleteQuestion": MessageLookupByLibrary.simpleMessage(
@@ -136,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "displayedElements": MessageLookupByLibrary.simpleMessage(
       "العناصر المعروضة",
     ),
+    "displayedItems": MessageLookupByLibrary.simpleMessage("العناصر المعروضة"),
     "editAboutItem": MessageLookupByLibrary.simpleMessage(
       "تعديل بيانات العنصر",
     ),
@@ -143,11 +170,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "تعديل بيانات الحساب",
     ),
     "editAd": MessageLookupByLibrary.simpleMessage("تعديل بيانات الإعلان"),
+    "editAdvertisementData": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات الإعلان",
+    ),
     "editArticle": MessageLookupByLibrary.simpleMessage("تعديل بيانات المقالة"),
+    "editArticleData": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات المقالة",
+    ),
     "editEmployeeData": MessageLookupByLibrary.simpleMessage(
       "تعديل بيانات الموظف",
     ),
+    "editItemData": MessageLookupByLibrary.simpleMessage("تعديل بيانات العنصر"),
     "editQuestion": MessageLookupByLibrary.simpleMessage("تعديل بيانات السؤال"),
+    "editQuestionData": MessageLookupByLibrary.simpleMessage(
+      "تعديل بيانات السؤال",
+    ),
     "editTripData": MessageLookupByLibrary.simpleMessage("تعديل بيانات الرحلة"),
     "element": MessageLookupByLibrary.simpleMessage("عنصر"),
     "elementContent": MessageLookupByLibrary.simpleMessage("محتوي العنصر"),
@@ -186,6 +223,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
     ),
+    "itemContent": MessageLookupByLibrary.simpleMessage("محتوي العنصر"),
+    "itemDisplayData": MessageLookupByLibrary.simpleMessage(
+      "بيانات عرض العنصر :",
+    ),
+    "itemImage": MessageLookupByLibrary.simpleMessage("صورة العنصر"),
+    "itemTitle": MessageLookupByLibrary.simpleMessage("عنوان العنصر"),
     "jobRole": MessageLookupByLibrary.simpleMessage("Job Role"),
     "lastName": MessageLookupByLibrary.simpleMessage("الاسم الثاني"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -203,6 +246,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
     ),
     "manageAboutUs": MessageLookupByLibrary.simpleMessage("إدارة صفحة من نحن"),
+    "manageAboutUsPage": MessageLookupByLibrary.simpleMessage(
+      "إدارة صفحة من نحن",
+    ),
     "manageAds": MessageLookupByLibrary.simpleMessage("إدارة الاعلانات"),
     "manageArticles": MessageLookupByLibrary.simpleMessage("إدارة المقالات"),
     "manageBookingRequests": MessageLookupByLibrary.simpleMessage(
@@ -310,10 +356,16 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "perPersonPrice": MessageLookupByLibrary.simpleMessage("سعر الفرد"),
     "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "pleaseSelectImage": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار صورة",
+    ),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "profileData": MessageLookupByLibrary.simpleMessage("بيانات الملف الشخصي"),
     "programCards": MessageLookupByLibrary.simpleMessage("بطاقات البرنامج :"),
     "question": MessageLookupByLibrary.simpleMessage("السؤال"),
+    "questionDisplayData": MessageLookupByLibrary.simpleMessage(
+      "بيانات عرض السؤال :",
+    ),
     "ratingRate": MessageLookupByLibrary.simpleMessage("معدل التقييمات"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "rejectBooking": MessageLookupByLibrary.simpleMessage("رفض طلب الحجز"),

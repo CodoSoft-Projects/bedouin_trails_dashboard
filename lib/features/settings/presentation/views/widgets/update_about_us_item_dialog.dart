@@ -23,7 +23,7 @@ Future<dynamic> updateAboutUsItemDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'تعديل بيانات العنصر',
+        title: S.of(context).editItemData,
         content: _Form(),
       );
     },
@@ -88,16 +88,16 @@ class _Form extends StatelessWidget {
           ),
 
           CustomTextFormField(
-            labelText: 'عنوان العنصر',
-            hintText: 'عنوان العنصر',
+            labelText: S.of(context).itemTitle,
+            hintText: S.of(context).itemTitle,
             validator: (value) => simpleValidation(context, value),
 
             controller: prov.titleController,
           ),
 
           CustomTextFormField(
-            labelText: 'محتوي العنصر',
-            hintText: 'محتوي العنصر',
+            labelText: S.of(context).itemContent,
+            hintText: S.of(context).itemContent,
             validator: (value) => simpleValidation(context, value),
 
             lines: 10,
