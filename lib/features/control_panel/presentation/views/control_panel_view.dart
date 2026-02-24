@@ -6,6 +6,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/assets.dart';
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
 import '../../../../core/widgets/api_error_widget.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/entities/panel_header_entity.dart';
 import '../manager/control_panel_provider.dart';
 import 'widgets/orders_chart_section.dart';
@@ -117,7 +118,7 @@ class _RightSection extends StatelessWidget {
           enabled: prov.checkGetting == null,
           child: PanelHeaderItem(
             panelHeaderEntity: PanelHeaderEntity(
-              title: 'نسبة نمو الواردات للشهر الحالي',
+              title: S.of(context).currentMonthImportGrowth,
               subtitle: '${prov.controlPanelData.averageRating} %',
               image: Assets.imagesGrownIcon,
               backgroundColor: AppColors.white,

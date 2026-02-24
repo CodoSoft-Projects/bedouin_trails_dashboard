@@ -4,7 +4,7 @@
 // function name.
 
 // Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new, strict_top_level_inference
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
 // ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
 // ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
 // ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
@@ -151,6 +151,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
     "controlPanel": MessageLookupByLibrary.simpleMessage("Control Panel"),
+    "currentMonthImportGrowth": MessageLookupByLibrary.simpleMessage(
+      "Current Month Import Growth Rate",
+    ),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
     "dayNumber": MessageLookupByLibrary.simpleMessage("Day"),
     "days": m1,

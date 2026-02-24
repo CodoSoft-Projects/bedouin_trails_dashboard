@@ -2220,6 +2220,16 @@ class S {
     );
   }
 
+  /// `Current Month Import Growth Rate`
+  String get currentMonthImportGrowth {
+    return Intl.message(
+      'Current Month Import Growth Rate',
+      name: 'currentMonthImportGrowth',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 
