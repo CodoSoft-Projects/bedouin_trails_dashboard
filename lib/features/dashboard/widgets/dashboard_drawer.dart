@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../core/widgets/languages_dialog.dart';
 import '../../notifications/presentation/views/widgets/notification_icon.dart';
 import 'account_info_section.dart';
 import 'dashboard_features_sliver_list.dart';
@@ -60,7 +61,9 @@ class DashboardDrawer extends StatelessWidget {
                           CustomCircularButton(
                             icon: LucideIcons.globe,
                             borderSide: BorderSide.none,
-                            onPressed: () {},
+                            onPressed: () {
+                              languagesDialog(context);
+                            },
                           ),
                           Expanded(child: LogoutButton()),
                         ],

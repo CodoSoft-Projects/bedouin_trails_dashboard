@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:hive/hive.dart';
 
 import '../services/hive_services.dart';
+import '../utils/constants.dart';
 
 class ApiInterceptor extends Interceptor {
   final Map<String, CancelToken> _activeRequests = {};
@@ -15,10 +17,10 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Attach token And Language
     // final tokenBox = Hive.box<String>(ApiKeys.token);
-    // final langBox = Hive.box(ApiKeys.language);
+    final langBox = Hive.box(Constants.language);
 
     options.headers['Authorization'] = "Bearer ${HiveServices.getToken()}";
-    // options.headers['lang'] = langBox.get('langCode', defaultValue: 'ar');
+    options.headers['lang'] = langBox.get('langCode', defaultValue: 'ar');
 
     // Generate unique key for this request
     final key = _buildRequestKey(options);
