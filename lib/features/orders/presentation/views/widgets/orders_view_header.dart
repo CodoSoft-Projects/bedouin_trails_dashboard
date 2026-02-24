@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/orders_provider.dart';
 import 'filter_orders_button.dart';
 
@@ -43,6 +44,7 @@ class _OrdersSearchField extends StatelessWidget {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 400),
       child: CustomSearchField(
+        hintText: S.of(context).search,
         controller: prov.searchController,
         onChanged: (value) {
           prov.getAllOrdersUsers();

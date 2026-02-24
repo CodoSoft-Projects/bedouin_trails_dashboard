@@ -9,6 +9,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/orders_provider.dart';
 
@@ -27,15 +28,15 @@ class OrderDetailsViewHeader extends StatelessWidget {
         child: Row(
           children: [
             CustomButton(
-              text: 'إتمام دفع الحجز',
+              text: S.of(context).completePayment,
               color: AppColors.cyanGreen,
               onPressed: () {
                 DialogHelper.showQuestionDialog(
                   context,
-                  title: 'تأكيد إتمام الدفع',
-                  desc: 'هل أنت متأكد من إتمام دفع الحجز؟',
-                  btnOkText: 'نعم',
-                  btnCancelText: 'لا',
+                  title: S.of(context).confirmPayment,
+                  desc: S.of(context).confirmPaymentMessage,
+                  btnOkText: S.of(context).yes,
+                  btnCancelText: S.of(context).no,
                   onCancel: () {},
                   onOk: () {
                     _changeStatus(
@@ -49,15 +50,15 @@ class OrderDetailsViewHeader extends StatelessWidget {
             ),
             const Spacer(),
             CustomButton(
-              text: 'رفض طلب الحجز',
+              text: S.of(context).rejectBooking,
               color: AppColors.red,
               onPressed: () {
                 DialogHelper.showQuestionDialog(
                   context,
-                  title: 'تأكيد رفض الحجز',
-                  desc: 'هل أنت متأكد من رفض طلب الحجز؟',
-                  btnOkText: 'نعم',
-                  btnCancelText: 'لا',
+                  title: S.of(context).confirmReject,
+                  desc: S.of(context).confirmRejectMessage,
+                  btnOkText: S.of(context).yes,
+                  btnCancelText: S.of(context).no,
                   onCancel: () {},
                   onOk: () {
                     _changeStatus(
