@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "articleContent": MessageLookupByLibrary.simpleMessage("محتوي المقالة"),
     "articleTitle": MessageLookupByLibrary.simpleMessage("عنوان المقالة"),
     "articlesSection": MessageLookupByLibrary.simpleMessage("فقرة المقالات"),
+    "blockEmployee": MessageLookupByLibrary.simpleMessage("حظر الموظف"),
     "booking": MessageLookupByLibrary.simpleMessage("حجز"),
     "bookingDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الحجز"),
     "bookingRequests": MessageLookupByLibrary.simpleMessage(
@@ -80,6 +81,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "completePayment": MessageLookupByLibrary.simpleMessage("إتمام دفع الحجز"),
     "confirmActivateTrip": MessageLookupByLibrary.simpleMessage(
       "هل تريد تفعيل برنامج الرحلة",
+    ),
+    "confirmBlockEmployee": MessageLookupByLibrary.simpleMessage(
+      "هل انت متاكد من حظر الموظف ؟",
     ),
     "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف هذا الإعلان؟",
@@ -109,6 +113,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
       "هل تريد ايقاف برنامج الرحلة",
+    ),
+    "confirmUnblockEmployee": MessageLookupByLibrary.simpleMessage(
+      "هل انت متاكد من الغاء حظر الموظف ؟",
     ),
     "confirmation": MessageLookupByLibrary.simpleMessage("تاكيد"),
     "controlPanel": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
@@ -170,6 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "نسيت كلمة المرور؟",
     ),
     "image": MessageLookupByLibrary.simpleMessage("صورة"),
+    "imageRequired": MessageLookupByLibrary.simpleMessage("الصورة مطلوبة"),
     "inactiveAccounts": MessageLookupByLibrary.simpleMessage(
       "الحسابات المعطلة",
     ),
@@ -178,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
     ),
+    "jobRole": MessageLookupByLibrary.simpleMessage("Job Role"),
     "lastName": MessageLookupByLibrary.simpleMessage("الاسم الثاني"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "login_note": MessageLookupByLibrary.simpleMessage(
@@ -354,6 +363,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tripTitle": MessageLookupByLibrary.simpleMessage("عنوان الرحلة"),
     "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "unblockEmployee": MessageLookupByLibrary.simpleMessage("الغاء حظر الموظف"),
     "updateTripDetails": MessageLookupByLibrary.simpleMessage(
       "تعديل تفاصيل الرحلة",
     ),

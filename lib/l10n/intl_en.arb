@@ -225,5 +225,11 @@
   "addNewEmployee": "Add New Employee",
   "employeeData": "Employee Data",
   "editEmployeeData": "Edit Employee Data",
+  "jobRole": "Job Role",
+  "imageRequired": "Image is required",
+  "unblockEmployee": "Unblock Employee",
+  "blockEmployee": "Block Employee",
+  "confirmUnblockEmployee": "Are you sure you want to unblock the employee?",
+  "confirmBlockEmployee": "Are you sure you want to block the employee?",
   "": ""
 }

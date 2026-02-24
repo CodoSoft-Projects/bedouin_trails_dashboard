@@ -8,6 +8,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/employees_provider.dart';
 
 class BlockEmployeeButton extends StatelessWidget {
@@ -19,15 +20,21 @@ class BlockEmployeeButton extends StatelessWidget {
     bool isActive = prov.selectedEmployee?.status == true;
 
     return CustomButton(
-      text: !isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
+      text: !isActive
+          ? S.of(context).unblockEmployee
+          : S.of(context).blockEmployee,
       color: !isActive ? AppColors.cyanGreen : AppColors.red,
       onPressed: () {
         DialogHelper.showQuestionDialog(
           context,
-          title: !isActive ? 'الغاء حظر الموظف' : 'حظر الموظف',
+          btnOkText: S.of(context).yes,
+          btnCancelText: S.of(context).no,
+          title: !isActive
+              ? S.of(context).unblockEmployee
+              : S.of(context).blockEmployee,
           desc: !isActive
-              ? 'هل انت متاكد من الغاء حظر الموظف ؟'
-              : 'هل انت متاكد من حظر الموظف ؟',
+              ? S.of(context).confirmUnblockEmployee
+              : S.of(context).confirmBlockEmployee,
           onCancel: () {},
           onOk: () {
             _toggleAccount(context, prov: prov);

@@ -16,6 +16,8 @@ import '../../../../../core/widgets/custom_name_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../../core/widgets/labeled_checkbox.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../data/enums/filter_employee_type.dart';
 import '../../manager/employees_provider.dart';
 
 class EmployeeDataForm extends StatelessWidget {
@@ -45,7 +47,7 @@ class EmployeeDataForm extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CustomNameField(
-                          labelText: 'الإسم الأول',
+                          labelText: S.of(context).firstName,
                           controller: canEdit
                               ? prov.fnameController
                               : TextEditingController(
@@ -56,7 +58,7 @@ class EmployeeDataForm extends StatelessWidget {
                       const SizedBox(width: 16),
                       Expanded(
                         child: CustomNameField(
-                          labelText: 'الإسم الثاني',
+                          labelText: S.of(context).lastName,
                           controller: canEdit
                               ? prov.lnameController
                               : TextEditingController(
@@ -68,7 +70,7 @@ class EmployeeDataForm extends StatelessWidget {
                   ),
 
                   CustomEmailField(
-                    labelText: 'البريد الإلكتروني',
+                    labelText: S.of(context).email,
                     controller: canEdit
                         ? prov.emailController
                         : TextEditingController(
@@ -77,7 +79,7 @@ class EmployeeDataForm extends StatelessWidget {
                   ),
 
                   CustomPhoneTextField(
-                    labelText: 'رقم الهاتف',
+                    labelText: S.of(context).mobileNumber,
                     controller: canEdit
                         ? prov.phoneController
                         : TextEditingController(
@@ -93,7 +95,7 @@ class EmployeeDataForm extends StatelessWidget {
                   if (canEdit) ...[
                     const SizedBox(height: 16),
                     CustomButton(
-                      text: 'حفظ التعديلات',
+                      text: S.of(context).saveChanges,
                       horizontalPadding: 75,
                       color: AppColors.sandyBrown,
                       onPressed: () async {
@@ -199,7 +201,7 @@ class _Permissions extends StatelessWidget {
           Row(
             children: [
               Text(
-                'الدور الوظيفي',
+                S.of(context).jobRole,
                 style: AppTextStyles.medium18(
                   context,
                 ).copyWith(color: AppColors.blue),
@@ -208,35 +210,35 @@ class _Permissions extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           LabeledCheckbox(
-            labelText: 'إدارة الرحلات السياحية',
+            labelText: FilterEmployeeType.manageTrips.label(context),
             value: prov.permissions.manageTrips,
             onChanged: (value) {
               prov.onChangePermission(manageTrips: value);
             },
           ),
           LabeledCheckbox(
-            labelText: 'إدارة الرحلات الموقوفة',
+            labelText: FilterEmployeeType.manageSuspendedTrips.label(context),
             value: prov.permissions.manageSuspendedTrips,
             onChanged: (value) {
               prov.onChangePermission(manageSuspendedTrips: value);
             },
           ),
           LabeledCheckbox(
-            labelText: 'إدارة المستخدمين',
+            labelText: FilterEmployeeType.manageUsers.label(context),
             value: prov.permissions.manageUsers,
             onChanged: (value) {
               prov.onChangePermission(manageUsers: value);
             },
           ),
           LabeledCheckbox(
-            labelText: 'إدارة طلبات الحجز',
+            labelText: FilterEmployeeType.manageBookingRequests.label(context),
             value: prov.permissions.manageBookingRequests,
             onChanged: (value) {
               prov.onChangePermission(manageBookingRequests: value);
             },
           ),
           LabeledCheckbox(
-            labelText: 'إدارة الموقع الإلكتروني',
+            labelText: FilterEmployeeType.manageWebsite.label(context),
             value: prov.permissions.manageWebsite,
             onChanged: (value) {
               prov.onChangePermission(manageWebsite: value);

@@ -1925,6 +1925,61 @@ class S {
     );
   }
 
+  /// `Job Role`
+  String get jobRole {
+    return Intl.message('Job Role', name: 'jobRole', desc: '', args: []);
+  }
+
+  /// `Image is required`
+  String get imageRequired {
+    return Intl.message(
+      'Image is required',
+      name: 'imageRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unblock Employee`
+  String get unblockEmployee {
+    return Intl.message(
+      'Unblock Employee',
+      name: 'unblockEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Block Employee`
+  String get blockEmployee {
+    return Intl.message(
+      'Block Employee',
+      name: 'blockEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to unblock the employee?`
+  String get confirmUnblockEmployee {
+    return Intl.message(
+      'Are you sure you want to unblock the employee?',
+      name: 'confirmUnblockEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to block the employee?`
+  String get confirmBlockEmployee {
+    return Intl.message(
+      'Are you sure you want to block the employee?',
+      name: 'confirmBlockEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

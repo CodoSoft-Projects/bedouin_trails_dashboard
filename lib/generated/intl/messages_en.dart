@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "articleContent": MessageLookupByLibrary.simpleMessage("Article Content"),
     "articleTitle": MessageLookupByLibrary.simpleMessage("Article Title"),
     "articlesSection": MessageLookupByLibrary.simpleMessage("Articles Section"),
+    "blockEmployee": MessageLookupByLibrary.simpleMessage("Block Employee"),
     "booking": MessageLookupByLibrary.simpleMessage("Booking"),
     "bookingDetails": MessageLookupByLibrary.simpleMessage("Booking Details"),
     "bookingRequests": MessageLookupByLibrary.simpleMessage("Booking Requests"),
@@ -80,6 +81,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "completePayment": MessageLookupByLibrary.simpleMessage("Complete Payment"),
     "confirmActivateTrip": MessageLookupByLibrary.simpleMessage(
       "Do you want to activate the trip program",
+    ),
+    "confirmBlockEmployee": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to block the employee?",
     ),
     "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete this advertisement?",
@@ -111,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
       "Do you want to stop the trip program",
+    ),
+    "confirmUnblockEmployee": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to unblock the employee?",
     ),
     "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
     "controlPanel": MessageLookupByLibrary.simpleMessage("Control Panel"),
@@ -168,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "image": MessageLookupByLibrary.simpleMessage("Image"),
+    "imageRequired": MessageLookupByLibrary.simpleMessage("Image is required"),
     "inactiveAccounts": MessageLookupByLibrary.simpleMessage(
       "Inactive Accounts",
     ),
@@ -178,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "Invalid verification code. Please try again.",
     ),
+    "jobRole": MessageLookupByLibrary.simpleMessage("Job Role"),
     "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "login_note": MessageLookupByLibrary.simpleMessage(
@@ -368,6 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tripTitle": MessageLookupByLibrary.simpleMessage("Trip Title"),
     "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "unblockEmployee": MessageLookupByLibrary.simpleMessage("Unblock Employee"),
     "updateTripDetails": MessageLookupByLibrary.simpleMessage(
       "Update Trip Details",
     ),

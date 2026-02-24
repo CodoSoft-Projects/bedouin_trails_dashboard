@@ -225,5 +225,11 @@
   "addNewEmployee": "اضافة موظف جديد",
   "employeeData": "بيانات الموظف",
   "editEmployeeData": "تعديل بيانات الموظف",
+  "jobRole": "Job Role",
+  "imageRequired": "الصورة مطلوبة",
+  "unblockEmployee": "الغاء حظر الموظف",
+  "blockEmployee": "حظر الموظف",
+  "confirmUnblockEmployee": "هل انت متاكد من الغاء حظر الموظف ؟",
+  "confirmBlockEmployee": "هل انت متاكد من حظر الموظف ؟",
   "": ""
 }
