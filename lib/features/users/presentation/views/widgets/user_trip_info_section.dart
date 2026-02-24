@@ -7,6 +7,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../trips/presentation/manager/trips_provider.dart';
 import '../../../../trips/presentation/views/widgets/trip_info_form.dart';
 import '../../../../trips/presentation/views/widgets/trip_program_section.dart';
@@ -41,7 +42,7 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
           Row(
             children: [
               Text(
-                'بيانات الرحلة :',
+                S.of(context).tripData,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaFontFamily),
@@ -54,7 +55,7 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
                 child: Row(
                   children: [
                     CustomButton(
-                      text: 'بيانات الرحلة',
+                      text: S.of(context).tripData,
                       color: sectionType == _SectionType.info
                           ? AppColors.sandyBrown
                           : AppColors.whiteGrey,
@@ -65,7 +66,7 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
                     ),
 
                     CustomButton(
-                      text: 'برنامج الرحلة',
+                      text: S.of(context).tripProgram,
                       color: sectionType == _SectionType.program
                           ? AppColors.sandyBrown
                           : AppColors.whiteGrey,
@@ -76,7 +77,7 @@ class _UserTripInfoSectionState extends State<UserTripInfoSection> {
                     ),
 
                     CustomButton(
-                      text: 'تفاصيل الحجز',
+                      text: S.of(context).bookingDetails,
                       color: sectionType == _SectionType.bookingDetails
                           ? AppColors.sandyBrown
                           : AppColors.whiteGrey,

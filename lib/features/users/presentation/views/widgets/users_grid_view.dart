@@ -9,6 +9,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/widgets/api_error_widget.dart';
 import '../../../../../core/widgets/custom_person_card.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/users_provider.dart';
 import '../user_details_view.dart';
 
@@ -39,7 +40,7 @@ class UsersGridView extends StatelessWidget {
               : users.isEmpty
               ? EmptyGridWidget(
                   lottie: Assets.animationsEmptyGrid2,
-                  message: 'لا يوجد مستخدمين',
+                  message: S.of(context).noUsers,
                 )
               : Skeletonizer(
                   enabled: prov.checkGettingAllUser == null,

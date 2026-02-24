@@ -8,6 +8,7 @@ import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_name_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 
 class BookingDetailsSection extends StatelessWidget {
   const BookingDetailsSection({super.key, required this.trip});
@@ -31,7 +32,7 @@ class BookingDetailsSection extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomNameField(
-                        labelText: 'الإسم الأول',
+                        labelText: S.of(context).firstName,
                         controller: TextEditingController(
                           text: userOrder.firstName,
                         ),
@@ -40,7 +41,7 @@ class BookingDetailsSection extends StatelessWidget {
                     const SizedBox(width: 16),
                     Expanded(
                       child: CustomNameField(
-                        labelText: 'الإسم الثاني',
+                        labelText: S.of(context).lastName,
                         controller: TextEditingController(
                           text: userOrder.lastName,
                         ),
@@ -50,12 +51,12 @@ class BookingDetailsSection extends StatelessWidget {
                 ),
 
                 CustomEmailField(
-                  labelText: 'البريد الإلكتروني',
+                  labelText: S.of(context).email,
                   controller: TextEditingController(text: userOrder.email),
                 ),
 
                 CustomPhoneTextField(
-                  labelText: 'رقم الهاتف',
+                  labelText: S.of(context).phoneNumber,
                   controller: TextEditingController(text: userOrder.phone),
                 ),
 
@@ -63,7 +64,7 @@ class BookingDetailsSection extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'عدد الأطفال',
+                        labelText: S.of(context).numberOfChildren,
                         controller: TextEditingController(
                           text: userOrder.numberOfChildren.toString(),
                         ),
@@ -72,7 +73,7 @@ class BookingDetailsSection extends StatelessWidget {
                     const SizedBox(width: 16),
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'عدد البالغين',
+                        labelText: S.of(context).numberOfAdults,
                         controller: TextEditingController(
                           text: userOrder.numberOfAdults.toString(),
                         ),
@@ -85,7 +86,7 @@ class BookingDetailsSection extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'تاريخ تسجيل الرحلة',
+                        labelText: S.of(context).tripRegistrationDate,
                         prefixIcon: _Calender(),
                         controller: TextEditingController(
                           text: userOrder.startDate,
@@ -95,7 +96,7 @@ class BookingDetailsSection extends StatelessWidget {
                     const SizedBox(width: 16),
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'تاريخ المغادرة',
+                        labelText: S.of(context).departureDate,
                         prefixIcon: _Calender(),
                         controller: TextEditingController(
                           text: userOrder.endDate,
@@ -106,7 +107,7 @@ class BookingDetailsSection extends StatelessWidget {
                 ),
 
                 CustomTextFormField(
-                  labelText: 'ألاستفسار (الملاحظات)',
+                  labelText: S.of(context).inquiry,
                   lines: 5,
                   controller: TextEditingController(
                     text: userOrder.description,
@@ -118,7 +119,7 @@ class BookingDetailsSection extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'سعر الفرد',
+                        labelText: S.of(context).perPersonPrice,
                         controller: TextEditingController(
                           text: trip.price.toString(),
                         ),
@@ -131,7 +132,7 @@ class BookingDetailsSection extends StatelessWidget {
 
                     Expanded(
                       child: CustomTextFormField(
-                        labelText: 'السعر الإجمالي',
+                        labelText: S.of(context).totalPrice,
                         controller: TextEditingController(
                           text: trip.price.toString(),
                         ),
