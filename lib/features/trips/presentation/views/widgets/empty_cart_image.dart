@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 
 class EmptyCartImage extends StatelessWidget {
   const EmptyCartImage({super.key});
@@ -21,7 +22,7 @@ class EmptyCartImage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'قم بإضافة صورة البطاقة',
+            S.of(context).addCardImage,
             style: AppTextStyles.regular10(context),
           ),
           // const Spacer(),

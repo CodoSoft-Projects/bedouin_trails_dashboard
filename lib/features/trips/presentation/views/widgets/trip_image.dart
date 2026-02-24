@@ -9,6 +9,7 @@ import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/gallery_model.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 
 class TripImage extends StatelessWidget {
@@ -44,8 +45,8 @@ class TripImage extends StatelessWidget {
                 onPressed: () {
                   DialogHelper.showQuestionDialog(
                     context,
-                    title: 'تاكيد',
-                    desc: 'هل تريد حذف الصورة',
+                    title: S.of(context).confirmation,
+                    desc: S.of(context).deleteImage,
                     onCancel: () {},
                     onOk: () {
                       _remove(context);

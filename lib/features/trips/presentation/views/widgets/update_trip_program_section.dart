@@ -14,6 +14,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 import 'add_new_trip_program_cart_dialog.dart';
 import 'no_trip_day_added.dart';
@@ -61,8 +62,8 @@ class UpdateTripProgramSection extends StatelessWidget {
                 onPressed: () {
                   DialogHelper.showQuestionDialog(
                     context,
-                    title: 'حذف اليوم',
-                    desc: 'هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟',
+                    title: S.of(context).deleteDay,
+                    desc: S.of(context).confirmDeleteDay,
                     onOk: () => _deleteDay(context, id: day!.id, prov: prov),
                     onCancel: () {},
                   );
@@ -76,7 +77,7 @@ class UpdateTripProgramSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                'بطاقات البرنامج :',
+                S.of(context).programCards,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaLightFontFamily),
@@ -84,7 +85,7 @@ class UpdateTripProgramSection extends StatelessWidget {
               const Spacer(),
 
               CustomButton(
-                text: 'إضافة بطاقة',
+                text: S.of(context).addCard,
                 color: AppColors.sandyBrown,
                 onPressed: () {
                   context.read<TripsProvider>().clearCartControllers();

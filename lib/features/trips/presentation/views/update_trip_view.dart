@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../core/models/trip/trip_model.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/trips_provider.dart';
 import 'widgets/update_trip_images_section.dart';
 import 'widgets/update_trip_info_section.dart';
@@ -19,7 +20,7 @@ class UpdateTripView extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(
         context,
-        title: 'تعديل تفاصيل الرحلة',
+        title: S.of(context).updateTripDetails,
         showBack: true,
       ),
       body: CustomScrollView(

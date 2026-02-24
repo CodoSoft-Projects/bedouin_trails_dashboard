@@ -1154,6 +1154,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Update Trip Details`
+  String get updateTripDetails {
+    return Intl.message(
+      'Update Trip Details',
+      name: 'updateTripDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Image`
+  String get addImage {
+    return Intl.message('Add Image', name: 'addImage', desc: '', args: []);
+  }
+
+  /// `Delete Day`
+  String get deleteDay {
+    return Intl.message('Delete Day', name: 'deleteDay', desc: '', args: []);
+  }
+
+  /// `Do you want to delete this day and all its cards from the trip ?`
+  String get confirmDeleteDay {
+    return Intl.message(
+      'Do you want to delete this day and all its cards from the trip ?',
+      name: 'confirmDeleteDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Card`
+  String get addCard {
+    return Intl.message('Add Card', name: 'addCard', desc: '', args: []);
+  }
+
+  /// `Title`
+  String get title {
+    return Intl.message('Title', name: 'title', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
+  }
+
+  /// `Must add image for the card`
+  String get mustAddImageCard {
+    return Intl.message(
+      'Must add image for the card',
+      name: 'mustAddImageCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Images for the Trip`
+  String get addImagesTitle {
+    return Intl.message(
+      'Add Images for the Trip',
+      name: 'addImagesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
+  /// `Delete Image`
+  String get deleteImage {
+    return Intl.message(
+      'Delete Image',
+      name: 'deleteImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Card Image`
+  String get addCardImage {
+    return Intl.message(
+      'Add Card Image',
+      name: 'addCardImage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

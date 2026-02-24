@@ -33,6 +33,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("Active Employee"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("Active Trips"),
+    "addCard": MessageLookupByLibrary.simpleMessage("Add Card"),
+    "addCardImage": MessageLookupByLibrary.simpleMessage("Add Card Image"),
+    "addImage": MessageLookupByLibrary.simpleMessage("Add Image"),
+    "addImagesTitle": MessageLookupByLibrary.simpleMessage(
+      "Add Images for the Trip",
+    ),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("Add New Trip"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
@@ -64,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmDeleteCard": MessageLookupByLibrary.simpleMessage(
       "Do you want to delete the card",
     ),
+    "confirmDeleteDay": MessageLookupByLibrary.simpleMessage(
+      "Do you want to delete this day and all its cards from the trip ?",
+    ),
     "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
       "Do you want to stop the trip program",
     ),
@@ -71,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "controlPanel": MessageLookupByLibrary.simpleMessage("Control Panel"),
     "dayNumber": MessageLookupByLibrary.simpleMessage("Day"),
     "days": m1,
+    "deleteDay": MessageLookupByLibrary.simpleMessage("Delete Day"),
+    "deleteImage": MessageLookupByLibrary.simpleMessage("Delete Image"),
+    "description": MessageLookupByLibrary.simpleMessage("Description"),
     "editTripData": MessageLookupByLibrary.simpleMessage("Edit Trip Data"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
@@ -107,6 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "Do you want to logout from the dashboard?",
+    ),
+    "mustAddImageCard": MessageLookupByLibrary.simpleMessage(
+      "Must add image for the card",
     ),
     "mustAddImages": MessageLookupByLibrary.simpleMessage(
       "Must add images for the trip",
@@ -167,6 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Number of Articles",
     ),
     "numberOfUsers": MessageLookupByLibrary.simpleMessage("Number of Users"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "order_accepted": MessageLookupByLibrary.simpleMessage(
       "Completed Bookings",
     ),
@@ -208,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "siteManagement": MessageLookupByLibrary.simpleMessage("Site Management"),
     "stopTrip": MessageLookupByLibrary.simpleMessage("Stop Trip Program"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("Suspended Trips"),
+    "title": MessageLookupByLibrary.simpleMessage("Title"),
     "todayNewBookings": MessageLookupByLibrary.simpleMessage(
       "Today\'s New Bookings",
     ),
@@ -231,6 +248,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "tripTitle": MessageLookupByLibrary.simpleMessage("Trip Title"),
     "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "updateTripDetails": MessageLookupByLibrary.simpleMessage(
+      "Update Trip Details",
+    ),
     "uploadImagesHint": MessageLookupByLibrary.simpleMessage(
       "Add images to the trip",
     ),

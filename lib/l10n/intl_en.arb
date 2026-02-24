@@ -138,5 +138,17 @@
   "tripDays": "Trip Days :",
   "tripLabel": "Trip :",
   "noDaysTitle": "No Trip Days Added Yet",
-  "noTripDaysMessage": "Add trip days to complete the trip data"
+  "noTripDaysMessage": "Add trip days to complete the trip data",
+  "updateTripDetails": "Update Trip Details",
+  "addImage": "Add Image",
+  "deleteDay": "Delete Day",
+  "confirmDeleteDay": "Do you want to delete this day and all its cards from the trip ?",
+  "addCard": "Add Card",
+  "title": "Title",
+  "description": "Description",
+  "mustAddImageCard": "Must add image for the card",
+  "addImagesTitle": "Add Images for the Trip",
+  "ok": "OK",
+  "deleteImage": "Delete Image",
+  "addCardImage": "Add Card Image"
 }

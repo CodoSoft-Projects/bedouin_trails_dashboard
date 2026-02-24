@@ -138,5 +138,17 @@
   "tripDays": "أيام الرحلة :",
   "tripLabel": "رحلة :",
   "noDaysTitle": "لم يتم إضافة أيام الرحلة بعد",
-  "noTripDaysMessage": "قم بإضافة أيام الرحلة لإكمال بيانات الرحلة"
+  "noTripDaysMessage": "قم بإضافة أيام الرحلة لإكمال بيانات الرحلة",
+  "updateTripDetails": "تعديل تفاصيل الرحلة",
+  "addImage": "إضافة صورة",
+  "deleteDay": "حذف اليوم",
+  "confirmDeleteDay": "هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟",
+  "addCard": "إضافة بطاقة",
+  "title": "العنوان",
+  "description": "الوصف",
+  "mustAddImageCard": "يجب اضافة صورة للبطاقة",
+  "addImagesTitle": "إضافة صور للرحلة",
+  "ok": "موافق",
+  "deleteImage": "حذف الصورة",
+  "addCardImage": "قم بإضافة صورة البطاقة"
 }

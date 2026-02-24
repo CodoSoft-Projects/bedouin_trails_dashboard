@@ -20,7 +20,7 @@ Future<dynamic> addImagesForTripDialog(BuildContext context) {
     builder: (context) {
       return CustomDialog(
         maxWidth: 600,
-        title: 'إضافة صور للرحلة',
+        title: S.of(context).addImagesTitle,
         content: _Content(),
       );
     },
@@ -39,7 +39,7 @@ class _Content extends StatelessWidget {
         UploadingTripImagesBox(),
         const SizedBox(),
         CustomButton(
-          text: 'موافق',
+          text: S.of(context).ok,
           horizontalPadding: 42,
           color: AppColors.sandyBrown,
           onPressed: () async {

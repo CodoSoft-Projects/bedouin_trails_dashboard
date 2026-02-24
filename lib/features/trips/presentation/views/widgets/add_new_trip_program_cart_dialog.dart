@@ -39,7 +39,7 @@ Future<dynamic> addNewTripProgramCartDialog(
                   constraints: const BoxConstraints(maxWidth: 160),
                   child: CustomInfoField(
                     color: AppColors.whiteGrey,
-                    title: 'اليوم',
+                    title: S.of(context).dayNumber,
                     subtitle: day.dayNumber.toString(),
                   ),
                 ),
@@ -47,7 +47,7 @@ Future<dynamic> addNewTripProgramCartDialog(
                   constraints: const BoxConstraints(maxWidth: 160),
                   child: CustomInfoField(
                     color: AppColors.whiteGrey,
-                    title: 'البطاقة',
+                    title: S.of(context).card,
                     subtitle: nextCardIdx.toString(),
                   ),
                 ),
@@ -130,26 +130,23 @@ class NewCartForm extends StatelessWidget {
       child: Column(
         spacing: 8,
         children: [
-          const _BlueLable(lable: 'عنوان البطاقة :'),
+          _BlueLable(lable: S.of(context).cardTitle),
           CustomTextFormField(
-            hintText: 'العنوان',
+            hintText: S.of(context).title,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.cartTitleController,
           ),
-
-          const _BlueLable(lable: 'وصف برنامج البطاقة :'),
+          _BlueLable(lable: S.of(context).cardDescription),
           CustomTextFormField(
-            hintText: 'الوصف',
+            hintText: S.of(context).description,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.cartDescriptionController,
             lines: 8,
           ),
 
           const SizedBox(height: 16),
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             horizontalPadding: 75,
             color: AppColors.sandyBrown,
             onPressed: () async {
@@ -158,7 +155,7 @@ class NewCartForm extends StatelessWidget {
                   DialogHelper.showErrorDialog(
                     context,
                     title: S.of(context).error,
-                    desc: "يجب اضافة صورة للبطاقة",
+                    desc: S.of(context).mustAddImageCard,
                   );
                   return;
                 }

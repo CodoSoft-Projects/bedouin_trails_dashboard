@@ -7,6 +7,7 @@ import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../../../../generated/l10n.dart';
 import 'add_images_for_trip_dialog.dart';
 import 'trip_images_grid_view.dart';
 
@@ -23,7 +24,7 @@ class UpdateTripImagesSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                'صور الرحلة :',
+                S.of(context).tripImages,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaFontFamily),
@@ -31,7 +32,7 @@ class UpdateTripImagesSection extends StatelessWidget {
               const Spacer(),
 
               CustomButton(
-                text: 'إضافة صورة',
+                text: S.of(context).addImage,
                 color: AppColors.sandyBrown,
                 onPressed: () {
                   addImagesForTripDialog(context);
@@ -41,10 +42,7 @@ class UpdateTripImagesSection extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           if (trip.galleries.isEmpty)
-            EmptyGridWidget(
-              message:
-                  'لا توجد صور مضافة حاليًا 📷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل',
-            ),
+            EmptyGridWidget(message: S.of(context).noImagesMessage),
           if (trip.galleries.isNotEmpty)
             TripImagesGridView(canEdit: true, galleries: trip.galleries),
         ],

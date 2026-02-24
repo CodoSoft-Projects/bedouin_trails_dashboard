@@ -49,7 +49,7 @@ Future<dynamic> updateTripProgramCartDialog(
                   constraints: const BoxConstraints(maxWidth: 160),
                   child: CustomInfoField(
                     color: AppColors.whiteGrey,
-                    title: 'البطاقة',
+                    title: S.of(context).card,
                     subtitle: cartIdx.toString(),
                   ),
                 ),
@@ -135,26 +135,23 @@ class UpdateCartForm extends StatelessWidget {
       child: Column(
         spacing: 8,
         children: [
-          const _BlueLable(lable: 'عنوان البطاقة :'),
+          _BlueLable(lable: S.of(context).cardTitle),
           CustomTextFormField(
-            hintText: 'العنوان',
+            hintText: S.of(context).title,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.cartTitleController,
           ),
-
-          const _BlueLable(lable: 'وصف برنامج البطاقة :'),
+          _BlueLable(lable: S.of(context).cardDescription),
           CustomTextFormField(
-            hintText: 'الوصف',
+            hintText: S.of(context).description,
             lines: 8,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.cartDescriptionController,
           ),
 
           const SizedBox(height: 16),
           CustomButton(
-            text: 'حفظ',
+            text: S.of(context).save,
             horizontalPadding: 75,
             color: AppColors.sandyBrown,
             onPressed: () async {

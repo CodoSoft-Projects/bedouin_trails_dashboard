@@ -31,6 +31,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "activateTrip": MessageLookupByLibrary.simpleMessage("تفعيل برنامج الرحلة"),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("موظف نشط"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
+    "addCard": MessageLookupByLibrary.simpleMessage("إضافة بطاقة"),
+    "addCardImage": MessageLookupByLibrary.simpleMessage(
+      "قم بإضافة صورة البطاقة",
+    ),
+    "addImage": MessageLookupByLibrary.simpleMessage("إضافة صورة"),
+    "addImagesTitle": MessageLookupByLibrary.simpleMessage("إضافة صور للرحلة"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("اضافة رحلة جديدة"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
@@ -64,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirmDeleteCard": MessageLookupByLibrary.simpleMessage(
       "هل تريد حذف البطاقة",
     ),
+    "confirmDeleteDay": MessageLookupByLibrary.simpleMessage(
+      "هل تريد حذف هذا يوم وجميع بطاقاته من الرحلة ؟",
+    ),
     "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
       "هل تريد ايقاف برنامج الرحلة",
     ),
@@ -71,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "controlPanel": MessageLookupByLibrary.simpleMessage("لوحة التحكم"),
     "dayNumber": MessageLookupByLibrary.simpleMessage("اليوم"),
     "days": m1,
+    "deleteDay": MessageLookupByLibrary.simpleMessage("حذف اليوم"),
+    "deleteImage": MessageLookupByLibrary.simpleMessage("حذف الصورة"),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "editTripData": MessageLookupByLibrary.simpleMessage("تعديل بيانات الرحلة"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
@@ -107,6 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
+    ),
+    "mustAddImageCard": MessageLookupByLibrary.simpleMessage(
+      "يجب اضافة صورة للبطاقة",
     ),
     "mustAddImages": MessageLookupByLibrary.simpleMessage(
       "يجب إضافة صور للرحلة",
@@ -169,6 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "عدد المقالات في الموقع",
     ),
     "numberOfUsers": MessageLookupByLibrary.simpleMessage("عدد المستخدمين"),
+    "ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
     "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
     "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
@@ -206,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "siteManagement": MessageLookupByLibrary.simpleMessage("إدارة الموقع"),
     "stopTrip": MessageLookupByLibrary.simpleMessage("إيقاف برنامج الرحلة"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("الرحلات الموقوفة"),
+    "title": MessageLookupByLibrary.simpleMessage("العنوان"),
     "todayNewBookings": MessageLookupByLibrary.simpleMessage(
       "حجوزات جديدة لليوم",
     ),
@@ -225,6 +242,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "tripTitle": MessageLookupByLibrary.simpleMessage("عنوان الرحلة"),
     "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "updateTripDetails": MessageLookupByLibrary.simpleMessage(
+      "تعديل تفاصيل الرحلة",
+    ),
     "uploadImagesHint": MessageLookupByLibrary.simpleMessage(
       "قم بإضافة صور للرحلة",
     ),
