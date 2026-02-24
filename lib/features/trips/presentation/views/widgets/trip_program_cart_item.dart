@@ -13,6 +13,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 import 'update_trip_program_cart_dialog.dart';
 
@@ -43,7 +44,7 @@ class TripProgramCartItem extends StatelessWidget {
                   children: [
                     CustomWhiteBox(
                       child: Text(
-                        'البطاقة $cardNumber',
+                        '${S.of(context).card} $cardNumber',
                         style: AppTextStyles.regular16(context),
                       ),
                     ),
@@ -71,8 +72,8 @@ class TripProgramCartItem extends StatelessWidget {
                         onPressed: () {
                           DialogHelper.showQuestionDialog(
                             context,
-                            title: 'تاكيد',
-                            desc: 'هل تريد حذف البطاقة',
+                            title: S.of(context).confirmation,
+                            desc: S.of(context).confirmDeleteCard,
                             onCancel: () {},
                             onOk: () {
                               _deleteCart(context);
@@ -135,9 +136,9 @@ class _CartInfo extends StatelessWidget {
     return Column(
       spacing: 16,
       children: [
-        _CartInfoItem(title: 'عنوان البطاقة :', subtitle: cartItem.title),
+        _CartInfoItem(title: S.of(context).cardTitle, subtitle: cartItem.title),
         _CartInfoItem(
-          title: 'وصف برنامج البطاقة :',
+          title: S.of(context).cardDescription,
           subtitle: cartItem.description,
         ),
       ],

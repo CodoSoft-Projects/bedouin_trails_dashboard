@@ -5,6 +5,7 @@ import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/functions/toggle_trip_status.dart';
 
 class SuspendedTripDetailsViewHeader extends StatelessWidget {
@@ -43,13 +44,13 @@ class SuspendedTripDetailsViewHeader extends StatelessWidget {
           // ),
           const Spacer(),
           CustomButton(
-            text: 'تفعيل برنامج الرحلة',
+            text: S.of(context).activateTrip,
             color: AppColors.cyanGreen,
             onPressed: () {
               DialogHelper.showQuestionDialog(
                 context,
-                title: 'تاكيد',
-                desc: 'هل تريد تفعيل برنامج الرحلة',
+                title: S.of(context).confirmation,
+                desc: S.of(context).confirmActivateTrip,
                 onOk: () {
                   toggleTripStatus(
                     context: context,

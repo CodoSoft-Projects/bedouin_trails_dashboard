@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "activateTrip": MessageLookupByLibrary.simpleMessage(
+      "Activate Trip Program",
+    ),
     "activeEmployee": MessageLookupByLibrary.simpleMessage("Active Employee"),
     "activeTrips": MessageLookupByLibrary.simpleMessage("Active Trips"),
     "addNewTrip": MessageLookupByLibrary.simpleMessage("Add New Trip"),
@@ -43,6 +46,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancellationRate": MessageLookupByLibrary.simpleMessage(
       "Cancellation Rate",
     ),
+    "card": MessageLookupByLibrary.simpleMessage("Card"),
+    "cardDescription": MessageLookupByLibrary.simpleMessage(
+      "Card Program Description :",
+    ),
+    "cardTitle": MessageLookupByLibrary.simpleMessage("Card Title :"),
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
       "The code has been sent to your email.",
@@ -50,8 +58,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "code_verified": MessageLookupByLibrary.simpleMessage(
       "The code has been verified successfully.",
     ),
+    "confirmActivateTrip": MessageLookupByLibrary.simpleMessage(
+      "Do you want to activate the trip program",
+    ),
+    "confirmDeleteCard": MessageLookupByLibrary.simpleMessage(
+      "Do you want to delete the card",
+    ),
+    "confirmStopTrip": MessageLookupByLibrary.simpleMessage(
+      "Do you want to stop the trip program",
+    ),
+    "confirmation": MessageLookupByLibrary.simpleMessage("Confirmation"),
     "controlPanel": MessageLookupByLibrary.simpleMessage("Control Panel"),
+    "dayNumber": MessageLookupByLibrary.simpleMessage("Day"),
     "days": m1,
+    "editTripData": MessageLookupByLibrary.simpleMessage("Edit Trip Data"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "Email not found. Please check the email address and try again.",
@@ -88,13 +108,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "Do you want to logout from the dashboard?",
     ),
+    "mustAddImages": MessageLookupByLibrary.simpleMessage(
+      "Must add images for the trip",
+    ),
     "newUsersGrowthRate": MessageLookupByLibrary.simpleMessage(
       "New Users Growth Rate",
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noDaysTitle": MessageLookupByLibrary.simpleMessage(
+      "No Trip Days Added Yet",
+    ),
     "noImagesMessage": MessageLookupByLibrary.simpleMessage(
       "No images added yet 📷\nAdd images to the trip to display them better to users",
+    ),
+    "noTripDaysMessage": MessageLookupByLibrary.simpleMessage(
+      "Add trip days to complete the trip data",
     ),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "You haven\'t added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
@@ -157,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Your password has been reset successfully. You can now log in using your new password.",
     ),
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+    "programCards": MessageLookupByLibrary.simpleMessage("Program Cards :"),
     "ratingRate": MessageLookupByLibrary.simpleMessage("Rating Rate"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
@@ -170,10 +200,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "reset_password_title": MessageLookupByLibrary.simpleMessage(
       "Reset Password",
     ),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "searchTrip": MessageLookupByLibrary.simpleMessage("Search for a trip"),
     "select_language": MessageLookupByLibrary.simpleMessage("Select Language"),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("Site Management"),
+    "stopTrip": MessageLookupByLibrary.simpleMessage("Stop Trip Program"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("Suspended Trips"),
     "todayNewBookings": MessageLookupByLibrary.simpleMessage(
       "Today\'s New Bookings",
@@ -182,11 +215,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "Too many requests. Please wait a moment before trying again.",
     ),
     "tripData": MessageLookupByLibrary.simpleMessage("Trip Data :"),
+    "tripDays": MessageLookupByLibrary.simpleMessage("Trip Days :"),
     "tripDetails": MessageLookupByLibrary.simpleMessage("Trip Details"),
     "tripDuration": MessageLookupByLibrary.simpleMessage(
       "Trip Duration (Days)",
     ),
+    "tripEndPoint": MessageLookupByLibrary.simpleMessage("Trip Ending Point"),
     "tripImages": MessageLookupByLibrary.simpleMessage("Trip Images :"),
+    "tripLabel": MessageLookupByLibrary.simpleMessage("Trip :"),
+    "tripPrice": MessageLookupByLibrary.simpleMessage("Trip Price"),
+    "tripProgram": MessageLookupByLibrary.simpleMessage("Trip Program"),
+    "tripStartPoint": MessageLookupByLibrary.simpleMessage(
+      "Trip Starting Point",
+    ),
+    "tripTitle": MessageLookupByLibrary.simpleMessage("Trip Title"),
     "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
     "uploadImagesHint": MessageLookupByLibrary.simpleMessage(

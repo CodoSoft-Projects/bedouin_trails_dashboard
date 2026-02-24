@@ -2,6 +2,7 @@ import 'package:bedouin_trails_dashboard/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class TripProgramDayItem extends StatelessWidget {
   const TripProgramDayItem({
@@ -40,7 +41,7 @@ class TripProgramDayItem extends StatelessWidget {
             Expanded(
               child: Center(
                 child: Text(
-                  "اليوم \n $dayNum",
+                  "${S.of(context).dayNumber} \n $dayNum",
                   textAlign: TextAlign.center,
                   style: AppTextStyles.regular24(context),
                 ),

@@ -15,7 +15,7 @@ class TripProgramSectionHeader extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "أيام الرحلة :",
+          S.of(context).tripDays,
           style: AppTextStyles.regular24(
             context,
           ).copyWith(fontFamily: Constants.vexaLightFontFamily),
@@ -25,7 +25,7 @@ class TripProgramSectionHeader extends StatelessWidget {
           width: 150,
           child: CustomInfoField(
             color: AppColors.babyBlue,
-            title: 'رحلة :',
+            title: S.of(context).tripLabel,
             subtitle: S.of(context).days(numberOfDays),
           ),
         ),

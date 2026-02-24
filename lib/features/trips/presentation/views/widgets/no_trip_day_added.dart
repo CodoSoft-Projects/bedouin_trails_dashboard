@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
+import '../../../../../generated/l10n.dart';
 
 class NoTripDayAdded extends StatelessWidget {
   const NoTripDayAdded({super.key});
@@ -43,7 +44,7 @@ class NoTripDayAdded extends StatelessWidget {
 
           /// Title
           Text(
-            'لم يتم إضافة أيام الرحلة بعد',
+            S.of(context).noDaysTitle,
             textAlign: TextAlign.center,
             style: AppTextStyles.semiBold18(
               context,
@@ -54,7 +55,7 @@ class NoTripDayAdded extends StatelessWidget {
 
           /// Subtitle
           Text(
-            'قم بإضافة أيام الرحلة لإكمال بيانات الرحلة',
+            S.of(context).noTripDaysMessage,
             textAlign: TextAlign.center,
             style: AppTextStyles.regular16(context).copyWith(
               color: AppColors.black2,

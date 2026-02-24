@@ -10,6 +10,7 @@ import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/trips_provider.dart';
 import '../update_trip_view.dart';
@@ -28,7 +29,7 @@ class NewTripInfoForm extends StatelessWidget {
           spacing: 12,
           children: [
             CustomTextFormField(
-              labelText: 'عنوان الرحلة',
+              labelText: S.of(context).tripTitle,
               validator: (value) => simpleValidation(context, value),
               controller: prov.tripNameController,
             ),
@@ -40,7 +41,7 @@ class NewTripInfoForm extends StatelessWidget {
             //   // controller: TextEditingController(text: 'متاح'),
             // ),
             CustomTextFormField(
-              labelText: 'سعر الرحلة',
+              labelText: S.of(context).tripPrice,
               validator: (value) => priceValidation(context, value),
               controller: prov.tripPriceController,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -48,20 +49,20 @@ class NewTripInfoForm extends StatelessWidget {
             ),
 
             CustomTextFormField(
-              labelText: 'نقطة بداية الرحلة',
+              labelText: S.of(context).tripStartPoint,
               validator: (value) => simpleValidation(context, value),
               controller: prov.tripFromController,
             ),
 
             CustomTextFormField(
-              labelText: 'نقطة نهاية الرحلة',
+              labelText: S.of(context).tripEndPoint,
               validator: (value) => simpleValidation(context, value),
 
               controller: prov.tripToController,
             ),
             const SizedBox(height: 24),
             CustomButton(
-              text: 'حفظ',
+              text: S.of(context).save,
               color: AppColors.sandyBrown,
               horizontalPadding: 42,
               onPressed: () async {
@@ -69,7 +70,7 @@ class NewTripInfoForm extends StatelessWidget {
                   if (prov.tripImages.isEmpty) {
                     AppMessage.errorBar(
                       context,
-                      message: 'يجب إضافة صور للرحلة',
+                      message: S.of(context).mustAddImages,
                     );
                     return;
                   }

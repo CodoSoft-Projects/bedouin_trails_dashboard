@@ -6,6 +6,7 @@ import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import 'trip_info_form.dart';
 import 'trip_program_section.dart';
 
@@ -34,7 +35,7 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
           Row(
             children: [
               Text(
-                'بيانات الرحلة :',
+                S.of(context).tripData,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaFontFamily),
@@ -47,7 +48,7 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
                 child: Row(
                   children: [
                     CustomButton(
-                      text: 'بيانات الرحلة',
+                      text: S.of(context).tripData,
                       color: showInfo
                           ? AppColors.sandyBrown
                           : AppColors.whiteGrey,
@@ -56,7 +57,7 @@ class _ShowTripInfoSectionState extends State<ShowTripInfoSection> {
                     ),
 
                     CustomButton(
-                      text: 'برنامج الرحلة',
+                      text: S.of(context).tripProgram,
                       color: !showInfo
                           ? AppColors.sandyBrown
                           : AppColors.whiteGrey,

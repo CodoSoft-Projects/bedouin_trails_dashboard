@@ -6,6 +6,7 @@ import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/functions/toggle_trip_status.dart';
 import '../../manager/trips_provider.dart';
 import '../update_trip_view.dart';
@@ -30,7 +31,7 @@ class TripDetailsViewHeader extends StatelessWidget {
         spacing: 8,
         children: [
           CustomButton(
-            text: 'تعديل بيانات الرحلة',
+            text: S.of(context).editTripData,
             color: AppColors.whiteGrey,
             textColor: AppColors.black,
             onPressed: () {
@@ -40,13 +41,13 @@ class TripDetailsViewHeader extends StatelessWidget {
           ),
           const Spacer(),
           CustomButton(
-            text: 'إيقاف برنامج الرحلة',
+            text: S.of(context).stopTrip,
             color: AppColors.red,
             onPressed: () {
               DialogHelper.showQuestionDialog(
                 context,
-                title: 'تاكيد',
-                desc: 'هل تريد ايقاف برنامج الرحلة',
+                title: S.of(context).confirmation,
+                desc: S.of(context).confirmStopTrip,
                 onOk: () {
                   toggleTripStatus(
                     context: context,

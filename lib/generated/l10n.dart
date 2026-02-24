@@ -954,6 +954,206 @@ class S {
   String get tripData {
     return Intl.message('Trip Data :', name: 'tripData', desc: '', args: []);
   }
+
+  /// `Trip Title`
+  String get tripTitle {
+    return Intl.message('Trip Title', name: 'tripTitle', desc: '', args: []);
+  }
+
+  /// `Trip Price`
+  String get tripPrice {
+    return Intl.message('Trip Price', name: 'tripPrice', desc: '', args: []);
+  }
+
+  /// `Trip Starting Point`
+  String get tripStartPoint {
+    return Intl.message(
+      'Trip Starting Point',
+      name: 'tripStartPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Ending Point`
+  String get tripEndPoint {
+    return Intl.message(
+      'Trip Ending Point',
+      name: 'tripEndPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Must add images for the trip`
+  String get mustAddImages {
+    return Intl.message(
+      'Must add images for the trip',
+      name: 'mustAddImages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Program`
+  String get tripProgram {
+    return Intl.message(
+      'Trip Program',
+      name: 'tripProgram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Changes`
+  String get saveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'saveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Trip Data`
+  String get editTripData {
+    return Intl.message(
+      'Edit Trip Data',
+      name: 'editTripData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stop Trip Program`
+  String get stopTrip {
+    return Intl.message(
+      'Stop Trip Program',
+      name: 'stopTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirmation`
+  String get confirmation {
+    return Intl.message(
+      'Confirmation',
+      name: 'confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to stop the trip program`
+  String get confirmStopTrip {
+    return Intl.message(
+      'Do you want to stop the trip program',
+      name: 'confirmStopTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activate Trip Program`
+  String get activateTrip {
+    return Intl.message(
+      'Activate Trip Program',
+      name: 'activateTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to activate the trip program`
+  String get confirmActivateTrip {
+    return Intl.message(
+      'Do you want to activate the trip program',
+      name: 'confirmActivateTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Program Cards :`
+  String get programCards {
+    return Intl.message(
+      'Program Cards :',
+      name: 'programCards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card`
+  String get card {
+    return Intl.message('Card', name: 'card', desc: '', args: []);
+  }
+
+  /// `Do you want to delete the card`
+  String get confirmDeleteCard {
+    return Intl.message(
+      'Do you want to delete the card',
+      name: 'confirmDeleteCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Card Title :`
+  String get cardTitle {
+    return Intl.message('Card Title :', name: 'cardTitle', desc: '', args: []);
+  }
+
+  /// `Card Program Description :`
+  String get cardDescription {
+    return Intl.message(
+      'Card Program Description :',
+      name: 'cardDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Day`
+  String get dayNumber {
+    return Intl.message('Day', name: 'dayNumber', desc: '', args: []);
+  }
+
+  /// `Trip Days :`
+  String get tripDays {
+    return Intl.message('Trip Days :', name: 'tripDays', desc: '', args: []);
+  }
+
+  /// `Trip :`
+  String get tripLabel {
+    return Intl.message('Trip :', name: 'tripLabel', desc: '', args: []);
+  }
+
+  /// `No Trip Days Added Yet`
+  String get noDaysTitle {
+    return Intl.message(
+      'No Trip Days Added Yet',
+      name: 'noDaysTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add trip days to complete the trip data`
+  String get noTripDaysMessage {
+    return Intl.message(
+      'Add trip days to complete the trip data',
+      name: 'noTripDaysMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

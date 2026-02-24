@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 import 'no_trip_day_added.dart';
 import 'trip_program_days_list_view.dart';
@@ -30,7 +31,7 @@ class TripProgramSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                'بطاقات البرنامج :',
+                S.of(context).programCards,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaLightFontFamily),

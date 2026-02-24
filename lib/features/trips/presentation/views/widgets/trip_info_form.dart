@@ -12,6 +12,7 @@ import '../../../../../core/models/trip/trip_model.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 
 class TripInfoForm extends StatelessWidget {
@@ -34,7 +35,7 @@ class TripInfoForm extends StatelessWidget {
               spacing: 12,
               children: [
                 CustomTextFormField(
-                  labelText: 'عنوان الرحلة',
+                  labelText: S.of(context).tripTitle,
                   validator: (value) => simpleValidation(context, value),
 
                   controller: canEdit
@@ -54,7 +55,7 @@ class TripInfoForm extends StatelessWidget {
                 //   controller: TextEditingController(text: trip.status.arName),
                 // ),
                 CustomTextFormField(
-                  labelText: 'سعر الرحلة',
+                  labelText: S.of(context).tripPrice,
                   controller: canEdit
                       ? prov.tripPriceController
                       : TextEditingController(text: trip.price.toString()),
@@ -67,7 +68,7 @@ class TripInfoForm extends StatelessWidget {
                 ),
 
                 CustomTextFormField(
-                  labelText: 'نقطة بداية الرحلة',
+                  labelText: S.of(context).tripStartPoint,
                   validator: (value) => simpleValidation(context, value),
 
                   controller: canEdit
@@ -76,7 +77,7 @@ class TripInfoForm extends StatelessWidget {
                 ),
 
                 CustomTextFormField(
-                  labelText: 'نقطة نهاية الرحلة',
+                  labelText: S.of(context).tripEndPoint,
                   validator: (value) => simpleValidation(context, value),
 
                   controller: canEdit
@@ -86,7 +87,7 @@ class TripInfoForm extends StatelessWidget {
                 const SizedBox(height: 24),
                 if (canEdit)
                   CustomButton(
-                    text: 'حفظ التعديلات',
+                    text: S.of(context).saveChanges,
                     color: AppColors.sandyBrown,
                     horizontalPadding: 42,
                     onPressed: () async {
