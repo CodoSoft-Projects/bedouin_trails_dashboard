@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/auth_provider.dart';
 import 'pinput_field.dart';
 
@@ -22,7 +23,7 @@ class VerifyOtpForm extends StatelessWidget {
           ),
           const Spacer(),
           CustomButton(
-            text: "التالي",
+            text: S.of(context).verify,
             horizontalPadding: 75,
             color: AppColors.black,
             onPressed: onTap,

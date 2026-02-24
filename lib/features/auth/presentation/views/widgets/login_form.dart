@@ -9,6 +9,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_password_field.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../../dashboard/dashboard_view.dart';
 import '../../manager/auth_provider.dart';
 import '../forget_password_view.dart';
@@ -24,12 +25,18 @@ class LoginForm extends StatelessWidget {
       child: Column(
         spacing: 12,
         children: [
-          CustomEmailField(controller: prov.emailController),
-          CustomPasswordField(controller: prov.passwordController),
+          CustomEmailField(
+            hintText: S.of(context).email,
+            controller: prov.emailController,
+          ),
+          CustomPasswordField(
+            hintText: S.of(context).password,
+            controller: prov.passwordController,
+          ),
 
           const SizedBox(height: 32),
           CustomTextButton(
-            title: 'هل نسيت كلمة المرور ؟!',
+            title: S.of(context).forgot_password,
             onTap: () {
               Navigator.pushNamed(context, ForgetPasswordView.routeName);
             },
@@ -37,7 +44,7 @@ class LoginForm extends StatelessWidget {
 
           const Spacer(),
           CustomButton(
-            text: "تسجيل الدخول",
+            text: S.of(context).login,
             color: AppColors.black,
             horizontalPadding: 75,
             onPressed: () async {
@@ -48,7 +55,10 @@ class LoginForm extends StatelessWidget {
 
                 if (prov.checkLogin == true) {
                   Navigator.pushNamed(context, DashboardView.routeName);
-                  AppMessage.successBar(context, message: prov.message);
+                  AppMessage.successBar(
+                    context,
+                    message: S.of(context).code_sent,
+                  );
                 } else if (prov.checkLogin == false) {
                   AppMessage.errorBar(context, message: prov.message);
                 }

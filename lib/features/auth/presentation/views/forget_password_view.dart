@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/helpers/app_message.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/auth_provider.dart';
 import 'widgets/forget_password_view_body.dart';
 import 'widgets/reset_password_view_body.dart';
@@ -76,7 +77,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
 
   Future<void> verifyOTP(AuthProvider prov) async {
     if (prov.otpController.text.length != 6) {
-      AppMessage.errorBar(context, message: 'ادخل رمز التحقق');
+      AppMessage.errorBar(context, message: S.of(context).invalid_code);
       return;
     }
 

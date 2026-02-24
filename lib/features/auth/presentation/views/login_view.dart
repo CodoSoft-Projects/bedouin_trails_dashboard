@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/assets.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/auth_provider.dart';
 import 'widgets/custom_auth_view.dart';
 import 'widgets/login_form.dart';
@@ -22,11 +23,9 @@ class LoginView extends StatelessWidget {
               image: Assets.imagesLoginImage,
               showBackIcon: false,
               showHand: true,
-              title: 'أهلا بك .. جاهز للمغامرة',
-              subtitle:
-                  'سجّل دخولك علشان تستعرض رحلات السفاري، تحجز مغامرتك، وتدير حجوزاتك بكل سهولة.',
-              note:
-                  'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
+              title: S.of(context).login_title,
+              subtitle: S.of(context).login_subtitle,
+              note: S.of(context).login_note,
               form: LoginForm(),
             ),
           );

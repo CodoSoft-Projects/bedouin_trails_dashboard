@@ -8,7 +8,7 @@ import 'custom_text_form_field.dart';
 class CustomPasswordField extends StatefulWidget {
   const CustomPasswordField({
     super.key,
-    this.hintText = 'كلمه المرور',
+    this.hintText = '',
     this.controller,
     this.labelText = '',
   });

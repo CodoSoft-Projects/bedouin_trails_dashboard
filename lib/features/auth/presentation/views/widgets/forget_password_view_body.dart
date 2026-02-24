@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/auth_provider.dart';
 import 'custom_auth_view.dart';
 import 'forget_password_form.dart';
@@ -17,10 +18,9 @@ class ForgetPasswordViewBody extends StatelessWidget {
       isLoading: context.watch<AuthProvider>().checkForgetPassword == null,
       showBackIcon: true,
       showHand: false,
-      title: 'إعادة تعيين كلمة المرور',
-      subtitle: 'أدخل البيانات المطلوبة لإعادة تعيين كلمة المرور',
-      note:
-          'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
+      title: S.of(context).forget_password_title,
+      subtitle: S.of(context).forget_password_subtitle,
+      note: S.of(context).forget_password_note,
       form: ForgetPasswordForm(onTap: onTap),
     );
   }

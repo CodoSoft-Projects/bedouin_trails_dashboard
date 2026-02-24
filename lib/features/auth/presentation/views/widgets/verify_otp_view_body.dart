@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/auth_provider.dart';
 import 'custom_auth_view.dart';
 import 'verify_otp_form.dart';
@@ -17,10 +18,9 @@ class VerifyOtpViewBody extends StatelessWidget {
       isLoading: context.watch<AuthProvider>().checkVerifyOTP == null,
       showBackIcon: true,
       showHand: false,
-      title: 'إعادة تعيين كلمة المرور',
-      subtitle: 'أدخل رقم التأكيدالذي تم إرساله عبر لإيميل',
-      note:
-          'سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية',
+      title: S.of(context).verify_email_title,
+      subtitle: S.of(context).verify_email_subtitle,
+      note: S.of(context).verify_email_note,
       form: VerifyOtpForm(onTap: onTap),
     );
   }

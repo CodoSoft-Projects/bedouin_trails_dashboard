@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/auth_provider.dart';
 
 class ForgetPasswordForm extends StatelessWidget {
@@ -18,10 +19,13 @@ class ForgetPasswordForm extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 32),
-          CustomEmailField(controller: prov.forgetEmailController),
+          CustomEmailField(
+            hintText: S.of(context).email,
+            controller: prov.forgetEmailController,
+          ),
           const Spacer(),
           CustomButton(
-            text: "التالي",
+            text: S.of(context).send,
             horizontalPadding: 75,
             color: AppColors.black,
             onPressed: onTap,

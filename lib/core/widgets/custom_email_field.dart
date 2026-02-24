@@ -8,7 +8,7 @@ import 'custom_text_form_field.dart';
 class CustomEmailField extends StatefulWidget {
   const CustomEmailField({
     super.key,
-    this.hintText = 'الإيميل',
+    this.hintText = '',
     this.controller,
     this.labelText = '',
   });

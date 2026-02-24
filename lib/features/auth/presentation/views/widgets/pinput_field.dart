@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../generated/l10n.dart';
 
 class PinputField extends StatelessWidget {
   final TextEditingController? controller;
@@ -62,7 +63,7 @@ class PinputField extends StatelessWidget {
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       validator: (value) {
         if (value == null || value.isEmpty || value.length < length) {
-          return "ادخل الرمز بالكامل.";
+          return S.of(context).invalid_code;
         }
         return null;
       },
