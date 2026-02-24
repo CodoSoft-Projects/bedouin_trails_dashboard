@@ -852,6 +852,41 @@ class S {
       args: [],
     );
   }
+
+  /// `Booking`
+  String get booking {
+    return Intl.message('Booking', name: 'booking', desc: '', args: []);
+  }
+
+  /// `Active Employee`
+  String get activeEmployee {
+    return Intl.message(
+      'Active Employee',
+      name: 'activeEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Suspended Employee`
+  String get inactiveEmployee {
+    return Intl.message(
+      'Suspended Employee',
+      name: 'inactiveEmployee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active Trips`
+  String get activeTrips {
+    return Intl.message(
+      'Active Trips',
+      name: 'activeTrips',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

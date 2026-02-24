@@ -73,7 +73,7 @@ class _Button extends StatelessWidget {
               const Spacer(),
               Center(
                 child: Text(
-                  'تسجيل الخروج',
+                  S.of(context).logout,
                   style: AppTextStyles.regular16(context),
                 ),
               ),

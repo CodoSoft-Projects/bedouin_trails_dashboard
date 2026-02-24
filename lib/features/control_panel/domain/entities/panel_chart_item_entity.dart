@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../generated/l10n.dart';
 import '../../data/models/employees_stats.dart';
 import '../../data/models/trips_stats.dart';
 
@@ -31,22 +32,23 @@ List<PanelChartItemEntity> panelChartItems({
   required EmployeesStats e,
 }) => [
   PanelChartItemEntity(
-    title: 'الموظفين',
+    title: S.of(context).employees,
     image: Assets.imagesEmployeesIcon,
     value: e.activePercentage,
     activeColor: AppColors.sandyBrown,
     inactiveColor: AppColors.chartGrey,
-    activeText: '${e.totalEmployeesActive} موظف نشط',
-    inactiveText: '${e.totalEmployeesInactive} موظف موقوف',
+    activeText: '${e.totalEmployeesActive} ${S.of(context).activeEmployee}',
+    inactiveText:
+        '${e.totalEmployeesInactive} ${S.of(context).inactiveEmployee}',
   ),
 
   PanelChartItemEntity(
-    title: 'الرحلات السياحية',
+    title: S.of(context).trips,
     image: Assets.imagesTripsIcon,
     value: t.activePercentage,
     activeColor: AppColors.red,
     inactiveColor: AppColors.chartGrey,
-    activeText: '${t.totalActive} الرحلات النشطة',
-    inactiveText: '${t.totalInactive} الرحلات الموقوفة',
+    activeText: '${t.totalActive} ${S.of(context).activeTrips}',
+    inactiveText: '${t.totalInactive} ${S.of(context).suspendedTrips}',
   ),
 ];

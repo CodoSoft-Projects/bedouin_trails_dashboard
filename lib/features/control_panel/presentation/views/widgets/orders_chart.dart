@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/control_panel_provider.dart';
 
 class OrdersChart extends StatefulWidget {
@@ -84,7 +85,10 @@ class _OrdersChartState extends State<OrdersChart> {
                       item.total.toString(),
                       style: AppTextStyles.bold18(context),
                     ),
-                    Text('حجز', style: AppTextStyles.semiBold20(context)),
+                    Text(
+                      S.of(context).booking,
+                      style: AppTextStyles.semiBold20(context),
+                    ),
                   ],
                 ),
               ),

@@ -110,5 +110,9 @@
   "numberOfArticles": "Number of Articles",
   "ratingRate": "Rating Rate",
   "cancellationRate": "Cancellation Rate",
-  "newUsersGrowthRate": "New Users Growth Rate"
+  "newUsersGrowthRate": "New Users Growth Rate",
+  "booking": "Booking",
+  "activeEmployee": "Active Employee",
+  "inactiveEmployee": "Suspended Employee",
+  "activeTrips": "Active Trips"
 }

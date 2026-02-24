@@ -31,12 +31,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "activeEmployee": MessageLookupByLibrary.simpleMessage("Active Employee"),
+    "activeTrips": MessageLookupByLibrary.simpleMessage("Active Trips"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage("Add About Us"),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("Create Advertisement"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("Add New Article"),
     "add_new_question": MessageLookupByLibrary.simpleMessage(
       "Add New Question",
     ),
+    "booking": MessageLookupByLibrary.simpleMessage("Booking"),
     "bookingRequests": MessageLookupByLibrary.simpleMessage("Booking Requests"),
     "bookings": m0,
     "cancellationRate": MessageLookupByLibrary.simpleMessage(
@@ -67,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Reset Password",
     ),
     "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+    "inactiveEmployee": MessageLookupByLibrary.simpleMessage(
+      "Suspended Employee",
+    ),
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "Invalid verification code. Please try again.",
     ),

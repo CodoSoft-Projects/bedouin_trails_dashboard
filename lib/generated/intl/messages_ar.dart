@@ -31,12 +31,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "activeEmployee": MessageLookupByLibrary.simpleMessage("موظف نشط"),
+    "activeTrips": MessageLookupByLibrary.simpleMessage("الرحلات النشطة"),
     "add_about_btn": MessageLookupByLibrary.simpleMessage(
       "إضافة معلومات الشركة",
     ),
     "add_ad_btn": MessageLookupByLibrary.simpleMessage("إنشاء إعلان"),
     "add_new_article": MessageLookupByLibrary.simpleMessage("إضافة مقال جديد"),
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
+    "booking": MessageLookupByLibrary.simpleMessage("حجز"),
     "bookingRequests": MessageLookupByLibrary.simpleMessage(
       "طلبات حجز الرحلات",
     ),
@@ -71,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgot_password": MessageLookupByLibrary.simpleMessage(
       "نسيت كلمة المرور؟",
     ),
+    "inactiveEmployee": MessageLookupByLibrary.simpleMessage("موظف موقوف"),
     "invalid_code": MessageLookupByLibrary.simpleMessage(
       "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
     ),

@@ -94,5 +94,9 @@
   "numberOfArticles": "عدد المقالات في الموقع",
   "ratingRate": "معدل التقييمات",
   "cancellationRate": "معدل إلغاء الحجوزات",
-  "newUsersGrowthRate": "معدل زيادة المستخدمين الجدد"
+  "newUsersGrowthRate": "معدل زيادة المستخدمين الجدد",
+  "booking": "حجز",
+  "activeEmployee": "موظف نشط",
+  "inactiveEmployee": "موظف موقوف",
+  "activeTrips": "الرحلات النشطة"
 }
