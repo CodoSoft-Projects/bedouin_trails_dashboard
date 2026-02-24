@@ -54,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
     ),
-    "employeesManagement": MessageLookupByLibrary.simpleMessage("الموظفين"),
+    "employees": MessageLookupByLibrary.simpleMessage("الموظفين"),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
       "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
@@ -81,7 +81,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_title": MessageLookupByLibrary.simpleMessage(
       "أهلا بك .. جاهز للمغامرة",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
+    "no": MessageLookupByLibrary.simpleMessage("لا"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
     ),
@@ -205,5 +210,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "verify_email_title": MessageLookupByLibrary.simpleMessage(
       "تحقق من بريدك الإلكتروني",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("نعم"),
   };
 }

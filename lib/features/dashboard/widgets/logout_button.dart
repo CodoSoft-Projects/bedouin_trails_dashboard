@@ -10,6 +10,7 @@ import '../../../core/functions/check_unauthenticated.dart';
 import '../../../core/helpers/app_message.dart';
 import '../../../core/helpers/dialog_helper.dart';
 import '../../../core/providers/logout_provider.dart';
+import '../../../generated/l10n.dart';
 import '../../auth/presentation/views/login_view.dart';
 
 class LogoutButton extends StatelessWidget {
@@ -35,10 +36,10 @@ class _Button extends StatelessWidget {
           onPressed: () {
             DialogHelper.showQuestionDialog(
               context,
-              title: 'تسجيل الخروج',
-              desc: 'هل ترغب في تسجيل الخروج من التطبيق؟',
-              btnOkText: 'نعم',
-              btnCancelText: 'لا',
+              title: S.of(context).logout,
+              desc: S.of(context).logout_confirmation,
+              btnOkText: S.of(context).yes,
+              btnCancelText: S.of(context).no,
               onCancel: () {},
               onOk: () async {
                 await provider.logout();

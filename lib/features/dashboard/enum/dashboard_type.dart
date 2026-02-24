@@ -25,7 +25,7 @@ extension DashboardTypeExtension on DashboardType {
       case DashboardType.users:
         return S.of(context).usersManagement;
       case DashboardType.employees:
-        return S.of(context).employeesManagement;
+        return S.of(context).employees;
       case DashboardType.bookingRequests:
         return S.of(context).bookingRequests;
       case DashboardType.siteManagement:

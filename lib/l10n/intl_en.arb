@@ -63,6 +63,10 @@
   "password_confirmation": "Confirm Password",
   "forgot_password": "Forgot password?",
   "login": "Login",
+  "logout": "Logout",
+  "logout_confirmation": "Do you want to logout from the dashboard?",
+  "yes": "Yes",
+  "no": "No",
   "forget_password_title": "Reset Password",
   "forget_password_subtitle": "Enter the required information to reset your password.",
   "forget_password_note": "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
@@ -98,7 +102,7 @@
   "trips": "Trips",
   "suspendedTrips": "Suspended Trips",
   "usersManagement": "Users Management",
-  "employeesManagement": "Employees Management",
+  "employees": "Employees",
   "bookingRequests": "Booking Requests",
   "siteManagement": "Site Management"
 }

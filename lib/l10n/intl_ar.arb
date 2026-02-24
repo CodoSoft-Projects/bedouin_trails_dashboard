@@ -47,6 +47,10 @@
   "password_confirmation": "تأكيد كلمة المرور",
   "forgot_password": "نسيت كلمة المرور؟",
   "login": "تسجيل الدخول",
+  "logout": "تسجيل الخروج",
+  "logout_confirmation": "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
+  "yes": "نعم",
+  "no": "لا",
   "forget_password_title": "إعادة تعيين كلمة المرور",
   "forget_password_subtitle": "أدخل البيانات المطلوبة لإعادة تعيين كلمة المرور",
   "forget_password_note": "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
@@ -82,7 +86,7 @@
   "trips": "الرحلات السياحية",
   "suspendedTrips": "الرحلات الموقوفة",
   "usersManagement": "متابعة المستخدمين",
-  "employeesManagement": "الموظفين",
+  "employees": "الموظفين",
   "bookingRequests": "طلبات حجز الرحلات",
   "siteManagement": "إدارة الموقع"
 }

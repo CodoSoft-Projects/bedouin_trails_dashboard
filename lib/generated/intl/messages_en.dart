@@ -52,9 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email_not_found": MessageLookupByLibrary.simpleMessage(
       "Email not found. Please check the email address and try again.",
     ),
-    "employeesManagement": MessageLookupByLibrary.simpleMessage(
-      "Employees Management",
-    ),
+    "employees": MessageLookupByLibrary.simpleMessage("Employees"),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
     "forget_password_note": MessageLookupByLibrary.simpleMessage(
       "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
@@ -79,7 +77,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "login_title": MessageLookupByLibrary.simpleMessage(
       "Welcome... Ready for the adventure?",
     ),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Do you want to logout from the dashboard?",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
+    "no": MessageLookupByLibrary.simpleMessage("No"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "You haven\'t added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
     ),
@@ -203,5 +206,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "verify_email_title": MessageLookupByLibrary.simpleMessage(
       "Verify Your Email",
     ),
+    "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

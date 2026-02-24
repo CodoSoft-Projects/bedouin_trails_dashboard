@@ -423,6 +423,31 @@ class S {
     return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Do you want to logout from the dashboard?`
+  String get logout_confirmation {
+    return Intl.message(
+      'Do you want to logout from the dashboard?',
+      name: 'logout_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message('Yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message('No', name: 'no', desc: '', args: []);
+  }
+
   /// `Reset Password`
   String get forget_password_title {
     return Intl.message(
@@ -748,14 +773,9 @@ class S {
     );
   }
 
-  /// `Employees Management`
-  String get employeesManagement {
-    return Intl.message(
-      'Employees Management',
-      name: 'employeesManagement',
-      desc: '',
-      args: [],
-    );
+  /// `Employees`
+  String get employees {
+    return Intl.message('Employees', name: 'employees', desc: '', args: []);
   }
 
   /// `Booking Requests`
