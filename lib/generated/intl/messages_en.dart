@@ -93,6 +93,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "noImagesMessage": MessageLookupByLibrary.simpleMessage(
+      "No images added yet 📷\nAdd images to the trip to display them better to users",
+    ),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "You haven\'t added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
     ),
@@ -178,11 +181,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many requests. Please wait a moment before trying again.",
     ),
+    "tripData": MessageLookupByLibrary.simpleMessage("Trip Data :"),
+    "tripDetails": MessageLookupByLibrary.simpleMessage("Trip Details"),
     "tripDuration": MessageLookupByLibrary.simpleMessage(
       "Trip Duration (Days)",
     ),
+    "tripImages": MessageLookupByLibrary.simpleMessage("Trip Images :"),
     "trips": MessageLookupByLibrary.simpleMessage("Trips"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "uploadImagesHint": MessageLookupByLibrary.simpleMessage(
+      "Add images to the trip",
+    ),
     "usersManagement": MessageLookupByLibrary.simpleMessage("Users Management"),
     "validation_email_invalid": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address",

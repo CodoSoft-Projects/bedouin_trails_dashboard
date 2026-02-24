@@ -109,5 +109,10 @@
   "tripDuration": "مدة الرحلة (يوم)",
   "searchTrip": "ابحث عن رحلة",
   "addNewTrip": "اضافة رحلة جديدة",
-  "viewDetails": "عرض التفاصيل"
+  "viewDetails": "عرض التفاصيل",
+  "tripDetails": "تفاصيل الرحلة",
+  "tripImages": "صور الرحلة :",
+  "noImagesMessage": "لا توجد صور مضافة حاليّا 💷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل",
+  "uploadImagesHint": "قم بإضافة صور للرحلة",
+  "tripData": "بيانات الرحلة :"
 }

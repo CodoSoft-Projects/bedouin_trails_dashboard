@@ -95,6 +95,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no": MessageLookupByLibrary.simpleMessage("لا"),
+    "noImagesMessage": MessageLookupByLibrary.simpleMessage(
+      "لا توجد صور مضافة حاليّا 💷\nقم بإضافة صور للرحلة لعرضها للمستخدمين بشكل أفضل",
+    ),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
     ),
@@ -178,9 +181,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),
+    "tripData": MessageLookupByLibrary.simpleMessage("بيانات الرحلة :"),
+    "tripDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الرحلة"),
     "tripDuration": MessageLookupByLibrary.simpleMessage("مدة الرحلة (يوم)"),
+    "tripImages": MessageLookupByLibrary.simpleMessage("صور الرحلة :"),
     "trips": MessageLookupByLibrary.simpleMessage("الرحلات السياحية"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "uploadImagesHint": MessageLookupByLibrary.simpleMessage(
+      "قم بإضافة صور للرحلة",
+    ),
     "usersManagement": MessageLookupByLibrary.simpleMessage(
       "متابعة المستخدمين",
     ),

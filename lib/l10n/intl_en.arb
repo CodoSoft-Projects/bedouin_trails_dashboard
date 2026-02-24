@@ -109,5 +109,10 @@
   "tripDuration": "Trip Duration (Days)",
   "searchTrip": "Search for a trip",
   "addNewTrip": "Add New Trip",
-  "viewDetails": "View Details"
+  "viewDetails": "View Details",
+  "tripDetails": "Trip Details",
+  "tripImages": "Trip Images :",
+  "noImagesMessage": "No images added yet 📷\nAdd images to the trip to display them better to users",
+  "uploadImagesHint": "Add images to the trip",
+  "tripData": "Trip Data :"
 }

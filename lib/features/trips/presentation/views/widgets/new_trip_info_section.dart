@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import 'new_trip_info_form.dart';
 
 class NewTripInfoSection extends StatelessWidget {
@@ -17,7 +18,7 @@ class NewTripInfoSection extends StatelessWidget {
           Row(
             children: [
               Text(
-                'بيانات الرحلة :',
+                S.of(context).tripData,
                 style: AppTextStyles.regular24(
                   context,
                 ).copyWith(fontFamily: Constants.vexaFontFamily),

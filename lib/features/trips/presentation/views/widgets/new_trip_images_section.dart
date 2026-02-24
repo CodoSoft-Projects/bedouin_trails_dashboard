@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_white_box.dart';
+import '../../../../../generated/l10n.dart';
 import 'uploading_trip_images_box.dart';
 
 class NewTripImagesSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class NewTripImagesSection extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'صور الرحلة :',
+                  S.of(context).tripImages,
                   style: AppTextStyles.regular24(
                     context,
                   ).copyWith(fontFamily: Constants.vexaFontFamily),

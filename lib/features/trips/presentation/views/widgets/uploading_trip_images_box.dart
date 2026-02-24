@@ -8,6 +8,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/empty_grid_widget.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/trips_provider.dart';
 
 class UploadingTripImagesBox extends StatelessWidget {
@@ -27,7 +28,7 @@ class UploadingTripImagesBox extends StatelessWidget {
                   ? UploadedImagesGrid(images: prov.tripImages)
                   : EmptyGridWidget(
                       repeat: false,
-                      message: 'قم بإضافة صور للرحلة',
+                      message: S.of(context).uploadImagesHint,
                     ),
             ),
           ),

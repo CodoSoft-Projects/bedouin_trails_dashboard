@@ -909,6 +909,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Trip Details`
+  String get tripDetails {
+    return Intl.message(
+      'Trip Details',
+      name: 'tripDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Images :`
+  String get tripImages {
+    return Intl.message(
+      'Trip Images :',
+      name: 'tripImages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No images added yet 📷\nAdd images to the trip to display them better to users`
+  String get noImagesMessage {
+    return Intl.message(
+      'No images added yet 📷\nAdd images to the trip to display them better to users',
+      name: 'noImagesMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add images to the trip`
+  String get uploadImagesHint {
+    return Intl.message(
+      'Add images to the trip',
+      name: 'uploadImagesHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Data :`
+  String get tripData {
+    return Intl.message('Trip Data :', name: 'tripData', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

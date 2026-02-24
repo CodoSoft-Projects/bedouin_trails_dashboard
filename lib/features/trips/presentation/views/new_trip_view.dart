@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import 'widgets/new_trip_images_section.dart';
 import 'widgets/new_trip_info_section.dart';
 
@@ -13,7 +14,11 @@ class NewTripView extends StatelessWidget {
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
     return Scaffold(
-      appBar: customAppBar(context, title: 'إضافة رحلة جديدة', showBack: true),
+      appBar: customAppBar(
+        context,
+        title: S.of(context).addNewTrip,
+        showBack: true,
+      ),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),

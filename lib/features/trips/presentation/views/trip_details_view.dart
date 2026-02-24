@@ -5,6 +5,7 @@ import '../../../../core/enums/trip_status.dart';
 import '../../../../core/models/trip/trip_model.dart';
 import '../../../../core/utils/size_config.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/trips_provider.dart';
 import 'widgets/show_trip_images_section.dart';
 import 'widgets/show_trip_info_section.dart';
@@ -21,7 +22,11 @@ class TripDetailsView extends StatelessWidget {
     var prov = context.watch<TripsProvider>();
     TripModel trip = prov.selectedTrip!;
     return Scaffold(
-      appBar: customAppBar(context, title: 'تفاصيل الرحلة', showBack: true),
+      appBar: customAppBar(
+        context,
+        title: S.of(context).tripDetails,
+        showBack: true,
+      ),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
