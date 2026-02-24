@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../generated/l10n.dart';
 import 'widgets/profile_form.dart';
 import 'widgets/profile_view_header.dart';
 

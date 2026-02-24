@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_dialog.dart';
-import '../../../../generated/l10n.dart';
+import '../../../../../generated/l10n.dart';
 import 'change_password_form.dart';
 
 Future<void> changePasswordDialog(BuildContext context) {

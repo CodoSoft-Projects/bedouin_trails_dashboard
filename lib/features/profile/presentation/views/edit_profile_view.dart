@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/custom_progress_hud.dart';
+import '../../../../generated/l10n.dart';
 import '../manager/profile_provider.dart';
 import 'widgets/edit_profile_form.dart';
 import 'widgets/profile_view_header.dart';

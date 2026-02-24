@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../../../core/widgets/custom_email_field.dart';
 import '../../../../../core/widgets/custom_name_field.dart';
 import '../../../../../core/widgets/custom_phone_text_filed.dart';
+import '../../../../../generated/l10n.dart';
 import '../../manager/profile_provider.dart';
 
 class ProfileForm extends StatelessWidget {

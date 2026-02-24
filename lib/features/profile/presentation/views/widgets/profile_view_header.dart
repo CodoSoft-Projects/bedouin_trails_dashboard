@@ -7,6 +7,7 @@ import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/constants.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
+import '../../../../../generated/l10n.dart' show S;
 import '../../manager/profile_provider.dart';
 import '../edit_profile_view.dart';
 import 'change_password_dialog.dart';
