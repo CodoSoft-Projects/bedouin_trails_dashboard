@@ -88,5 +88,11 @@
   "usersManagement": "متابعة المستخدمين",
   "employees": "الموظفين",
   "bookingRequests": "طلبات حجز الرحلات",
-  "siteManagement": "إدارة الموقع"
+  "siteManagement": "إدارة الموقع",
+  "todayNewBookings": "حجوزات جديدة لليوم",
+  "numberOfUsers": "عدد المستخدمين",
+  "numberOfArticles": "عدد المقالات في الموقع",
+  "ratingRate": "معدل التقييمات",
+  "cancellationRate": "معدل إلغاء الحجوزات",
+  "newUsersGrowthRate": "معدل زيادة المستخدمين الجدد"
 }

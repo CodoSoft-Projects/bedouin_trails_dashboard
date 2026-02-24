@@ -39,6 +39,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bookingRequests": MessageLookupByLibrary.simpleMessage("Booking Requests"),
     "bookings": m0,
+    "cancellationRate": MessageLookupByLibrary.simpleMessage(
+      "Cancellation Rate",
+    ),
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
       "The code has been sent to your email.",
@@ -81,6 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "Do you want to logout from the dashboard?",
     ),
+    "newUsersGrowthRate": MessageLookupByLibrary.simpleMessage(
+      "New Users Growth Rate",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
@@ -121,6 +127,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "No trips have been added yet.\nOnce the first trip is created, it will appear here and users will be able to book it from the app.",
     ),
     "no_trips_title": MessageLookupByLibrary.simpleMessage("No Trips Yet"),
+    "numberOfArticles": MessageLookupByLibrary.simpleMessage(
+      "Number of Articles",
+    ),
+    "numberOfUsers": MessageLookupByLibrary.simpleMessage("Number of Users"),
     "order_accepted": MessageLookupByLibrary.simpleMessage(
       "Completed Bookings",
     ),
@@ -141,6 +151,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+    "ratingRate": MessageLookupByLibrary.simpleMessage("Rating Rate"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
     "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
     "reset": MessageLookupByLibrary.simpleMessage("Reset"),
@@ -157,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("Site Management"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("Suspended Trips"),
+    "todayNewBookings": MessageLookupByLibrary.simpleMessage(
+      "Today\'s New Bookings",
+    ),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "Too many requests. Please wait a moment before trying again.",
     ),

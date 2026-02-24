@@ -104,5 +104,11 @@
   "usersManagement": "Users Management",
   "employees": "Employees",
   "bookingRequests": "Booking Requests",
-  "siteManagement": "Site Management"
+  "siteManagement": "Site Management",
+  "todayNewBookings": "Today's New Bookings",
+  "numberOfUsers": "Number of Users",
+  "numberOfArticles": "Number of Articles",
+  "ratingRate": "Rating Rate",
+  "cancellationRate": "Cancellation Rate",
+  "newUsersGrowthRate": "New Users Growth Rate"
 }

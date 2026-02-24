@@ -797,6 +797,61 @@ class S {
       args: [],
     );
   }
+
+  /// `Today's New Bookings`
+  String get todayNewBookings {
+    return Intl.message(
+      'Today\'s New Bookings',
+      name: 'todayNewBookings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of Users`
+  String get numberOfUsers {
+    return Intl.message(
+      'Number of Users',
+      name: 'numberOfUsers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of Articles`
+  String get numberOfArticles {
+    return Intl.message(
+      'Number of Articles',
+      name: 'numberOfArticles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rating Rate`
+  String get ratingRate {
+    return Intl.message('Rating Rate', name: 'ratingRate', desc: '', args: []);
+  }
+
+  /// `Cancellation Rate`
+  String get cancellationRate {
+    return Intl.message(
+      'Cancellation Rate',
+      name: 'cancellationRate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Users Growth Rate`
+  String get newUsersGrowthRate {
+    return Intl.message(
+      'New Users Growth Rate',
+      name: 'newUsersGrowthRate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

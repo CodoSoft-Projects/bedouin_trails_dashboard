@@ -41,6 +41,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "طلبات حجز الرحلات",
     ),
     "bookings": m0,
+    "cancellationRate": MessageLookupByLibrary.simpleMessage(
+      "معدل إلغاء الحجوزات",
+    ),
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "code_sent": MessageLookupByLibrary.simpleMessage(
       "تم إرسال الرمز إلى بريدك الإلكتروني.",
@@ -85,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "logout_confirmation": MessageLookupByLibrary.simpleMessage(
       "هل ترغب في تسجيل الخروج من لوحة التحكم؟",
     ),
+    "newUsersGrowthRate": MessageLookupByLibrary.simpleMessage(
+      "معدل زيادة المستخدمين الجدد",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no": MessageLookupByLibrary.simpleMessage("لا"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
@@ -127,6 +133,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_trips_title": MessageLookupByLibrary.simpleMessage(
       "لا توجد رحلات حالياً",
     ),
+    "numberOfArticles": MessageLookupByLibrary.simpleMessage(
+      "عدد المقالات في الموقع",
+    ),
+    "numberOfUsers": MessageLookupByLibrary.simpleMessage("عدد المستخدمين"),
     "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
     "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
     "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
@@ -143,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
+    "ratingRate": MessageLookupByLibrary.simpleMessage("معدل التقييمات"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
     "resend_code": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
     "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
@@ -159,6 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "send": MessageLookupByLibrary.simpleMessage("إرسال"),
     "siteManagement": MessageLookupByLibrary.simpleMessage("إدارة الموقع"),
     "suspendedTrips": MessageLookupByLibrary.simpleMessage("الرحلات الموقوفة"),
+    "todayNewBookings": MessageLookupByLibrary.simpleMessage(
+      "حجوزات جديدة لليوم",
+    ),
     "too_many_requests": MessageLookupByLibrary.simpleMessage(
       "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
     ),

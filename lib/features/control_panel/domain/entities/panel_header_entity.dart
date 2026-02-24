@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../generated/l10n.dart';
 
 class PanelHeaderEntity {
   final String title;
@@ -24,17 +25,17 @@ List<PanelHeaderEntity> panelHeadersList({
   required int articles,
 }) => [
   PanelHeaderEntity(
-    title: 'حجوزات جديدة لليوم',
+    title: S.of(context).todayNewBookings,
     subtitle: newBookings.toString(),
     image: Assets.imagesNewBookingIcon,
   ),
   PanelHeaderEntity(
-    title: 'عدد المستخدمين',
+    title: S.of(context).numberOfUsers,
     subtitle: users.toString(),
     image: Assets.imagesUsersIcon,
   ),
   PanelHeaderEntity(
-    title: 'عدد المقالات في الموقع',
+    title: S.of(context).numberOfArticles,
     subtitle: articles.toString(),
     image: Assets.imagesReportsIcon,
   ),
@@ -47,19 +48,19 @@ List<PanelHeaderEntity> panelBottomList({
   required int newUsersPercentage,
 }) => [
   PanelHeaderEntity(
-    title: 'معدل التقييمات',
+    title: S.of(context).ratingRate,
     subtitle: '$revenueGrowth / 5',
     image: Assets.imagesRattingIcon,
     backgroundColor: AppColors.white,
   ),
   PanelHeaderEntity(
-    title: 'معدل إلغاء الحجوزات',
+    title: S.of(context).cancellationRate,
     subtitle: '$cancelRate %',
     image: Assets.imagesCancelIcon,
     backgroundColor: AppColors.white,
   ),
   PanelHeaderEntity(
-    title: 'معدل زيادة المستخدمين الجدد',
+    title: S.of(context).newUsersGrowthRate,
     image: Assets.imagesUsersIcon,
     subtitle: '$newUsersPercentage %',
     backgroundColor: AppColors.white,
