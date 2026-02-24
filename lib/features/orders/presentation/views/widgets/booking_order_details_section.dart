@@ -128,7 +128,7 @@ class BookingOrderDetailsSection extends StatelessWidget {
                       child: CustomTextFormField(
                         labelText: S.of(context).totalPrice,
                         controller: TextEditingController(
-                          text: order.trip.price.toString(),
+                          text: order.totalPrice.toString(),
                         ),
                         suffixIcon: Icon(
                           Icons.attach_money,

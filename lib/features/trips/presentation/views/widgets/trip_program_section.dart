@@ -26,7 +26,7 @@ class TripProgramSection extends StatelessWidget {
       children: [
         TripProgramSectionHeader(numberOfDays: trip.trapDays.length),
         if (!hasDays) NoTripDayAdded(),
-        if (hasDays) ...[
+        if (hasDays && selectedDay != -1) ...[
           TripProgramDaysListView(),
           Row(
             children: [

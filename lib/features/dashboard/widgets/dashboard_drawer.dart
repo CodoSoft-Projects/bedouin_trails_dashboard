@@ -4,7 +4,6 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../core/widgets/languages_dialog.dart';
-import '../../notifications/presentation/views/widgets/notification_icon.dart';
 import 'account_info_section.dart';
 import 'dashboard_features_sliver_list.dart';
 import 'logout_button.dart';
@@ -31,7 +30,7 @@ class DashboardDrawer extends StatelessWidget {
                       Row(
                         spacing: 16,
                         children: [
-                          NotificationIcon(),
+                          // NotificationIcon(),
                           Expanded(child: AccountInfoSection()),
                         ],
                       ),
