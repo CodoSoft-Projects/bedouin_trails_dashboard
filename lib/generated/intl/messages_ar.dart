@@ -39,8 +39,43 @@ class MessageLookup extends MessageLookupByLibrary {
     "add_new_question": MessageLookupByLibrary.simpleMessage("إضافة سؤال جديد"),
     "bookings": m0,
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
+    "code_sent": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال الرمز إلى بريدك الإلكتروني.",
+    ),
+    "code_verified": MessageLookupByLibrary.simpleMessage(
+      "تم التحقق من الرمز بنجاح.",
+    ),
     "days": m1,
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "email_not_found": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني غير موجود. الرجاء التحقق من البريد الإلكتروني وإعادة المحاولة.",
+    ),
     "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "forget_password_note": MessageLookupByLibrary.simpleMessage(
+      "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
+    ),
+    "forget_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "أدخل البيانات المطلوبة لإعادة تعيين كلمة المرور",
+    ),
+    "forget_password_title": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
+    "forgot_password": MessageLookupByLibrary.simpleMessage(
+      "نسيت كلمة المرور؟",
+    ),
+    "invalid_code": MessageLookupByLibrary.simpleMessage(
+      "رمز التحقق غير صالح. الرجاء المحاولة مرة أخرى.",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "login_note": MessageLookupByLibrary.simpleMessage(
+      "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
+    ),
+    "login_subtitle": MessageLookupByLibrary.simpleMessage(
+      "سجّل دخولك علشان تستعرض رحلات السفاري، تحجز مغامرتك، وتدير حجوزاتك بكل سهولة.,",
+    ),
+    "login_title": MessageLookupByLibrary.simpleMessage(
+      "أهلا بك .. جاهز للمغامرة",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("التالي"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "لم تقم بإضافة معلومات شركتك بعد.\nأضف قسم من نحن حتى يتمكن العملاء والموظفون من التعرف على نشاطك التجاري.",
@@ -86,10 +121,45 @@ class MessageLookup extends MessageLookupByLibrary {
     "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
     "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
     "order_pending": MessageLookupByLibrary.simpleMessage("حجوزات معلقة"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "password_confirmation": MessageLookupByLibrary.simpleMessage(
+      "تأكيد كلمة المرور",
+    ),
+    "password_reset_failed": MessageLookupByLibrary.simpleMessage(
+      "فشل في إعادة تعيين كلمة المرور. الرجاء المحاولة مرة أخرى.",
+    ),
+    "password_reset_success": MessageLookupByLibrary.simpleMessage(
+      "تم إعادة تعيين كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة.",
+    ),
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "refresh": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "resend_code": MessageLookupByLibrary.simpleMessage("إعادة إرسال الرمز"),
+    "reset": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
+    "reset_password_note": MessageLookupByLibrary.simpleMessage(
+      "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
+    ),
+    "reset_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "ادخل كلمة المرور الجديدة",
+    ),
+    "reset_password_title": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
     "select_language": MessageLookupByLibrary.simpleMessage("اختر اللغة"),
+    "send": MessageLookupByLibrary.simpleMessage("إرسال"),
+    "too_many_requests": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال العديد من الطلبات. الرجاء الانتظار قليلاً قبل المحاولة مرة أخرى.",
+    ),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة أخرى"),
+    "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
+    "verify_email_note": MessageLookupByLibrary.simpleMessage(
+      "سجّل حسابك لإدارة وتشغيل منصة رحلات السفاري في واحة سيوة بكفاءة واحترافية",
+    ),
+    "verify_email_subtitle": MessageLookupByLibrary.simpleMessage(
+      "تم إرسال رمز التحقق إلى بريدك الإلكتروني. الرجاء إدخاله أدناه للتحقق من بريدك الإلكتروني.",
+    ),
+    "verify_email_title": MessageLookupByLibrary.simpleMessage(
+      "تحقق من بريدك الإلكتروني",
+    ),
   };
 }

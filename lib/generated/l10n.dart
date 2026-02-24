@@ -348,11 +348,256 @@ class S {
     );
   }
 
-  /// `No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.`
+  /// `No trips have been added yet.\nOnce the first trip is created, it will appear here and users will be able to book it from the app.`
   String get no_trips_description {
     return Intl.message(
-      'No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.',
+      'No trips have been added yet.\nOnce the first trip is created, it will appear here and users will be able to book it from the app.',
       name: 'no_trips_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome... Ready for the adventure?`
+  String get login_title {
+    return Intl.message(
+      'Welcome... Ready for the adventure?',
+      name: 'login_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in to explore safari trips, book your adventure, and manage your reservations easily.`
+  String get login_subtitle {
+    return Intl.message(
+      'Sign in to explore safari trips, book your adventure, and manage your reservations easily.',
+      name: 'login_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.`
+  String get login_note {
+    return Intl.message(
+      'Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.',
+      name: 'login_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Confirm Password`
+  String get password_confirmation {
+    return Intl.message(
+      'Confirm Password',
+      name: 'password_confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot password?`
+  String get forgot_password {
+    return Intl.message(
+      'Forgot password?',
+      name: 'forgot_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
+  }
+
+  /// `Reset Password`
+  String get forget_password_title {
+    return Intl.message(
+      'Reset Password',
+      name: 'forget_password_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the required information to reset your password.`
+  String get forget_password_subtitle {
+    return Intl.message(
+      'Enter the required information to reset your password.',
+      name: 'forget_password_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.`
+  String get forget_password_note {
+    return Intl.message(
+      'Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.',
+      name: 'forget_password_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `Verify Your Email`
+  String get verify_email_title {
+    return Intl.message(
+      'Verify Your Email',
+      name: 'verify_email_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A verification code has been sent to your email. Please enter it below to verify your email address.`
+  String get verify_email_subtitle {
+    return Intl.message(
+      'A verification code has been sent to your email. Please enter it below to verify your email address.',
+      name: 'verify_email_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.`
+  String get verify_email_note {
+    return Intl.message(
+      'Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.',
+      name: 'verify_email_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message('Verify', name: 'verify', desc: '', args: []);
+  }
+
+  /// `Resend Code`
+  String get resend_code {
+    return Intl.message('Resend Code', name: 'resend_code', desc: '', args: []);
+  }
+
+  /// `The code has been sent to your email.`
+  String get code_sent {
+    return Intl.message(
+      'The code has been sent to your email.',
+      name: 'code_sent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The code has been verified successfully.`
+  String get code_verified {
+    return Intl.message(
+      'The code has been verified successfully.',
+      name: 'code_verified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_password_title {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_password_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new password.`
+  String get reset_password_subtitle {
+    return Intl.message(
+      'Enter your new password.',
+      name: 'reset_password_subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.`
+  String get reset_password_note {
+    return Intl.message(
+      'Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.',
+      name: 'reset_password_note',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset`
+  String get reset {
+    return Intl.message('Reset', name: 'reset', desc: '', args: []);
+  }
+
+  /// `Your password has been reset successfully. You can now log in using your new password.`
+  String get password_reset_success {
+    return Intl.message(
+      'Your password has been reset successfully. You can now log in using your new password.',
+      name: 'password_reset_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to reset the password. Please try again.`
+  String get password_reset_failed {
+    return Intl.message(
+      'Failed to reset the password. Please try again.',
+      name: 'password_reset_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid verification code. Please try again.`
+  String get invalid_code {
+    return Intl.message(
+      'Invalid verification code. Please try again.',
+      name: 'invalid_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email not found. Please check the email address and try again.`
+  String get email_not_found {
+    return Intl.message(
+      'Email not found. Please check the email address and try again.',
+      name: 'email_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Too many requests. Please wait a moment before trying again.`
+  String get too_many_requests {
+    return Intl.message(
+      'Too many requests. Please wait a moment before trying again.',
+      name: 'too_many_requests',
       desc: '',
       args: [],
     );

@@ -39,8 +39,41 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bookings": m0,
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
+    "code_sent": MessageLookupByLibrary.simpleMessage(
+      "The code has been sent to your email.",
+    ),
+    "code_verified": MessageLookupByLibrary.simpleMessage(
+      "The code has been verified successfully.",
+    ),
     "days": m1,
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "email_not_found": MessageLookupByLibrary.simpleMessage(
+      "Email not found. Please check the email address and try again.",
+    ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "forget_password_note": MessageLookupByLibrary.simpleMessage(
+      "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
+    ),
+    "forget_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter the required information to reset your password.",
+    ),
+    "forget_password_title": MessageLookupByLibrary.simpleMessage(
+      "Reset Password",
+    ),
+    "forgot_password": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+    "invalid_code": MessageLookupByLibrary.simpleMessage(
+      "Invalid verification code. Please try again.",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "login_note": MessageLookupByLibrary.simpleMessage(
+      "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
+    ),
+    "login_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Sign in to explore safari trips, book your adventure, and manage your reservations easily.",
+    ),
+    "login_title": MessageLookupByLibrary.simpleMessage(
+      "Welcome... Ready for the adventure?",
+    ),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no_about_description": MessageLookupByLibrary.simpleMessage(
       "You haven\'t added your company information yet.\nAdd your About Us section so customers and employees can learn more about your business.",
@@ -77,7 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_questions_title": MessageLookupByLibrary.simpleMessage("No FAQs Yet"),
     "no_trips_description": MessageLookupByLibrary.simpleMessage(
-      "No trips have been added yet.\nOnce you create your first trip, it will appear here and users will be able to book it from the app.",
+      "No trips have been added yet.\nOnce the first trip is created, it will appear here and users will be able to book it from the app.",
     ),
     "no_trips_title": MessageLookupByLibrary.simpleMessage("No Trips Yet"),
     "order_accepted": MessageLookupByLibrary.simpleMessage(
@@ -88,10 +121,45 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "order_payed": MessageLookupByLibrary.simpleMessage("Paid Bookings"),
     "order_pending": MessageLookupByLibrary.simpleMessage("Pending Bookings"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "password_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Confirm Password",
+    ),
+    "password_reset_failed": MessageLookupByLibrary.simpleMessage(
+      "Failed to reset the password. Please try again.",
+    ),
+    "password_reset_success": MessageLookupByLibrary.simpleMessage(
+      "Your password has been reset successfully. You can now log in using your new password.",
+    ),
     "persons": m2,
     "previous": MessageLookupByLibrary.simpleMessage("Previous"),
     "refresh": MessageLookupByLibrary.simpleMessage("Refresh"),
+    "resend_code": MessageLookupByLibrary.simpleMessage("Resend Code"),
+    "reset": MessageLookupByLibrary.simpleMessage("Reset"),
+    "reset_password_note": MessageLookupByLibrary.simpleMessage(
+      "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
+    ),
+    "reset_password_subtitle": MessageLookupByLibrary.simpleMessage(
+      "Enter your new password.",
+    ),
+    "reset_password_title": MessageLookupByLibrary.simpleMessage(
+      "Reset Password",
+    ),
     "select_language": MessageLookupByLibrary.simpleMessage("Select Language"),
+    "send": MessageLookupByLibrary.simpleMessage("Send"),
+    "too_many_requests": MessageLookupByLibrary.simpleMessage(
+      "Too many requests. Please wait a moment before trying again.",
+    ),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
+    "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+    "verify_email_note": MessageLookupByLibrary.simpleMessage(
+      "Log in to manage and operate the Safari Trips platform in Siwa Oasis efficiently and professionally.",
+    ),
+    "verify_email_subtitle": MessageLookupByLibrary.simpleMessage(
+      "A verification code has been sent to your email. Please enter it below to verify your email address.",
+    ),
+    "verify_email_title": MessageLookupByLibrary.simpleMessage(
+      "Verify Your Email",
+    ),
   };
 }
