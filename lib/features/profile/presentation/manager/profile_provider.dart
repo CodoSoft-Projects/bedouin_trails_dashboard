@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
@@ -19,7 +17,6 @@ class ProfileProvider extends ChangeNotifier {
 
   void getAccountData() {
     accountModel = HiveServices.getAccountData();
-    log("Account data: $accountModel");
     fillAdminData();
     notifyListeners();
   }

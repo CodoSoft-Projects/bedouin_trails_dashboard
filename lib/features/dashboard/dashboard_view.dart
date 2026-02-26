@@ -3,12 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../control_panel/presentation/manager/functions/get_data_method.dart';
-import '../employees/presentation/manager/employees_provider.dart';
-import '../orders/presentation/manager/orders_provider.dart';
 import '../profile/presentation/manager/profile_provider.dart';
-import '../trips/presentation/manager/trips_provider.dart';
-import '../users/presentation/manager/users_provider.dart';
+import 'functions/get_dashboard_features_data_with_account_permissions.dart';
 import 'providers/dashboard_manager.dart';
 import 'widgets/dashboard_drawer.dart';
 import 'widgets/dashboard_view_body.dart';
@@ -28,19 +24,14 @@ class _DashboardViewState extends State<DashboardView> {
 
     /// to get account data
     Future.microtask(() {
-      context.read<ProfileProvider>().getAccountData();
-    });
+      var read = context.read<ProfileProvider>();
+      read.getAccountData();
 
-    /// to get dashboard features data.
-    Future.microtask(() {
-      context.read<TripsProvider>()
-        ..getAllActiveTrips()
-        ..getAllInactiveTrips();
-      context.read<EmployeesProvider>().getAllEmployees();
-      //* Users Providers
-      context.read<UsersProvider>().getAllUsers();
-      context.read<OrdersProvider>().getAllOrdersUsers();
-      getControlPanelData(context);
+      /// to get dashboard features data.
+      getDashboardFeaturesDataWithAccountPermissions(
+        context: context,
+        account: read.accountModel!,
+      );
     });
   }
 
