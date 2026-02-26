@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/functions/loading_dialog.dart';
@@ -40,14 +39,13 @@ class NewTripInfoForm extends StatelessWidget {
             //   itemLabel: (item) => item,
             //   // controller: TextEditingController(text: 'متاح'),
             // ),
-            CustomTextFormField(
-              labelText: S.of(context).tripPrice,
-              validator: (value) => priceValidation(context, value),
-              controller: prov.tripPriceController,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              suffixIcon: Icon(Icons.attach_money, color: AppColors.cyanGreen),
-            ),
-
+            // CustomTextFormField(
+            //   labelText: S.of(context).tripPrice,
+            //   validator: (value) => priceValidation(context, value),
+            //   controller: prov.tripPriceController,
+            //   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            //   suffixIcon: Icon(Icons.attach_money, color: AppColors.cyanGreen),
+            // ),
             CustomTextFormField(
               labelText: S.of(context).tripStartPoint,
               validator: (value) => simpleValidation(context, value),

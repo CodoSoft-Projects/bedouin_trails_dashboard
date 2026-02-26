@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -54,19 +53,18 @@ class TripInfoForm extends StatelessWidget {
                 //   },
                 //   controller: TextEditingController(text: trip.status.arName),
                 // ),
-                CustomTextFormField(
-                  labelText: S.of(context).tripPrice,
-                  controller: canEdit
-                      ? prov.tripPriceController
-                      : TextEditingController(text: trip.price.toString()),
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: (value) => priceValidation(context, value),
-                  suffixIcon: Icon(
-                    Icons.attach_money,
-                    color: AppColors.cyanGreen,
-                  ),
-                ),
-
+                // CustomTextFormField(
+                //   labelText: S.of(context).tripPrice,
+                //   controller: canEdit
+                //       ? prov.tripPriceController
+                //       : TextEditingController(text: trip.price.toString()),
+                //   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                //   validator: (value) => priceValidation(context, value),
+                //   suffixIcon: Icon(
+                //     Icons.attach_money,
+                //     color: AppColors.cyanGreen,
+                //   ),
+                // ),
                 CustomTextFormField(
                   labelText: S.of(context).tripStartPoint,
                   validator: (value) => simpleValidation(context, value),

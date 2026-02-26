@@ -114,36 +114,35 @@ class BookingDetailsSection extends StatelessWidget {
                   ),
                 ),
 
-                // TODO : show the correct price after added to the order model
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextFormField(
-                        labelText: S.of(context).perPersonPrice,
-                        controller: TextEditingController(
-                          text: trip.price.toString(),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.attach_money,
-                          color: AppColors.cyanGreen,
-                        ),
-                      ),
-                    ),
+                // Row(
+                //   children: [
+                //     Expanded(
+                //       child: CustomTextFormField(
+                //         labelText: S.of(context).perPersonPrice,
+                //         controller: TextEditingController(
+                //           text: trip.price.toString(),
+                //         ),
+                //         suffixIcon: Icon(
+                //           Icons.attach_money,
+                //           color: AppColors.cyanGreen,
+                //         ),
+                //       ),
+                //     ),
 
-                    Expanded(
-                      child: CustomTextFormField(
-                        labelText: S.of(context).totalPrice,
-                        controller: TextEditingController(
-                          text: (trip.userOrder?.totalPrice ?? 0).toString(),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.attach_money,
-                          color: AppColors.cyanGreen,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                //     Expanded(
+                //       child: CustomTextFormField(
+                //         labelText: S.of(context).totalPrice,
+                //         controller: TextEditingController(
+                //           text: (trip.userOrder?.totalPrice ?? 0).toString(),
+                //         ),
+                //         suffixIcon: Icon(
+                //           Icons.attach_money,
+                //           color: AppColors.cyanGreen,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 const SizedBox(height: 16),
               ],
             ),

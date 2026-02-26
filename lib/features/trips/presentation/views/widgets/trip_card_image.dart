@@ -48,12 +48,33 @@ class TripCardImage extends StatelessWidget {
           ),
         ),
 
+        // Positioned(
+        //   right: 8,
+        //   top: 8,
+        //   child: CustomWhiteBox(
+        //     hPadding: 8,
+        //     vPadding: 4,
+        //     child: Row(
+        //       spacing: 6,
+        //       children: [
+        //         Icon(Icons.star, size: 14, color: AppColors.cyanYellow),
+        //         Text(
+        //           trip.rate.toString(),
+        //           style: AppTextStyles.regular20(context),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
         Positioned(
-          right: 8,
-          top: 8,
-          child: CustomWhiteBox(
-            hPadding: 8,
-            vPadding: 4,
+          top: 0,
+          left: 0,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(bottomRight: Radius.circular(16)),
+              color: AppColors.whiteGrey,
+            ),
             child: Row(
               spacing: 6,
               children: [
@@ -61,28 +82,6 @@ class TripCardImage extends StatelessWidget {
                 Text(
                   trip.rate.toString(),
                   style: AppTextStyles.regular20(context),
-                ),
-              ],
-            ),
-          ),
-        ),
-
-        Positioned(
-          top: 0,
-          left: 0,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(16)),
-              color: AppColors.whiteGrey,
-            ),
-            child: Row(
-              spacing: 12,
-              children: [
-                Icon(Icons.attach_money, color: AppColors.cyanGreen),
-                Text(
-                  trip.price.toStringAsFixed(2),
-                  style: AppTextStyles.regular24(context),
                 ),
               ],
             ),

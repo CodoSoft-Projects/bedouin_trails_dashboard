@@ -57,7 +57,7 @@ Future<void> main() async {
       appWindow.minSize = Size(600, 650);
       appWindow.alignment = Alignment.center;
       appWindow.show();
-      // appWindow.maximize();
+      appWindow.maximize();
     });
   }
 }

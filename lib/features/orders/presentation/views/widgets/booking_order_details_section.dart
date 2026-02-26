@@ -109,35 +109,35 @@ class BookingOrderDetailsSection extends StatelessWidget {
                   controller: TextEditingController(text: order.description),
                 ),
 
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTextFormField(
-                        labelText: S.of(context).perPersonPrice,
-                        controller: TextEditingController(
-                          text: order.trip.price.toString(),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.attach_money,
-                          color: AppColors.cyanGreen,
-                        ),
-                      ),
-                    ),
+                // Row(
+                //   children: [
+                //     Expanded(
+                //       child: CustomTextFormField(
+                //         labelText: S.of(context).perPersonPrice,
+                //         controller: TextEditingController(
+                //           text: order.trip.price.toString(),
+                //         ),
+                //         suffixIcon: Icon(
+                //           Icons.attach_money,
+                //           color: AppColors.cyanGreen,
+                //         ),
+                //       ),
+                //     ),
 
-                    Expanded(
-                      child: CustomTextFormField(
-                        labelText: S.of(context).totalPrice,
-                        controller: TextEditingController(
-                          text: order.totalPrice.toString(),
-                        ),
-                        suffixIcon: Icon(
-                          Icons.attach_money,
-                          color: AppColors.cyanGreen,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                //     Expanded(
+                //       child: CustomTextFormField(
+                //         labelText: S.of(context).totalPrice,
+                //         controller: TextEditingController(
+                //           text: order.totalPrice.toString(),
+                //         ),
+                //         suffixIcon: Icon(
+                //           Icons.attach_money,
+                //           color: AppColors.cyanGreen,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 const SizedBox(height: 16),
               ],
             ),
