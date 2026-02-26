@@ -15,15 +15,17 @@ class TripsView extends StatelessWidget {
       slivers: [
         const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const TripsViewHeader(),
-        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverToBoxAdapter(child: TripsGridView()),
-        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverFillRemaining(
           hasScrollBody: false,
-          child: SizedBox(height: 12),
+          child: Column(
+            children: [
+              Expanded(child: SizedBox(height: 12)),
+              Row(children: [Expanded(child: _Pagination())]),
+              SizedBox(height: 12),
+            ],
+          ),
         ),
-        const _Pagination(),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
   }
@@ -35,16 +37,14 @@ class _Pagination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<TripsProvider>();
-    return SliverToBoxAdapter(
-      child: prov.checkGetAllActiveTrips == false
-          ? SizedBox()
-          : CustomPagination(
-              currentPage: prov.pagination.currentPage,
-              totalPages: prov.pagination.lastPage,
-              onPageChanged: (page) {
-                prov.getAllActiveTrips(page: page);
-              },
-            ),
-    );
+    return prov.checkGetAllActiveTrips == false
+        ? SizedBox()
+        : CustomPagination(
+            currentPage: prov.pagination.currentPage,
+            totalPages: prov.pagination.lastPage,
+            onPageChanged: (page) {
+              prov.getAllActiveTrips(page: page);
+            },
+          );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/size_config.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
 import '../../../../../generated/l10n.dart';
 import '../../manager/orders_provider.dart';
@@ -12,6 +13,8 @@ class OrdersViewHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
+    var mobile = SizeConfig.isMobile();
     return SliverAppBar(
       pinned: false,
       floating: true,
@@ -22,15 +25,39 @@ class OrdersViewHeader extends StatelessWidget {
       flexibleSpace: Container(color: AppColors.white),
       toolbarHeight: 60,
       expandedHeight: 60,
-      title: Row(
-        spacing: 8,
-        children: [
-          FilterOrdersButton(),
-          const Spacer(),
-          _OrdersSearchField(),
-          const Spacer(),
-        ],
-      ),
+      title: mobile ? const _Mobile() : const _Desktop(),
+    );
+  }
+}
+
+class _Desktop extends StatelessWidget {
+  const _Desktop();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      spacing: 8,
+      children: [
+        FilterOrdersButton(),
+        const Spacer(),
+        _OrdersSearchField(),
+        const Spacer(),
+      ],
+    );
+  }
+}
+
+class _Mobile extends StatelessWidget {
+  const _Mobile();
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      spacing: 8,
+      children: [
+        FilterOrdersButton(),
+        Expanded(child: _OrdersSearchField()),
+      ],
     );
   }
 }

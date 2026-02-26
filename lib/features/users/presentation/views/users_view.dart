@@ -18,10 +18,14 @@ class UsersView extends StatelessWidget {
         const SliverToBoxAdapter(child: UsersGridView()),
         const SliverFillRemaining(
           hasScrollBody: false,
-          child: SizedBox(height: 12),
+          child: Column(
+            children: [
+              Expanded(child: SizedBox(height: 12)),
+              Row(children: [Expanded(child: _Pagination())]),
+              SizedBox(height: 12),
+            ],
+          ),
         ),
-        const _Pagination(),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
   }
@@ -33,16 +37,14 @@ class _Pagination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<UsersProvider>();
-    return SliverToBoxAdapter(
-      child: prov.checkGettingAllUser == false
-          ? SizedBox()
-          : CustomPagination(
-              currentPage: prov.pagination.currentPage,
-              totalPages: prov.pagination.lastPage,
-              onPageChanged: (page) {
-                prov.getAllUsers(page: page);
-              },
-            ),
-    );
+    return prov.checkGettingAllUser == false
+        ? SizedBox()
+        : CustomPagination(
+            currentPage: prov.pagination.currentPage,
+            totalPages: prov.pagination.lastPage,
+            onPageChanged: (page) {
+              prov.getAllUsers(page: page);
+            },
+          );
   }
 }

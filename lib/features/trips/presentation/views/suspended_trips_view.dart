@@ -17,13 +17,16 @@ class SuspendedTripsView extends StatelessWidget {
         const SuspendedTripsViewHeader(),
         // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverToBoxAdapter(child: SuspendedTripsGridView()),
-        // const SliverToBoxAdapter(child: SizedBox(height: 12)),
         const SliverFillRemaining(
           hasScrollBody: false,
-          child: SizedBox(height: 12),
+          child: Column(
+            children: [
+              Expanded(child: SizedBox(height: 12)),
+              Row(children: [Expanded(child: _Pagination())]),
+              SizedBox(height: 12),
+            ],
+          ),
         ),
-        const _Pagination(),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
   }
@@ -35,16 +38,14 @@ class _Pagination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<TripsProvider>();
-    return SliverToBoxAdapter(
-      child: prov.checkGetAllInactiveTrips == false
-          ? SizedBox()
-          : CustomPagination(
-              currentPage: prov.inactivePagination.currentPage,
-              totalPages: prov.inactivePagination.lastPage,
-              onPageChanged: (page) {
-                prov.getAllInactiveTrips(page: page);
-              },
-            ),
-    );
+    return prov.checkGetAllInactiveTrips == false
+        ? SizedBox()
+        : CustomPagination(
+            currentPage: prov.inactivePagination.currentPage,
+            totalPages: prov.inactivePagination.lastPage,
+            onPageChanged: (page) {
+              prov.getAllInactiveTrips(page: page);
+            },
+          );
   }
 }

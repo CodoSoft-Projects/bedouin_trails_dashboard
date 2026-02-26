@@ -18,10 +18,14 @@ class OrdersView extends StatelessWidget {
         const SliverToBoxAdapter(child: OrdersGridView()),
         const SliverFillRemaining(
           hasScrollBody: false,
-          child: SizedBox(height: 12),
+          child: Column(
+            children: [
+              Expanded(child: SizedBox(height: 12)),
+              Row(children: [Expanded(child: _Pagination())]),
+              SizedBox(height: 12),
+            ],
+          ),
         ),
-        const _Pagination(),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );
   }
@@ -33,16 +37,14 @@ class _Pagination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var prov = context.watch<OrdersProvider>();
-    return SliverToBoxAdapter(
-      child: prov.checkGettingAllUser == false
-          ? SizedBox()
-          : CustomPagination(
-              currentPage: prov.pagination.currentPage,
-              totalPages: prov.pagination.lastPage,
-              onPageChanged: (page) {
-                prov.getAllOrdersUsers(page: page);
-              },
-            ),
-    );
+    return prov.checkGettingAllUser == false
+        ? SizedBox()
+        : CustomPagination(
+            currentPage: prov.pagination.currentPage,
+            totalPages: prov.pagination.lastPage,
+            onPageChanged: (page) {
+              prov.getAllOrdersUsers(page: page);
+            },
+          );
   }
 }
