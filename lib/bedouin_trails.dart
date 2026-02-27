@@ -20,6 +20,12 @@ class BedouinTrails extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
     bool isLoggedIn = HiveServices.isAdminLoggedIn();
+    //* Clear cached data if the user is logged out
+    Future.microtask(() {
+      if (!isLoggedIn) {
+        HiveServices.clearAccountModel();
+      }
+    });
 
     return Consumer<LanguageProvider>(
       builder: (_, prov, _) {

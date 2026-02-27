@@ -60,6 +60,7 @@ class HiveServices {
 
   /// Clear all  data
   static void clearAccountModel() {
+    log("Clear Account Data Done");
     var hiveBox = Hive.box(ApiKeys.accountData);
     hiveBox.clear();
   }

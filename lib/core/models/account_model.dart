@@ -43,7 +43,7 @@ class AccountModel {
       image: _asString(json['image']),
       otp: _asInt(json['otp']),
       role: _asString(json['role']),
-      permissions: PermissionsModel.fromJson(json['permission'] ?? {}),
+      permissions: PermissionsModel.fromJson(json['permissions'] ?? {}),
       token: _asString(json['token']),
       status: _asBool(json['status']),
     );
@@ -76,7 +76,7 @@ class AccountModel {
       "phone": phone,
       "otp": otp,
       "role": role,
-      "permission": permissions.toJson(),
+      "permissions": permissions.toJson(),
       "token": token,
       // "status": status ? 1 : 0,
     };
