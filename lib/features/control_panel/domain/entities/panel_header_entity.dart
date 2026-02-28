@@ -43,13 +43,13 @@ List<PanelHeaderEntity> panelHeadersList({
 
 List<PanelHeaderEntity> panelBottomList({
   required BuildContext context,
-  required double revenueGrowth,
+  required double averageRating,
   required int cancelRate,
   required int newUsersPercentage,
 }) => [
   PanelHeaderEntity(
     title: S.of(context).ratingRate,
-    subtitle: '$revenueGrowth / 5',
+    subtitle: '$averageRating / 5',
     image: Assets.imagesRattingIcon,
     backgroundColor: AppColors.white,
   ),

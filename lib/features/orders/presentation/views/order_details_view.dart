@@ -15,10 +15,11 @@ class OrderDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     var isMobile = SizeConfig.isMobile();
     return Scaffold(
-      appBar: customAppBar(context,
-        titleWidgt: const UserInfoListTile()
-      
-      , showBack: true),
+      appBar: customAppBar(
+        context,
+        titleWidgt: const UserInfoListTile(),
+        showBack: true,
+      ),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 12)),

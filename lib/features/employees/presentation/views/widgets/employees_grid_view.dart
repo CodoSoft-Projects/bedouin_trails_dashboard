@@ -53,7 +53,7 @@ class EmployeesGridView extends StatelessWidget {
                       return CustomPersonCard(
                         name: employee.fullName,
                         phone: employee.phone,
-                        email: employee.email,
+                        // email: employee.email,
                         imgUrl: employee.image,
                         onTap: () {
                           prov

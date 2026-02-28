@@ -16,7 +16,7 @@ class UserInfoListTile extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       title: Text(user.fullName, style: AppTextStyles.bold22(context)),
-      subtitle: Text(user.phone, style: AppTextStyles.regular16(context)),
+      subtitle: Text(user.email, style: AppTextStyles.regular16(context)),
       leading: CircleAvatar(
         radius: 20,
         backgroundImage: customCachedNetworkImageprovider(user.image),

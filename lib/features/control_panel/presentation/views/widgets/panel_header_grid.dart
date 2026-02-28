@@ -23,7 +23,7 @@ class PanelHeaderGrid extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         var width = constraints.maxWidth;
-        var crossAxisCount = (width / 200).toInt();
+        var crossAxisCount = (width / 250).toInt();
         crossAxisCount = (crossAxisCount / 3).toInt() * 3;
 
         return Skeletonizer(

@@ -61,7 +61,7 @@ class OrdersGridView extends StatelessWidget {
                       return CustomPersonCard(
                         name: user.fullName,
                         phone: user.phone,
-                        email: user.email,
+                        // email: user.email,
                         imgUrl: user.image,
                         onTap: () {
                           prov.onSelectUser(orders[index]);

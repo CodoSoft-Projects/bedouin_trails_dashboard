@@ -16,7 +16,7 @@ class PanelBottomGrid extends StatelessWidget {
     var prov = context.watch<ControlPanelProvider>();
     var items = panelBottomList(
       context: context,
-      revenueGrowth: prov.controlPanelData.revenueGrowth,
+      averageRating: prov.controlPanelData.averageRating,
       cancelRate: prov.controlPanelData.cancelRate,
       newUsersPercentage: prov.controlPanelData.newUsersPercentage,
     );

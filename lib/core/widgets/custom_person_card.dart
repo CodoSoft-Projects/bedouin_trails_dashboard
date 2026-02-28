@@ -10,11 +10,12 @@ class CustomPersonCard extends StatelessWidget {
     super.key,
     required this.name,
     required this.phone,
-    required this.email,
+    this.email,
     this.imgUrl,
     this.onTap,
   });
-  final String name, phone, email;
+  final String name, phone;
+  final String? email;
   final String? imgUrl;
   final VoidCallback? onTap;
   @override
@@ -64,16 +65,16 @@ class CustomPersonCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.medium18(context),
             ),
-
-            CustomWhiteBox(
-              vPadding: 8,
-              child: Text(
-                email,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.medium18(context),
+            if (email != null)
+              CustomWhiteBox(
+                vPadding: 8,
+                child: Text(
+                  email!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyles.medium18(context),
+                ),
               ),
-            ),
           ],
         ),
       ),
