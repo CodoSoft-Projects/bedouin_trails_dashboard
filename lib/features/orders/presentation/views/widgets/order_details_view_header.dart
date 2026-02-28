@@ -21,59 +21,58 @@ class OrderDetailsViewHeader extends StatelessWidget {
     var prov = context.watch<OrdersProvider>();
     var orderId = prov.selectedOrder?.id ?? 0;
     bool visible = prov.selectedOrder?.status == OrderStatus.pending;
-    return Visibility.maintain(
-      visible: visible,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Row(
-          children: [
-            CustomButton(
-              text: S.of(context).completePayment,
-              color: AppColors.cyanGreen,
-              onPressed: () {
-                DialogHelper.showQuestionDialog(
-                  context,
-                  title: S.of(context).confirmPayment,
-                  desc: S.of(context).confirmPaymentMessage,
-                  btnOkText: S.of(context).yes,
-                  btnCancelText: S.of(context).no,
-                  onCancel: () {},
-                  onOk: () {
-                    _changeStatus(
-                      context,
-                      orderId: orderId,
-                      status: OrderStatus.payed,
-                    );
-                  },
-                );
-              },
-            ),
-            const Spacer(),
-            CustomButton(
-              text: S.of(context).rejectBooking,
-              color: AppColors.red,
-              onPressed: () {
-                DialogHelper.showQuestionDialog(
-                  context,
-                  title: S.of(context).confirmReject,
-                  desc: S.of(context).confirmRejectMessage,
-                  btnOkText: S.of(context).yes,
-                  btnCancelText: S.of(context).no,
-                  onCancel: () {},
-                  onOk: () {
-                    _changeStatus(
-                      context,
-                      orderId: orderId,
-                      status: OrderStatus.cancelled,
-                    );
-                  },
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-    );
+    return visible == false
+        ? const SizedBox()
+        : Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              CustomButton(
+                text: S.of(context).completePayment,
+                color: AppColors.cyanGreen,
+                onPressed: () {
+                  DialogHelper.showQuestionDialog(
+                    context,
+                    title: S.of(context).confirmPayment,
+                    desc: S.of(context).confirmPaymentMessage,
+                    btnOkText: S.of(context).yes,
+                    btnCancelText: S.of(context).no,
+                    onCancel: () {},
+                    onOk: () {
+                      _changeStatus(
+                        context,
+                        orderId: orderId,
+                        status: OrderStatus.payed,
+                      );
+                    },
+                  );
+                },
+              ),
+              const Spacer(),
+              CustomButton(
+                text: S.of(context).rejectBooking,
+                color: AppColors.red,
+                onPressed: () {
+                  DialogHelper.showQuestionDialog(
+                    context,
+                    title: S.of(context).confirmReject,
+                    desc: S.of(context).confirmRejectMessage,
+                    btnOkText: S.of(context).yes,
+                    btnCancelText: S.of(context).no,
+                    onCancel: () {},
+                    onOk: () {
+                      _changeStatus(
+                        context,
+                        orderId: orderId,
+                        status: OrderStatus.cancelled,
+                      );
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        );
   }
 
   Future<void> _changeStatus(

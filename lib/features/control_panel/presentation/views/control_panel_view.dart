@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/assets.dart';
 import '../../../../core/widgets/aadaptive_layout_widget.dart';
 import '../../../../core/widgets/api_error_widget.dart';
+import '../../../../generated/l10n.dart';
+import '../../domain/entities/panel_header_entity.dart';
 import '../manager/control_panel_provider.dart';
 import 'widgets/orders_chart_section.dart';
 import 'widgets/panel_bottom_grid.dart';
 import 'widgets/panel_charts_grid.dart';
 import 'widgets/panel_header_grid.dart';
+import 'widgets/panel_header_item.dart';
 
 class ControlPanelView extends StatelessWidget {
   const ControlPanelView({super.key});
@@ -104,21 +110,21 @@ class _RightSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var prov = context.watch<ControlPanelProvider>();
+    var prov = context.watch<ControlPanelProvider>();
     return Column(
       spacing: 12,
       children: [
-        // Skeletonizer(
-        //   enabled: prov.checkGetting == null,
-        //   child: PanelHeaderItem(
-        //     panelHeaderEntity: PanelHeaderEntity(
-        //       title: S.of(context).currentMonthImportGrowth,
-        //       subtitle: '${prov.controlPanelData.averageRating} %',
-        //       image: Assets.imagesGrownIcon,
-        //       backgroundColor: AppColors.white,
-        //     ),
-        //   ),
-        // ),
+        Skeletonizer(
+          enabled: prov.checkGetting == null,
+          child: PanelHeaderItem(
+            panelHeaderEntity: PanelHeaderEntity(
+              title: S.of(context).currentMonthImportGrowth,
+              subtitle: '${prov.controlPanelData.revenueGrowth} %',
+              image: Assets.imagesGrownIcon,
+              backgroundColor: AppColors.white,
+            ),
+          ),
+        ),
         OrdersChartSection(),
       ],
     );

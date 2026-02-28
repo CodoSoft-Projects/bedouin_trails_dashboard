@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../../../core/functions/is_arabic.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/size_config.dart';
@@ -48,7 +49,9 @@ class _NotificationIconState extends State<NotificationIcon> {
               link: _layerLink,
               // offset: const Offset(-2, 60),
               showWhenUnlinked: false,
-              followerAnchor: Alignment.topRight,
+              followerAnchor: isArabic()
+                  ? Alignment.topRight
+                  : Alignment.topLeft,
               targetAnchor: Alignment.bottomRight,
               child: Material(
                 elevation: 10,

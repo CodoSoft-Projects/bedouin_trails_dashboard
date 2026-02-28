@@ -17,7 +17,7 @@ class OrdersChartSection extends StatelessWidget {
     var prov = context.watch<ControlPanelProvider>();
     return SizedBox(
       width: double.infinity,
-      height: 400,
+      height: 340,
       child: CustomWhiteBox(
         showBorder: true,
         child: Skeletonizer(
