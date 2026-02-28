@@ -118,8 +118,8 @@ class _RightSection extends StatelessWidget {
           enabled: prov.checkGetting == null,
           child: PanelHeaderItem(
             panelHeaderEntity: PanelHeaderEntity(
-              title: S.of(context).currentMonthImportGrowth,
-              subtitle: '${prov.controlPanelData.revenueGrowth} %',
+              title: S.of(context).order_pending,
+              subtitle: '${prov.controlPanelData.bookings.pending}',
               image: Assets.imagesGrownIcon,
               backgroundColor: AppColors.white,
             ),

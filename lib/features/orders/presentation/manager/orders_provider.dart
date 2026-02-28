@@ -17,6 +17,7 @@ class OrdersProvider extends ChangeNotifier {
   List<OrderStatus> orderStatuses = OrderStatus.values.toList();
   OrderStatus orderStatus = OrderStatus.pending;
 
+
   void onChangeOrderStatus(int idx) {
     orderStatus = orderStatuses[idx];
     getAllOrdersUsers();

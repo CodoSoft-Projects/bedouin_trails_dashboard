@@ -5,8 +5,8 @@ import '../../generated/l10n.dart';
 
 enum OrderStatus {
   pending, // حجوزات معلقة
-  accepted, // حجوزات مكتملة
   payed, // حجوزات مدفوعة
+  accepted, // حجوزات مكتملة
   cancelled, // حجوزات ملغاة
 }
 
