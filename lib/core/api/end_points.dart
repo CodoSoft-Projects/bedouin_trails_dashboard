@@ -1,5 +1,5 @@
 class EndPoints {
-  static const baseUrl = 'https://covery.online/BedouinTrails/public';
+  static const baseUrl = 'https://bedouintrails.com/api/public';
 
   /// Auth Endpoints
   static const register = '/api/admin/register';
@@ -35,4 +35,4 @@ class EndPoints {
 }
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4
-// base_url :- https://covery.online/BedouinTrails/public
+// base_url :- https://bedouintrails.com/api/public
