@@ -251,18 +251,23 @@ Possible improvements for the project:
 
 ## Screenshots
 
-Add screenshots of the dashboard UI here.
 
-    screenshots/
-    ├── dashboard.png
-    ├── trips.png
-    ├── users.png
-    ├── orders.png
-    └── settings.png
+### Dashboard
+![Dashboard](assets/screenshots/dashboard.png)
 
-Example:
+### Trips
+![Trips](assets/screenshots/trips.png)
 
-    ![Dashboard](screenshots/dashboard.png)
+### Users
+![Users](assets/screenshots/users.png)
+
+### Orders
+![Orders](assets/screenshots/orders.png)
+
+### Settings
+![Settings](assets/screenshots/settings.png)
+
+---
 
 ---
 
