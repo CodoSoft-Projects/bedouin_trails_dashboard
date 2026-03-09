@@ -251,20 +251,24 @@ Possible improvements for the project:
 
 ## Screenshots
 
+### Dashboard Screen
 
-### Dashboard
 ![Dashboard](assets/screenshots/dashboard.png)
 
 ### Trips
+
 ![Trips](assets/screenshots/trips.png)
 
 ### Users
+
 ![Users](assets/screenshots/users.png)
 
 ### Orders
+
 ![Orders](assets/screenshots/orders.png)
 
 ### Settings
+
 ![Settings](assets/screenshots/settings.png)
 
 ---
