@@ -196,7 +196,7 @@ class TripsProvider extends ChangeNotifier {
       id: selectedTrip!.id,
       name: tripNameController.text,
       image: selectedTrip!.image,
-      price: double.parse(tripPriceController.text),
+      // price: double.parse(tripPriceController.text),
       interfaceFrom: tripFromController.text,
       interfaceTo: tripToController.text,
       status: tripStatus,
@@ -288,7 +288,7 @@ class TripsProvider extends ChangeNotifier {
     final response = await repo.addNewTrip(
       name: tripNameController.text,
       images: tripImages,
-      price: double.parse(tripPriceController.text),
+      // price: double.parse(tripPriceController.text),
       interfaceFrom: tripFromController.text,
       interfaceTo: tripToController.text,
     );
@@ -302,7 +302,7 @@ class TripsProvider extends ChangeNotifier {
         checkAddingTrip = true;
         message = model.message;
         onSelectTrip(model.trip);
-        clearTripControllers();
+        // clearTripControllers();
         clearUploadedImages();
         getAllActiveTrips();
       },

@@ -95,7 +95,7 @@ class TripsRepo {
   /// Add new trip
   Future<Either<String, TripResponseModel>> addNewTrip({
     required String name,
-    required double price,
+    // required double price,
     required String interfaceFrom,
     required String interfaceTo,
     required List<PickedImage> images,
@@ -103,7 +103,7 @@ class TripsRepo {
     try {
       var data = {
         "name": name,
-        "price": price,
+        // "price": price,
         "interfaceFrom": interfaceFrom,
         "interfaceTo": interfaceTo,
       };
@@ -127,7 +127,7 @@ class TripsRepo {
     required int id,
     required String name,
     required String image,
-    required double price,
+    // required double price,
     required String interfaceFrom,
     required String interfaceTo,
     required TripStatus status,
@@ -138,7 +138,7 @@ class TripsRepo {
         "status": status.name,
         "name": name,
         "image": image,
-        "price": price,
+        // "price": price,
         "interfaceFrom": interfaceFrom,
         "interfaceTo": interfaceTo,
       };
