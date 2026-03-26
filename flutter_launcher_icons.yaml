@@ -9,8 +9,11 @@
 #   adaptive_icon_background: "#01509F"
 
 flutter_launcher_icons:
-  android: false
-  ios: false
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  background_color: "#ffffff"
+  image_path: "assets/images/windows_icon.png"
 
   web:
     generate: true
