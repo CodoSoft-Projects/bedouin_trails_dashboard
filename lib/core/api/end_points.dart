@@ -1,5 +1,5 @@
 class EndPoints {
-  static const baseUrl = 'https://bedouintrails.com/api/public';
+  static const baseUrl = 'https://api.bedouintrails.com/';
 
   /// Auth Endpoints
   static const register = '/api/admin/register';
