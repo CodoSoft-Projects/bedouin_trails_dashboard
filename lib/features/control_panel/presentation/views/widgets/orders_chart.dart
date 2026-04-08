@@ -58,7 +58,7 @@ class _OrdersChartState extends State<OrdersChart> {
           title: item.cancelled.toString(),
           titleStyle: AppTextStyles.medium14(context),
         ),
-        // title: OrderStatus.payed.label(context),
+        // title: OrderStatus.paid.label(context),
         PieChartSectionData(
           color: AppColors.cyanGreen,
           value: item.paid.toDouble(),

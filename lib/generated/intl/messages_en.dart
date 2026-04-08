@@ -111,6 +111,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Do you want to activate the trip program"),
         "confirmBlockEmployee": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to block the employee?"),
+        "confirmCompleteMessage": MessageLookupByLibrary.simpleMessage(
+            "Are you sure about completing the trip?"),
+        "confirmCompletion":
+            MessageLookupByLibrary.simpleMessage("Confirm Trip Completion"),
         "confirmDeleteAd": MessageLookupByLibrary.simpleMessage(
             "Do you want to delete this advertisement?"),
         "confirmDeleteAdvertisement": MessageLookupByLibrary.simpleMessage(
@@ -308,7 +312,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Completed Bookings"),
         "order_cancelled":
             MessageLookupByLibrary.simpleMessage("Cancelled Bookings"),
-        "order_payed": MessageLookupByLibrary.simpleMessage("Paid Bookings"),
+        "order_paid": MessageLookupByLibrary.simpleMessage("Paid Bookings"),
         "order_pending":
             MessageLookupByLibrary.simpleMessage("Pending Bookings"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

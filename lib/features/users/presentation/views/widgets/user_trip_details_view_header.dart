@@ -21,13 +21,13 @@ class UserTripDetailsViewHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     var prov = context.watch<TripsProvider>();
     var orderId = prov.selectedTrip?.userOrder?.id ?? 0;
-    bool visible = prov.selectedTrip?.userOrder?.status == OrderStatus.pending;
-    return Visibility.maintain(
-      visible: visible,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Row(
-          children: [
+    var status = prov.selectedTrip?.userOrder?.status;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          if (status == OrderStatus.pending)
             CustomButton(
               text: S.of(context).completePayment,
               color: AppColors.whiteGrey,
@@ -44,13 +44,15 @@ class UserTripDetailsViewHeader extends StatelessWidget {
                     _changeStatus(
                       context,
                       orderId: orderId,
-                      status: OrderStatus.payed,
+                      status: OrderStatus.paid,
                     );
                   },
                 );
               },
             ),
-            const Spacer(),
+
+          // const Spacer(),
+          if (status == OrderStatus.pending)
             CustomButton(
               text: S.of(context).rejectBooking,
               color: AppColors.whiteGrey,
@@ -73,8 +75,31 @@ class UserTripDetailsViewHeader extends StatelessWidget {
                 );
               },
             ),
-          ],
-        ),
+
+          // if the admin want to complete the order status from the trip details view, the order details view will be opened to show the complete order details and the complete/reject buttons, and if the admin want to complete/reject the order from the order details view, the trip details view will be opened without showing the complete/reject buttons
+          if (status == OrderStatus.paid)
+            CustomButton(
+              text: S.of(context).confirmCompletion,
+              color: AppColors.blue,
+              onPressed: () {
+                DialogHelper.showQuestionDialog(
+                  context,
+                  title: S.of(context).confirmCompletion,
+                  desc: S.of(context).confirmCompleteMessage,
+                  btnOkText: S.of(context).yes,
+                  btnCancelText: S.of(context).no,
+                  onCancel: () {},
+                  onOk: () {
+                    _changeStatus(
+                      context,
+                      orderId: orderId,
+                      status: OrderStatus.accepted,
+                    );
+                  },
+                );
+              },
+            ),
+        ],
       ),
     );
   }

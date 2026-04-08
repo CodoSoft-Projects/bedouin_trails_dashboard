@@ -1,11 +1,11 @@
-// pending || accepted || payed || cancelled
+// pending || accepted || paid || cancelled
 import 'package:flutter/material.dart';
 
 import '../../generated/l10n.dart';
 
 enum OrderStatus {
   pending, // حجوزات معلقة
-  payed, // حجوزات مدفوعة
+  paid, // حجوزات مدفوعة
   accepted, // حجوزات مكتملة
   cancelled, // حجوزات ملغاة
 }
@@ -18,8 +18,8 @@ extension OrderStatusExtension on OrderStatus {
     switch (status?.toLowerCase()) {
       case 'accepted':
         return OrderStatus.accepted;
-      case 'payed':
-        return OrderStatus.payed;
+      case 'paid':
+        return OrderStatus.paid;
       case 'cancelled':
         return OrderStatus.cancelled;
       case 'pending':
@@ -37,8 +37,8 @@ extension OrderStatusExtension on OrderStatus {
         return 'pending';
       case OrderStatus.accepted:
         return 'accepted';
-      case OrderStatus.payed:
-        return 'payed';
+      case OrderStatus.paid:
+        return 'paid';
       case OrderStatus.cancelled:
         return 'cancelled';
     }
@@ -53,8 +53,8 @@ extension OrderStatusExtension on OrderStatus {
         return S.of(context).order_pending;
       case OrderStatus.accepted:
         return S.of(context).order_accepted;
-      case OrderStatus.payed:
-        return S.of(context).order_payed;
+      case OrderStatus.paid:
+        return S.of(context).order_paid;
       case OrderStatus.cancelled:
         return S.of(context).order_cancelled;
     }

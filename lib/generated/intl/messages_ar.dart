@@ -105,6 +105,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هل تريد تفعيل برنامج الرحلة"),
         "confirmBlockEmployee": MessageLookupByLibrary.simpleMessage(
             "هل انت متاكد من حظر الموظف ؟"),
+        "confirmCompleteMessage": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد من إتمام الرحلة؟"),
+        "confirmCompletion":
+            MessageLookupByLibrary.simpleMessage("تأكيد إتمام الرحلة"),
         "confirmDeleteAd":
             MessageLookupByLibrary.simpleMessage("هل تريد حذف هذا الإعلان؟"),
         "confirmDeleteAdvertisement":
@@ -297,7 +301,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("موافق"),
         "order_accepted": MessageLookupByLibrary.simpleMessage("حجوزات مكتملة"),
         "order_cancelled": MessageLookupByLibrary.simpleMessage("حجوزات ملغاة"),
-        "order_payed": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
+        "order_paid": MessageLookupByLibrary.simpleMessage("حجوزات مدفوعة"),
         "order_pending": MessageLookupByLibrary.simpleMessage("حجوزات معلقة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "password_confirmation":

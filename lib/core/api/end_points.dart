@@ -36,3 +36,4 @@ class EndPoints {
 
 // documentation :- https://documenter.getpostman.com/view/31698735/2sBXVmeo6H#fbcf2af5-e804-44cf-b840-035c624609e4
 // base_url :- https://bedouintrails.com/api/public
+// flutter build web --base-href="/dashboard/"

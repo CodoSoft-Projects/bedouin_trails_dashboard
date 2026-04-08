@@ -31,7 +31,7 @@ class OrdersChartSection extends StatelessWidget {
                 leadingColor: AppColors.chartGrey,
               ),
               OrderChartListTile(
-                title: OrderStatus.payed.label(context),
+                title: OrderStatus.paid.label(context),
                 leadingColor: AppColors.cyanGreen,
               ),
               OrderChartListTile(

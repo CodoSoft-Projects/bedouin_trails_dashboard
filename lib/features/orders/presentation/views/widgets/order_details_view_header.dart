@@ -42,7 +42,7 @@ class OrderDetailsViewHeader extends StatelessWidget {
                       _changeStatus(
                         context,
                         orderId: orderId,
-                        status: OrderStatus.payed,
+                        status: OrderStatus.paid,
                       );
                     },
                   );

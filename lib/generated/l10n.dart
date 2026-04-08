@@ -327,10 +327,10 @@ class S {
   }
 
   /// `Paid Bookings`
-  String get order_payed {
+  String get order_paid {
     return Intl.message(
       'Paid Bookings',
-      name: 'order_payed',
+      name: 'order_paid',
       desc: '',
       args: [],
     );
@@ -1161,6 +1161,26 @@ class S {
     return Intl.message(
       'Confirmation',
       name: 'confirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Trip Completion`
+  String get confirmCompletion {
+    return Intl.message(
+      'Confirm Trip Completion',
+      name: 'confirmCompletion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure about completing the trip?`
+  String get confirmCompleteMessage {
+    return Intl.message(
+      'Are you sure about completing the trip?',
+      name: 'confirmCompleteMessage',
       desc: '',
       args: [],
     );
