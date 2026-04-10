@@ -9,7 +9,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{9E83CB31-2845-4B8B-9A75-7A5F07D49F3B}
+AppId={{0043BD5F-A581-409B-9E54-547484B0CB8D}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -27,7 +27,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 ;PrivilegesRequired=lowest
-OutputDir=C:\World-Tech\bedouin_trails_dashboard\exe_istaller
+OutputDir=D:\CodoSoft\bedouin_trails_dashboard\exe_istaller
 OutputBaseFilename=bedouin_trails_installer
 SolidCompression=yes
 WizardStyle=modern
@@ -39,15 +39,16 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.exp"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.lib"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\bitsdojo_window_windows_plugin.lib"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\file_selector_windows_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\flutter_windows.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\World-Tech\bedouin_trails_dashboard\build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.exp"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.lib"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bitsdojo_window_windows_plugin.lib"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\file_selector_windows_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\flutter_windows.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
