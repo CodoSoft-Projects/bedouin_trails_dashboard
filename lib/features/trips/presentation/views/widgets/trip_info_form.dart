@@ -82,6 +82,21 @@ class TripInfoForm extends StatelessWidget {
                       ? prov.tripToController
                       : TextEditingController(text: trip.interfaceTo),
                 ),
+                CustomTextFormField(
+                  labelText: S.of(context).metaTitle,
+                  validator: (value) => simpleValidation(context, value),
+                  controller: canEdit
+                      ? prov.tripMetaTitleController
+                      : TextEditingController(text: trip.metaTitle),
+                ),
+                CustomTextFormField(
+                  labelText: S.of(context).metaDescription,
+                  validator: (value) => simpleValidation(context, value),
+                  controller: canEdit
+                      ? prov.tripMetaDescriptionController
+                      : TextEditingController(text: trip.metaDescription),
+                  lines: 3,
+                ),
                 const SizedBox(height: 24),
                 if (canEdit)
                   CustomButton(

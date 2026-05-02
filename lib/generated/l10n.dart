@@ -2506,6 +2506,26 @@ class S {
     );
   }
 
+  /// `Meta Title`
+  String get metaTitle {
+    return Intl.message(
+      'Meta Title',
+      name: 'metaTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meta Description`
+  String get metaDescription {
+    return Intl.message(
+      'Meta Description',
+      name: 'metaDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   // skipped getter for the '' key
 }
 

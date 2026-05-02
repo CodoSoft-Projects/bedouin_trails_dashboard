@@ -95,9 +95,10 @@ class TripsRepo {
   /// Add new trip
   Future<Either<String, TripResponseModel>> addNewTrip({
     required String name,
-    // required double price,
     required String interfaceFrom,
     required String interfaceTo,
+    required String metaTitle,
+    required String metaDescription,
     required List<PickedImage> images,
   }) async {
     try {
@@ -106,6 +107,8 @@ class TripsRepo {
         // "price": price,
         "interfaceFrom": interfaceFrom,
         "interfaceTo": interfaceTo,
+        "meta_title": metaTitle,
+        "meta_description": metaDescription,
       };
       log("Add New Trip Data: $data");
       final response = await dio.multipartMultipleImages(
@@ -130,6 +133,8 @@ class TripsRepo {
     // required double price,
     required String interfaceFrom,
     required String interfaceTo,
+    required String metaTitle,
+    required String metaDescription,
     required TripStatus status,
   }) async {
     try {
@@ -141,6 +146,8 @@ class TripsRepo {
         // "price": price,
         "interfaceFrom": interfaceFrom,
         "interfaceTo": interfaceTo,
+        "meta_title": metaTitle,
+        "meta_description": metaDescription,
       };
       log("Update Trip Data: $data");
       final response = await dio.post('${EndPoints.trips}/$id', data: data);

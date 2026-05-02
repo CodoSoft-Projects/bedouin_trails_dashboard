@@ -246,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادارة الرحلات السياحية"),
         "manageUsers": MessageLookupByLibrary.simpleMessage("ادارة المستخدمين"),
         "manageWebsite": MessageLookupByLibrary.simpleMessage("ادارة الموقع"),
+        "metaDescription": MessageLookupByLibrary.simpleMessage("وصف الميتا"),
+        "metaTitle": MessageLookupByLibrary.simpleMessage("عنوان الميتا"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("رقم الجوال"),
         "mustAddImageCard":
             MessageLookupByLibrary.simpleMessage("يجب اضافة صورة للبطاقة"),

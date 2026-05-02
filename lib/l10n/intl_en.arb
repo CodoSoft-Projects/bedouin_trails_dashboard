@@ -260,5 +260,7 @@
   "editArticleData": "Edit Article Data",
   "editQuestionData": "Edit Question Data",
   "currentMonthImportGrowth": "Current Month Import Growth Rate",
+  "metaTitle": "Meta Title",
+  "metaDescription": "Meta Description",
   "": ""
 }

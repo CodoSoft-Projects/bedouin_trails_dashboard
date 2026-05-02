@@ -260,5 +260,7 @@
   "editArticleData": "تعديل بيانات المقالة",
   "editQuestionData": "تعديل بيانات السؤال",
   "currentMonthImportGrowth": "نسبة نمو الواردات للشهر الحالي",
+  "metaTitle": "عنوان الميتا",
+  "metaDescription": "وصف الميتا",
   "": ""
 }

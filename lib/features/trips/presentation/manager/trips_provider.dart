@@ -169,6 +169,8 @@ class TripsProvider extends ChangeNotifier {
   var tripPriceController = TextEditingController();
   var tripFromController = TextEditingController();
   var tripToController = TextEditingController();
+  var tripMetaTitleController = TextEditingController();
+  var tripMetaDescriptionController = TextEditingController();
 
   void fillTripControllers(TripModel trip) {
     tripNameController.text = trip.name;
@@ -176,6 +178,8 @@ class TripsProvider extends ChangeNotifier {
     tripPriceController.text = trip.price.toString();
     tripFromController.text = trip.interfaceFrom;
     tripToController.text = trip.interfaceTo;
+    tripMetaTitleController.text = trip.metaTitle;
+    tripMetaDescriptionController.text = trip.metaDescription;
   }
 
   void clearTripControllers() {
@@ -184,6 +188,8 @@ class TripsProvider extends ChangeNotifier {
     tripPriceController.clear();
     tripFromController.clear();
     tripToController.clear();
+    tripMetaTitleController.clear();
+    tripMetaDescriptionController.clear();
   }
 
   /// update trip
@@ -199,6 +205,8 @@ class TripsProvider extends ChangeNotifier {
       // price: double.parse(tripPriceController.text),
       interfaceFrom: tripFromController.text,
       interfaceTo: tripToController.text,
+      metaTitle: tripMetaTitleController.text,
+      metaDescription: tripMetaDescriptionController.text,
       status: tripStatus,
     );
     response.fold(
@@ -291,6 +299,8 @@ class TripsProvider extends ChangeNotifier {
       // price: double.parse(tripPriceController.text),
       interfaceFrom: tripFromController.text,
       interfaceTo: tripToController.text,
+      metaTitle: tripMetaTitleController.text,
+      metaDescription: tripMetaDescriptionController.text,
     );
     response.fold(
       (message) {

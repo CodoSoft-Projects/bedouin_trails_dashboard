@@ -254,6 +254,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageTrips": MessageLookupByLibrary.simpleMessage("Manage Trips"),
         "manageUsers": MessageLookupByLibrary.simpleMessage("Manage Users"),
         "manageWebsite": MessageLookupByLibrary.simpleMessage("Manage Website"),
+        "metaDescription":
+            MessageLookupByLibrary.simpleMessage("Meta Description"),
+        "metaTitle": MessageLookupByLibrary.simpleMessage("Meta Title"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile Number"),
         "mustAddImageCard":
             MessageLookupByLibrary.simpleMessage("Must add image for the card"),
