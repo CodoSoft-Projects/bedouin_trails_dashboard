@@ -16,7 +16,7 @@ class PanelHeaderGrid extends StatelessWidget {
     var prov = context.watch<ControlPanelProvider>();
     var items = panelHeadersList(
       context: context,
-      newBookings: prov.controlPanelData.articlesCount,
+      newBookings: prov.controlPanelData.todayBookings,
       users: prov.controlPanelData.usersCount,
       articles: prov.controlPanelData.articlesCount,
     );

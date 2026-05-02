@@ -55,10 +55,10 @@ class LoginForm extends StatelessWidget {
 
                 if (prov.checkLogin == true) {
                   Navigator.pushNamed(context, DashboardView.routeName);
-                  AppMessage.successBar(
-                    context,
-                    message: S.of(context).code_sent,
-                  );
+                  // AppMessage.successBar(
+                  //   context,
+                  //   message: S.of(context).code_sent,
+                  // );
                 } else if (prov.checkLogin == false) {
                   AppMessage.errorBar(context, message: prov.message);
                 }

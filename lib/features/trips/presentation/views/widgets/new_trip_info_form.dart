@@ -55,8 +55,18 @@ class NewTripInfoForm extends StatelessWidget {
             CustomTextFormField(
               labelText: S.of(context).tripEndPoint,
               validator: (value) => simpleValidation(context, value),
-
               controller: prov.tripToController,
+            ),
+            CustomTextFormField(
+              labelText: S.of(context).metaTitle,
+              // validator: (value) => simpleValidation(context, value),
+              controller: prov.tripMetaTitleController,
+            ),
+            CustomTextFormField(
+              labelText: S.of(context).metaDescription,
+              // validator: (value) => simpleValidation(context, value),
+              lines: 3,
+              controller: prov.tripMetaDescriptionController,
             ),
             const SizedBox(height: 24),
             CustomButton(
