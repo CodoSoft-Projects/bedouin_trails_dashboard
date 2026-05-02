@@ -16,6 +16,8 @@ class ArticlesProvider extends ChangeNotifier {
   var formKey = GlobalKey<FormState>();
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
+  var metaTitleController = TextEditingController();
+  var metaDescriptionController = TextEditingController();
 
   /// Get All Articles
   bool? checkGettingArticles = false;
@@ -44,12 +46,16 @@ class ArticlesProvider extends ChangeNotifier {
     var articlee = article ?? selectedArticle;
     titleController.text = articlee!.title;
     descriptionController.text = articlee.description;
+    metaTitleController.text = articlee.metaTitle ?? '';
+    metaDescriptionController.text = articlee.metaDescription ?? '';
     notifyListeners();
   }
 
   void clearControllers() {
     titleController.clear();
     descriptionController.clear();
+    metaTitleController.clear();
+    metaDescriptionController.clear();
     notifyListeners();
   }
 
@@ -79,6 +85,8 @@ class ArticlesProvider extends ChangeNotifier {
       image: pickedImage!,
       title: titleController.text,
       description: descriptionController.text,
+      metaTitle: metaTitleController.text,
+      metaDescription: metaDescriptionController.text,
     );
     result.fold(
       (msg) {
@@ -107,6 +115,8 @@ class ArticlesProvider extends ChangeNotifier {
       image: pickedImage,
       title: titleController.text,
       description: descriptionController.text,
+      metaTitle: metaTitleController.text,
+      metaDescription: metaDescriptionController.text,
     );
     result.fold(
       (msg) {

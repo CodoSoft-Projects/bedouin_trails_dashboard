@@ -10,8 +10,8 @@ import '../../../../core/models/picked_image_model.dart';
 import '../../../../core/models/simple_model.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/constants.dart';
-import '../models/settings_items_respone.dart';
 import '../models/settings_item_response.dart';
+import '../models/settings_items_respone.dart';
 
 class ArticlesRepo {
   final DioConsumer dio = getit.get<DioConsumer>();
@@ -37,8 +37,15 @@ class ArticlesRepo {
     required PickedImage image,
     required String title,
     required String description,
+    String? metaTitle,
+    String? metaDescription,
   }) async {
-    Map<String, dynamic> data = {'title': title, 'description': description};
+    Map<String, dynamic> data = {
+      'title': title,
+      'description': description,
+      if (metaTitle != null && metaTitle.isNotEmpty) 'meta_title': metaTitle,
+      if (metaDescription != null && metaDescription.isNotEmpty) 'meta_description': metaDescription,
+    };
     try {
       final response = await dio.multipart(
         path: EndPoints.articles,
@@ -59,12 +66,16 @@ class ArticlesRepo {
     required int id,
     required String title,
     required String description,
+    String? metaTitle,
+    String? metaDescription,
     PickedImage? image,
   }) async {
     Map<String, dynamic> data = {
       "_method": "PUT",
       'title': title,
       'description': description,
+      if (metaTitle != null && metaTitle.isNotEmpty) 'meta_title': metaTitle,
+      if (metaDescription != null && metaDescription.isNotEmpty) 'meta_description': metaDescription,
     };
     try {
       final response = await dio.multipart(

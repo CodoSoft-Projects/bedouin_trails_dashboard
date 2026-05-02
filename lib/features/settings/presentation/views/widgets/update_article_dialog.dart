@@ -104,6 +104,19 @@ class _Form extends StatelessWidget {
             controller: prov.descriptionController,
           ),
 
+          CustomTextFormField(
+            labelText: S.of(context).metaTitle,
+            validator: (value) => simpleValidation(context, value),
+            controller: prov.metaTitleController,
+          ),
+
+          CustomTextFormField(
+            labelText: S.of(context).metaDescription,
+            validator: (value) => simpleValidation(context, value),
+            lines: 3,
+            controller: prov.metaDescriptionController,
+          ),
+
           const SizedBox(height: 16),
 
           CustomButton(

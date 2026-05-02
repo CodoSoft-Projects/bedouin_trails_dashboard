@@ -98,7 +98,6 @@ class _Form extends StatelessWidget {
             labelText: S.of(context).articleTitle,
             hintText: S.of(context).articleTitle,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.titleController,
           ),
 
@@ -106,9 +105,21 @@ class _Form extends StatelessWidget {
             labelText: S.of(context).articleContent,
             hintText: S.of(context).articleContent,
             validator: (value) => simpleValidation(context, value),
-
             lines: 10,
             controller: prov.descriptionController,
+          ),
+
+          CustomTextFormField(
+            labelText: S.of(context).metaTitle,
+            validator: (value) => simpleValidation(context, value),
+            controller: prov.metaTitleController,
+          ),
+
+          CustomTextFormField(
+            labelText: S.of(context).metaDescription,
+            validator: (value) => simpleValidation(context, value),
+            lines: 3,
+            controller: prov.metaDescriptionController,
           ),
 
           const SizedBox(height: 16),

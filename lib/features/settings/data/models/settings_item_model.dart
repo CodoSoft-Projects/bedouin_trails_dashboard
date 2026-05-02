@@ -3,12 +3,16 @@ class SettingsItemModel {
   final String title;
   final String description;
   final String image;
+  final String? metaTitle;
+  final String? metaDescription;
 
   const SettingsItemModel({
     required this.id,
     required this.title,
     required this.description,
     required this.image,
+    this.metaTitle,
+    this.metaDescription,
   });
 
   /// ------------------ FROM JSON ------------------
@@ -19,6 +23,8 @@ class SettingsItemModel {
         title: '',
         description: '',
         image: '',
+        metaTitle: null,
+        metaDescription: null,
       );
     }
 
@@ -27,6 +33,8 @@ class SettingsItemModel {
       title: json['title'] ?? '',
       description: json['description'] ?? '',
       image: json['image'] ?? '',
+      metaTitle: json['meta_title'],
+      metaDescription: json['meta_description'],
     );
   }
 
@@ -37,6 +45,8 @@ class SettingsItemModel {
       'title': title,
       'description': description,
       'image': image,
+      'meta_title': metaTitle,
+      'meta_description': metaDescription,
     };
   }
 
@@ -52,6 +62,8 @@ class SettingsItemModel {
     title: '',
     description: '',
     image: '',
+    metaTitle: null,
+    metaDescription: null,
   );
 
   @override
@@ -62,7 +74,9 @@ class SettingsItemModel {
           other.id == id &&
           other.title == title &&
           other.description == description &&
-          other.image == image;
+          other.image == image &&
+          other.metaTitle == metaTitle &&
+          other.metaDescription == metaDescription;
 
   @override
   int get hashCode => id.hashCode;

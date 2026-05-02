@@ -164,6 +164,21 @@ class _ArticleForm extends StatelessWidget {
                     ),
                   ),
 
+                  CustomTextFormField(
+                    labelText: S.of(context).metaTitle,
+                    controller: TextEditingController(
+                      text: prov.selectedArticle?.metaTitle ?? '',
+                    ),
+                  ),
+
+                  CustomTextFormField(
+                    labelText: S.of(context).metaDescription,
+                    lines: 3,
+                    controller: TextEditingController(
+                      text: prov.selectedArticle?.metaDescription ?? '',
+                    ),
+                  ),
+
                   const SizedBox(height: 32),
                 ],
               ),
