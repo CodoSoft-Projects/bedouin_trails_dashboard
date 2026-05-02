@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
@@ -101,23 +102,56 @@ class _Form extends StatelessWidget {
             controller: prov.titleController,
           ),
 
-          CustomTextFormField(
-            labelText: S.of(context).articleContent,
-            hintText: S.of(context).articleContent,
-            validator: (value) => simpleValidation(context, value),
-            lines: 10,
-            controller: prov.descriptionController,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                S.of(context).articleContent,
+                style: AppTextStyles.medium14(context),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.borderGrey),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  children: [
+                    QuillSimpleToolbar(
+                      controller: prov.quillController,
+                      config: QuillSimpleToolbarConfig(
+                        showFontFamily: false,
+                        showFontSize: false,
+                        multiRowsDisplay: false,
+                        color: AppColors.whiteGrey,
+                      ),
+                    ),
+                    const Divider(height: 1),
+                    Container(
+                      constraints: const BoxConstraints(minHeight: 200),
+                      child: QuillEditor.basic(
+                        controller: prov.quillController,
+                        config: const QuillEditorConfig(
+                          padding: EdgeInsets.all(16),
+                          scrollable: false,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
 
           CustomTextFormField(
             labelText: S.of(context).metaTitle,
-            validator: (value) => simpleValidation(context, value),
+            // validator: (value) => simpleValidation(context, value),
             controller: prov.metaTitleController,
           ),
 
           CustomTextFormField(
             labelText: S.of(context).metaDescription,
-            validator: (value) => simpleValidation(context, value),
+            // validator: (value) => simpleValidation(context, value),
             lines: 3,
             controller: prov.metaDescriptionController,
           ),

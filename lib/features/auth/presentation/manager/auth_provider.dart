@@ -36,7 +36,6 @@ class AuthProvider extends ChangeNotifier {
         message = model.message;
         accountModel = model.account;
         HiveServices.saveAccountData(accountModel!);
-        // TODO : review this condition
         if (model.account.isAdmin == true) HiveServices.setAdminLoggedIn();
         emailController.clear();
         passwordController.clear();

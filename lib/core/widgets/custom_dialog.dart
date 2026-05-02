@@ -17,23 +17,40 @@ class CustomDialog extends StatelessWidget {
   final bool centerTitle;
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Row(
-        children: [
-          IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.close),
-          ),
-          const Spacer(flex: 4),
-          Text(title, style: AppTextStyles.medium24(context)),
-          if (centerTitle) const Spacer(flex: 5),
-        ],
-      ),
+    return Dialog(
       backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      constraints: BoxConstraints(maxWidth: maxWidth),
-      alignment: Alignment.center,
-      content: SingleChildScrollView(child: content),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: maxWidth,
+          maxHeight: MediaQuery.of(context).size.height * 0.9,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.close),
+                  ),
+                  const Spacer(flex: 4),
+                  Text(title, style: AppTextStyles.medium24(context)),
+                  if (centerTitle) const Spacer(flex: 5),
+                ],
+              ),
+            ),
+            Flexible(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                child: content,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

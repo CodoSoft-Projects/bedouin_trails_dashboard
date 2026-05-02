@@ -1,8 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -146,22 +145,37 @@ class _ArticleForm extends StatelessWidget {
                   ),
                   const SizedBox(height: 32),
                   CustomTextFormField(
-                    labelText: 'عنوان المقال',
+                    labelText: S.of(context).articleTitle,
                     controller: TextEditingController(
                       text: prov.selectedArticle?.title ?? '',
                     ),
                   ),
 
-                  CustomTextFormField(
-                    labelText: 'محتوي المقالة',
-                    lines: max(
-                      2,
-                      ((prov.selectedArticle?.description.length ?? 0) / 40)
-                          .ceil(),
-                    ),
-                    controller: TextEditingController(
-                      text: prov.selectedArticle?.description ?? '',
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).articleContent,
+                        style: AppTextStyles.medium14(context),
+                      ),
+                      const SizedBox(height: 8),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.borderGrey),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                          child: Container(
+                            constraints: const BoxConstraints(minHeight: 200),
+                            child: QuillEditor.basic(
+                              controller: prov.viewQuillController,
+                              config: const QuillEditorConfig(
+                                padding: EdgeInsets.all(16),
+                                scrollable: false,
+                              ),
+                            ),
+                          ),
+                      ),
+                    ],
                   ),
 
                   CustomTextFormField(

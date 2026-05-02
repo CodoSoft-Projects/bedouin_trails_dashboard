@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:provider/provider.dart';
 
 import 'core/functions/on_generate_route.dart';
@@ -43,8 +44,10 @@ class BedouinTrails extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
+            FlutterQuillLocalizations.delegate,
           ],
-          supportedLocales: S.delegate.supportedLocales,
+          supportedLocales: S.delegate.supportedLocales +
+              [const Locale('en'), const Locale('ar')],
           onGenerateRoute: onGenerateRoutes,
           initialRoute: isLoggedIn
               ? DashboardView.routeName

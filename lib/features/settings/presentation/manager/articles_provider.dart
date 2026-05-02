@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/picked_image_model.dart';
@@ -18,6 +21,8 @@ class ArticlesProvider extends ChangeNotifier {
   var descriptionController = TextEditingController();
   var metaTitleController = TextEditingController();
   var metaDescriptionController = TextEditingController();
+  QuillController quillController = QuillController.basic();
+  QuillController viewQuillController = QuillController.basic();
 
   /// Get All Articles
   bool? checkGettingArticles = false;
@@ -48,6 +53,17 @@ class ArticlesProvider extends ChangeNotifier {
     descriptionController.text = articlee.description;
     metaTitleController.text = articlee.metaTitle ?? '';
     metaDescriptionController.text = articlee.metaDescription ?? '';
+
+    // Update quill editor if active
+    try {
+      final delta = jsonDecode(articlee.description);
+      quillController.document = Document.fromJson(delta);
+      viewQuillController.document = Document.fromJson(delta);
+    } catch (e) {
+      // Fallback to plain text
+      quillController.document = Document()..insert(0, articlee.description);
+      viewQuillController.document = Document()..insert(0, articlee.description);
+    }
     notifyListeners();
   }
 
@@ -56,6 +72,7 @@ class ArticlesProvider extends ChangeNotifier {
     descriptionController.clear();
     metaTitleController.clear();
     metaDescriptionController.clear();
+    quillController.clear();
     notifyListeners();
   }
 
@@ -84,7 +101,7 @@ class ArticlesProvider extends ChangeNotifier {
     final result = await repo.addNewArticle(
       image: pickedImage!,
       title: titleController.text,
-      description: descriptionController.text,
+      description: jsonEncode(quillController.document.toDelta().toJson()),
       metaTitle: metaTitleController.text,
       metaDescription: metaDescriptionController.text,
     );
@@ -114,7 +131,7 @@ class ArticlesProvider extends ChangeNotifier {
       id: selectedArticle!.id,
       image: pickedImage,
       title: titleController.text,
-      description: descriptionController.text,
+      description: jsonEncode(quillController.document.toDelta().toJson()),
       metaTitle: metaTitleController.text,
       metaDescription: metaDescriptionController.text,
     );
@@ -162,5 +179,16 @@ class ArticlesProvider extends ChangeNotifier {
       },
     );
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    titleController.dispose();
+    descriptionController.dispose();
+    metaTitleController.dispose();
+    metaDescriptionController.dispose();
+    quillController.dispose();
+    viewQuillController.dispose();
+    super.dispose();
   }
 }
