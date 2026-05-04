@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter_quill_delta_from_html/flutter_quill_delta_from_html.dart';
+import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';
 
 import '../../../../core/functions/pick_image_universal.dart';
 import '../../../../core/models/picked_image_model.dart';
@@ -60,11 +62,50 @@ class ArticlesProvider extends ChangeNotifier {
       quillController.document = Document.fromJson(delta);
       viewQuillController.document = Document.fromJson(delta);
     } catch (e) {
-      // Fallback to plain text
-      quillController.document = Document()..insert(0, articlee.description);
-      viewQuillController.document = Document()..insert(0, articlee.description);
+      // Fallback: If it's not JSON, it might be HTML.
+      try {
+        final delta = HtmlToDelta().convert(articlee.description);
+        quillController.document = Document.fromDelta(delta);
+        viewQuillController.document = Document.fromDelta(delta);
+      } catch (e) {
+        // Ultimate fallback to plain text
+        quillController.document = Document()..insert(0, articlee.description);
+        viewQuillController.document = Document()
+          ..insert(0, articlee.description);
+      }
     }
     notifyListeners();
+  }
+
+  String getHtmlContent() {
+    try {
+      final deltaJson = List<Map<String, dynamic>>.from(
+        quillController.document.toDelta().toJson(),
+      );
+      final converter = QuillDeltaToHtmlConverter(
+        deltaJson,
+        ConverterOptions(),
+      );
+      return converter.convert().replaceAll('\n', '').trim();
+    } catch (e) {
+      // If it fails to convert (e.g. if the document is empty or has weird content),
+      // return the plain text as fallback or the raw description if it's already HTML.
+      return quillController.document.toPlainText();
+    }
+  }
+
+  String getDisplayHtml() {
+    final description = selectedArticle?.description ?? '';
+    try {
+      // Try to see if it's Delta JSON
+      jsonDecode(description);
+      // If it is, convert the current controller content to HTML
+      // (This ensures we see the latest edits if we are in the same screen)
+      return getHtmlContent().trim();
+    } catch (e) {
+      // If it's not JSON, it's likely raw HTML
+      return description.trim();
+    }
   }
 
   void clearControllers() {

@@ -48,17 +48,11 @@ class LoginForm extends StatelessWidget {
             color: AppColors.black,
             horizontalPadding: 75,
             onPressed: () async {
-              // Navigator.pushNamed(context, DashboardView.routeName);
-
               if (prov.formKey.currentState!.validate()) {
                 await prov.login();
 
                 if (prov.checkLogin == true) {
                   Navigator.pushNamed(context, DashboardView.routeName);
-                  // AppMessage.successBar(
-                  //   context,
-                  //   message: S.of(context).code_sent,
-                  // );
                 } else if (prov.checkLogin == false) {
                   AppMessage.errorBar(context, message: prov.message);
                 }

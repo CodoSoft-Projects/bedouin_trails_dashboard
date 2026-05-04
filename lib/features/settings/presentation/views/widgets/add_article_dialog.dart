@@ -101,18 +101,31 @@ class _Form extends StatelessWidget {
             validator: (value) => simpleValidation(context, value),
             controller: prov.titleController,
           ),
+          CustomTextFormField(
+            labelText: S.of(context).metaTitle,
+            // validator: (value) => simpleValidation(context, value),
+            controller: prov.metaTitleController,
+          ),
+
+          CustomTextFormField(
+            labelText: S.of(context).metaDescription,
+            // validator: (value) => simpleValidation(context, value),
+            lines: 3,
+            controller: prov.metaDescriptionController,
+          ),
 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 S.of(context).articleContent,
-                style: AppTextStyles.medium14(context),
+                style: AppTextStyles.medium14(
+                  context,
+                ).copyWith(color: AppColors.blue),
               ),
-              const SizedBox(height: 8),
               Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: AppColors.borderGrey),
+                  border: Border.all(color: AppColors.whiteGrey),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
@@ -129,6 +142,14 @@ class _Form extends StatelessWidget {
                     const Divider(height: 1),
                     Container(
                       constraints: const BoxConstraints(minHeight: 200),
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteGrey,
+                        border: Border.all(color: AppColors.borderGrey),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(16),
+                          bottomRight: Radius.circular(16),
+                        ),
+                      ),
                       child: QuillEditor.basic(
                         controller: prov.quillController,
                         config: const QuillEditorConfig(
@@ -141,19 +162,6 @@ class _Form extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-
-          CustomTextFormField(
-            labelText: S.of(context).metaTitle,
-            // validator: (value) => simpleValidation(context, value),
-            controller: prov.metaTitleController,
-          ),
-
-          CustomTextFormField(
-            labelText: S.of(context).metaDescription,
-            // validator: (value) => simpleValidation(context, value),
-            lines: 3,
-            controller: prov.metaDescriptionController,
           ),
 
           const SizedBox(height: 16),

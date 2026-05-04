@@ -10,6 +10,7 @@ import '../../../../../core/functions/validation_of_input_fields.dart';
 import '../../../../../core/helpers/app_message.dart';
 import '../../../../../core/helpers/dialog_helper.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
@@ -92,39 +93,7 @@ class _Form extends StatelessWidget {
             labelText: S.of(context).articleTitle,
             hintText: S.of(context).articleTitle,
             validator: (value) => simpleValidation(context, value),
-
             controller: prov.titleController,
-          ),
-
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.borderGrey),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              children: [
-                QuillSimpleToolbar(
-                  controller: prov.quillController,
-                  config: QuillSimpleToolbarConfig(
-                    showFontFamily: false,
-                    showFontSize: false,
-                    multiRowsDisplay: false,
-                    color: AppColors.whiteGrey,
-                  ),
-                ),
-                const Divider(height: 1),
-                Container(
-                  constraints: const BoxConstraints(minHeight: 200),
-                  child: QuillEditor.basic(
-                    controller: prov.quillController,
-                    config: const QuillEditorConfig(
-                      padding: EdgeInsets.all(16),
-                      scrollable: false,
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
 
           CustomTextFormField(
@@ -138,6 +107,56 @@ class _Form extends StatelessWidget {
             // validator: (value) => simpleValidation(context, value),
             lines: 3,
             controller: prov.metaDescriptionController,
+          ),
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                S.of(context).articleContent,
+                style: AppTextStyles.medium14(
+                  context,
+                ).copyWith(color: AppColors.blue),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.borderGrey),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  children: [
+                    QuillSimpleToolbar(
+                      controller: prov.quillController,
+                      config: QuillSimpleToolbarConfig(
+                        showFontFamily: false,
+                        showFontSize: false,
+                        multiRowsDisplay: false,
+                        color: AppColors.whiteGrey,
+                      ),
+                    ),
+                    const Divider(height: 1),
+                    Container(
+                      constraints: const BoxConstraints(minHeight: 200),
+                      decoration: BoxDecoration(
+                        color: AppColors.whiteGrey,
+                        border: Border.all(color: AppColors.borderGrey),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(16),
+                          bottomRight: Radius.circular(16),
+                        ),
+                      ),
+                      child: QuillEditor.basic(
+                        controller: prov.quillController,
+                        config: const QuillEditorConfig(
+                          padding: EdgeInsets.all(16),
+                          scrollable: false,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
 
           const SizedBox(height: 16),

@@ -9,7 +9,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{0043BD5F-A581-409B-9E54-547484B0CB8D}
+AppId={{9714DAE1-00E0-4757-A116-E5CE3E4930D8}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -40,7 +40,6 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.exp"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bedouin_trails_dashboard.lib"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\bitsdojo_window_windows_plugin.lib"; DestDir: "{app}"; Flags: ignoreversion
@@ -48,6 +47,7 @@ Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\f
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\flutter_windows.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\rive_native_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\url_launcher_windows_plugin.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\CodoSoft\bedouin_trails_dashboard\build\windows\x64\runner\Release\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

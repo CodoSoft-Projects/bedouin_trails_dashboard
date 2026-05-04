@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -16,6 +15,7 @@ import '../../../../../core/widgets/custom_cached_network_image.dart';
 import '../../../../../core/widgets/custom_circular_button.dart';
 import '../../../../../core/widgets/custom_dotted_box.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
+import '../../../../../core/widgets/html_content_viewer.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../control_panel/presentation/manager/functions/get_data_method.dart';
 import '../../manager/articles_provider.dart';
@@ -151,33 +151,6 @@ class _ArticleForm extends StatelessWidget {
                     ),
                   ),
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        S.of(context).articleContent,
-                        style: AppTextStyles.medium14(context),
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.borderGrey),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                          child: Container(
-                            constraints: const BoxConstraints(minHeight: 200),
-                            child: QuillEditor.basic(
-                              controller: prov.viewQuillController,
-                              config: const QuillEditorConfig(
-                                padding: EdgeInsets.all(16),
-                                scrollable: false,
-                              ),
-                            ),
-                          ),
-                      ),
-                    ],
-                  ),
-
                   CustomTextFormField(
                     labelText: S.of(context).metaTitle,
                     controller: TextEditingController(
@@ -191,6 +164,37 @@ class _ArticleForm extends StatelessWidget {
                     controller: TextEditingController(
                       text: prov.selectedArticle?.metaDescription ?? '',
                     ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).articleContent,
+                        style: AppTextStyles.medium14(
+                          context,
+                        ).copyWith(color: AppColors.blue),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(
+                          left: 8,
+                          right: 8,
+                          bottom: 24,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.whiteGrey,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: HtmlContentView(
+                                html: prov.getDisplayHtml(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
 
                   const SizedBox(height: 32),
