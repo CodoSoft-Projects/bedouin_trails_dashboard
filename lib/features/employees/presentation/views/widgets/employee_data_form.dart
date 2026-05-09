@@ -151,9 +151,7 @@ class _ProfileImage extends StatelessWidget {
               border: Border.all(color: AppColors.borderGrey, width: 2),
               image: DecorationImage(
                 image: prov.pickedImage == null || canEdit == false
-                    ? customCachedNetworkImageprovider(
-                        prov.selectedEmployee?.image,
-                      )
+                    ? imageProviderNetwork(prov.selectedEmployee?.image)
                     : MemoryImage(prov.pickedImage!.bytes),
                 fit: BoxFit.cover,
               ),

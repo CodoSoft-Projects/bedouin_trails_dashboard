@@ -133,7 +133,7 @@ class _ItemForm extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: customCachedNetworkImageprovider(
+                          image: imageProviderNetwork(
                             prov.selectedItem?.image ?? '',
                           ),
                           fit: BoxFit.cover,
@@ -150,7 +150,7 @@ class _ItemForm extends StatelessWidget {
                   ),
 
                   CustomTextFormField(
-                 labelText:    S.of(context).itemContent,
+                    labelText: S.of(context).itemContent,
                     lines: max(
                       2,
                       ((prov.selectedItem?.description.length ?? 0) / 40)

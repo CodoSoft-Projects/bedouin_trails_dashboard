@@ -42,3 +42,42 @@ CachedNetworkImageProvider customCachedNetworkImageprovider(String? imgPath) {
     errorListener: (_) => const ImageLoadingFailed(),
   );
 }
+
+class ImageNetwork extends StatelessWidget {
+  const ImageNetwork({
+    super.key,
+    this.imgUrl,
+    this.height,
+    this.width,
+    this.fit = BoxFit.cover,
+  });
+  final String? imgUrl;
+  final double? height, width;
+  final BoxFit fit;
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+      imgUrl ?? "",
+      height: height,
+      width: width,
+      fit: fit,
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return Skeletonizer(
+          child: Container(
+            height: height,
+            width: width,
+            // ignore: deprecated_member_use
+            color: AppColors.sandyBrown.withOpacity(0.1),
+          ),
+        );
+      },
+      errorBuilder: ((context, error, stackTrace) =>
+          const ImageLoadingFailed()),
+    );
+  }
+}
+
+ImageProvider imageProviderNetwork(String? imgUrl) {
+  return NetworkImage(imgUrl ?? "", headers: {"Accept": "image/*"});
+}

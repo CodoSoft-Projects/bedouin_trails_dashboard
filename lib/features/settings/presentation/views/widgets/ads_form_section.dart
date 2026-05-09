@@ -133,7 +133,7 @@ class _AdsItemForm extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: customCachedNetworkImageprovider(
+                          image: imageProviderNetwork(
                             prov.selectedItem?.image ?? '',
                           ),
                           fit: BoxFit.cover,

@@ -87,7 +87,7 @@ class _Body extends StatelessWidget {
               image: DecorationImage(
                 image: prov.cartImage != null
                     ? MemoryImage(prov.cartImage!.bytes)
-                    : customCachedNetworkImageprovider(cart.image),
+                    : imageProviderNetwork(cart.image),
                 fit: BoxFit.cover,
               ),
             ),

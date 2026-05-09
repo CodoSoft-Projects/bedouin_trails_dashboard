@@ -46,7 +46,7 @@ class CustomPersonCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
                   image: DecorationImage(
-                    image: customCachedNetworkImageprovider(imgUrl),
+                    image: imageProviderNetwork(imgUrl),
                     fit: BoxFit.cover,
                   ),
                 ),

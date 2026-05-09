@@ -19,7 +19,7 @@ class UserInfoListTile extends StatelessWidget {
       subtitle: Text(user.email, style: AppTextStyles.regular16(context)),
       leading: CircleAvatar(
         radius: 20,
-        backgroundImage: customCachedNetworkImageprovider(user.image),
+        backgroundImage: imageProviderNetwork(user.image),
       ),
     );
   }

@@ -56,7 +56,7 @@ class _Form extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
                   image: prov.pickedImage == null
-                      ? customCachedNetworkImageprovider(article.image)
+                      ? imageProviderNetwork(article.image)
                       : MemoryImage(prov.pickedImage!.bytes),
                   fit: BoxFit.cover,
                 ),

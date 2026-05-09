@@ -36,7 +36,7 @@ class TripImage extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           image: DecorationImage(
-            image: customCachedNetworkImageprovider(galleryModel.image),
+            image: imageProviderNetwork(galleryModel.image),
             fit: BoxFit.cover,
           ),
         ),

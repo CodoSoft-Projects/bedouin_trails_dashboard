@@ -93,7 +93,7 @@ class TripProgramCartItem extends StatelessWidget {
                       Expanded(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
-                          child: CustomCachedNetworkImage(
+                          child: ImageNetwork(
                             fit: BoxFit.fill,
                             imgUrl: cartItem.image,
                           ),

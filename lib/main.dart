@@ -48,7 +48,7 @@ Future<void> main() async {
         //* Oreders Users Providers
         ChangeNotifierProvider(create: (_) => OrdersProvider()),
       ],
-      child: const BedouinTrails(),
+      child: const BedowouinTrails(),
     ),
   );
 
